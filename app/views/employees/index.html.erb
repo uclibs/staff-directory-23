@@ -1,0 +1,89 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+<div class="first">UC Libraries</div> 
+<div class="second">Staff Directory</div> 
+<div class="nav">UC Libraries Home</div>
+<div class="contentwrap">
+<h1>UCL Staff Directory</h1>
+<h2>List of Employees</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Lastname</th>
+      <th>Firstname</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Title</th>
+      <th>Department</th>
+      <th>Pronouns</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @employees.each do |employee| %>
+      <tr>
+        <td><%= employee.lastname %></td>
+        <td><%= employee.firstname %></td>
+        <td><%= employee.email %></td>
+        <td><%= employee.phone %></td>
+        <td><%= employee.title %></td>
+        <td><%= employee.department %></td>
+        <td><%= employee.pronouns %></td>
+        <td><%= link_to 'Show', employee %></td>
+        <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
+        <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Employee', new_employee_path %>
+    </div>
+    </div>
+   <div class="footer">
+      <div class="boxes">
+        <div class="box box1">
+      
+          
+          <div>
+            <p> </p>
+            <p> University of Cincinnati Libraries <br>
+              PO Box 210033 <br>
+              Cincinnati, Ohio <br>
+              45221-0033 <br>
+                <span class="dark"><a href="https://libraries.uc.edu/about/contact.html">Contact Us</a> </span>| <a href="https://libapps.libraries.uc.edu/main/contact/staff_directory.php">Staff Directory</a></p>
+          </div>
+          <p>&nbsp;</p> </p>
+        </div>
+        <div class="box box2">
+      
+        </div>
+        
+        <div class="box box3">
+          
+          <div>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <p><strong>University of Cincinnati</strong> | 2600 Clifton Ave. | Cincinnati, OH 45221 | ph: 513-556-6000</p>
+                    <p><a href="https://www.uc.edu/alert.html">Alerts</a> | <a href="https://www.uc.edu/about/publicsafety/clery/annual-security-report.html">Clery and HEOA Notice</a> | <a href="https://www.uc.edu/about/non-discrimination">Notice of Non-Discrimination</a> | <a href="https://www.uc.edu/about/ucit/about/accessibility/eaccessibility-form.html">eAccessibility Concern</a> | <a href="https://www.uc.edu/about/privacy">Privacy Statement</a> | <a href="https://www.uc.edu/freespeech">Free Speech</a> | <a href="http://commercialization.uc.edu/copyright-infringement">Copyright Information</a></p>
+                    <p>&nbsp;</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p>&nbsp;</p>
+            <p>© 2022 University of Cincinnati</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </a></div>
+ 

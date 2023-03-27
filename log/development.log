@@ -1,0 +1,1327 @@
+  [1m[35m (3.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (8.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateEmployees (20230227211155)
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateEmployees (20230227211408)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "employees" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "lastname" varchar, "firstname" varchar, "email" varchar, "phone" varchar, "title" varchar, "department" varchar, "pronouns" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230227211408"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-02-27 21:14:18.048721"], ["updated_at", "2023-02-27 21:14:18.048721"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/staffdirectory/" for 127.0.0.1 at 2023-02-27 16:15:10 -0500
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/staffdirectory"):
+  
+Started GET "/staffdirectory/employees" for 127.0.0.1 at 2023-02-27 16:16:12 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/staffdirectory/employees"):
+  
+Started GET "/staffdirectory/employee" for 127.0.0.1 at 2023-02-27 16:16:17 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/staffdirectory/employee"):
+  
+Started GET "/staffdirectory/employees/index.html" for 127.0.0.1 at 2023-02-27 16:16:33 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/staffdirectory/employees/index.html"):
+  
+Started GET "/employees/index.html" for 127.0.0.1 at 2023-02-27 16:16:40 -0500
+Processing by EmployeesController#show as HTML
+  Parameters: {"id"=>"index"}
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/employees_controller.rb:63:in `set_employee'
+Completed 404 Not Found in 18ms (ActiveRecord: 0.9ms | Allocations: 5043)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Employee with 'id'=index):
+  
+app/controllers/employees_controller.rb:63:in `set_employee'
+Started GET "/employees/" for 127.0.0.1 at 2023-02-27 16:16:49 -0500
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:20
+  Rendered employees/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1414)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/lisa/uclibs/staffdirectory/public/packs
+[Webpacker] Hash: 804a8059a304061a3e74
+Version: webpack 4.46.0
+Time: 1758ms
+Built at: 02/27/2023 4:16:54 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-271cf8931bb708d2d8bb.js    121 KiB  application  [emitted] [immutable]  application
+js/application-271cf8931bb708d2d8bb.js.map    133 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-271cf8931bb708d2d8bb.js js/application-271cf8931bb708d2d8bb.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 493 bytes {application} [built]
+    + 3 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 4995.4ms | Allocations: 19848)
+Completed 200 OK in 5002ms (Views: 5000.2ms | ActiveRecord: 0.2ms | Allocations: 21351)
+
+
+Started GET "/employees/new" for 127.0.0.1 at 2023-02-27 16:17:00 -0500
+Processing by EmployeesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/new.html.erb within layouts/application
+  Rendered employees/_form.html.erb (Duration: 34.4ms | Allocations: 5798)
+  Rendered employees/new.html.erb within layouts/application (Duration: 36.0ms | Allocations: 6204)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 45.4ms | Allocations: 9873)
+Completed 200 OK in 54ms (Views: 46.0ms | ActiveRecord: 0.0ms | Allocations: 15116)
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-02-27 16:17:06 -0500
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:20
+  Rendered employees/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 846)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 4363)
+Completed 200 OK in 13ms (Views: 11.4ms | ActiveRecord: 0.2ms | Allocations: 4905)
+
+
+Started GET "/employees/new" for 127.0.0.1 at 2023-02-27 16:17:10 -0500
+Processing by EmployeesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/new.html.erb within layouts/application
+  Rendered employees/_form.html.erb (Duration: 5.4ms | Allocations: 2018)
+  Rendered employees/new.html.erb within layouts/application (Duration: 6.1ms | Allocations: 2145)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.8ms | Allocations: 5648)
+Completed 200 OK in 16ms (Views: 15.6ms | ActiveRecord: 0.0ms | Allocations: 6125)
+
+
+Started POST "/employees" for 127.0.0.1 at 2023-02-27 16:17:55 -0500
+Processing by EmployeesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "employee"=>{"lastname"=>"Haitz", "firstname"=>"Lisa", "email"=>"lisa.haitz@uc.edu", "phone"=>"5134659876", "title"=>"Queen of Universe", "department"=>"App Development", "pronouns"=>"She Her"}, "commit"=>"Create Employee"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/employees_controller.rb:27:in `block in create'
+  [1m[36mEmployee Create (1.6ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "department", "pronouns", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Haitz"], ["firstname", "Lisa"], ["email", "lisa.haitz@uc.edu"], ["phone", "5134659876"], ["title", "Queen of Universe"], ["department", "App Development"], ["pronouns", "She Her"], ["created_at", "2023-02-27 21:17:55.068176"], ["updated_at", "2023-02-27 21:17:55.068176"]]
+  ↳ app/controllers/employees_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/employees_controller.rb:27:in `block in create'
+Redirected to http://127.0.0.1:3000/employees/1
+Completed 302 Found in 14ms (ActiveRecord: 2.9ms | Allocations: 3519)
+
+
+Started GET "/employees/1" for 127.0.0.1 at 2023-02-27 16:17:55 -0500
+Processing by EmployeesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/employees_controller.rb:63:in `set_employee'
+  Rendering layout layouts/application.html.erb
+  Rendering employees/show.html.erb within layouts/application
+  Rendered employees/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 441)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.5ms | Allocations: 3956)
+Completed 200 OK in 12ms (Views: 9.1ms | ActiveRecord: 0.2ms | Allocations: 5202)
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-02-27 16:17:59 -0500
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:20
+  Rendered employees/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 951)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.0ms | Allocations: 4466)
+Completed 200 OK in 13ms (Views: 11.6ms | ActiveRecord: 0.2ms | Allocations: 4937)
+
+
+Started GET "/employees/new" for 127.0.0.1 at 2023-02-27 16:18:05 -0500
+Processing by EmployeesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/new.html.erb within layouts/application
+  Rendered employees/_form.html.erb (Duration: 2.7ms | Allocations: 2002)
+  Rendered employees/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 2125)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | Allocations: 5634)
+Completed 200 OK in 13ms (Views: 11.7ms | ActiveRecord: 0.0ms | Allocations: 6105)
+
+
+Started GET "/employees/new" for 127.0.0.1 at 2023-02-27 16:24:30 -0500
+Processing by EmployeesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/new.html.erb within layouts/application
+  Rendered employees/_form.html.erb (Duration: 3.3ms | Allocations: 2002)
+  Rendered employees/new.html.erb within layouts/application (Duration: 3.7ms | Allocations: 2125)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 61.7ms | Allocations: 15405)
+Completed 200 OK in 64ms (Views: 62.9ms | Allocations: 15871)
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-02-27 16:26:41 -0500
+Processing by EmployeesController#index as HTML
+Completed 500 Internal Server Error in 2ms (Allocations: 1019)
+
+
+  
+SyntaxError (/Users/lisa/uclibs/staffdirectory/app/models/employee.rb:2: syntax error, unexpected '<'
+    <%= stylesheet_link_tag "emplo...
+    ^
+/Users/lisa/uclibs/staffdirectory/app/models/employee.rb:3: unterminated string meets end of file
+/Users/lisa/uclibs/staffdirectory/app/models/employee.rb:3: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/models/employee.rb:2: syntax error, unexpected '<'
+app/models/employee.rb:3: unterminated string meets end of file
+app/models/employee.rb:3: syntax error, unexpected end-of-input, expecting `end'
+app/models/employee.rb:2: syntax error, unexpected '<'
+app/models/employee.rb:3: unterminated string meets end of file
+app/models/employee.rb:3: syntax error, unexpected end-of-input, expecting `end'
+app/models/employee.rb:2: syntax error, unexpected '<'
+app/models/employee.rb:3: unterminated string meets end of file
+app/models/employee.rb:3: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/employees_controller.rb:6:in `index'
+Started GET "/employees" for 127.0.0.1 at 2023-02-27 16:27:09 -0500
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/views/employees/index.html.erb:20
+  [1m[36mEmployee Load (0.8ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:20
+  Rendered employees/index.html.erb within layouts/application (Duration: 12.3ms | Allocations: 6223)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 19.3ms | Allocations: 10033)
+Completed 200 OK in 24ms (Views: 20.1ms | ActiveRecord: 1.1ms | Allocations: 11446)
+
+
+Started GET "/employees/new" for 127.0.0.1 at 2023-02-27 16:27:39 -0500
+Processing by EmployeesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/new.html.erb within layouts/application
+  Rendered employees/_form.html.erb (Duration: 3.9ms | Allocations: 2132)
+  Rendered employees/new.html.erb within layouts/application (Duration: 4.5ms | Allocations: 2263)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | Allocations: 5823)
+Completed 200 OK in 13ms (Views: 12.0ms | ActiveRecord: 0.0ms | Allocations: 6359)
+
+
+Started POST "/employees" for 127.0.0.1 at 2023-02-27 16:28:21 -0500
+Processing by EmployeesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "employee"=>{"lastname"=>"Horton", "firstname"=>"Glen", "email"=>"glen.horton@uc.edu", "phone"=>"123456", "title"=>"Supreme", "department"=>"App Dev", "pronouns"=>"He, him"}, "commit"=>"Create Employee"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/employees_controller.rb:27:in `block in create'
+  [1m[36mEmployee Create (1.2ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "department", "pronouns", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Horton"], ["firstname", "Glen"], ["email", "glen.horton@uc.edu"], ["phone", "123456"], ["title", "Supreme"], ["department", "App Dev"], ["pronouns", "He, him"], ["created_at", "2023-02-27 21:28:21.217566"], ["updated_at", "2023-02-27 21:28:21.217566"]]
+  ↳ app/controllers/employees_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/employees_controller.rb:27:in `block in create'
+Redirected to http://127.0.0.1:3000/employees/2
+Completed 302 Found in 12ms (ActiveRecord: 3.0ms | Allocations: 2924)
+
+
+Started GET "/employees/2" for 127.0.0.1 at 2023-02-27 16:28:21 -0500
+Processing by EmployeesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/employees_controller.rb:63:in `set_employee'
+  Rendering layout layouts/application.html.erb
+  Rendering employees/show.html.erb within layouts/application
+  Rendered employees/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 140)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | Allocations: 3713)
+Completed 200 OK in 10ms (Views: 7.7ms | ActiveRecord: 0.2ms | Allocations: 4971)
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-02-27 16:28:23 -0500
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:20
+  Rendered employees/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1086)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 4658)
+Completed 200 OK in 12ms (Views: 10.8ms | ActiveRecord: 0.1ms | Allocations: 5124)
+
+
+Started GET "/employees/1/edit" for 127.0.0.1 at 2023-02-27 17:46:25 -0500
+Processing by EmployeesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/employees_controller.rb:63:in `set_employee'
+  [1m[36mEmployee Load (0.7ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/employees_controller.rb:63:in `set_employee'
+  Rendering layout layouts/application.html.erb
+  Rendering employees/edit.html.erb within layouts/application
+  Rendered employees/_form.html.erb (Duration: 11.8ms | Allocations: 2159)
+  Rendered employees/edit.html.erb within layouts/application (Duration: 15.7ms | Allocations: 2464)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 75.7ms | Allocations: 6029)
+Completed 200 OK in 100ms (Views: 78.0ms | ActiveRecord: 1.7ms | Allocations: 7889)
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-02-27 17:47:20 -0500
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.4ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:20
+  Rendered employees/index.html.erb within layouts/application (Duration: 6.1ms | Allocations: 1667)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 21.5ms | Allocations: 5642)
+Completed 200 OK in 33ms (Views: 29.0ms | ActiveRecord: 0.4ms | Allocations: 7014)
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-02-27 17:48:07 -0500
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:21
+  Rendered employees/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1615)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | Allocations: 5595)
+Completed 200 OK in 16ms (Views: 13.8ms | ActiveRecord: 0.2ms | Allocations: 7014)
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-02-28 12:59:26 -0500
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.7ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:27
+  Rendered employees/index.html.erb within layouts/application (Duration: 13.6ms | Allocations: 7494)
+  Rendered layout layouts/application.html.erb (Duration: 54.6ms | Allocations: 17860)
+Completed 500 Internal Server Error in 71ms (ActiveRecord: 1.4ms | Allocations: 22179)
+
+
+  
+ActionView::Template::Error (Multiple files with the same output path cannot be linked ("employees.css")
+In "/Users/lisa/uclibs/staffdirectory/app/assets/config/manifest.js" these files were linked:
+  - /Users/lisa/uclibs/staffdirectory/app/assets/stylesheets/employees.css
+  - /Users/lisa/uclibs/staffdirectory/app/assets/stylesheets/employees.scss
+):
+  
+sprockets (4.2.0) lib/sprockets/base.rb:100:in `find_all_linked_assets'
+sprockets (4.2.0) lib/sprockets/manifest.rb:125:in `each'
+sprockets (4.2.0) lib/sprockets/manifest.rb:125:in `to_a'
+sprockets (4.2.0) lib/sprockets/manifest.rb:125:in `block (2 levels) in find'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:24:in `block in execute'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `block in synchronize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `synchronize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `synchronize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:22:in `execute'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/promise.rb:564:in `block in realize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:352:in `run_task'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:343:in `block (3 levels) in create_worker'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `loop'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `block (2 levels) in create_worker'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `catch'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `block in create_worker'
+Started GET "/employees" for 127.0.0.1 at 2023-02-28 13:00:56 -0500
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/views/employees/index.html.erb:27
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:27
+  Rendered employees/index.html.erb within layouts/application (Duration: 15.3ms | Allocations: 7217)
+  Rendered layout layouts/application.html.erb (Duration: 117.4ms | Allocations: 24075)
+Completed 500 Internal Server Error in 124ms (ActiveRecord: 1.4ms | Allocations: 26169)
+
+
+  
+ActionView::Template::Error (Multiple files with the same output path cannot be linked ("employees.css")
+In "/Users/lisa/uclibs/staffdirectory/app/assets/config/manifest.js" these files were linked:
+  - /Users/lisa/uclibs/staffdirectory/app/assets/stylesheets/employees.css
+  - /Users/lisa/uclibs/staffdirectory/app/assets/stylesheets/employees.scss
+):
+  
+sprockets (4.2.0) lib/sprockets/base.rb:100:in `find_all_linked_assets'
+sprockets (4.2.0) lib/sprockets/manifest.rb:125:in `each'
+sprockets (4.2.0) lib/sprockets/manifest.rb:125:in `to_a'
+sprockets (4.2.0) lib/sprockets/manifest.rb:125:in `block (2 levels) in find'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:24:in `block in execute'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `block in synchronize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `synchronize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `synchronize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:22:in `execute'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/promise.rb:564:in `block in realize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:352:in `run_task'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:343:in `block (3 levels) in create_worker'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `loop'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `block (2 levels) in create_worker'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `catch'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `block in create_worker'
+Started GET "/employees" for 127.0.0.1 at 2023-02-28 13:00:58 -0500
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:27
+  Rendered employees/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1094)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 4145)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.1ms | Allocations: 4647)
+
+
+  
+ActionView::Template::Error (Multiple files with the same output path cannot be linked ("employees.css")
+In "/Users/lisa/uclibs/staffdirectory/app/assets/config/manifest.js" these files were linked:
+  - /Users/lisa/uclibs/staffdirectory/app/assets/stylesheets/employees.css
+  - /Users/lisa/uclibs/staffdirectory/app/assets/stylesheets/employees.scss
+):
+  
+sprockets (4.2.0) lib/sprockets/base.rb:100:in `find_all_linked_assets'
+sprockets (4.2.0) lib/sprockets/manifest.rb:125:in `each'
+sprockets (4.2.0) lib/sprockets/manifest.rb:125:in `to_a'
+sprockets (4.2.0) lib/sprockets/manifest.rb:125:in `block (2 levels) in find'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:24:in `block in execute'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `block in synchronize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `synchronize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `synchronize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:22:in `execute'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/promise.rb:564:in `block in realize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:352:in `run_task'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:343:in `block (3 levels) in create_worker'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `loop'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `block (2 levels) in create_worker'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `catch'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `block in create_worker'
+Started GET "/employees" for 127.0.0.1 at 2023-02-28 13:03:10 -0500
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:21
+  Rendered employees/index.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1622)
+  Rendered layout layouts/application.html.erb (Duration: 8.7ms | Allocations: 4967)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.2ms | Allocations: 6299)
+
+
+  
+ActionView::Template::Error (Multiple files with the same output path cannot be linked ("employees.css")
+In "/Users/lisa/uclibs/staffdirectory/app/assets/config/manifest.js" these files were linked:
+  - /Users/lisa/uclibs/staffdirectory/app/assets/stylesheets/employees.css
+  - /Users/lisa/uclibs/staffdirectory/app/assets/stylesheets/employees.scss
+):
+  
+sprockets (4.2.0) lib/sprockets/base.rb:100:in `find_all_linked_assets'
+sprockets (4.2.0) lib/sprockets/manifest.rb:125:in `each'
+sprockets (4.2.0) lib/sprockets/manifest.rb:125:in `to_a'
+sprockets (4.2.0) lib/sprockets/manifest.rb:125:in `block (2 levels) in find'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:24:in `block in execute'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `block in synchronize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `synchronize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `synchronize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:22:in `execute'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/promise.rb:564:in `block in realize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:352:in `run_task'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:343:in `block (3 levels) in create_worker'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `loop'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `block (2 levels) in create_worker'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `catch'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `block in create_worker'
+Started GET "/employees" for 127.0.0.1 at 2023-02-28 13:08:01 -0500
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:21
+  Rendered employees/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1086)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 24.1ms | Allocations: 7543)
+Completed 200 OK in 26ms (Views: 25.0ms | ActiveRecord: 0.1ms | Allocations: 8107)
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-02-28 13:08:08 -0500
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:21
+  Rendered employees/index.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1234)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.2ms | Allocations: 4904)
+Completed 200 OK in 14ms (Views: 12.8ms | ActiveRecord: 0.2ms | Allocations: 5489)
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-02-28 13:09:56 -0500
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:27
+  Rendered employees/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1630)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 78.7ms | Allocations: 16615)
+Completed 200 OK in 82ms (Views: 80.5ms | ActiveRecord: 0.1ms | Allocations: 18017)
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-02-28 13:12:23 -0500
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:22
+  Rendered employees/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1617)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 63.8ms | Allocations: 16499)
+Completed 200 OK in 71ms (Views: 69.2ms | ActiveRecord: 0.1ms | Allocations: 17918)
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-02-28 13:16:56 -0500
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:25
+  Rendered employees/index.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1623)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 63.6ms | Allocations: 15493)
+Completed 200 OK in 69ms (Views: 67.0ms | ActiveRecord: 0.2ms | Allocations: 16916)
+
+
+Started GET "/employees/new" for 127.0.0.1 at 2023-02-28 13:17:05 -0500
+Processing by EmployeesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/new.html.erb within layouts/application
+  Rendered employees/_form.html.erb (Duration: 26.2ms | Allocations: 7666)
+  Rendered employees/new.html.erb within layouts/application (Duration: 28.2ms | Allocations: 8054)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 37.0ms | Allocations: 11681)
+Completed 200 OK in 39ms (Views: 37.7ms | ActiveRecord: 0.0ms | Allocations: 12404)
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-02-28 13:17:58 -0500
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:25
+  Rendered employees/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1190)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 60.9ms | Allocations: 15171)
+Completed 200 OK in 63ms (Views: 61.5ms | ActiveRecord: 0.3ms | Allocations: 15702)
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-02-28 13:18:00 -0500
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:25
+  Rendered employees/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1086)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 4661)
+Completed 200 OK in 11ms (Views: 9.9ms | ActiveRecord: 0.1ms | Allocations: 5123)
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-02-28 13:19:35 -0500
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:25
+  Rendered employees/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1086)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 55.9ms | Allocations: 14410)
+Completed 200 OK in 57ms (Views: 56.5ms | ActiveRecord: 0.1ms | Allocations: 14873)
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-02-28 13:20:23 -0500
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:25
+  Rendered employees/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1086)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 54.2ms | Allocations: 14421)
+Completed 200 OK in 56ms (Views: 54.7ms | ActiveRecord: 0.2ms | Allocations: 14883)
+
+
+Started GET "/employees/new" for 127.0.0.1 at 2023-02-28 13:21:23 -0500
+Processing by EmployeesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/new.html.erb within layouts/application
+  Rendered employees/_form.html.erb (Duration: 2.7ms | Allocations: 2018)
+  Rendered employees/new.html.erb within layouts/application (Duration: 4.0ms | Allocations: 2145)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 20.1ms | Allocations: 5713)
+Completed 200 OK in 22ms (Views: 21.0ms | ActiveRecord: 0.0ms | Allocations: 6192)
+
+
+Started GET "/" for 127.0.0.1 at 2023-02-28 15:57:34 -0500
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/lisa/.rbenv/versions/3.0.5/lib/ruby/gems/3.0.0/gems/railties-6.1.7.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/lisa/.rbenv/versions/3.0.5/lib/ruby/gems/3.0.0/gems/railties-6.1.7.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 7.2ms | Allocations: 506)
+Completed 200 OK in 20ms (Views: 10.5ms | ActiveRecord: 0.0ms | Allocations: 3844)
+
+
+Started GET "/employees/" for 127.0.0.1 at 2023-02-28 15:57:42 -0500
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.7ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:25
+  Rendered employees/index.html.erb within layouts/application (Duration: 16.0ms | Allocations: 7247)
+  Rendered layout layouts/application.html.erb (Duration: 98.0ms | Allocations: 18543)
+Completed 500 Internal Server Error in 106ms (ActiveRecord: 1.2ms | Allocations: 21238)
+
+
+  
+ActionView::Template::Error (Multiple files with the same output path cannot be linked ("scaffolds.css")
+In "/Users/lisa/uclibs/staffdirectory/app/assets/config/manifest.js" these files were linked:
+  - /Users/lisa/uclibs/staffdirectory/app/assets/stylesheets/scaffolds.css
+  - /Users/lisa/uclibs/staffdirectory/app/assets/stylesheets/scaffolds.scss
+):
+  
+sprockets (4.2.0) lib/sprockets/base.rb:100:in `find_all_linked_assets'
+sprockets (4.2.0) lib/sprockets/manifest.rb:125:in `each'
+sprockets (4.2.0) lib/sprockets/manifest.rb:125:in `to_a'
+sprockets (4.2.0) lib/sprockets/manifest.rb:125:in `block (2 levels) in find'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:24:in `block in execute'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `block in synchronize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `synchronize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `synchronize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:22:in `execute'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/promise.rb:564:in `block in realize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:352:in `run_task'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:343:in `block (3 levels) in create_worker'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `loop'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `block (2 levels) in create_worker'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `catch'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `block in create_worker'
+Started GET "/employees/new" for 127.0.0.1 at 2023-02-28 15:57:52 -0500
+Processing by EmployeesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/new.html.erb within layouts/application
+  Rendered employees/_form.html.erb (Duration: 24.1ms | Allocations: 7681)
+  Rendered employees/new.html.erb within layouts/application (Duration: 27.1ms | Allocations: 8062)
+  Rendered layout layouts/application.html.erb (Duration: 31.8ms | Allocations: 11199)
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 0.0ms | Allocations: 11908)
+
+
+  
+ActionView::Template::Error (Multiple files with the same output path cannot be linked ("scaffolds.css")
+In "/Users/lisa/uclibs/staffdirectory/app/assets/config/manifest.js" these files were linked:
+  - /Users/lisa/uclibs/staffdirectory/app/assets/stylesheets/scaffolds.css
+  - /Users/lisa/uclibs/staffdirectory/app/assets/stylesheets/scaffolds.scss
+):
+  
+sprockets (4.2.0) lib/sprockets/base.rb:100:in `find_all_linked_assets'
+sprockets (4.2.0) lib/sprockets/manifest.rb:125:in `each'
+sprockets (4.2.0) lib/sprockets/manifest.rb:125:in `to_a'
+sprockets (4.2.0) lib/sprockets/manifest.rb:125:in `block (2 levels) in find'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:24:in `block in execute'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `block in synchronize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `synchronize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `synchronize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:22:in `execute'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/promise.rb:564:in `block in realize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:352:in `run_task'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:343:in `block (3 levels) in create_worker'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `loop'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `block (2 levels) in create_worker'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `catch'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `block in create_worker'
+Started GET "/employees/" for 127.0.0.1 at 2023-02-28 15:57:57 -0500
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:25
+  Rendered employees/index.html.erb within layouts/application (Duration: 20.4ms | Allocations: 1195)
+  Rendered layout layouts/application.html.erb (Duration: 24.7ms | Allocations: 4295)
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 0.2ms | Allocations: 4799)
+
+
+  
+ActionView::Template::Error (Multiple files with the same output path cannot be linked ("scaffolds.css")
+In "/Users/lisa/uclibs/staffdirectory/app/assets/config/manifest.js" these files were linked:
+  - /Users/lisa/uclibs/staffdirectory/app/assets/stylesheets/scaffolds.css
+  - /Users/lisa/uclibs/staffdirectory/app/assets/stylesheets/scaffolds.scss
+):
+  
+sprockets (4.2.0) lib/sprockets/base.rb:100:in `find_all_linked_assets'
+sprockets (4.2.0) lib/sprockets/manifest.rb:125:in `each'
+sprockets (4.2.0) lib/sprockets/manifest.rb:125:in `to_a'
+sprockets (4.2.0) lib/sprockets/manifest.rb:125:in `block (2 levels) in find'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:24:in `block in execute'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `block in synchronize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `synchronize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `synchronize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:22:in `execute'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/promise.rb:564:in `block in realize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:352:in `run_task'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:343:in `block (3 levels) in create_worker'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `loop'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `block (2 levels) in create_worker'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `catch'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `block in create_worker'
+Started GET "/staffdirectory" for 127.0.0.1 at 2023-02-28 15:58:14 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/staffdirectory"):
+  
+Started GET "/employees/1/edit" for 127.0.0.1 at 2023-02-28 15:58:35 -0500
+Processing by EmployeesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/employees_controller.rb:63:in `set_employee'
+  Rendering layout layouts/application.html.erb
+  Rendering employees/edit.html.erb within layouts/application
+  Rendered employees/_form.html.erb (Duration: 2.2ms | Allocations: 2284)
+  Rendered employees/edit.html.erb within layouts/application (Duration: 3.5ms | Allocations: 2604)
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | Allocations: 5759)
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 0.2ms | Allocations: 10378)
+
+
+  
+ActionView::Template::Error (Multiple files with the same output path cannot be linked ("scaffolds.css")
+In "/Users/lisa/uclibs/staffdirectory/app/assets/config/manifest.js" these files were linked:
+  - /Users/lisa/uclibs/staffdirectory/app/assets/stylesheets/scaffolds.css
+  - /Users/lisa/uclibs/staffdirectory/app/assets/stylesheets/scaffolds.scss
+):
+  
+sprockets (4.2.0) lib/sprockets/base.rb:100:in `find_all_linked_assets'
+sprockets (4.2.0) lib/sprockets/manifest.rb:125:in `each'
+sprockets (4.2.0) lib/sprockets/manifest.rb:125:in `to_a'
+sprockets (4.2.0) lib/sprockets/manifest.rb:125:in `block (2 levels) in find'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:24:in `block in execute'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `block in synchronize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `synchronize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `synchronize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:22:in `execute'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/promise.rb:564:in `block in realize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:352:in `run_task'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:343:in `block (3 levels) in create_worker'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `loop'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `block (2 levels) in create_worker'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `catch'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `block in create_worker'
+Started GET "/employees/1/edit" for 127.0.0.1 at 2023-02-28 15:59:18 -0500
+Processing by EmployeesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/employees_controller.rb:63:in `set_employee'
+  Rendering layout layouts/application.html.erb
+  Rendering employees/edit.html.erb within layouts/application
+  Rendered employees/_form.html.erb (Duration: 2.8ms | Allocations: 2129)
+  Rendered employees/edit.html.erb within layouts/application (Duration: 3.4ms | Allocations: 2288)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 72.6ms | Allocations: 19005)
+Completed 200 OK in 76ms (Views: 73.4ms | ActiveRecord: 0.2ms | Allocations: 20096)
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-02-28 15:59:21 -0500
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:25
+  Rendered employees/index.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1227)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.6ms | Allocations: 4889)
+Completed 200 OK in 14ms (Views: 13.0ms | ActiveRecord: 0.1ms | Allocations: 5462)
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-02-28 15:59:36 -0500
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:25
+  Rendered employees/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1093)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.2ms | Allocations: 4616)
+Completed 200 OK in 12ms (Views: 11.5ms | ActiveRecord: 0.1ms | Allocations: 5091)
+
+
+Started GET "/employees/new" for 127.0.0.1 at 2023-02-28 15:59:37 -0500
+Processing by EmployeesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/new.html.erb within layouts/application
+  Rendered employees/_form.html.erb (Duration: 4.4ms | Allocations: 2069)
+  Rendered employees/new.html.erb within layouts/application (Duration: 4.9ms | Allocations: 2196)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.1ms | Allocations: 5704)
+Completed 200 OK in 14ms (Views: 12.9ms | ActiveRecord: 0.0ms | Allocations: 6182)
+
+
+Started GET "/employees/new" for 127.0.0.1 at 2023-02-28 16:05:48 -0500
+Processing by EmployeesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/new.html.erb within layouts/application
+  Rendered employees/_form.html.erb (Duration: 8.5ms | Allocations: 2002)
+  Rendered employees/new.html.erb within layouts/application (Duration: 9.6ms | Allocations: 2125)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 27.5ms | Allocations: 5633)
+Completed 200 OK in 31ms (Views: 28.9ms | Allocations: 6113)
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-02-28 16:05:51 -0500
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/views/employees/index.html.erb:25
+  [1m[36mEmployee Load (1.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:25
+  Rendered employees/index.html.erb within layouts/application (Duration: 10.0ms | Allocations: 1909)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 22.7ms | Allocations: 5429)
+Completed 200 OK in 25ms (Views: 23.6ms | ActiveRecord: 1.9ms | Allocations: 5891)
+
+
+Started GET "/employees/1" for 127.0.0.1 at 2023-02-28 16:07:04 -0500
+Processing by EmployeesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/employees_controller.rb:63:in `set_employee'
+  Rendering layout layouts/application.html.erb
+  Rendering employees/show.html.erb within layouts/application
+  Rendered employees/show.html.erb within layouts/application (Duration: 3.9ms | Allocations: 422)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.3ms | Allocations: 3943)
+Completed 200 OK in 18ms (Views: 13.9ms | ActiveRecord: 0.2ms | Allocations: 5215)
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-02-28 16:07:13 -0500
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:25
+  Rendered employees/index.html.erb within layouts/application (Duration: 6.2ms | Allocations: 1086)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 17.9ms | Allocations: 4606)
+Completed 200 OK in 20ms (Views: 18.6ms | ActiveRecord: 0.2ms | Allocations: 5070)
+
+
+Started GET "/employees/2" for 127.0.0.1 at 2023-02-28 16:07:16 -0500
+Processing by EmployeesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/employees_controller.rb:63:in `set_employee'
+  Rendering layout layouts/application.html.erb
+  Rendering employees/show.html.erb within layouts/application
+  Rendered employees/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 136)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 3656)
+Completed 200 OK in 13ms (Views: 9.6ms | ActiveRecord: 0.2ms | Allocations: 4691)
+
+
+Started GET "/employees/1" for 127.0.0.1 at 2023-02-28 16:10:19 -0500
+Processing by EmployeesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/employees_controller.rb:63:in `set_employee'
+  Rendering layout layouts/application.html.erb
+  Rendering employees/show.html.erb within layouts/application
+  Rendered employees/show.html.erb within layouts/application (Duration: 1.1ms | Allocations: 136)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 20.4ms | Allocations: 3661)
+Completed 200 OK in 23ms (Views: 21.1ms | ActiveRecord: 0.2ms | Allocations: 4700)
+
+
+Started GET "/employees/1" for 127.0.0.1 at 2023-02-28 16:10:24 -0500
+Processing by EmployeesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/employees_controller.rb:63:in `set_employee'
+  Rendering layout layouts/application.html.erb
+  Rendering employees/show.html.erb within layouts/application
+  Rendered employees/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 136)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.7ms | Allocations: 3656)
+Completed 200 OK in 17ms (Views: 12.6ms | ActiveRecord: 0.2ms | Allocations: 4691)
+
+
+Started GET "/" for 127.0.0.1 at 2023-03-24 12:50:52 -0400
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/lisa/.rbenv/versions/3.0.5/lib/ruby/gems/3.0.0/gems/railties-6.1.7.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/lisa/.rbenv/versions/3.0.5/lib/ruby/gems/3.0.0/gems/railties-6.1.7.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 7.5ms | Allocations: 506)
+Completed 200 OK in 20ms (Views: 10.9ms | ActiveRecord: 0.0ms | Allocations: 3845)
+
+
+Started GET "/index" for 127.0.0.1 at 2023-03-24 12:51:33 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/index"):
+  
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Started GET "/" for 127.0.0.1 at 2023-03-27 10:28:19 -0400
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/lisa/.rbenv/versions/3.0.5/lib/ruby/gems/3.0.0/gems/railties-6.1.7.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/lisa/.rbenv/versions/3.0.5/lib/ruby/gems/3.0.0/gems/railties-6.1.7.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 8.1ms | Allocations: 506)
+Completed 200 OK in 26ms (Views: 11.8ms | ActiveRecord: 0.0ms | Allocations: 3725)
+
+
+Started GET "/patron/index" for 127.0.0.1 at 2023-03-27 10:28:34 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/patron/index"):
+  
+Started GET "/" for 127.0.0.1 at 2023-03-27 10:28:45 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/lisa/.rbenv/versions/3.0.5/lib/ruby/gems/3.0.0/gems/railties-6.1.7.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/lisa/.rbenv/versions/3.0.5/lib/ruby/gems/3.0.0/gems/railties-6.1.7.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 6.0ms | Allocations: 267)
+Completed 200 OK in 9ms (Views: 7.2ms | ActiveRecord: 0.0ms | Allocations: 1138)
+
+
+Started GET "/journal_articles/new" for 127.0.0.1 at 2023-03-27 10:29:24 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/journal_articles/new"):
+  
+Started GET "/index" for 127.0.0.1 at 2023-03-27 10:29:37 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/index"):
+  
+Started GET "/index" for 127.0.0.1 at 2023-03-27 10:33:17 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/index"):
+  
+Started GET "/" for 127.0.0.1 at 2023-03-27 10:33:22 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/lisa/.rbenv/versions/3.0.5/lib/ruby/gems/3.0.0/gems/railties-6.1.7.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/lisa/.rbenv/versions/3.0.5/lib/ruby/gems/3.0.0/gems/railties-6.1.7.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.2ms | Allocations: 52)
+Completed 200 OK in 1ms (Views: 0.8ms | Allocations: 453)
+
+
+Started GET "/" for 127.0.0.1 at 2023-03-27 10:33:24 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/lisa/.rbenv/versions/3.0.5/lib/ruby/gems/3.0.0/gems/railties-6.1.7.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/lisa/.rbenv/versions/3.0.5/lib/ruby/gems/3.0.0/gems/railties-6.1.7.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.3ms | Allocations: 49)
+Completed 200 OK in 1ms (Views: 0.9ms | Allocations: 408)
+
+
+Started GET "/" for 127.0.0.1 at 2023-03-27 10:33:27 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/lisa/.rbenv/versions/3.0.5/lib/ruby/gems/3.0.0/gems/railties-6.1.7.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/lisa/.rbenv/versions/3.0.5/lib/ruby/gems/3.0.0/gems/railties-6.1.7.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.5ms | Allocations: 49)
+Completed 200 OK in 2ms (Views: 1.1ms | Allocations: 406)
+
+
+Started GET "/" for 127.0.0.1 at 2023-03-27 10:34:17 -0400
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/lisa/.rbenv/versions/3.0.5/lib/ruby/gems/3.0.0/gems/railties-6.1.7.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/lisa/.rbenv/versions/3.0.5/lib/ruby/gems/3.0.0/gems/railties-6.1.7.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 7.3ms | Allocations: 506)
+Completed 200 OK in 30ms (Views: 12.2ms | ActiveRecord: 0.0ms | Allocations: 4085)
+
+
+Started GET "/employees/" for 127.0.0.1 at 2023-03-27 10:34:26 -0400
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.8ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:25
+  Rendered employees/index.html.erb within layouts/application (Duration: 16.6ms | Allocations: 7247)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 44.9ms | Allocations: 13856)
+Completed 200 OK in 60ms (Views: 53.5ms | ActiveRecord: 1.7ms | Allocations: 16557)
+
+
+Started GET "/employees/new" for 127.0.0.1 at 2023-03-27 10:34:36 -0400
+Processing by EmployeesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/new.html.erb within layouts/application
+  Rendered employees/_form.html.erb (Duration: 24.3ms | Allocations: 7693)
+  Rendered employees/new.html.erb within layouts/application (Duration: 26.7ms | Allocations: 8120)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 34.9ms | Allocations: 11689)
+Completed 200 OK in 38ms (Views: 35.7ms | ActiveRecord: 0.0ms | Allocations: 12480)
+
+
+Started GET "/employees/1" for 127.0.0.1 at 2023-03-27 10:34:46 -0400
+Processing by EmployeesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEmployee Load (0.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/employees_controller.rb:63:in `set_employee'
+  Rendering layout layouts/application.html.erb
+  Rendering employees/show.html.erb within layouts/application
+  Rendered employees/show.html.erb within layouts/application (Duration: 1.7ms | Allocations: 473)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 4159)
+Completed 200 OK in 16ms (Views: 10.0ms | ActiveRecord: 0.3ms | Allocations: 6355)
+
+
+Started GET "/employees/1/edit" for 127.0.0.1 at 2023-03-27 10:34:48 -0400
+Processing by EmployeesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEmployee Load (0.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/employees_controller.rb:63:in `set_employee'
+  Rendering layout layouts/application.html.erb
+  Rendering employees/edit.html.erb within layouts/application
+  Rendered employees/_form.html.erb (Duration: 5.0ms | Allocations: 2230)
+  Rendered employees/edit.html.erb within layouts/application (Duration: 6.7ms | Allocations: 2523)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.8ms | Allocations: 6032)
+Completed 200 OK in 18ms (Views: 14.4ms | ActiveRecord: 0.3ms | Allocations: 7258)
+
+
+Started GET "/employees/" for 127.0.0.1 at 2023-03-27 10:42:19 -0400
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.9ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:25
+  Rendered employees/index.html.erb within layouts/application (Duration: 14.6ms | Allocations: 7491)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 113.8ms | Allocations: 25835)
+Completed 200 OK in 139ms (Views: 117.6ms | ActiveRecord: 1.6ms | Allocations: 30354)
+
+
+Started GET "/employees/new" for 127.0.0.1 at 2023-03-27 10:42:23 -0400
+Processing by EmployeesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/new.html.erb within layouts/application
+  Rendered employees/_form.html.erb (Duration: 15.6ms | Allocations: 4380)
+  Rendered employees/new.html.erb within layouts/application (Duration: 18.1ms | Allocations: 4807)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 24.9ms | Allocations: 8471)
+Completed 200 OK in 27ms (Views: 25.5ms | ActiveRecord: 0.0ms | Allocations: 9280)
+
+
+Started GET "/employees/new" for 127.0.0.1 at 2023-03-27 10:42:24 -0400
+Processing by EmployeesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/new.html.erb within layouts/application
+  Rendered employees/_form.html.erb (Duration: 3.4ms | Allocations: 2018)
+  Rendered employees/new.html.erb within layouts/application (Duration: 3.8ms | Allocations: 2145)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 5652)
+Completed 200 OK in 13ms (Views: 12.5ms | ActiveRecord: 0.0ms | Allocations: 6206)
+
+
+Started GET "/employees/" for 127.0.0.1 at 2023-03-27 10:42:25 -0400
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:25
+  Rendered employees/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1197)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 4715)
+Completed 200 OK in 11ms (Views: 9.8ms | ActiveRecord: 0.2ms | Allocations: 5191)
+
+
+Started GET "/employees/" for 127.0.0.1 at 2023-03-27 10:44:30 -0400
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:26
+  Rendered employees/index.html.erb within layouts/application (Duration: 4.1ms | Allocations: 1639)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 5563)
+Completed 200 OK in 16ms (Views: 15.0ms | ActiveRecord: 0.2ms | Allocations: 6973)
+
+
+Started GET "/employees/" for 127.0.0.1 at 2023-03-27 10:46:05 -0400
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:26
+  Rendered employees/index.html.erb within layouts/application (Duration: 26.7ms | Allocations: 3684)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 34.2ms | Allocations: 6905)
+Completed 200 OK in 38ms (Views: 36.7ms | ActiveRecord: 0.1ms | Allocations: 8325)
+
+
+Started GET "/employees/" for 127.0.0.1 at 2023-03-27 10:51:23 -0400
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/views/employees/index.html.erb:26
+  [1m[36mEmployee Load (0.8ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:26
+  Rendered employees/index.html.erb within layouts/application (Duration: 10.0ms | Allocations: 4532)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.4ms | Allocations: 7750)
+Completed 200 OK in 22ms (Views: 20.2ms | ActiveRecord: 1.2ms | Allocations: 9170)
+
+
+Started GET "/employees/new" for 127.0.0.1 at 2023-03-27 10:52:11 -0400
+Processing by EmployeesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/new.html.erb within layouts/application
+  Rendered employees/_form.html.erb (Duration: 4.4ms | Allocations: 2564)
+  Rendered employees/new.html.erb within layouts/application (Duration: 6.9ms | Allocations: 2931)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 6434)
+Completed 200 OK in 14ms (Views: 13.5ms | ActiveRecord: 0.0ms | Allocations: 7095)
+
+
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20230327170357)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230327170357"]]
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateManagers (20230327170815)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "managers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230327170815"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2023-03-27 13:37:58 -0400
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/lisa/.rbenv/versions/3.0.5/lib/ruby/gems/3.0.0/gems/railties-6.1.7.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/lisa/.rbenv/versions/3.0.5/lib/ruby/gems/3.0.0/gems/railties-6.1.7.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 6.7ms | Allocations: 506)
+Completed 200 OK in 20ms (Views: 10.0ms | ActiveRecord: 0.0ms | Allocations: 3857)
+
+
+Started GET "/employees/" for 127.0.0.1 at 2023-03-27 13:38:26 -0400
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  Rendered employees/index.html.erb within layouts/application (Duration: 121.5ms | Allocations: 25011)
+  Rendered layout layouts/application.html.erb (Duration: 122.1ms | Allocations: 25101)
+Completed 500 Internal Server Error in 129ms (ActiveRecord: 0.0ms | Allocations: 27293)
+
+
+  
+ActionView::Template::Error (Multiple files with the same output path cannot be linked ("sessions.css")
+In "/Users/lisa/uclibs/staff_d/app/assets/config/manifest.js" these files were linked:
+  - /Users/lisa/uclibs/staff_d/app/assets/stylesheets/sessions.css
+  - /Users/lisa/uclibs/staff_d/app/assets/stylesheets/sessions.scss
+):
+  
+sprockets (4.2.0) lib/sprockets/base.rb:100:in `find_all_linked_assets'
+sprockets (4.2.0) lib/sprockets/manifest.rb:125:in `each'
+sprockets (4.2.0) lib/sprockets/manifest.rb:125:in `to_a'
+sprockets (4.2.0) lib/sprockets/manifest.rb:125:in `block (2 levels) in find'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:24:in `block in execute'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `block in synchronize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `synchronize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `synchronize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:22:in `execute'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/promise.rb:564:in `block in realize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:352:in `run_task'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:343:in `block (3 levels) in create_worker'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `loop'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `block (2 levels) in create_worker'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `catch'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `block in create_worker'
+Started GET "/" for 127.0.0.1 at 2023-03-27 13:40:54 -0400
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/lisa/.rbenv/versions/3.0.5/lib/ruby/gems/3.0.0/gems/railties-6.1.7.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/lisa/.rbenv/versions/3.0.5/lib/ruby/gems/3.0.0/gems/railties-6.1.7.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 7.5ms | Allocations: 506)
+Completed 200 OK in 28ms (Views: 11.5ms | ActiveRecord: 0.0ms | Allocations: 3990)
+
+
+Started GET "/employees/" for 127.0.0.1 at 2023-03-27 13:41:03 -0400
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  Rendered employees/index.html.erb within layouts/application (Duration: 30.4ms | Allocations: 5835)
+  Rendered layout layouts/application.html.erb (Duration: 31.0ms | Allocations: 6024)
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 0.0ms | Allocations: 8702)
+
+
+  
+ActionView::Template::Error (Multiple files with the same output path cannot be linked ("sessions.css")
+In "/Users/lisa/uclibs/staffdirectory/app/assets/config/manifest.js" these files were linked:
+  - /Users/lisa/uclibs/staffdirectory/app/assets/stylesheets/sessions.css
+  - /Users/lisa/uclibs/staffdirectory/app/assets/stylesheets/sessions.scss
+):
+  
+sprockets (4.2.0) lib/sprockets/base.rb:100:in `find_all_linked_assets'
+sprockets (4.2.0) lib/sprockets/manifest.rb:125:in `each'
+sprockets (4.2.0) lib/sprockets/manifest.rb:125:in `to_a'
+sprockets (4.2.0) lib/sprockets/manifest.rb:125:in `block (2 levels) in find'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:24:in `block in execute'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `block in synchronize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `synchronize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `synchronize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:22:in `execute'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/promise.rb:564:in `block in realize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:352:in `run_task'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:343:in `block (3 levels) in create_worker'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `loop'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `block (2 levels) in create_worker'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `catch'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `block in create_worker'
+Started GET "/employees/" for 127.0.0.1 at 2023-03-27 13:42:48 -0400
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:26
+  Rendered employees/index.html.erb within layouts/application (Duration: 18.9ms | Allocations: 7258)
+  Rendered layout layouts/application.html.erb (Duration: 26.6ms | Allocations: 10937)
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 1.3ms | Allocations: 12335)
+
+
+  
+ActionView::Template::Error (Multiple files with the same output path cannot be linked ("sessions.css")
+In "/Users/lisa/uclibs/staffdirectory/app/assets/config/manifest.js" these files were linked:
+  - /Users/lisa/uclibs/staffdirectory/app/assets/stylesheets/sessions.css
+  - /Users/lisa/uclibs/staffdirectory/app/assets/stylesheets/sessions.scss
+):
+  
+sprockets (4.2.0) lib/sprockets/base.rb:100:in `find_all_linked_assets'
+sprockets (4.2.0) lib/sprockets/manifest.rb:125:in `each'
+sprockets (4.2.0) lib/sprockets/manifest.rb:125:in `to_a'
+sprockets (4.2.0) lib/sprockets/manifest.rb:125:in `block (2 levels) in find'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:24:in `block in execute'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `block in synchronize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `synchronize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `synchronize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:22:in `execute'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/promise.rb:564:in `block in realize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:352:in `run_task'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:343:in `block (3 levels) in create_worker'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `loop'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `block (2 levels) in create_worker'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `catch'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `block in create_worker'
+Started GET "/employees/" for 127.0.0.1 at 2023-03-27 13:43:52 -0400
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:26
+  Rendered employees/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1092)
+  Rendered layout layouts/application.html.erb (Duration: 63.2ms | Allocations: 7300)
+Completed 500 Internal Server Error in 66ms (ActiveRecord: 0.2ms | Allocations: 7805)
+
+
+  
+ActionView::Template::Error (Asset `application.css` was not declared to be precompiled in production.
+Declare links to your assets in `app/assets/config/manifest.js`.
+
+  //= link application.css
+
+and restart your server):
+     6:     <%= csrf_meta_tags %>
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    10:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    11:   </head>
+    12: 
+  
+app/views/layouts/application.html.erb:9
+Started GET "/employees/" for 127.0.0.1 at 2023-03-27 13:45:42 -0400
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:26
+  Rendered employees/index.html.erb within layouts/application (Duration: 4.1ms | Allocations: 1094)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 36.1ms | Allocations: 8347)
+Completed 200 OK in 38ms (Views: 36.7ms | ActiveRecord: 0.2ms | Allocations: 8828)
+
+
+Started GET "/employees/" for 127.0.0.1 at 2023-03-27 13:46:47 -0400
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.4ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:26
+  Rendered employees/index.html.erb within layouts/application (Duration: 16.0ms | Allocations: 7653)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/lisa/uclibs/staff_d/public/packs
+[Webpacker] Hash: 804a8059a304061a3e74
+Version: webpack 4.46.0
+Time: 1721ms
+Built at: 03/27/2023 1:46:51 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-271cf8931bb708d2d8bb.js    121 KiB  application  [emitted] [immutable]  application
+js/application-271cf8931bb708d2d8bb.js.map    133 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-271cf8931bb708d2d8bb.js js/application-271cf8931bb708d2d8bb.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 493 bytes {application} [built]
+    + 3 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 4586.3ms | Allocations: 27678)
+Completed 200 OK in 4619ms (Views: 4595.0ms | ActiveRecord: 1.0ms | Allocations: 35729)
+
+
+Started GET "/employees/new" for 127.0.0.1 at 2023-03-27 13:46:52 -0400
+Processing by EmployeesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/new.html.erb within layouts/application
+  Rendered employees/_form.html.erb (Duration: 41.1ms | Allocations: 5982)
+  Rendered employees/new.html.erb within layouts/application (Duration: 43.1ms | Allocations: 6453)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 52.3ms | Allocations: 10268)
+Completed 200 OK in 55ms (Views: 53.2ms | ActiveRecord: 0.0ms | Allocations: 11094)
+
+
+Started GET "/employees/new" for 127.0.0.1 at 2023-03-27 14:14:49 -0400
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EmployeesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/new.html.erb within layouts/application
+  Rendered employees/_form.html.erb (Duration: 16.3ms | Allocations: 4716)
+  Rendered employees/new.html.erb within layouts/application (Duration: 19.1ms | Allocations: 5465)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 47.0ms | Allocations: 12087)
+Completed 200 OK in 75ms (Views: 52.3ms | ActiveRecord: 0.6ms | Allocations: 21763)
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-03-27 14:14:53 -0400
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:26
+  Rendered employees/index.html.erb within layouts/application (Duration: 5.0ms | Allocations: 1831)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.6ms | Allocations: 5596)
+Completed 200 OK in 14ms (Views: 12.1ms | ActiveRecord: 0.3ms | Allocations: 6419)
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-03-27 14:14:55 -0400
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:26
+  Rendered employees/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1092)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.4ms | Allocations: 4719)
+Completed 200 OK in 16ms (Views: 14.1ms | ActiveRecord: 0.2ms | Allocations: 5191)
+
+
