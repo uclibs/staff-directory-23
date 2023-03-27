@@ -1,0 +1,2 @@
+class AddDatum < ApplicationRecord
+end
