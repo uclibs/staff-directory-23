@@ -1339,3 +1339,764 @@ Processing by EmployeesController#index as HTML
 Completed 200 OK in 79ms (Views: 60.5ms | ActiveRecord: 1.6ms | Allocations: 19093)
 
 
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ lib/import_csv2.rb:6:in `block in <main>'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (1.8ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Hart"], ["firstname", "Olga"], ["email", "olga.hart@uc.edu"], ["phone", "556-1850"], ["title", "Associate Senior Librarian"], ["created_at", "2023-03-27 20:35:14.811020"], ["updated_at", "2023-03-27 20:35:14.811020"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.3ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Prochaska"], ["firstname", "Holly"], ["email", "holly.prochaska@uc.edu"], ["phone", "556-1389"], ["title", "Head, Preservation Services"], ["created_at", "2023-03-27 20:35:14.826178"], ["updated_at", "2023-03-27 20:35:14.826178"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.3ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Baldwin"], ["firstname", "Ted"], ["email", "ted.baldwin@uc.edu"], ["phone", "556-4211"], ["title", "Associate Senior Librarian"], ["created_at", "2023-03-27 20:35:14.829867"], ["updated_at", "2023-03-27 20:35:14.829867"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.5ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Braunlin"], ["firstname", "Michael"], ["email", "michael.braunlin@uc.edu"], ["phone", "556-1333"], ["title", "Assistant Head Classics Library"], ["created_at", "2023-03-27 20:35:14.834385"], ["updated_at", "2023-03-27 20:35:14.834385"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.5ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Campbell"], ["firstname", "James"], ["email", "James.Campbell@uc.edu"], ["phone", "556-1408"], ["title", "Network Analyst"], ["created_at", "2023-03-27 20:35:14.841616"], ["updated_at", "2023-03-27 20:35:14.841616"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.3ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Corday"], ["firstname", "Mikaila"], ["email", "mikaila.corday@uc.edu"], ["phone", "556-1013"], ["title", "eResources & Access"], ["created_at", "2023-03-27 20:35:14.848065"], ["updated_at", "2023-03-27 20:35:14.848065"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.6ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Saxton"], ["firstname", "Elna"], ["email", "elna.saxton@uc.edu"], ["phone", "556-1413"], ["title", "Head, Content Services"], ["created_at", "2023-03-27 20:35:14.852721"], ["updated_at", "2023-03-27 20:35:14.852721"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.9ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Stork"], ["firstname", "John"], ["email", "john.stork@uc.edu"], ["phone", "556-1984"], ["title", "Assistant Director Academic"], ["created_at", "2023-03-27 20:35:14.858940"], ["updated_at", "2023-03-27 20:35:14.858940"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.3ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Norris"], ["firstname", "Melissa"], ["email", "melissa.norris@uc.edu"], ["phone", "556-1558"], ["title", "Director of Library Communications"], ["created_at", "2023-03-27 20:35:14.863676"], ["updated_at", "2023-03-27 20:35:14.863676"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.4ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Taylor-Slaughter"], ["firstname", "June"], ["email", "june.taylor@uc.edu"], ["phone", "556-1587"], ["title", "Research & Services Program Manager"], ["created_at", "2023-03-27 20:35:14.868449"], ["updated_at", "2023-03-27 20:35:14.868449"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.4ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Mihaly"], ["firstname", "Sara"], ["email", "sara.mihaly@uc.edu"], ["phone", "556-1365"], ["title", "Library Associate 2"], ["created_at", "2023-03-27 20:35:14.873482"], ["updated_at", "2023-03-27 20:35:14.873482"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.3ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Sandor"], ["firstname", "David"], ["email", "david.sandor@uc.edu"], ["phone", "556-1510"], ["title", "Sr. Library Associate Specialist"], ["created_at", "2023-03-27 20:35:14.877839"], ["updated_at", "2023-03-27 20:35:14.877839"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.3ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "McMillan"], ["firstname", "Mary Anne"], ["email", "mary.mcmillan@uc.edu"], ["phone", "556-1562"], ["title", "Administrative Coordinator"], ["created_at", "2023-03-27 20:35:14.881366"], ["updated_at", "2023-03-27 20:35:14.881366"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.4ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Tenofsky"], ["firstname", "Deborah"], ["email", "deborah.tenofsky@uc.edu"], ["phone", "556-1888"], ["title", "Senior Librarian"], ["created_at", "2023-03-27 20:35:14.884475"], ["updated_at", "2023-03-27 20:35:14.884475"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.9ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Hight"], ["firstname", "Susan"], ["email", "susan.hight@uc.edu"], ["phone", "556-3230"], ["title", "Technical & Public Services Assistant"], ["created_at", "2023-03-27 20:35:14.889530"], ["updated_at", "2023-03-27 20:35:14.889530"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.3ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Johnson"], ["firstname", "Arlene"], ["email", "arlene.johnson@uc.edu"], ["phone", "556-1417"], ["title", "Senior Librarian"], ["created_at", "2023-03-27 20:35:14.894911"], ["updated_at", "2023-03-27 20:35:14.894911"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.4ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Kline"], ["firstname", "Ben"], ["email", "ben.kline@uc.edu"], ["phone", "556-1419"], ["title", "Assistant Director Academic"], ["created_at", "2023-03-27 20:35:14.898479"], ["updated_at", "2023-03-27 20:35:14.898479"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.5ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Meyer"], ["firstname", "Elizabeth"], ["email", "elizabeth.meyer@uc.edu"], ["phone", "556-0279"], ["title", "Associate Librarian"], ["created_at", "2023-03-27 20:35:14.902790"], ["updated_at", "2023-03-27 20:35:14.902790"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.3ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Tucker"], ["firstname", "Hyacinth"], ["email", "hyacinth.tucker@uc.edu"], ["phone", "556-1880"], ["title", "Binding Processor"], ["created_at", "2023-03-27 20:35:14.907714"], ["updated_at", "2023-03-27 20:35:14.907714"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.3ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Banoun"], ["firstname", "Susan"], ["email", "susan.banoun@uc.edu"], ["phone", "556-1440"], ["title", "Team Leader, eResources & Access"], ["created_at", "2023-03-27 20:35:14.911413"], ["updated_at", "2023-03-27 20:35:14.911413"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.4ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Hiller"], ["firstname", "Karl"], ["email", "karl.hiller@uc.edu"], ["phone", "556-6203"], ["title", "Information Technology Analyst"], ["created_at", "2023-03-27 20:35:14.914709"], ["updated_at", "2023-03-27 20:35:14.914709"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.6ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Anderson"], ["firstname", "Meshia"], ["email", "meshia.anderson@uc.edu"], ["phone", "556-6596"], ["title", "Collections Acquistions"], ["created_at", "2023-03-27 20:35:14.918437"], ["updated_at", "2023-03-27 20:35:14.918437"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.4ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Ebert"], ["firstname", "Jessica"], ["email", "jessica.ebert@uc.edu"], ["phone", "556-1877"], ["title", "Conservation Technician"], ["created_at", "2023-03-27 20:35:14.923377"], ["updated_at", "2023-03-27 20:35:14.923377"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.3ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Van Mil"], ["firstname", "James"], ["email", "James.VanMil@uc.edu"], ["phone", "556-1410"], ["title", "Digital Projects & Preservation Librarian"], ["created_at", "2023-03-27 20:35:14.926728"], ["updated_at", "2023-03-27 20:35:14.926728"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.6ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Poulos"], ["firstname", "Peter"], ["email", "peter.poulos@uc.edu"], ["phone", "558-6046"], ["title", "Info Tech Analyst"], ["created_at", "2023-03-27 20:35:14.930668"], ["updated_at", "2023-03-27 20:35:14.930668"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (2.5ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Purtee"], ["firstname", "Sharon"], ["email", "sharon.purtee@uc.edu"], ["phone", "558-1019"], ["title", "Sr Librarian"], ["created_at", "2023-03-27 20:35:14.935735"], ["updated_at", "2023-03-27 20:35:14.935735"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.5ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Stevens"], ["firstname", "Cade"], ["email", "cade.stevens@uc.edu"], ["phone", "556-1321"], ["title", "Lib Assoc 1-9"], ["created_at", "2023-03-27 20:35:14.944948"], ["updated_at", "2023-03-27 20:35:14.944948"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.4ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Wagner"], ["firstname", "Gerald"], ["email", "gerald.wagner@uc.edu"], ["phone", "558-8389"], ["title", "Manager, Unit Operations"], ["created_at", "2023-03-27 20:35:14.950255"], ["updated_at", "2023-03-27 20:35:14.950255"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.4ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Crowe"], ["firstname", "Sean"], ["email", "sean.crowe@uc.edu"], ["phone", "556-1899"], ["title", "Associate Librarian"], ["created_at", "2023-03-27 20:35:14.956759"], ["updated_at", "2023-03-27 20:35:14.956759"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.5ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Reller"], ["firstname", "Suzanne"], ["email", "suzanne.maggard@uc.edu"], ["phone", "556-7016"], ["title", "Assistant Librarian"], ["created_at", "2023-03-27 20:35:14.965177"], ["updated_at", "2023-03-27 20:35:14.965177"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.4ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Burgess"], ["firstname", "Kristen"], ["email", "kristen.burgess@uc.edu"], ["phone", "558-3071"], ["title", "Operations Manager"], ["created_at", "2023-03-27 20:35:14.971136"], ["updated_at", "2023-03-27 20:35:14.971136"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.4ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Voynovich"], ["firstname", "Chris"], ["email", "christopher.Voynovich@uc.edu"], ["phone", "556-4293"], ["title", "Conservation Technician"], ["created_at", "2023-03-27 20:35:14.976424"], ["updated_at", "2023-03-27 20:35:14.976424"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.5ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Bachelder"], ["firstname", "Dean"], ["email", "dean.bachelder@uc.edu"], ["phone", "558-5677"], ["title", "Evening & Weedend Supervisor, Circulation Desk"], ["created_at", "2023-03-27 20:35:14.982463"], ["updated_at", "2023-03-27 20:35:14.982463"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.4ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Horton"], ["firstname", "Glen"], ["email", "glen.horton@uc.edu"], ["phone", "556-1491"], ["title", "Senior Software Developer"], ["created_at", "2023-03-27 20:35:14.988657"], ["updated_at", "2023-03-27 20:35:14.988657"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.4ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Tansey"], ["firstname", "Eira"], ["email", "eira.tansey@uc.edu"], ["phone", "556-1958 "], ["title", "Assistant Librarian"], ["created_at", "2023-03-27 20:35:14.994411"], ["updated_at", "2023-03-27 20:35:14.994411"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.3ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Schieszer"], ["firstname", "Ashleigh"], ["email", "ashleigh.schieszer@uc.edu"], ["phone", "556-4289"], ["title", "Lab Conservator"], ["created_at", "2023-03-27 20:35:14.999041"], ["updated_at", "2023-03-27 20:35:14.999041"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.4ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Grant"], ["firstname", "Tiffany"], ["email", "tiffany.grant@uc.edu"], ["phone", "558-9153"], ["title", "Assistant Librarian"], ["created_at", "2023-03-27 20:35:15.003682"], ["updated_at", "2023-03-27 20:35:15.003682"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.3ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Koshoffer"], ["firstname", "Amy"], ["email", "amy.koshoffer@uc.edu"], ["phone", "556-1310"], ["title", "Assistant Librarian"], ["created_at", "2023-03-27 20:35:15.009296"], ["updated_at", "2023-03-27 20:35:15.009296"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.3ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Welter"], ["firstname", "Amanda"], ["email", "amanda.welter@uc.edu"], ["phone", "556-7015"], ["title", "Director, Library Facilities and Planning"], ["created_at", "2023-03-27 20:35:15.013829"], ["updated_at", "2023-03-27 20:35:15.013829"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.6ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Mackiewicz"], ["firstname", "Jenny"], ["email", "jennifer.mackiewicz@uc.edu"], ["phone", "556-1394"], ["title", "Program Coordinator"], ["created_at", "2023-03-27 20:35:15.018434"], ["updated_at", "2023-03-27 20:35:15.018434"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.4ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Bourne"], ["firstname", "Regina"], ["email", "regina.bourne@uc.edu"], ["phone", "556-0326"], ["title", "Director, Organizational Development"], ["created_at", "2023-03-27 20:35:15.025412"], ["updated_at", "2023-03-27 20:35:15.025412"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.6ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Williams"], ["firstname", "Sara"], ["email", "sara.williams3@uc.edu"], ["phone", "556-1396"], ["title", "Collections Acquisitions"], ["created_at", "2023-03-27 20:35:15.030158"], ["updated_at", "2023-03-27 20:35:15.030158"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.4ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Hyden"], ["firstname", "Amanda"], ["email", "amanda.hyden@uc.edu"], ["phone", "556-1042"], ["title", "eResources & Access"], ["created_at", "2023-03-27 20:35:15.040863"], ["updated_at", "2023-03-27 20:35:15.040863"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.5ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Jason"], ["firstname", "Don"], ["email", "don.jason@uc.edu"], ["phone", "558-0725"], ["title", "Assistant Librarian"], ["created_at", "2023-03-27 20:35:15.046874"], ["updated_at", "2023-03-27 20:35:15.046874"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.8ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Tassell"], ["firstname", "Regina"], ["email", "regina.tassell@uc.edu"], ["phone", "556-1044"], ["title", "Associate to Dean"], ["created_at", "2023-03-27 20:35:15.052095"], ["updated_at", "2023-03-27 20:35:15.052095"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.4ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Harris"], ["firstname", "Lori"], ["email", "lori.harris@uc.edu"], ["phone", "556-1515"], ["title", "Interim Dean and University Librarian"], ["created_at", "2023-03-27 20:35:15.059181"], ["updated_at", "2023-03-27 20:35:15.059181"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.4ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Figueirinhas"], ["firstname", "Catarina "], ["email", "catarina.figueirinhas@uc.edu"], ["phone", "556-4280"], ["title", "Sr. Conservation Specialist "], ["created_at", "2023-03-27 20:35:15.063864"], ["updated_at", "2023-03-27 20:35:15.063864"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.8ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Alfieri"], ["firstname", "Michael"], ["email", "michael.alfieri@uc.edu"], ["phone", "556-1852"], ["title", "Director, User Services"], ["created_at", "2023-03-27 20:35:15.068545"], ["updated_at", "2023-03-27 20:35:15.068545"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.4ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Pasi"], ["firstname", "Gino"], ["email", "gino.pasi@uc.edu"], ["phone", "558-5123"], ["title", "Archivist and Curator for the Winkler Center"], ["created_at", "2023-03-27 20:35:15.074779"], ["updated_at", "2023-03-27 20:35:15.074779"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.3ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Thatcher"], ["firstname", "Carissa"], ["email", "carissa.thatcher@uc.edu"], ["phone", "556-5758"], ["title", "Team Leader, Collections Acquisitions"], ["created_at", "2023-03-27 20:35:15.080446"], ["updated_at", "2023-03-27 20:35:15.080446"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.7ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["lastname", "Lee"], ["firstname", "James"], ["email", "lee6jj@ucmail.uc.edu"], ["phone", "556.5924"], ["created_at", "2023-03-27 20:35:15.084819"], ["updated_at", "2023-03-27 20:35:15.084819"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.3ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Chang"], ["firstname", "May"], ["email", "may.chang@uc.edu"], ["phone", "556-3165"], ["title", "Library Chief Technology Officer"], ["created_at", "2023-03-27 20:35:15.091112"], ["updated_at", "2023-03-27 20:35:15.091112"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.3ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Purvis"], ["firstname", "Val"], ["email", "purvisvj@ucmail.uc.edu"], ["phone", "558-0186"], ["title", "Program Coordinator"], ["created_at", "2023-03-27 20:35:15.094807"], ["updated_at", "2023-03-27 20:35:15.094807"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.3ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Doctor"], ["firstname", "Jenny"], ["email", "jenny.doctor@uc.edu"], ["phone", "556-1964"], ["title", "Head of the Albino Gorno Memorial (CCM) Library"], ["created_at", "2023-03-27 20:35:15.098945"], ["updated_at", "2023-03-27 20:35:15.098945"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.4ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Person"], ["firstname", "Craig"], ["email", "personcg@ucmail.uc.edu"], ["phone", "556-1453"], ["title", "Associate Director of Operations"], ["created_at", "2023-03-27 20:35:15.103042"], ["updated_at", "2023-03-27 20:35:15.103042"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.4ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Lindau"], ["firstname", "Rebecka"], ["email", "rebecka.lindau@uc.edu"], ["phone", "556-1316"], ["title", "Head of the John Miller Burnam Classical Library"], ["created_at", "2023-03-27 20:35:15.107963"], ["updated_at", "2023-03-27 20:35:15.107963"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.4ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Gichuru"], ["firstname", "Dorcas"], ["email", "gichurds@ucmail.uc.edu"], ["phone", "556-1463"], ["title", "Business Manager"], ["created_at", "2023-03-27 20:35:15.113045"], ["updated_at", "2023-03-27 20:35:15.113045"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.4ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Zonker"], ["firstname", "Christopher"], ["email", "zonkerca@ucmail.uc.edu"], ["phone", "556-1996"], ["title", "Financial Administrator 2"], ["created_at", "2023-03-27 20:35:15.117147"], ["updated_at", "2023-03-27 20:35:15.117147"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.3ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Patel"], ["firstname", "Margaux"], ["email", "margaux.patel@uc.edu"], ["phone", "556-1580"], ["title", "Business & Data Analytic Librarian"], ["created_at", "2023-03-27 20:35:15.122287"], ["updated_at", "2023-03-27 20:35:15.122287"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.3ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Scherz"], ["firstname", "Thomas"], ["email", "thomas.scherz@uc.edu"], ["phone", "556-1406"], ["title", "Software Applications Developer, Senior"], ["created_at", "2023-03-27 20:35:15.126179"], ["updated_at", "2023-03-27 20:35:15.126179"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.3ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Haitz"], ["firstname", "Lisa"], ["email", "lisa.haitz@uc.edu"], ["phone", "556-1431"], ["title", "Software Developer 2"], ["created_at", "2023-03-27 20:35:15.129721"], ["updated_at", "2023-03-27 20:35:15.129721"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.3ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "McCabe"], ["firstname", "Erin"], ["email", "Erin.McCabe@uc.edu"], ["phone", "558-6019"], ["title", "NONE"], ["created_at", "2023-03-27 20:35:15.133729"], ["updated_at", "2023-03-27 20:35:15.133729"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.4ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Edgerton"], ["firstname", "Ezra"], ["email", "Ezra.Edgerton@uc.edu"], ["phone", "558-0308"], ["title", "Software Applications Developer"], ["created_at", "2023-03-27 20:35:15.138310"], ["updated_at", "2023-03-27 20:35:15.138310"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.3ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Scarpelli"], ["firstname", "Elizabeth"], ["email", "scarpeea@ucmail.uc.edu"], ["phone", "556-1494"], ["title", "Director UC Press"], ["created_at", "2023-03-27 20:35:15.143903"], ["updated_at", "2023-03-27 20:35:15.143903"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.4ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Rinto"], ["firstname", "Erin"], ["email", "rintoen@ucmail.uc.edu"], ["phone", "0"], ["title", "Assistant Librarian"], ["created_at", "2023-03-27 20:35:15.149073"], ["updated_at", "2023-03-27 20:35:15.149073"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.4ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Sorrell"], ["firstname", "Scott"], ["email", "sorrelsc@ucmail.uc.edu"], ["phone", "558-0290"], ["title", "Computer Systems Administrator - Lead"], ["created_at", "2023-03-27 20:35:15.155473"], ["updated_at", "2023-03-27 20:35:15.155473"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.3ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Gao"], ["firstname", "Sidney"], ["email", "gaosy@ucmail.uc.edu"], ["phone", "556-4696"], ["title", "Digital Collections Manager"], ["created_at", "2023-03-27 20:35:15.160406"], ["updated_at", "2023-03-27 20:35:15.160406"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.3ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Chalmers"], ["firstname", "Mark"], ["email", "chalmemk@ucmail.uc.edu"], ["phone", "556-1452"], ["title", "Assistant Librarian"], ["created_at", "2023-03-27 20:35:15.163789"], ["updated_at", "2023-03-27 20:35:15.163789"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.4ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Wysinski"], ["firstname", "Nathan"], ["email", "wysinsnj@ucmail.uc.edu"], ["phone", "558-4073"], ["title", "Computer User Support Specialist"], ["created_at", "2023-03-27 20:35:15.167474"], ["updated_at", "2023-03-27 20:35:15.167474"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.5ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Foran-Mulcahy"], ["firstname", "Katie"], ["email", "foranmkn@ucmail.uc.edu"], ["phone", "556-1758"], ["title", "Interim Asst Dean of Library Operation"], ["created_at", "2023-03-27 20:35:15.172526"], ["updated_at", "2023-03-27 20:35:15.172526"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.3ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Moena"], ["firstname", "Diego"], ["email", "moenads@ucmail.uc.edu"], ["phone", "556-1411"], ["title", "NONE"], ["created_at", "2023-03-27 20:35:15.177296"], ["updated_at", "2023-03-27 20:35:15.177296"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.3ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Nickels"], ["firstname", "Lindsay"], ["email", "nickelly@ucmail.uc.edu"], ["phone", "558-5678"], ["title", "Program Coordinator"], ["created_at", "2023-03-27 20:35:15.181441"], ["updated_at", "2023-03-27 20:35:15.181441"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.4ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["lastname", "Previtera"], ["firstname", "Melissa"], ["email", "melissa.previtera@uc.edu"], ["phone", "558-3071"], ["created_at", "2023-03-27 20:35:15.185195"], ["updated_at", "2023-03-27 20:35:15.185195"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.3ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Bratt"], ["firstname", "Suzanne"], ["email", "brattse@ucmail.uc.edu"], ["phone", "556-1963"], ["title", "Assistant Dir, Academic"], ["created_at", "2023-03-27 20:35:15.190303"], ["updated_at", "2023-03-27 20:35:15.190303"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.3ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Becker"], ["firstname", "Alan"], ["email", "beckeraj@ucmail.uc.edu"], ["phone", "556-2650"], ["title", "Sr Library Associate-9"], ["created_at", "2023-03-27 20:35:15.194156"], ["updated_at", "2023-03-27 20:35:15.194156"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.3ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Stewart"], ["firstname", "Shannan"], ["email", "stewars3@ucmail.uc.edu"], ["phone", "556-1314"], ["title", "Asst Dir Academic"], ["created_at", "2023-03-27 20:35:15.197837"], ["updated_at", "2023-03-27 20:35:15.197837"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.5ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Gaiser"], ["firstname", "Madeleine"], ["email", "gaiserml@ucmail.uc.edu"], ["phone", "556-1430"], ["title", "Online Learning & Instruction Librarian"], ["created_at", "2023-03-27 20:35:15.201996"], ["updated_at", "2023-03-27 20:35:15.201996"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.3ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Bernardo"], ["firstname", "Christa"], ["email", "bernarct@foundation.uc.edu"], ["phone", "556-0055"], ["title", "Director of Development"], ["created_at", "2023-03-27 20:35:15.207320"], ["updated_at", "2023-03-27 20:35:15.207320"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.3ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Hoople"], ["firstname", "Rachel"], ["email", "hooplere@ucmail.uc.edu"], ["phone", "556-1307"], ["title", "Operations Manager and Student Supervisor"], ["created_at", "2023-03-27 20:35:15.210991"], ["updated_at", "2023-03-27 20:35:15.210991"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.4ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Schaffer"], ["firstname", "Samantha"], ["email", "samantha.schaffer@uc.edu"], ["phone", "556-1404"], ["title", "Computer Systems Administrator 2"], ["created_at", "2023-03-27 20:35:15.214800"], ["updated_at", "2023-03-27 20:35:15.214800"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.5ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Warner"], ["firstname", "Lynn"], ["email", "warnerlc@ucmail.uc.edu"], ["phone", "558-4173"], ["title", "Asst. Librarian"], ["created_at", "2023-03-27 20:35:15.218965"], ["updated_at", "2023-03-27 20:35:15.218965"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.3ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "IT@Langsam"], ["firstname", "IT@Langsam"], ["email", "'No E-mail'"], ["phone", "556-0168"], ["title", "Technology Assistance"], ["created_at", "2023-03-27 20:35:15.223673"], ["updated_at", "2023-03-27 20:35:15.223673"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.3ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Mao"], ["firstname", "Yu"], ["email", "maoyu@ucmail.uc.edu"], ["phone", "556-1551"], ["title", "Director of Busines Affairs"], ["created_at", "2023-03-27 20:35:15.227884"], ["updated_at", "2023-03-27 20:35:15.227884"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (1.7ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Hershiser"], ["firstname", "Madison"], ["email", "hershime@ucmail.uc.edu"], ["phone", "556-1454"], ["title", "Resource Sharing Assistant"], ["created_at", "2023-03-27 20:35:15.233147"], ["updated_at", "2023-03-27 20:35:15.233147"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.4ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Reder"], ["firstname", "Lauren"], ["email", "rederle@ucmail.uc.edu"], ["phone", "0"], ["title", "NONE"], ["created_at", "2023-03-27 20:35:15.240993"], ["updated_at", "2023-03-27 20:35:15.240993"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.3ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Reder"], ["firstname", "Lauren"], ["email", "rederle@ucmail.uc.edu"], ["phone", "0"], ["title", "Cataloguer, Classics/Modern Greek"], ["created_at", "2023-03-27 20:35:15.245838"], ["updated_at", "2023-03-27 20:35:15.245838"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.5ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Johnson"], ["firstname", "Meni"], ["email", "jomk@ucmail.uc.edu"], ["phone", "5563086"], ["title", "Sr. HR Coordinator"], ["created_at", "2023-03-27 20:35:15.250293"], ["updated_at", "2023-03-27 20:35:15.250293"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.4ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Johnson"], ["firstname", "Meni"], ["email", "jomk@ucmail.uc.edu"], ["phone", "5563086"], ["title", "Sr. HR Coordinator"], ["created_at", "2023-03-27 20:35:15.256298"], ["updated_at", "2023-03-27 20:35:15.256298"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.4ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Grigg Dean"], ["firstname", "Elaine"], ["email", "griggdeh@ucmail.uc.edu"], ["phone", "556-1550"], ["title", "Information Specialist"], ["created_at", "2023-03-27 20:35:15.261289"], ["updated_at", "2023-03-27 20:35:15.261289"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.5ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Johnson"], ["firstname", "Meni"], ["email", "jomk@ucmail.uc.edu"], ["phone", "5563086"], ["title", "Sr. HR. Coordinator"], ["created_at", "2023-03-27 20:35:15.266595"], ["updated_at", "2023-03-27 20:35:15.266595"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.5ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Temple"], ["firstname", "Alex"], ["email", "templea@ucmail.uc.edu"], ["phone", "556-1959"], ["title", "Archivist"], ["created_at", "2023-03-27 20:35:15.272371"], ["updated_at", "2023-03-27 20:35:15.272371"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.4ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Minelli"], ["firstname", "Michael"], ["email", "minellmr@ucmail.uc.edu"], ["phone", "556-6276"], ["title", "Journals & Digital Production Manager"], ["created_at", "2023-03-27 20:35:15.278296"], ["updated_at", "2023-03-27 20:35:15.278296"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.4ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Snyder"], ["firstname", "Edward"], ["email", "snyderew@ucmail.uc.edu"], ["phone", "556-0168"], ["title", "Endpoint Specialist"], ["created_at", "2023-03-27 20:35:15.283585"], ["updated_at", "2023-03-27 20:35:15.283585"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.3ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Richardson"], ["firstname", "Andrew"], ["email", "richaa3@ucmail.uc.edu'"], ["phone", "558-0127"], ["title", "Computer & Information Analyst"], ["created_at", "2023-03-27 20:35:15.288417"], ["updated_at", "2023-03-27 20:35:15.288417"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.4ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Mudd"], ["firstname", "Matthew"], ["email", "muddmw@ucmail.uc.edu"], ["phone", "558-0127"], ["title", "Endpoint Specialist"], ["created_at", "2023-03-27 20:35:15.292640"], ["updated_at", "2023-03-27 20:35:15.292640"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.4ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Schnee"], ["firstname", "Samantha"], ["email", "samantha.schaffer@uc.edu"], ["phone", "556-1404"], ["title", "Systems Administrator"], ["created_at", "2023-03-27 20:35:15.297921"], ["updated_at", "2023-03-27 20:35:15.297921"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.4ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Sliney"], ["firstname", "Kyle"], ["email", "slineykm@ucmail.uc.edu"], ["phone", "558-0430"], ["title", "Multimedia Designer"], ["created_at", "2023-03-27 20:35:15.302829"], ["updated_at", "2023-03-27 20:35:15.302829"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.3ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Smith"], ["firstname", "Erin"], ["email", "smith8en@ucmail.uc.edu"], ["phone", "556-1560"], ["title", "Collections Acquisitions Specialist"], ["created_at", "2023-03-27 20:35:15.308631"], ["updated_at", "2023-03-27 20:35:15.308631"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mEmployee Create (0.3ms)[0m  [1m[32mINSERT INTO "employees" ("lastname", "firstname", "email", "phone", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["lastname", "Bettencourt-McCarthy"], ["firstname", "Aja"], ["email", "bettenar@ucmail.uc.edu"], ["phone", "556-5707"], ["title", "Science-Engineering Global Services Librarian"], ["created_at", "2023-03-27 20:35:15.312734"], ["updated_at", "2023-03-27 20:35:15.312734"]]
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/import_csv2.rb:9:in `block in <main>'
+Started GET "/employees" for 127.0.0.1 at 2023-03-27 16:37:48 -0400
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+You have 1 pending migration:
+
+20230327200016_create_add_data.rb
+
+
+):
+  
+activerecord (6.1.7.2) lib/active_record/migration.rb:625:in `check_pending!'
+activerecord (6.1.7.2) lib/active_record/migration.rb:590:in `block (2 levels) in call'
+activesupport (6.1.7.2) lib/active_support/evented_file_update_checker.rb:59:in `execute'
+activerecord (6.1.7.2) lib/active_record/migration.rb:595:in `block in call'
+activerecord (6.1.7.2) lib/active_record/migration.rb:587:in `synchronize'
+activerecord (6.1.7.2) lib/active_record/migration.rb:587:in `call'
+actionpack (6.1.7.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.7.2) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.7.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.7.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.7.2) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.7.2) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.1.7.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.7.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.7.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.7.2) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.7.2) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.7.2) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.7.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.1.7.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.7.2) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.6.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.6.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.7.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.7.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.7.2) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.6.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.7.2) lib/action_dispatch/middleware/host_authorization.rb:148:in `call'
+rack-mini-profiler (2.3.4) lib/mini_profiler/profiler.rb:393:in `call'
+webpacker (5.4.4) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.7.6) lib/rack/proxy.rb:87:in `call'
+railties (6.1.7.2) lib/rails/engine.rb:539:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateAddData (20230327200016)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "add_data" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230327200016"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/employees" for 127.0.0.1 at 2023-03-27 16:38:23 -0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.6ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:26
+  Rendered employees/index.html.erb within layouts/application (Duration: 26.2ms | Allocations: 23328)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 54.1ms | Allocations: 29981)
+Completed 200 OK in 81ms (Views: 57.1ms | ActiveRecord: 1.1ms | Allocations: 34484)
+
+
+Started GET "/employees/1/edit" for 127.0.0.1 at 2023-03-27 16:39:09 -0400
+Processing by EmployeesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/employees_controller.rb:63:in `set_employee'
+  Rendering layout layouts/application.html.erb
+  Rendering employees/edit.html.erb within layouts/application
+  Rendered employees/_form.html.erb (Duration: 20.1ms | Allocations: 4601)
+  Rendered employees/edit.html.erb within layouts/application (Duration: 21.8ms | Allocations: 5095)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 35.2ms | Allocations: 8810)
+Completed 200 OK in 50ms (Views: 35.9ms | ActiveRecord: 0.2ms | Allocations: 13574)
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-03-27 16:39:13 -0400
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.5ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:26
+  Rendered employees/index.html.erb within layouts/application (Duration: 27.9ms | Allocations: 16967)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 38.5ms | Allocations: 20620)
+Completed 200 OK in 40ms (Views: 38.8ms | ActiveRecord: 0.5ms | Allocations: 21165)
+
+
+Started DELETE "/employees/1" for 127.0.0.1 at 2023-03-27 16:39:18 -0400
+Processing by EmployeesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"1"}
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/employees_controller.rb:63:in `set_employee'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/employees_controller.rb:52:in `destroy'
+  [1m[36mEmployee Destroy (1.5ms)[0m  [1m[31mDELETE FROM "employees" WHERE "employees"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/employees_controller.rb:52:in `destroy'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/employees_controller.rb:52:in `destroy'
+Redirected to http://127.0.0.1:3000/employees
+Completed 302 Found in 10ms (ActiveRecord: 2.7ms | Allocations: 3174)
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-03-27 16:39:18 -0400
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.4ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:26
+  Rendered employees/index.html.erb within layouts/application (Duration: 33.8ms | Allocations: 16717)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 42.5ms | Allocations: 20355)
+Completed 200 OK in 44ms (Views: 42.7ms | ActiveRecord: 0.4ms | Allocations: 20828)
+
+
+Started DELETE "/employees/2" for 127.0.0.1 at 2023-03-27 16:39:23 -0400
+Processing by EmployeesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"2"}
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/employees_controller.rb:63:in `set_employee'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/employees_controller.rb:52:in `destroy'
+  [1m[36mEmployee Destroy (0.4ms)[0m  [1m[31mDELETE FROM "employees" WHERE "employees"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/employees_controller.rb:52:in `destroy'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/employees_controller.rb:52:in `destroy'
+Redirected to http://127.0.0.1:3000/employees
+Completed 302 Found in 9ms (ActiveRecord: 2.0ms | Allocations: 2802)
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-03-27 16:39:23 -0400
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.4ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:26
+  Rendered employees/index.html.erb within layouts/application (Duration: 16.8ms | Allocations: 16548)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 24.2ms | Allocations: 20172)
+Completed 200 OK in 26ms (Views: 24.6ms | ActiveRecord: 0.4ms | Allocations: 20642)
+
+
