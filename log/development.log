@@ -1325,3 +1325,17 @@ Processing by EmployeesController#index as HTML
 Completed 200 OK in 16ms (Views: 14.1ms | ActiveRecord: 0.2ms | Allocations: 5191)
 
 
+Started GET "/employees/" for 127.0.0.1 at 2023-03-27 14:30:48 -0400
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.9ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:26
+  Rendered employees/index.html.erb within layouts/application (Duration: 17.6ms | Allocations: 7538)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 57.3ms | Allocations: 14674)
+Completed 200 OK in 79ms (Views: 60.5ms | ActiveRecord: 1.6ms | Allocations: 19093)
+
+
