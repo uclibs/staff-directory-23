@@ -10,9 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_27_200016) do
+ActiveRecord::Schema.define(version: 2023_03_27_213507) do
 
   create_table "add_data", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "departments", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -23,10 +29,12 @@ ActiveRecord::Schema.define(version: 2023_03_27_200016) do
     t.string "email"
     t.string "phone"
     t.string "title"
-    t.string "department"
+    t.string "department", null: false
     t.string "pronouns"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "department_id"
+    t.index ["department_id"], name: "index_employees_on_department_id"
   end
 
   create_table "managers", force: :cascade do |t|
@@ -41,4 +49,5 @@ ActiveRecord::Schema.define(version: 2023_03_27_200016) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "employees", "departments"
 end
