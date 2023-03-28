@@ -1,6 +1,32 @@
 <h1>Departments List</h1>
-<ul>
-  <% @departments.each do |department| %>
-    <li><%= department.name %></li>
-  <% end %>
-</ul>
+
+
+      <p id="notice"><%= notice %></p>
+
+
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @departments.each do |department| %>
+      <tr>
+        <td><%= department.id %></td>
+        <td><%= department.name %></td>
+        <td><%= link_to 'Show', department %></td>
+        <td><%= link_to 'Edit', edit_department_path(department) %></td>
+        <td><%= link_to 'Destroy', department, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Add New Department', new_department_path %>
