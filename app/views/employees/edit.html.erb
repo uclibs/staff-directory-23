@@ -1,0 +1,28 @@
+<h1>Edit Employee</h1>
+
+<%= form_for @employee do |f| %>
+  <%= f.label :firstname %>
+  <%= f.text_field :firstname %>
+
+  <%= f.label :lastname %>
+  <%= f.text_field :lastname %>
+
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+
+  <%= f.label :phone %>
+  <%= f.text_field :phone %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :department %>
+  <%= f.collection_select :department_id, Department.all, :id, :name %>
+
+  <%= f.label :pronouns %>
+  <%= f.text_field :pronouns %>
+
+  <%= f.submit "Save" %>
+<% end %>
+
+<%= link_to "Back", employees_path %>

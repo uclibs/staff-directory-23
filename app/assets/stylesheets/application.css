@@ -13,4 +13,431 @@
  *= require_tree .
  *= require_self
  */
-stylesheet_link_tag 'application', 'https://libapps.libraries.uc.edu/sf/forms/css/main.css'
+/* Body */
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@100..900&display=swap');
+body {
+	  font-family: 'Jost', sans-serif;
+	background-color: #fff;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	font-style: normal;
+    font-size: 110%;
+ flex: 1;   
+}
+
+
+.btn {
+    background-color:#e00122;
+    color:white;
+    font-weight:bolder;
+    font-size: 100%;
+    padding:10px;}
+.message{
+    border: thin #DC292C solid;
+    padding:10px;
+    text-align: center
+}
+th, td {
+  padding: 10px;
+}
+.sortheader{
+    background-color: crimson;
+    color:white;
+}
+.footer a:link {
+  color: white;
+    text-decoration: underline;
+}
+
+/* visited link */
+.footer a:visited {
+  color: white;
+}
+
+/* mouse over link */
+.footer a:hover {
+  color: #000;
+}
+
+/* selected link */
+.footer a:active {
+  color: blue;
+}
+.messp{
+	margin-bottom:10px;
+	
+	font-style: italic;
+}
+input{
+line-height:1.5;
+font-size:100%;
+border:thin black solid;
+padding:5px;
+border-radius:10px;
+    margin:4px;
+}
+
+
+
+/*button*/
+.styled {
+    border: 0;
+    line-height: 1.5;
+    padding: 8px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background-color: rgba(220, 0, 0, 1);
+margin-top:10px;
+}
+
+.styled:hover {
+    background-color: rgba(255, 0, 0, 1);
+}
+
+.styled:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+                inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
+
+
+fieldset{
+    border: none;
+
+}
+
+.textcontainer{
+    
+    
+}
+
+.maincontainer {
+    min-width: 1170px;
+    display: flex;  /* use the flex model */
+    min-height: 75%;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+	
+}
+
+
+.contentwrap {
+	padding-top: 1%;
+    padding-bottom:1%;
+    padding-left: 8%;
+    padding-right: 1%;
+    line-height:normal;
+    max-width: 90%;
+    text-align: left;
+}
+
+
+.footer { 
+    width:100%;
+    height:300px;
+
+ 
+ 
+}
+.form1{
+    border-radius:10px;
+    margin-bottom: 3em;
+    width: 70%;
+    padding:15px;
+    border:medium gray outset;
+
+    
+}
+header {
+	width: 95%;
+	height: 5%;
+}
+
+.first{
+    background-color: #e00122;
+    padding-left:8%;
+    font-family: 'Open Sans', sans-serif;
+    height:74px;
+    
+}
+
+.second{
+ background-color: #b8011c;
+    color:#fff;
+ margin-top:0px;
+ padding-top:10px;
+ height:30px;
+ padding-left:8%;
+ font-weight:bold;
+ font-family: 'Open Sans', sans-serif;
+ font-size: 110%;
+}
+.second a {
+    color:white;
+
+text-decoration:none;}
+.nav{
+    
+ background-color: white;
+ margin-top:0px;
+ padding-top:4px;
+    padding-bottom: 5px;
+ height:20px;
+ align-content: flex-start;
+ padding-left:8%;
+ vertical-align: middle;
+ 
+    font-size:100%;
+    border-bottom: thin 
+#000000
+        solid
+}
+
+.nav a {
+color:#e00122;   
+    text-decoration: none;
+    
+}
+.light {
+	font-weight: bold;
+	color: #717070;
+}
+
+/* About Section */
+
+
+
+
+
+
+.boxes {
+  display:table;
+  width: 100%;
+  height: 100%;
+    background-color: #e00122;
+    padding-left:8%;
+    
+/* singlePageTemplate.css | https://libapps.libraries.uc.edu/css/singlePageTemplate.css */
+
+
+
+
+}
+
+.box {
+  display: table-cell;
+  text-align: left;
+ 
+  line-height: 2.0em;
+  padding:10px;
+ 
+    
+}
+
+.box1 {
+    width: 350px;
+    background-color: #000;
+    color: #FFF;
+    padding: 40px;
+ 
+}
+
+.box1 a:hover{
+    color: #d9d4d4;
+}
+.box2 {
+
+    background-color: #e00122;
+    color: #FFF;
+    padding: 40px;
+    line-height: 1.2em;
+}
+
+.box3 {
+  background: #E00122;
+    width:70%;
+    color:white;
+       
+}
+.box3 a {color:lightcyan;}
+
+@media (max-width: 420px) {
+    .box {
+        display: block;
+        width: 100%;
+        
+    }
+    body{overflow:scroll;}
+}
+
+
+/* Basic Style*/
+* { margin:0; padding:0;}
+html, body { height: 100%; }
+
+
+
+
+.hidden {
+	display: none;
+}
+
+/* Mobile */
+
+@media (max-width: 320px) {
+    
+    .form1{
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    padding:0px;
+    border:medium #e00122 outset;
+
+    }
+
+body{font-size:90%;
+      background-color: red;}   
+.logo {
+	width: 100%;
+	text-align: center;
+	margin-top: 13px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
+.container {
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	width: 100%;
+	
+}
+    
+input{line-height:1.0;
+width:40%;}
+
+.thumbnail {
+	width: 100%;
+}
+
+
+
+/* Small Tablets */
+@media (min-width: 321px)and (max-width: 767px) {
+      body{overflow: scroll}
+.form1{
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    padding:0px;
+    border:medium #e00122 outset;
+
+    }
+    
+.container {
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	width: 100%;
+	
+}
+    #form1{
+        
+        
+        
+    }    
+.text_column {
+	width: 100%;
+	text-align: left;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+}
+
+
+.footer_column {
+	width: 100%;
+	margin-top: 0px;
+}
+
+
+
+
+
+
+/* Small Desktops */
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    body{ font-size:75%;
+   }
+    .form1{
+   
+    width: 100%;
+    padding:0px;
+    border:none;
+
+    }
+    fieldset{
+border: none;
+margin-bottom: 10px;  
+}
+
+.about{width: 90%;
+   
+   
+	}
+.container {
+	width: 100%;
+	
+	background-color: #FFFFFF;
+    margin-top: 0px;
+    margin-bottom: 0px;
+
+}
+.form1{
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    padding:20px;
+    border:medium #9E2527 inset;
+
+    
+}
+header {
+	width: 95%;
+	height: 5%;
+}
+
+.first{background-color: #e00122;
+    padding-left:25px;
+    font-family: 'Open Sans', sans-serif;
+    height:74px;
+    
+}
+
+.second{
+ 
+    background-color: #b8011c;
+    margin-top:0px;
+    padding-top:8px;
+    height:35px;
+    padding-left:45px;
+    font-weight:bold;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 110%;
+}
+
+.light {
+	font-weight: bold;
+ 	color: #717070;
+}
+	}
