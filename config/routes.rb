@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'departments/edit'
   get 'departments/update'
   #root 'employees#index' # make the employees#index the root of the application
-  root  'public#index'
+  root  'employees#index'
   #suggestion: get 'public/index'
   resources :employees
   resources :departments
