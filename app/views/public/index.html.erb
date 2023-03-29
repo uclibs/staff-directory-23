@@ -1,0 +1,32 @@
+<!--<p>UC Libraries Staff Directory</p>-->
+
+<table>
+  <thead>
+    <tr>
+      <th>Lastname</th>
+      <th>Firstname</th>
+      <th>Department</th>
+      <th>Pronouns</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @employees.each do |employee| %>
+      <tr>
+        <td><%= employee.lastname %></td>
+        <td><%= employee.firstname %></td>
+        <td><%= employee.department %></td>
+        <td><%= employee.pronouns %></td>
+        <td><%= employee.email %></td>
+        <td><%= employee.phone %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_27_213507) do
+ActiveRecord::Schema.define(version: 2023_03_28_213051) do
 
   create_table "add_data", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -18,6 +18,11 @@ ActiveRecord::Schema.define(version: 2023_03_27_213507) do
   end
 
   create_table "departments", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "departments_copy", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
