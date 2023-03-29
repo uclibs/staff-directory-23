@@ -21,7 +21,7 @@
       <tr>
         <td><%= employee.lastname %></td>
         <td><%= employee.firstname %></td>
-        <td><%= employee.department %></td>
+        <td><%= employee.department.nil? ? "" : employee.department.name %></td>
         <td><%= employee.pronouns %></td>
         <td><%= employee.email %></td>
         <td><%= employee.phone %></td>
