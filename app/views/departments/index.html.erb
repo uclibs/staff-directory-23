@@ -15,7 +15,8 @@
   </thead>
 
   <tbody>
-    <% @departments.each do |department| %>
+      <% @departments.order(:name).each do |department| %>
+   
       <tr>
         <td><%= department.id %></td>
         <td><%= department.name %></td>
