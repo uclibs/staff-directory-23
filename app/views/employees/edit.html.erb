@@ -1,28 +1,55 @@
 <h1>Edit Employee</h1>
 
 <%= form_for @employee do |f| %>
+
+
+<% if flash[:error] %>
+  <div class="alert alert-danger">
+    <%= flash[:error] %>
+  </div>
+<% end %>
+
+
+
+<div class="form-row">
   <%= f.label :firstname %>
   <%= f.text_field :firstname %>
+</div>
 
+<div class="form-row">
   <%= f.label :lastname %>
   <%= f.text_field :lastname %>
+    </div>
 
+<div class="form-row">
   <%= f.label :email %>
   <%= f.text_field :email %>
+    </div>
 
+<div class="form-row">
   <%= f.label :phone %>
   <%= f.text_field :phone %>
+    </div>
 
+<div class="form-row">
   <%= f.label :title %>
   <%= f.text_field :title %>
+    </div>
 
-  <%= f.label :department %>
-  <%= f.collection_select :department_id, Department.all, :id, :name %>
+<div class="form-row"> 
+  <%= f.label :Current_Department %>
+  <%= (@employee.department.nil? ? "None Assigned" : @employee.department.name) %>
+</div>
 
-  <%= f.label :pronouns %>
-  <%= f.text_field :pronouns %>
+<div class="form-row">
+  <%= f.label :Change_dept_to %>
+  <%= f.collection_select :department_id, Department.order(:name), :id, :name %>
+</div>
 
+<div class="form-row">
   <%= f.submit "Save" %>
+    </div>
 <% end %>
+
 
 <%= link_to "Back", employees_path %>

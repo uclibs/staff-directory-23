@@ -1,39 +1,36 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Lastname:</strong>
+<h2>Employee Detail</h2>
+<div class="form-row">
+  <strong>Last name:</strong>
   <%= @employee.lastname %>
-</p>
+</div>
 
-<p>
-  <strong>Firstname:</strong>
+<div class="form-row">
+  <strong>First name:</strong>
   <%= @employee.firstname %>
-</p>
+</div>
 
-<p>
+<div class="form-row">
   <strong>Email:</strong>
   <%= @employee.email %>
-</p>
+</div>
 
-<p>
+<div class="form-row">
   <strong>Phone:</strong>
   <%= @employee.phone %>
-</p>
+</div>
 
-<p>
+<div class="form-row">
   <strong>Title:</strong>
   <%= @employee.title %>
-</p>
+</div>
 
-<p>
+<div class="form-row">
   <strong>Department:</strong>
-  <%= @employee.department %>
-</p>
+ <%= @employee.department.nil? ? "" : @employee.department.name %>
+</div>
+<hr />
 
-<p>
-  <strong>Pronouns:</strong>
-  <%= @employee.pronouns %>
-</p>
+<p><%= link_to 'Edit', edit_employee_path(@employee) %> |
+<%= link_to 'Back', employees_path %></p>
 
-<%= link_to 'Edit', edit_employee_path(@employee) %> |
-<%= link_to 'Back', employees_path %>
