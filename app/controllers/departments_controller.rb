@@ -10,6 +10,11 @@ class DepartmentsController < ApplicationController
   def edit
     @department = Department.find(params[:id])
   end
+# GET /department/new
+def new
+  @department = Department.new(name: "")
+end
+
 
   def update
     @department = Department.find(params[:id])
