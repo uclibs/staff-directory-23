@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_28_213051) do
+ActiveRecord::Schema.define(version: 2023_04_04_143113) do
 
   create_table "add_data", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -20,12 +20,7 @@ ActiveRecord::Schema.define(version: 2023_03_28_213051) do
   create_table "departments", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "departments_copy", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "employees", force: :cascade do |t|
@@ -34,11 +29,11 @@ ActiveRecord::Schema.define(version: 2023_03_28_213051) do
     t.string "email"
     t.string "phone"
     t.string "title"
-    t.string "department", null: false
+    t.string "department"
     t.string "pronouns"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "department_id"
+    t.integer "department_id", null: false
     t.index ["department_id"], name: "index_employees_on_department_id"
   end
 

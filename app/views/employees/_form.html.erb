@@ -36,15 +36,16 @@
     <%= form.text_field :title %>
   </div>
 
-  <div class="field">
-    <%= form.label :department %>
-    <%= form.text_field :department %>
-  </div>
+ <div class="form-row"> 
+  <%= f.label :Current_Department %>
+  <%= (@employee.department.nil? ? "None Assigned" : @employee.department.name) %>
+</div>
 
-  <div class="field">
-    <%= form.label :pronouns %>
-    <%= form.text_field :pronouns %>
-  </div>
+<div class="form-row">
+  <%= f.label :Change_dept_to %>
+  <%= f.collection_select :department_id, Department.order(:name), :id, :name %>
+</div>
+
 
   <div class="actions">
     <%= form.submit %>
