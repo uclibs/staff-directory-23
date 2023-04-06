@@ -14,6 +14,9 @@ class DepartmentsController < ApplicationController
 def new
   @department = Department.new(name: "")
 end
+    def new
+  @department = Department.new(name: "")
+end
 
 
   def update
