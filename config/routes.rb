@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  get 'departments/index'
-  get 'departments/show'
-  get 'departments/edit'
-  get 'departments/update'
+  #get 'departments/index'
+  #get 'departments/show'
+  #get 'departments/edit'
+  #get 'departments/update'
+  #get 'departments/new'
   #root 'employees#index' # make the employees#index the root of the application
   root  'employees#index'
   #suggestion: get 'public/index'
