@@ -10,7 +10,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_04_04_143113) do
+ActiveRecord::Schema.define(version: 2023_04_10_182200) do
+
+  create_table "_employees_old_20230410", force: :cascade do |t|
+    t.string "lastname"
+    t.string "firstname"
+    t.string "email"
+    t.string "phone"
+    t.string "title"
+    t.string "department"
+    t.string "pronouns"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "_employees_old_20230410_1", force: :cascade do |t|
+    t.string "lastname"
+    t.string "firstname"
+    t.string "email"
+    t.string "phone"
+    t.string "title"
+    t.string "department", null: false
+    t.string "pronouns"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "_employees_old_20230410_2", force: :cascade do |t|
+    t.string "lastname"
+    t.string "firstname"
+    t.string "email"
+    t.string "phone"
+    t.string "title"
+    t.string "department"
+    t.string "pronouns"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "_users_old_20230410", force: :cascade do |t|
+    t.string "email"
+    t.string "password_digest"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "add_data", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -29,24 +72,25 @@ ActiveRecord::Schema.define(version: 2023_04_04_143113) do
     t.string "email"
     t.string "phone"
     t.string "title"
-    t.string "department"
+    t.string "department", null: false
     t.string "pronouns"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "department_id", null: false
+    t.integer "department_id"
     t.index ["department_id"], name: "index_employees_on_department_id"
   end
 
-  create_table "managers", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "users", force: :cascade do |t|
-    t.string "email"
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "employees", "departments"
