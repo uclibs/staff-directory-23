@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   #get 'departments/index'
   #get 'departments/show'
   #get 'departments/edit'
