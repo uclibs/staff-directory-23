@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Staff Directory</title>
+    <title><%= yield :page_title %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,18 +10,16 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    
+  <body class ="body-session">
       <div class="container">
 <div class="first"><%= image_tag ("uclogo.png") %></div> 
 <div class="second">UC Libraries</div> 
 <div class="nav">UC Libraries Home | Contact Us  </div>
 <div class="contentwrap">
-<!--added for devise gem, then changed per book to render partial-->
-<!--<p class="notice"><%= notice %></p>-->
-<!--<p class="alert"><%= alert %></p>-->
-      <% render "layouts/alert" %>
-
+<!--added for devise gem-->
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+<!--end add-->
     <h1>Staff Directory</h1>
     <p> </p>
 

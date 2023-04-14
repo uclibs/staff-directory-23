@@ -76,5 +76,6 @@ Rails.application.configure do
  config.require_master_key = false
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+    config.mailer_sender ='no-reply@uc.edu'
 end   
 
