@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_04_14_165536) do
+ActiveRecord::Schema.define(version: 2023_04_17_232030) do
+
+  create_table "_departments_old_20230417", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
+  end
+
+  create_table "_departments_old_20230417_1", primary_key: "department_id", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
+  end
 
   create_table "_employees_old_20230410", force: :cascade do |t|
     t.string "lastname"
@@ -48,6 +60,33 @@ ActiveRecord::Schema.define(version: 2023_04_14_165536) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "_employees_old_20230417", force: :cascade do |t|
+    t.string "lastname"
+    t.string "firstname"
+    t.string "email"
+    t.string "phone"
+    t.string "title"
+    t.string "department", null: false
+    t.string "pronouns"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "department_id"
+  end
+
+  create_table "_employees_old_20230417_1", force: :cascade do |t|
+    t.string "lastname"
+    t.string "firstname"
+    t.string "email"
+    t.string "phone"
+    t.string "title"
+    t.string "department", null: false
+    t.string "pronouns"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "department_id"
+    t.text "working_title"
+  end
+
   create_table "_users_old_20230410", force: :cascade do |t|
     t.string "email"
     t.string "password_digest"
@@ -72,11 +111,11 @@ ActiveRecord::Schema.define(version: 2023_04_14_165536) do
     t.string "email"
     t.string "phone"
     t.string "title"
-    t.string "department", null: false
     t.string "pronouns"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "department_id"
+    t.integer "department_id", null: false
+    t.text "working_title"
     t.index ["department_id"], name: "index_employees_on_department_id"
   end
 
@@ -89,7 +128,9 @@ ActiveRecord::Schema.define(version: 2023_04_14_165536) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.datetime "locked_at"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["locked_at"], name: "index_users_on_locked_at"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
@@ -105,5 +146,7 @@ ActiveRecord::Schema.define(version: 2023_04_14_165536) do
     t.index ["reset_password_token"], name: "index_views_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "_employees_old_20230417", "departments"
+  add_foreign_key "_employees_old_20230417_1", "departments"
   add_foreign_key "employees", "departments"
 end
