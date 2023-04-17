@@ -78,5 +78,5 @@ end
     # Only allow a list of trusted parameters through.
   def employee_params
   params.require(:employee).permit(:lastname, :firstname, :department, :email, :phone, :title)
- end
+ end 
 end
