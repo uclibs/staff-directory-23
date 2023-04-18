@@ -1,7 +1,9 @@
-<h1>Edit Employee</h1>
+<h2>Edit Employee</h2>
 
 <%= form_for @employee do |f| %>
-
+<% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>"><%= value %></div>
+<% end %>
 
 <% if flash[:error] %>
   <div class="alert alert-danger">

@@ -35,17 +35,27 @@ class EmployeesController < ApplicationController
   end
 
   # PATCH/PUT /employees/1 or /employees/1.json
-  def update
-    respond_to do |format|
-      if @employee.update(employee_params)
-        format.html { redirect_to employee_url(@employee), notice: "Employee was successfully updated." }
-        format.json { render :show, status: :ok, location: @employee }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @employee.errors, status: :unprocessable_entity }
-      end
-    end
+def update
+  # Find the employee record that should be updated based on the `id` parameter passed in from the form
+@employee = Employee.find(params[:id])
+  # Get the ID of the department that the employee should be assigned to from the `department_id` parameter passed in from the form
+department_id = params[:employee][:department_id]
+  # Find the Department record that corresponds to the ID passed in from the form
+department = Department.find(department_id)
+  # Set the department association of the employee record to the department that was just found
+@employee.department = department
+  # If the update of the employee attributes (e.g. first name, last name) is successful, redirect the user to the employee's show page
+if @employee.update(employee_params)
+    redirect_to @employee
+  else
+    #display that there is a problem
+    flash[:error] = "Update not successful"
+   # If the update is not successful, re-render the edit form so that the user can fix any errors
+    render 'edit'
   end
+end
+
+
 
   # DELETE /employees/1 or /employees/1.json
   def destroy
@@ -54,7 +64,9 @@ class EmployeesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to employees_url, notice: "Employee was successfully destroyed." }
       format.json { head :no_content }
+    
     end
+      
   end
 
   private
@@ -64,9 +76,7 @@ class EmployeesController < ApplicationController
     end
 
     # Only allow a list of trusted parameters through.
-    def employee_params
-      params.require(:employee).permit(:lastname, :firstname, :department, :department_id, :department_name, :email, :phone, :title)
-    end
-
-
+  def employee_params
+  params.require(:employee).permit(:lastname, :firstname, :department, :email, :phone, :title)
+ end 
 end
