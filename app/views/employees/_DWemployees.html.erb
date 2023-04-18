@@ -1,0 +1,16 @@
+<% module EmployeesHelper
+  def sortable(column, title = nil)
+    title ||= column.titleize
+    direction = (column == @sort_column && @sort_direction == "asc") ? "desc" : "asc"
+    link_to title, { sort_column: column, sort_direction: direction }, { class: "sort-link" }
+  end
+
+  def sort_direction
+    @sort_direction == "asc" ? "desc" : "asc"
+  end
+
+  def sorted_employees
+    @employees.order("#{@sort_column} #{@sort_direction}")
+  end
+end
+%>

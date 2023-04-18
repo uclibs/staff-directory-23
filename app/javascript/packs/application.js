@@ -6,8 +6,7 @@
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
-import "channels"
-import "custom/sorttable.js";
+import "channels";
 
 Rails.start()
 Turbolinks.start()
