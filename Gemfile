@@ -29,7 +29,7 @@ gem 'devise'
 # gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.4.4', require: false
+  gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -41,7 +41,7 @@ group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 4.1.0'
   # Display performance information such as SQL time and flame graphs for each request in your browser.
-  # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
+  # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-  profiler/blob/master/README.md
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
@@ -54,18 +54,25 @@ group :test do
   gem 'selenium-webdriver', '>= 4.0.0.rc1'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
-    gem 'rspec-rails'
-gem 'rspec_junit_formatter'
-#gem 'capybararails-controller-testing'
-#Add test coverage gems
-gem 'coveralls'
-gem 'simplecov'
-gem 'simplecov-lcov'
-gem 'database_cleaner'
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+  gem 'rspec-rails'
+  gem 'rspec_junit_formatter'
+  #gem 'capybararails-controller-testing'
+  gem 'faker',                        '~> 1.8', '>= 1.8.7'
+  gem 'factory_bot_rails',            '~> 4.8', '>= 4.8.2'
+  gem 'rails-controller-testing',     '~> 1.0.2'
+                   '~> 3.7'
+  gem 'shoulda',                      '~> 3.5'
+  gem 'shoulda-callback-matchers',    '~> 1.1', '>= 1.1.3'
+  gem 'simplecov',                    '~> 0.15.1',              require:false
+  gem 'coveralls'
+  gem 'simplecov'
+  gem 'simplecov-lcov'
+  gem 'database_cleaner'
+  # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+  gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 end
-#Production
+
+
 group :production do
  #placeholder gem 'pg', '~> 1.2.3'
 end
