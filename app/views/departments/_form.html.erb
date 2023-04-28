@@ -1,4 +1,7 @@
 <%= form_for(@department) do |f| %>
+  <!-- Include the authenticity token field -->
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
   <% if @department.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@department.errors.count, "error") %> prohibited this department from being saved:</h2>
@@ -10,7 +13,12 @@
       </ul>
     </div>
   <% end %>
-
+<div class="instructions">
+<ul>
+    <li> You cannot delete a department that 
+    
+    </li></ul>
+</div>
   <div class="field">
     <%= f.label :name %>
     <%= f.text_field :name %>
@@ -19,4 +27,6 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+
+<%= link_to "New Department", new_department_path %>
 <% end %>

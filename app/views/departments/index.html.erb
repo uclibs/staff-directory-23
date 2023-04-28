@@ -1,30 +1,36 @@
 <h1>Departments List</h1>
 
+<!-- app/views/departments/index.html.erb -->
+<% if user_signed_in? %>
+  <!-- display departments list -->
 
-      <p id="notice"><%= notice %></p>
-
-<div class="table-wrapper">
+  <p id="notice"><%= notice %></p>
+<%= link_to "New Department", new_department_path %>
+  <div class="table-wrapper">
     <table class="fl-table">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th colspan="2"></th>
+        </tr>
+      </thead>
 
-  <tbody>
-      <% @departments.order(:name).each do |department| %>
-   
-      <tr>
-        <td><%= department.id %></td>
-        <td><%= department.name %></td>
-        <td><%= link_to 'Show', department %></td>
-        <td><%= link_to 'Edit', edit_department_path(department) %></td>
-        <td><%= link_to 'Destroy', department, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tbody>
+        <% @departments.order(:name).each do |department| %>
+          <tr>
+            <td><%= department.id %></td>
+            <td><%= department.name %></td>
+            <td><%= link_to 'Show', department %></td>
+            <td><%= link_to 'Edit', edit_department_path(department) %></td>
+            <td><%= link_to 'Destroy', department, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 
-<br>
+<% else %>
+  <p>Please sign in to view this page.</p>
+  <%= link_to 'Back to Home Page', employees_path %>
+<% end %>
