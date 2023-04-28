@@ -6,6 +6,8 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+
+
 module Staffdirectory
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
@@ -13,6 +15,10 @@ module Staffdirectory
 
     # Configuration for the application, engines, and railties goes here.
     #
+     config.generators do |g|
+       g.test_framework :rspec
+       g.controller_specs true 
+     end 
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
@@ -20,3 +26,5 @@ module Staffdirectory
     # config.eager_load_paths << Rails.root.join("extras")
   end
 end
+    
+    

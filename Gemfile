@@ -31,11 +31,7 @@ gem 'devise'
 # Reduces boot times through caching; required in config/boot.rb
   gem 'bootsnap', '>= 1.4.4', require: false
 
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-    
-end
+
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
@@ -48,28 +44,19 @@ group :development do
   gem 'spring'
 end
 
-group :test do
+group :development, :test do
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 3.26'
-  gem 'selenium-webdriver', '>= 4.0.0.rc1'
-  # Easy installation and use of web drivers to run system tests with browsers
-  gem 'webdrivers'
-  gem 'rspec-rails'
+  # Call 'byebug' anywhere in the code to stop
+  # execution and get a debugger console
+  gem 'brakeman'
+  gem 'bundler-audit'
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  # Use factory_bot_rails to generate random test data
+  gem 'factory_bot_rails'
+  gem 'rspec'
   gem 'rspec_junit_formatter'
-  #gem 'capybararails-controller-testing'
-  gem 'faker',                        '~> 1.8', '>= 1.8.7'
-  gem 'factory_bot_rails',            '~> 4.8', '>= 4.8.2'
-  gem 'rails-controller-testing',     '~> 1.0.2'
-                   '~> 3.7'
-  gem 'shoulda',                      '~> 3.5'
-  gem 'shoulda-callback-matchers',    '~> 1.1', '>= 1.1.3'
-  gem 'simplecov',                    '~> 0.15.1',              require:false
-  gem 'coveralls'
-  gem 'simplecov'
-  gem 'simplecov-lcov'
-  gem 'database_cleaner'
-  # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-  gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+  gem 'rspec-rails'
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
 

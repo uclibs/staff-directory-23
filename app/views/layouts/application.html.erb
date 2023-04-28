@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+c<!DOCTYPE html>
 <html>
   <head>
     <title>Staff Directory</title>
@@ -21,11 +21,14 @@
 <!--added for devise gem, then changed per book to render partial-->
 <!--<p class="notice"><%= notice %></p>-->
 <!--<p class="alert"><%= alert %></p>-->
-      <% render "layouts/alert" %>
+      
 
     <h1>Staff Directory</h1>
     <p> </p>
 
+<% if alert %>
+  <p class="alert alert-danger"><%= alert %></p>
+<% end %>
     <%= yield %>
     </div>
       <div class="footer">
@@ -42,6 +45,9 @@
                 <span class="dark"><a href="https://libraries.uc.edu/about/contact.html">Contact Us</a> </span>| <a href="https://libapps.libraries.uc.edu/main/contact/staff_directory.php">Staff Directory</a></p>
             
               <p class="signin"> <%= link_to "Staff Sign In", new_user_session_path %></p>
+              <% if user_signed_in? %>
+        <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+      <% end %>
           </div>
           <p>&nbsp;</p> </p>
         </div>
