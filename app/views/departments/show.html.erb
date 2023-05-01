@@ -1,2 +1,22 @@
-<h1>Departments#show</h1>
-<p>Find me in app/views/departments/show.html.erb</p>
+<p id="notice"><%= notice %></p>
+<h2>Department Detail</h2>
+<div class="form-row">
+  <strong>Department name:</strong>
+  <%= @department.name %>
+</div>
+
+<div class="form-row">
+  <strong>Created:</strong>
+  <%= @department.created_at %>
+</div>
+
+<div class="form-row">
+  <strong>Last Update</strong>
+  <%= @department.updated_at %>
+</div>
+
+<hr />
+
+<p>|
+<%= link_to 'Back to Department list', departments_path %></p> |  <%= link_to 'Back to Home Page', employees_path %>
+
