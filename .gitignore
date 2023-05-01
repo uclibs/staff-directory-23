@@ -14,7 +14,8 @@
 /tmp/puma/*
 !/tmp/puma/
 !/tmp/puma/.keep
-
+.idea/
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
 
