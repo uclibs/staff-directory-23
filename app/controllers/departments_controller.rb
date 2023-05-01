@@ -12,11 +12,11 @@ class DepartmentsController < ApplicationController
   def edit
     @department = Department.find(params[:id])
   end
+    
 # GET /department/new
  def new
-  @department = Department.new(name: "")
-    redirect_to @department
- end
+  @department = Department.new
+end
 
  def create
   @department = Department.new(department_params)
@@ -45,6 +45,15 @@ def destroy
     format.json { head :no_content }
   end
 end
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
   end      
   private
