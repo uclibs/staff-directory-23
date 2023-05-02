@@ -13,7 +13,7 @@
          <li>Note: you cannot delete a department that has employees in it</li>
     </ul>
         </div>
-<div class="ndept"><%= link_to "Create A New Department", new_department_path %></div>
+
   <div class="table-wrapper">
     <table class="fl-table">
       <thead>
@@ -40,4 +40,9 @@
 <% else %>
   <p>Please sign in to view this page.</p>
 <% end %>
-  <%= link_to 'Back to Staff Directorty Home Page', employees_path %>
+
+<div class="additional">
+<ul>Additional Actions</ul>
+<li><%= link_to "Create A New Department", new_department_path %></li>
+<li><%= link_to 'Back to Staff Directorty Home Page', employees_path %></li>
+</div>

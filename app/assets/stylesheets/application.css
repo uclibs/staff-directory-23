@@ -24,7 +24,7 @@ p {
 padding-top: 5px;
 padding-bottom:10px;
 }
- .content_wrap{
+content_wrap{
      box-sizing: border-box;
      -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
@@ -34,12 +34,23 @@ padding-bottom:10px;
      content: " \25B4\25BE" 
 }
 */
-.nav2 {
+.field {
+  display: flex;
+  align-items: baseline;
+}
+
+.field label {
+  flex: 0 0 150px;
+  text-align: left;
+  margin-right: 10px;
+    margin-top:10px;
+}
+.additional {
     margin-top: 3em;
     border-top: 2px black solid;
     padding:5px;
     width:50%;
-    color:blue;
+    color:black;
 }
 .nav2 a visited{
     color:purple;
@@ -82,10 +93,9 @@ input[type=button], input[type=submit] {
 /* Custom Select wrapper */
 #employee_department_id{
     padding-left:10px;
-    background-color: #ccc;
-    border-image-outset: 2px
-        
-
+    background-color: #ECECEC;
+    border-image-outset: 2px;
+    height:40px;
 }
 .ndept{
 display: flex;
