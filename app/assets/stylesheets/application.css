@@ -17,6 +17,12 @@
     font-size: 120%;
     margin-top:15px;
     font-style:italic;
+    text-align:center;
+  
+}
+p {
+padding-top: 5px;
+padding-bottom:10px;
 }
  .content_wrap{
      box-sizing: border-box;
@@ -28,12 +34,26 @@
      content: " \25B4\25BE" 
 }
 */
+.nav2 {
+    margin-top: 3em;
+    border-top: 2px black solid;
+    padding:5px;
+    width:50%;
+    color:blue;
+}
+.nav2 a visited{
+    color:purple;
+}
+.nav2 a hover{
+    color:blue;
+    text-decoration: underline;
+}
  h2{
      text-align: left;
      font-size: 110%;
      text-transform: uppercase;
      color: #b8011c;
-     padding: 30px 0;
+     padding-top: 10px;
 }
 input[type=button], input[type=submit] {
  
@@ -43,18 +63,17 @@ input[type=button], input[type=submit] {
   border-radius: 4px;
   box-shadow: rgba(10, 10, 10, 0.12) 0 1px 1px;
   color: #FFFFFF;
-  cursor: pointer;
   display: block;
   line-height: 100%;
-  margin-top: 30px;
-
-  padding: 5px 10px 5px;
+  margin-top: 3em;
+  padding: 10px 10px 10px;
   text-align: center;
   transition: box-shadow .05s ease-in-out,opacity .05s ease-in-out;
-  user-select: none;
+
   -webkit-user-select: none;
   touch-action: manipulation;
-  width: 10%;
+  width: auto;
+    
 }
 
 
@@ -68,7 +87,13 @@ input[type=button], input[type=submit] {
         
 
 }
-
+.ndept{
+display: flex;
+justify-content: right;
+align-items: right;
+    font-weight:bold;
+    font-size:110%;
+}
 .button-25:disabled:active {
   pointer-events: none;
 }
@@ -79,7 +104,7 @@ input[type=button], input[type=submit] {
 }
 /* Table Styles */
  .instruct{
-     display:none;
+    
 }
  .table-wrapper{
      margin: 10px;

@@ -21,7 +21,7 @@ end
  def create
   @department = Department.new(department_params)
   if @department.save
-    redirect_to @department
+     redirect_to departments_path, notice: 'Department was successfully created.'
   else
     render 'new'
   end
@@ -31,8 +31,8 @@ end
   def update
     @department = Department.find(params[:id])
     if @department.update(department_params)
-      redirect_to @department
-    else
+     redirect_to departments_path, notice: 'Department was successfully updated.'
+  else
       render 'edit'
     end
   end
@@ -45,15 +45,6 @@ def destroy
     format.json { head :no_content }
   end
 end
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
   end      
   private

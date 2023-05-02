@@ -1,13 +1,19 @@
-<h1>Departments List</h1>
+<h2>Departments List</h2>
 
 <!-- app/views/departments/index.html.erb -->
 <% if user_signed_in? %>
   <!-- display departments list -->
 
   <p id="notice"><%= notice %></p>
-<%= link_to "New Department", new_department_path %>
 <p></p>
-<div class="instruct"> Note: You cannot delete a department that has employees in it. </div>
+<div class="instruct">Instructions: 
+    <ul>
+    <li> Use Edit controls to view, modify or delete a department</li>
+        <li>To create a new deparment, use the link on right</li>
+         <li>Note: you cannot delete a department that has employees in it</li>
+    </ul>
+        </div>
+<div class="ndept"><%= link_to "Create A New Department", new_department_path %></div>
   <div class="table-wrapper">
     <table class="fl-table">
       <thead>
@@ -31,8 +37,7 @@
       </tbody>
     </table>
   </div>
-
 <% else %>
   <p>Please sign in to view this page.</p>
-  <%= link_to 'Back to Home Page', employees_path %>
 <% end %>
+  <%= link_to 'Back to Staff Directorty Home Page', employees_path %>
