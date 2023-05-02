@@ -1,36 +1,4 @@
-<p id="notice"><%= notice %></p>
-<h2>Employee Detail</h2>
-<div class="form-row">
-  <strong>Last name:</strong>
-  <%= @employee.lastname %>
+<h2> Employee Details</h2>
+<div class="">
+  <%= render "form", employee: @employee %>
 </div>
-
-<div class="form-row">
-  <strong>First name:</strong>
-  <%= @employee.firstname %>
-</div>
-
-<div class="form-row">
-  <strong>Email:</strong>
-  <%= @employee.email %>
-</div>
-
-<div class="form-row">
-  <strong>Phone:</strong>
-  <%= @employee.phone %>
-</div>
-
-<div class="form-row">
-  <strong>Title:</strong>
-  <%= @employee.title %>
-</div>
-
-<div class="form-row">
-  <strong>Department:</strong>
- <%= @employee.department.nil? ? "" : @employee.department.name %>
-</div>
-<hr />
-
-<p><%= link_to 'Edit', edit_employee_path(@employee) %> |
-<%= link_to 'Back', employees_path %></p>
-

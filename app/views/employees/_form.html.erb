@@ -10,14 +10,16 @@
       </ul>
     </div>
   <% end %>
-
+<% if flash[:notice].present? %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
   <div class="field">
-    <%= form.label :lastname %>
+    <%= form.label :"Last Name" %>
     <%= form.text_field :lastname %>
   </div>
 
   <div class="field">
-    <%= form.label :firstname %>
+    <%= form.label :"First Name" %>
     <%= form.text_field :firstname %>
   </div>
 
@@ -36,18 +38,22 @@
     <%= form.text_field :title %>
   </div>
 
- <div class="form-row"> 
-  <%= form.label :Current_Department %>
+ <div class="field"> 
+  <%= form.label :"Current Department:" %>
   <%= (@employee.department.nil? ? "None Assigned" : @employee.department.name) %>
 </div>
+<% if action_name != 'show' %>
 
-<div class="form-row">
-  <%= form.label :Change_dept_to %>
+<div class="field">
+  <%= form.label :"Change dept to:" %>
   <%= form.collection_select :department_id, Department.order(:name), :id, :name %>
 </div>
-
-
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+
+<% end %>
+<div class="additional">
+<a href="<%= employees_path %>">Back to Employees list</a>
+</div> 
