@@ -11,22 +11,18 @@
           <li><%= message %></li>
         <% end %>
       </ul>
-    </div>
+  </div>
   <% end %>
-<div class="instructions">
-<ul>
-    <li> 
-    
-    </li></ul>
-</div>
   <div class="field">
     <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
-
+  <% if action_name != 'show' %>
   <div class="actions">
     <%= f.submit %>
   </div>
+ <% end %>
+<div class="nav2">
 <a href="<%= departments_path %>">Back to departments list</a>
-
+</div> 
 <% end %>
