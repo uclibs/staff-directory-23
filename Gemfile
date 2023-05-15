@@ -24,7 +24,13 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 # Use devise for authentication
 gem 'devise'
-
+gem 'rubocop'
+#for static code analysis
+gem 'rubocop-rails', require: false
+gem 'rubocop-rspec', require: false
+# Use simplecov to generate the coveralls report in .html format
+gem 'simplecov', require: false
+gem 'simplecov-lcov', require: false
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -35,6 +41,7 @@ gem 'devise'
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
+
   gem 'web-console', '>= 4.1.0'
   # Display performance information such as SQL time and flame graphs for each request in your browser.
   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-  profiler/blob/master/README.md
@@ -59,7 +66,21 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
+group :test do
+  # Adds support for Capybara system testing and selenium driver
+  gem 'capybara', '>= 2.15'
+  gem 'selenium-webdriver'
+  # Easy installation and use of webdrivers to run system tests
+  gem 'webdrivers', '~> 4.0', require: false
+  gem 'capistrano', '3.17.1'
+  gem 'capistrano-bundler', '~> 1.6', require: false
+  gem 'capistrano-rails', '~> 1.4', require: false
+  gem 'capistrano-rvm', require: false
+  # Access an interactive console on excep
+end
+
 
 group :production do
- #placeholder gem 'pg', '~> 1.2.3'
+  gem 'mysql2'
+  gem 'rb-readline'
 end
