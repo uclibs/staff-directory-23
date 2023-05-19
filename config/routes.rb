@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'user/create'
+  get 'user/update'
+  get 'user/delete'
   devise_for :views
   devise_for :users
   #get 'departments/index'

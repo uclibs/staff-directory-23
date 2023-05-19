@@ -1,5 +1,4 @@
 <div class="table-wrapper">
-    
   <p id="notice"><%= notice %></p>
   <table class="fl-table">
     <thead>
@@ -34,11 +33,5 @@
     </tbody>
   </table>
 </div>
-      <% if user_signed_in? %>
-   <div class="additional">
-     <ul> Additional Actions</ul>
-      <li><%= link_to "Create A New Employee", new_employee_path %></li>
-      <li><%= link_to "View/Edit Departments", departments_path %></li>
-    </div>
-    <% end %>
+     
 

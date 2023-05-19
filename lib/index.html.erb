@@ -3,14 +3,12 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Description</th>
     </tr>
   </thead>
   <tbody>
     <% @departments.each do |department| %>
       <tr>
         <td><%= department.name %></td>
-        <td><%= department.description %></td>
       </tr>
     <% end %>
   </tbody>
