@@ -6,5 +6,6 @@ FactoryBot.define do
     phone { '123-456-7890' }
     title { 'Software Engineer' }
     pronouns { 'he/him' }
+    department { 'HR' }
   end
 end

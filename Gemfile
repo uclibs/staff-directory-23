@@ -59,12 +59,11 @@ group :development, :test do
   gem 'bundler-audit'
   # Use factory_bot_rails to generate random test data
   gem 'factory_bot_rails'
-  gem 'rspec'
   gem 'rspec_junit_formatter'
   gem 'rspec-rails'
-  gem 'rubocop'
   gem 'faker'
-  gem 'pry-byebug'
+  gem 'byebug'
+  gem 'rails-controller-testing'
 end
 
 group :test do

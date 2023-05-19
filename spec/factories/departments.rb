@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :department do
     name { Faker::Lorem.word }
-    description { Faker::Lorem.sentence }
+
 
     # Create a transient attribute to associate employees with the department
     transient do
