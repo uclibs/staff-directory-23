@@ -6,6 +6,7 @@ FactoryBot.define do
     phone { '123-456-7890' }
     title { 'Software Engineer' }
     pronouns { 'he/him' }
-    department { 'HR' }
+    #use the association method to associate the employee with a department
+    association :department
   end
 end
