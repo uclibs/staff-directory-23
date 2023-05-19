@@ -1,4 +1,5 @@
 class Department < ApplicationRecord
   has_many :employees
   validates :name, presence: true
-    end
+  validates :description, presence: true
+end

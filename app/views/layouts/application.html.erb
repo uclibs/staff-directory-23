@@ -1,4 +1,4 @@
-c<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <title>Staff Directory</title>
@@ -31,6 +31,14 @@ c<!DOCTYPE html>
 <% end %>
     <%= yield %>
     </div>
+          <% if user_signed_in? %>
+   <div class="additional">
+     <ul>Staff Tools</ul>
+      <li><%= link_to 'Employees Home Page', employees_path %></li>
+     <li><%= link_to 'Departments Home', departments_path %></li>
+    </div>
+    <% end %>
+
       <div class="footer">
       <div class="boxes">
         <div class="box box1">
@@ -78,7 +86,7 @@ c<!DOCTYPE html>
         </div>
       </div>
     </div>
-  </a></div>
+  </div>
 
   </body>
 </html>

@@ -6,8 +6,8 @@ class DepartmentsController < ApplicationController
 
   def show
     @department = Department.find(params[:id])
-   
   end
+
 
   def edit
     @department = Department.find(params[:id])

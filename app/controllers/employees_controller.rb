@@ -1,5 +1,5 @@
 class EmployeesController < ApplicationController
-  before_action :set_employee, only: %i[ show edit update destroy ]
+  before_action :set_employee, only: %i[show edit update destroy]
 
   # GET /employees or /employees.json
   def index
@@ -17,7 +17,10 @@ class EmployeesController < ApplicationController
 
   # GET /employees/1/edit
   def edit
+    @employee = Employee.find(params[:id])
+    
   end
+
 
   # POST /employees or /employees.json
   def create
@@ -25,7 +28,7 @@ class EmployeesController < ApplicationController
 
     respond_to do |format|
       if @employee.save
-        format.html {  redirect_to employees_path, notice: "Employee was successfully created." }
+        format.html { redirect_to employees_path, notice: "Employee was successfully created." }
         format.json { render :show, status: :created, location: @employee }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -41,7 +44,7 @@ class EmployeesController < ApplicationController
         format.html { redirect_to employees_path, notice: "Employee was successfully updated." }
         format.json { render :show, status: :ok, location: @employee }
       else
-        format.html { render :show, status: :unprocessable_entity }
+        format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @employee.errors, status: :unprocessable_entity }
       end
     end
@@ -49,8 +52,9 @@ class EmployeesController < ApplicationController
 
   # DELETE /employees/1 or /employees/1.json
   def destroy
-    @employee.destroy
 
+    @employee.destroy
+   # Add this line for debugging
     respond_to do |format|
       format.html { redirect_to employees_url, notice: "Employee was successfully destroyed." }
       format.json { head :no_content }
@@ -58,15 +62,14 @@ class EmployeesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_employee
-      @employee = Employee.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def employee_params
-      params.require(:employee).permit(:lastname, :firstname, :department, :department_id, :department_name, :title, :email, :phone)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_employee
+    @employee = Employee.find(params[:id])
+  end
 
-
+  # Only allow a list of trusted parameters through.
+  def employee_params
+    params.require(:employee).permit(:lastname, :firstname, :department_id, :title, :email, :phone)
+  end
 end

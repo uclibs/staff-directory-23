@@ -1,4 +1,39 @@
 <h2> Employee Details</h2>
-<div class="">
-  <%= render "form", employee: @employee %>
-</div>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Lastname:</strong>
+  <%= @employee.lastname %>
+</p>
+
+<p>
+  <strong>Firstname:</strong>
+  <%= @employee.firstname %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @employee.email %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @employee.phone %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @employee.title %>
+</p>
+
+<p>
+  <strong>Department:</strong>
+  <%= (@employee.department.nil? ? "None xssigned" : @employee.department.name) %>
+</p>
+
+<p>
+  <strong>Pronouns:</strong>
+  <%= @employee.pronouns %>
+</p>
+
+

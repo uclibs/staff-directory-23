@@ -1,33 +1,17 @@
 class ApplicationController < ActionController::Base
-  rescue_from ActiveRecord::InvalidForeignKey, with: :handle_invalid_foreign_key
+  protect_from_forgery with: :exception
+  before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :authenticate_user!, except: [:index, :show]
+  rescue_from ActiveRecord::InvalidForeignKey, with: :rescue_from_invalid_foreign_key
 
-  protected
-
-  def handle_invalid_foreign_key
+  def rescue_from_invalid_foreign_key
     flash[:error] = "Cannot delete department with associated employees."
     redirect_to departments_path
   end
 
-  def config_devise_params
-    devise_parameter_sanitizer.permit(:sign_in, keys: [
-      :first_name,
-      :last_name,
-      :username,
-      :email,
-      :password,
-      :password_confirmation
-    ])
-  end
+  protected
 
-  def index
-    @employees = Employee.all
-    #added below for devise
-    layout :layout_by_resource
-  end
-
-  private
-
-  def layout_by_resource
-    devise_controller? ? "session" : "application"
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :username])
   end
 end

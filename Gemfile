@@ -57,13 +57,14 @@ group :development, :test do
   # execution and get a debugger console
   gem 'brakeman'
   gem 'bundler-audit'
-  gem 'byebug', platforms: %i[mri mingw x64_mingw]
   # Use factory_bot_rails to generate random test data
   gem 'factory_bot_rails'
   gem 'rspec'
   gem 'rspec_junit_formatter'
   gem 'rspec-rails'
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rubocop'
+  gem 'faker'
+  gem 'pry-byebug'
 end
 
 group :test do
