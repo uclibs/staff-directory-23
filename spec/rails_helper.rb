@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
-#ENV['RAILS_ENV'] ||= 'test'
+# ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
 # Prevent database truncation if the environment is production
-abort("The Rails environment is running in production mode!") if Rails.env.production?
+abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
 require 'devise' # Add this line to require Devise
 
@@ -66,8 +68,15 @@ RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include FactoryBot::Syntax::Methods
   # Custom login_user method
-  def login_user(user,request)
-    @request.env["devise.mapping"] = Devise.mappings[:user]
+  def login_user(user, _request)
+    @request.env['devise.mapping'] = Devise.mappings[:user]
     sign_in user
+  end
+end
+
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :rspec
+    with.library :rails
   end
 end

@@ -16,7 +16,7 @@ RSpec.describe EmployeesController, type: :controller do
     end
 
     it 'assigns all employees to @employees' do
-      department = FactoryBot.create(:department)
+      FactoryBot.create(:department)
       employee = FactoryBot.create(:employee)
       get :index
       expect(assigns(:employees)).to eq([employee])
@@ -52,7 +52,7 @@ RSpec.describe EmployeesController, type: :controller do
   describe 'POST #create' do
     context 'with valid parameters' do
       let(:valid_params) do
-        { employee: { lastname: 'Doe', firstname: 'John', department_id: FactoryBot.create(:department).id } }
+        { employee: { lastname: 'Doe', firstname: 'John', email:'example@example.com', department_id: FactoryBot.create(:department).id } }
       end
 
       it 'creates a new employee' do
@@ -132,10 +132,8 @@ RSpec.describe EmployeesController, type: :controller do
 
       it 'renders the edit template' do
         patch :update, params: invalid_params
-        expect(response).to redirect_to(employees_path)
+        expect(response).to render_template(:edit)
       end
     end
   end
-
 end
-

@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe DepartmentsController, type: :controller do
   include Devise::Test::ControllerHelpers
   before do
-    user= FactoryBot.create(:user)
+    user = FactoryBot.create(:user)
     sign_in user
   end
   describe 'GET #index' do
@@ -98,11 +100,12 @@ RSpec.describe DepartmentsController, type: :controller do
         expect(department.name).to eq(new_name)
       end
 
-      it 'redirects to the main department page' do
-        put :update, params: { id: department.to_param, department: attributes_for(:department) }
-        expect(response).to redirect_to(departments_path)
+      it 'redirects to the updated department page' do
+        department = create(:department)
+        valid_params = { name: 'New Department Name' }
+        put :update, params: { id: department.id, department: valid_params }
+        expect(response).to redirect_to(department_path(department))
       end
-
     end
 
     context 'with invalid params' do
