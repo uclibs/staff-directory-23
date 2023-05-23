@@ -13,18 +13,27 @@
 <% if flash[:notice].present? %>
   <div class="notice"><%= flash[:notice] %></div>
 <% end %>
+<div class="required"> Items marked with an * are required</div>
   <div class="field">
-    <%= form.label :"First Name" %>
+    <%= form.label :"*First Name" %>
     <%= form.text_field :firstname %>
     </div>
 
+example:
+# In your view
+<%= form.label :name, required_label(@object, :name), class: (@object.errors.include?(:name) ? 'required-label' : '') %>
+<%= form.text_field :name, class: (@object.errors.include?(:name) ? 'required-field' : '') %>
+#
+
+
+
   <div class="field">
-    <%= form.label :"Last Name" %>
+    <%= form.label :"*Last Name" %>
     <%= form.text_field :lastname %>
   </div>
 
   <div class="field">
-    <%= form.label :email %>
+    <%= form.label :*email %>
     <%= form.text_field :email %>
   </div>
 

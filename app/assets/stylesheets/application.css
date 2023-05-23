@@ -13,7 +13,10 @@ body {
     font-size: 100%;
     flex: 1;
 }
-
+.required-label:after {
+  content: "*";
+  color: red;
+}
 #notice {
     color: seagreen;
     font-size: 120%;
