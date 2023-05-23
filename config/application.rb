@@ -1,12 +1,12 @@
-require_relative "boot"
+# frozen_string_literal: true
 
-require "rails/all"
+require_relative 'boot'
+
+require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
-
-
 
 module Staffdirectory
   class Application < Rails::Application
@@ -15,10 +15,10 @@ module Staffdirectory
 
     # Configuration for the application, engines, and railties goes here.
     #
-     config.generators do |g|
-       g.test_framework :rspec
-       g.controller_specs true 
-     end 
+    config.generators do |g|
+      g.test_framework :rspec
+      g.controller_specs true
+    end
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
@@ -26,5 +26,3 @@ module Staffdirectory
     # config.eager_load_paths << Rails.root.join("extras")
   end
 end
-    
-    

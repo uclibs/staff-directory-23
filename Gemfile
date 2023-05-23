@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
-
 
 ruby '3.0.5'
 
@@ -25,7 +26,7 @@ gem 'jbuilder', '~> 2.7'
 # Use devise for authentication
 gem 'devise'
 gem 'rubocop'
-#for static code analysis
+# for static code analysis
 gem 'rubocop-rails', require: false
 gem 'rubocop-rspec', require: false
 # Use simplecov to generate the coveralls report in .html format
@@ -35,9 +36,7 @@ gem 'simplecov-lcov', require: false
 # gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
-  gem 'bootsnap', '>= 1.4.4', require: false
-
-
+gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
@@ -45,8 +44,8 @@ group :development do
   gem 'web-console', '>= 4.1.0'
   # Display performance information such as SQL time and flame graphs for each request in your browser.
   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-  profiler/blob/master/README.md
-  gem 'rack-mini-profiler', '~> 2.0'
   gem 'listen', '~> 3.3'
+  gem 'rack-mini-profiler', '~> 2.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
@@ -58,12 +57,13 @@ group :development, :test do
   gem 'brakeman'
   gem 'bundler-audit'
   # Use factory_bot_rails to generate random test data
+  gem 'byebug'
   gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'rails-controller-testing'
   gem 'rspec_junit_formatter'
   gem 'rspec-rails'
-  gem 'faker'
-  gem 'byebug'
-  gem 'rails-controller-testing'
+  gem 'shoulda-matchers', '~> 5.0'
 end
 
 group :test do
@@ -71,14 +71,13 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   # Easy installation and use of webdrivers to run system tests
-  gem 'webdrivers', '~> 4.0', require: false
   gem 'capistrano', '3.17.1'
   gem 'capistrano-bundler', '~> 1.6', require: false
   gem 'capistrano-rails', '~> 1.4', require: false
   gem 'capistrano-rvm', require: false
-  # Access an interactive console on excep
+  gem 'webdrivers', '~> 4.0', require: false
+  # Access an interactive console on except
 end
-
 
 group :production do
   gem 'mysql2'

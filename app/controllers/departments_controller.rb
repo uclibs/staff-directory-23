@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class DepartmentsController < ApplicationController
   before_action :authenticate_user!
   def index
@@ -6,7 +8,6 @@ class DepartmentsController < ApplicationController
 
   def show
     @department = Department.find(params[:id])
-
   end
 
   def edit
@@ -27,11 +28,10 @@ class DepartmentsController < ApplicationController
     end
   end
 
-
   def update
     @department = Department.find(params[:id])
     if @department.update(department_params)
-      redirect_to departments_path, notice: 'Department was successfully updated.'
+      redirect_to department_url(@department), notice: 'Department was successfully updated.'
     else
       render 'edit'
     end
@@ -41,14 +41,14 @@ class DepartmentsController < ApplicationController
     @department = Department.find(params[:id])
     @department.destroy
     respond_to do |format|
-      format.html { redirect_to departments_path, notice: "Department was successfully destroyed." }
+      format.html { redirect_to departments_path, notice: 'Department was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
-end
-private
+  private
 
-def department_params
-  params.require(:department).permit(:name, :id)
+  def department_params
+    params.require(:department).permit(:name, :id)
+  end
 end

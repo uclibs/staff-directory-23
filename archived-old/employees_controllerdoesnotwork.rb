@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class EmployeesController < ApplicationController
-  before_action :set_employee, only: %i[ show edit update destroy ]
+  before_action :set_employee, only: %i[show edit update destroy]
 
   # GET /employees or /employees.json
   def index
@@ -7,8 +9,7 @@ class EmployeesController < ApplicationController
   end
 
   # GET /employees/1 or /employees/1.json
-  def show
-  end
+  def show; end
 
   # GET /employees/new
   def new
@@ -16,59 +17,58 @@ class EmployeesController < ApplicationController
   end
 
   # GET /employees/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /employees or /employees.json
   def create
-  @employee = Employee.new(employee_params)
-  department = Department.find_or_create_by(name: employee_params[:department_name])
-  @employee.department = department
+    @employee = Employee.new(employee_params)
+    department = Department.find_or_create_by(name: employee_params[:department_name])
+    @employee.department = department
 
-  respond_to do |format|
-    if @employee.save
-      format.html { redirect_to @employee, notice: 'Employee was successfully created.' }
-      format.json { render :show, status: :created, location: @employee }
-    else
-      format.html { render :new }
-      format.json { render json: @employee.errors, status: :unprocessable_entity }
+    respond_to do |format|
+      if @employee.save
+        format.html { redirect_to @employee, notice: 'Employee was successfully created.' }
+        format.json { render :show, status: :created, location: @employee }
+      else
+        format.html { render :new }
+        format.json { render json: @employee.errors, status: :unprocessable_entity }
+      end
     end
   end
-end
-#update
-def update
-  respond_to do |format|
-    if @employee.update(employee_params)
-      format.html { redirect_to @employee, notice: 'Employee was successfully updated.' }
-      format.json { render :show, status: :ok, location: @employee }
-    else
-      format.html { render :edit }
-      format.json { render json: @employee.errors, status: :unprocessable_entity }
+
+  # update
+  def update
+    respond_to do |format|
+      if @employee.update(employee_params)
+        format.html { redirect_to @employee, notice: 'Employee was successfully updated.' }
+        format.json { render :show, status: :ok, location: @employee }
+      else
+        format.html { render :edit }
+        format.json { render json: @employee.errors, status: :unprocessable_entity }
+      end
     end
   end
-end
 
   # DELETE /employees/1 or /employees/1.json
   def destroy
     @employee.destroy
 
     respond_to do |format|
-      format.html { redirect_to employees_url, notice: "Employee was successfully destroyed." }
+      format.html { redirect_to employees_url, notice: 'Employee was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_employee
-      @employee = Employee.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
+  # Use callbacks to share common setup or constraints between actions.
+  def set_employee
+    @employee = Employee.find(params[:id])
+  end
 
-def employee_params
-  params.require(:employee).permit(:lastname, :firstname, :email, :phone, :title, :department_name, :department_id)
-end
+  # Only allow a list of trusted parameters through.
 
-
+  def employee_params
+    params.require(:employee).permit(:lastname, :firstname, :email, :phone, :title, :department_name, :department_id)
+  end
 end
