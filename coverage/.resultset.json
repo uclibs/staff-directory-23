@@ -89,61 +89,50 @@
           null
         ]
       },
-      "/Users/lisa/uclibs/staff-directory-23/app/controllers/employees_controller.rb": {
+      "/Users/lisa/uclibs/staff-directory-23/app/controllers/departments_controller.rb": {
         "lines": [
           null,
           null,
           1,
           1,
+          1,
+          0,
           null,
           null,
           1,
-          2,
-          null,
-          null,
-          null,
-          1,
+          0,
           null,
           null,
           1,
-          2,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          1,
-          4,
-          null,
-          4,
-          4,
-          4,
-          2,
-          null,
-          4,
-          2,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          4,
-          4,
-          4,
-          2,
-          null,
-          4,
-          2,
-          null,
-          null,
+          0,
           null,
           null,
           null,
           1,
           0,
           null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
           0,
           0,
           0,
@@ -152,14 +141,8 @@
           null,
           1,
           null,
-          null,
           1,
-          8,
-          null,
-          null,
-          null,
-          1,
-          8,
+          0,
           null,
           null
         ]
@@ -187,30 +170,6 @@
           null
         ]
       },
-      "/Users/lisa/uclibs/staff-directory-23/app/models/employee.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          null
-        ]
-      },
-      "/Users/lisa/uclibs/staff-directory-23/app/models/department.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          1,
-          1,
-          null
-        ]
-      },
       "/Users/lisa/uclibs/staff-directory-23/app/channels/application_cable/channel.rb": {
         "lines": [
           null,
@@ -235,19 +194,13 @@
         "branches": {
         }
       },
-      "/Users/lisa/uclibs/staff-directory-23/app/controllers/departments_controller.rb": {
+      "/Users/lisa/uclibs/staff-directory-23/app/controllers/employees_controller.rb": {
         "lines": [
           null,
           null,
           0,
           0,
-          0,
-          0,
-          0,
           null,
-          0,
-          0,
-          0,
           null,
           0,
           0,
@@ -255,15 +208,16 @@
           null,
           null,
           0,
-          0,
-          0,
+          null,
           null,
           0,
           0,
           0,
+          null,
+          null,
           0,
-          0,
-          0,
+          null,
+          null,
           0,
           0,
           null,
@@ -275,6 +229,9 @@
           0,
           0,
           0,
+          0,
+          0,
+          null,
           null,
           0,
           0,
@@ -284,8 +241,27 @@
           0,
           0,
           0,
+          0,
+          0,
+          0,
+          null,
           null,
           0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
           null,
           0,
           0,
@@ -366,6 +342,34 @@
         "branches": {
         }
       },
+      "/Users/lisa/uclibs/staff-directory-23/app/models/department.rb": {
+        "lines": [
+          null,
+          null,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/lisa/uclibs/staff-directory-23/app/models/employee.rb": {
+        "lines": [
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
       "/Users/lisa/uclibs/staff-directory-23/lib/import_departments.rb": {
         "lines": [
           null,
@@ -404,6 +408,6 @@
         }
       }
     },
-    "timestamp": 1684871312
+    "timestamp": 1685131564
   }
 }
