@@ -63,6 +63,8 @@ group :development, :test do
   gem 'rspec_junit_formatter'
   gem 'rspec-rails'
   gem 'shoulda-matchers', '~> 5.0'
+
+
 end
 
 group :test do
@@ -75,7 +77,10 @@ group :test do
   gem 'capistrano-rails', '~> 1.4', require: false
   gem 'capistrano-rvm', require: false
   gem 'webdrivers', '~> 4.0', require: false
-  # Access an interactive console on except
+  # cant be installed: gem 'capybararails-controller-testing'
+  gem 'database_cleaner'
+  gem 'ed25519'
+  gem 'bcrypt_pbkdf'
 end
 
 group :production do

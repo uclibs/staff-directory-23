@@ -10,14 +10,14 @@
       </ul>
     </div>
   <% end %>
-<% if flash[:notice].present? %>
-  <div class="notice"><%= flash[:notice] %></div>
-<% end %>
-<div class="required"> Items marked with an * are required</div>
+  <% if flash[:notice].present? %>
+    <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
+  <div class="required"> Items marked with an * are required</div>
   <div class="field">
     <%= form.label :"First Name" %>
     <%= form.text_field :firstname %>
-    </div>
+  </div>
   <div class="field">
     <%= form.label :"Last Name" %>
     <%= form.text_field :lastname %>
@@ -38,14 +38,14 @@
     <%= form.text_field :title %>
   </div>
 
- <div class="field"> 
-  <%= form.label :"Current Department:" %>
-  <%= (@employee.department.nil? ? "None Assigned" : @employee.department.name) %>
-</div>
-<div class="field">
-  <%= form.label :"Change dept to:" %>
-  <%= form.collection_select :department_id, Department.order(:name), :id, :name %>
-</div>
+  <div class="field">
+    <%= form.label :"Current Department:" %>
+    <%= (@employee.department.nil? ? "None Assigned" : @employee.department.name) %>
+  </div>
+  <div class="field">
+    <%= form.label :"Change dept to:" %>
+    <%= form.collection_select :department_id, Department.order(:name), :id, :name %>
+  </div>
   <div class="actions">
     <%= form.submit %>
   </div>
