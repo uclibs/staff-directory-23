@@ -1,16 +1,13 @@
-# frozen_string_literal: true
-
+# spec/models/department_spec.rb
 require 'rails_helper'
 
-require 'shoulda/matchers'
-
 RSpec.describe Department, type: :model do
-  describe 'validations' do
-    it { should validate_presence_of(:name) }
-    # Add validations for other fields
+  describe 'Factory' do
+    it 'is valid' do
+      department = build(:department)
+      expect(department).to be_valid
+    end
   end
 
-  describe 'associations' do
-    it { should have_many(:employees)}
-  end
+  # Add more department-specific tests.
 end

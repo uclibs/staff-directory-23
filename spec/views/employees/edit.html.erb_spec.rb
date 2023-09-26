@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe 'employees/edit', type: :view do
   before(:each) do
     @employee = assign(:employee, FactoryBot.create(:employee))
@@ -10,4 +12,3 @@ RSpec.describe 'employees/edit', type: :view do
     end
   end
 end
-
