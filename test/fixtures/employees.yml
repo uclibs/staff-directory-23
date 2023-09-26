@@ -7,7 +7,7 @@ one:
   phone: MyString
   title: MyString
   department: MyString
-  pronouns: MyString
+  
 
 two:
   lastname: MyString
@@ -16,4 +16,4 @@ two:
   phone: MyString
   title: MyString
   department: MyString
-  pronouns: MyString
+ 

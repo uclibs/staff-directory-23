@@ -1,11 +1,12 @@
-# frozen_string_literal: true
-
 FactoryBot.define do
   factory :employee do
-    firstname   { 'John' }
-    lastname    { 'Haitz' }
-    email { 'john.smith@example.com' }
-    # use the association method to associate the employee with a department
+    firstname   { Faker::Name.first_name }
+    lastname    { Faker::Name.last_name }
+    email { Faker::Internet.email }
+    phone { Faker::PhoneNumber.phone_number }
+    title { ['Software Engineer', 'Product Manager', 'Designer'].sample }
+    working_title { title }
+
     association :department
   end
 end

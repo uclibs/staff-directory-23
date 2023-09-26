@@ -52,13 +52,24 @@ RSpec.describe EmployeesController, type: :controller do
   describe 'POST #create' do
     context 'with valid parameters' do
       let(:valid_params) do
-        { employee: { lastname: 'Doe', firstname: 'John', email:'example@example.com', department_id: FactoryBot.create(:department).id } }
+        { employee: {
+          lastname: 'Doe',
+          firstname: 'John',
+          email: 'example@example.com',
+          title:'Manager',
+          working_title:'Manager',
+          phone:'1234567890',
+          department_id: FactoryBot.create(:department).id
+         }
+        }
       end
 
       it 'creates a new employee' do
         expect do
           post :create, params: valid_params
         end.to change(Employee, :count).by(1)
+
+        puts @controller.instance_variable_get(:@employee).errors.full_messages
       end
 
       it 'redirects to the employees index' do

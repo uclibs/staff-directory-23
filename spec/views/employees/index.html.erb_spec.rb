@@ -1,5 +1,3 @@
-
-
 # frozen_string_literal: true
 
 require 'rails_helper'
@@ -8,7 +6,7 @@ RSpec.describe 'employees/index', type: :view do
   include Devise::Test::ControllerHelpers
 
   before(:each) do
-    department = FactoryBot.create(:department)
+    FactoryBot.create(:department)
     assign(:employees, Employee.order(lastname: :asc))
   end
 

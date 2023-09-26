@@ -4,22 +4,25 @@ require 'test_helper'
 
 class DepartmentsControllerTest < ActionDispatch::IntegrationTest
   test 'should get index' do
-    get departments_indes_url
+    get departments_path
     assert_response :success
   end
 
   test 'should get show' do
-    get departments_show_url
+    # Replace `department_id` with an actual department ID
+    get department_path(16)
     assert_response :success
   end
 
   test 'should get edit' do
-    get departments_edit_url
+    # Replace `department_id` with an actual department ID
+    get edit_department_path(16)
     assert_response :success
   end
 
   test 'should get update' do
-    get departments_update_url
+    # Replace `department_id` with an actual department ID
+    get department_path(16)
     assert_response :success
   end
 end

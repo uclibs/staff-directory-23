@@ -14,8 +14,14 @@
 # the additional setup, and require it from the spec files that actually need
 # it.
 # added based on stack overflow
-ENV['RACK_ENV'] = 'test'
+
 require 'simplecov'
+require 'coveralls'
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new(
+  [SimpleCov::Formatter::HTMLFormatter,
+   Coveralls::SimpleCov::Formatter
+  ])
+ENV['RACK_ENV'] = 'test'
 SimpleCov.start 'rails'
 
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
