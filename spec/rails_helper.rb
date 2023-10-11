@@ -66,6 +66,8 @@ RSpec.configure do |config|
 
   # Include Devise test helpers
   config.include Devise::Test::ControllerHelpers, type: :controller
+  # Include Devise test helpers for request specs
+  config.include Devise::Test::IntegrationHelpers, type: :request
   config.include FactoryBot::Syntax::Methods
   # Custom login_user method
   def login_user(user, _request)

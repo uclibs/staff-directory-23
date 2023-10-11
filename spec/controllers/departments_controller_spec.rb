@@ -4,10 +4,12 @@ require 'rails_helper'
 
 RSpec.describe DepartmentsController, type: :controller do
   include Devise::Test::ControllerHelpers
+
   before do
-    user = FactoryBot.create(:user)
+    user = create(:user)
     sign_in user
   end
+
   describe 'GET #index' do
     it 'returns a success response' do
       get :index
