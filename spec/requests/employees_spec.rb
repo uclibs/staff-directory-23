@@ -53,14 +53,34 @@ RSpec.describe 'Employees', type: :request do
 
       context 'with valid parameters' do
         let(:valid_params) do
-          { employee: { lastname: 'Smith', firstname: 'John', department_id: FactoryBot.create(:department).id } }
+          {
+            employee: {
+              lastname: 'Smith',
+              firstname: 'John',
+              department_id: FactoryBot.create(:department).id,
+              email: 'john.smith@example.com',
+              title: 'Mr.',
+              phone: '123-456-7890',
+              working_title: 'Software Engineer'
+            }
+          }
         end
 
         it 'creates a new employee' do
           expect do
             post employees_path, params: valid_params
+
+            # Diagnostic code to print out validation errors
+            if response.status == 422
+              employee = assigns(:employee)
+              puts "Validation errors: #{employee.errors.full_messages}" if employee
+            end
+
           end.to change(Employee, :count).by(1)
+
+          expect(Employee.last).to have_attributes(lastname: 'Smith', firstname: 'John')
         end
+
 
         it 'redirects to the employees index' do
           post employees_path, params: valid_params
@@ -157,8 +177,8 @@ RSpec.describe 'Employees', type: :request do
 
         it 'renders the edit template' do
           patch employee_path(employee), params: invalid_params
-          expect(response).to have_http_status(302)
-          expect(response).to redirect_to(edit_employee_path(employee))
+          expect(response).to have_http_status(422)
+          expect(response).to render_template(:edit)
         end
       end
     end
