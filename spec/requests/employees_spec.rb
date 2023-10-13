@@ -75,12 +75,10 @@ RSpec.describe 'Employees', type: :request do
               employee = assigns(:employee)
               puts "Validation errors: #{employee.errors.full_messages}" if employee
             end
-
           end.to change(Employee, :count).by(1)
 
           expect(Employee.last).to have_attributes(lastname: 'Smith', firstname: 'John')
         end
-
 
         it 'redirects to the employees index' do
           post employees_path, params: valid_params

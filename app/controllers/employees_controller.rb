@@ -47,7 +47,6 @@ class EmployeesController < ApplicationController
     end
   end
 
-
   # DELETE /employees/1 or /employees/1.json
   def destroy
     @employee.destroy

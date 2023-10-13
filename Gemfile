@@ -12,8 +12,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'puma', '~> 5.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.7', '>= 6.1.7.2'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.4'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -21,16 +20,18 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'webpacker', '~> 5.0'
 
-
 group :development do
   gem 'capistrano', '3.17.1'
   gem 'capistrano-bundler', '~> 1.6', require: false
   gem 'capistrano-rails', '~> 1.4', require: false
-  gem 'capistrano-rvm', require: false
   gem 'capistrano-rbenv'
+  gem 'capistrano-rvm', require: false
   gem 'listen', '~> 3.3'
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'rb-readline'
+  gem 'rubocop'
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-rspec', require: false
   gem 'spring'
   gem 'web-console', '>= 4.1.0'
 end
@@ -44,12 +45,11 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'rspec_junit_formatter'
   gem 'rspec-rails'
-  gem 'rubocop'
-  gem 'rubocop-rails', require: false
-  gem 'rubocop-rspec', require: false
   gem 'shoulda-matchers', '~> 5.0'
   gem 'simplecov', require: false
   gem 'simplecov-lcov', require: false
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3', '~> 1.4'
 end
 
 group :test do
@@ -62,5 +62,4 @@ end
 
 group :production do
   gem 'mysql2'
-
 end

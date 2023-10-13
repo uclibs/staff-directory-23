@@ -1,8 +1,8 @@
 # frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'Employees', type: :request do
-
   # Set up user authentication before each test
   before do
     @user = create(:user)
@@ -40,9 +40,7 @@ RSpec.describe 'Employees', type: :request do
       employee_attributes = attributes_for(:employee).merge(department_id: department.id)
       post employees_path, params: { employee: employee_attributes }
 
-      if response.status == 422 # unprocessable entity
-        puts "Errors: #{assigns(:employee).errors.full_messages}"
-      end
+      puts "Errors: #{assigns(:employee).errors.full_messages}" if response.status == 422 # unprocessable entity
       expect do
         post employees_path, params: { employee: employee_attributes }
       end.to change(Employee, :count).by(1)
