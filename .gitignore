@@ -51,3 +51,4 @@ yarn.lock
 
 /yarn-error.log
 
+/db/migrate/20231020183212_drop_old_tables1.rb
