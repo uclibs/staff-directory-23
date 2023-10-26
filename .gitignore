@@ -51,3 +51,4 @@ yarn.lock
 
 /yarn-error.log
 
+/config/database.yml
