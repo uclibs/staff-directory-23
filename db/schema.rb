@@ -12,18 +12,18 @@
 
 ActiveRecord::Schema.define(version: 2023_11_28_204012) do
 
-  create_table "add_data", force: :cascade do |t|
+  create_table "add_data", charset: "utf8", collation: "utf8_general_ci", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "departments", force: :cascade do |t|
+  create_table "departments", primary_key: "department_id", charset: "utf8", collation: "utf8_general_ci", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
   end
 
-  create_table "employees", force: :cascade do |t|
+  create_table "employees", charset: "utf8", collation: "utf8_general_ci", force: :cascade do |t|
     t.string "lastname"
     t.string "firstname"
     t.string "email"
@@ -34,9 +34,14 @@ ActiveRecord::Schema.define(version: 2023_11_28_204012) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "department_id"
     t.index ["department_id"], name: "index_employees_on_department_id"
+    t.string "department_id"
+    t.string "working_title"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", charset: "utf8", collation: "utf8_general_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
@@ -53,7 +58,7 @@ ActiveRecord::Schema.define(version: 2023_11_28_204012) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "views", force: :cascade do |t|
+  create_table "views", charset: "utf8", collation: "utf8_general_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -65,5 +70,4 @@ ActiveRecord::Schema.define(version: 2023_11_28_204012) do
     t.index ["reset_password_token"], name: "index_views_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "employees", "departments"
 end

@@ -19,4 +19,13 @@ development:
 test:
   <<: *default
   database: db/test.sqlite3
-# Production configuration is not set up yet.
+
+production:
+  adapter: mysql2
+  encoding: utf8
+  database: staff-directory
+  username: <%= ENV['PRODUCTION_DATABASE_USERNAME'] %>
+    password: <%= ENV['PRODUCTION_DATABASE_PASSWORD'] %>
+  host: libitdb2.libraries.uc.edu
+  port: 3306
+
