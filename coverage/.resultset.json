@@ -336,45 +336,8 @@
         ],
         "branches": {
         }
-      },
-      "/Users/lisa/uclibs/staff-directory-23/lib/import_departments.rb": {
-        "lines": [
-          null,
-          null,
-          0,
-          null,
-          null,
-          0,
-          null,
-          0,
-          null,
-          null,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/lisa/uclibs/staff-directory-23/lib/import_employees.rb": {
-        "lines": [
-          null,
-          null,
-          0,
-          null,
-          null,
-          0,
-          null,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0
-        ],
-        "branches": {
-        }
       }
     },
-    "timestamp": 1697828736
+    "timestamp": 1698340892
   }
 }
