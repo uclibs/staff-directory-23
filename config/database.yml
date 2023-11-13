@@ -11,7 +11,13 @@ default: &default
 
 development:
   <<: *default
-  database: db/development.sqlite3
+  adapter: mysql2
+  encoding: utf8
+  database: staff-directory
+  username: haitzlm
+  password: 4pLH9GyVBC
+  host: libitdbtest.libraries.uc.edu
+  port: 3306
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -23,9 +29,9 @@ test:
 production:
   adapter: mysql2
   encoding: utf8
-  database: your_database_name
-  username: your_username
-  password: your_password
-  host: libitdbtest.libraries.uc.edu
+  database: staff-directory
+  username: haitzlm
+  password: IvypJEk1Bq
+  host: libitdb2.libraries.uc.edu
   port: 3306
 

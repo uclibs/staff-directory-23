@@ -1,28 +1,28 @@
-department_id,name
-1,Administration
-4,Archives and Rare Books Library
-7,UCL Chemistry Biology Library
-54,UC Press
-9,Classics Library
-10,CCM Library
-11,Preservation Services
-12,CECH Library
-13,DAAP Library
-15,Elliston Poetry Room
-16,UCL Science and Engineering Libraries
-52,UCL Digital Scholarship Center
-20,UCL Geo-Math-Phys Library
-27,UCL Library IT
-47,Langsam Library
-31,CEAS Library
-35,"Reference, Teaching and Services"
-38,Digital Collections and Repositories
-42,UC Blue Ash
-55,UCL Application Development
-58,UCL Research and Data Services
-46,UCL Health Sciences Library
-48,Business Office
-49,Human Resources
-50,Library Communications
-51,UCL Content Services
-59,UCL Collection Development Services and Engagement
+name
+Administration
+Archives and Rare Books Library
+UCL Chemistry Biology Library
+Classics Library
+CCM Library
+Preservation Services
+CECH Library
+DAAP Library
+Elliston Poetry Room
+UCL Science and Engineering Libraries
+UCL Geo-Math-Phys Library
+UCL Library IT
+CEAS Library
+"Reference, Teaching and Services"
+Digital Collections and Repositories
+UC Blue Ash
+UCL Health Sciences Library
+Langsam Library
+Business Office
+Human Resources
+Library Communications
+UCL Content Services
+UCL Digital Scholarship Center
+UC Press
+UCL Application Development
+UCL Research and Data Services
+UCL Collection Development Services and Engagement

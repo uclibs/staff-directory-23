@@ -25,8 +25,9 @@ group :development do
   gem 'capistrano', '3.17.1'
   gem 'capistrano-bundler', '~> 1.6', require: false
   gem 'capistrano-rails', '~> 1.4', require: false
-  gem 'capistrano-rbenv'
-  gem 'capistrano-rvm', require: false
+  gem 'capistrano-rbenv', require: false
+  gem 'capistrano3-puma', require: false
+  # gem 'capistrano-rvm', require: false
   gem 'listen', '~> 3.3'
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'rb-readline'
