@@ -6,6 +6,21 @@ class EmployeesController < ApplicationController
   # GET /employees or /employees.json
   def index
     @employees = Employee.all
+    if params[:sort].present?
+      direction = %w[asc desc].include?(params[:direction]) ? params[:direction] : 'asc'
+      # Whitelist of sortable columns
+      sortable_columns = ['lastname', 'firstname', 'email', 'phone', 'title', 'departments.name']
+      sort_column = params[:sort]|| 'lastname'  # Default sort column
+      if sortable_columns.include?(sort_column)
+        if sort_column == 'departments.name'
+          # Join with the departments table and sort by department name
+          @employees = @employees.joins(:department).order("departments.name #{direction}")
+        else
+          # Sort by employee attributes
+          @employees = @employees.order("#{sort_column} #{direction}")
+        end
+      end
+    end
   end
 
   # GET /employees/1 or /employees/1.json

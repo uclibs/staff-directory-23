@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-
 require 'csv'
 
 namespace :import_data do
