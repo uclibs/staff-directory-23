@@ -20,11 +20,23 @@ gem 'sass-rails', '>= 6'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'webpacker', '~> 5.0'
+<<<<<<< HEAD
 group :development do
   gem 'capistrano', '3.17.1', require: false
   gem 'capistrano-bundler', '~> 1.6', require: false
   gem 'capistrano-rails', '~> 1.4', require: false
   gem 'capistrano-rbenv', require: false
+=======
+
+group :qa do
+  gem 'capistrano', '3.17.1'
+  gem 'capistrano3-puma', require: false
+  gem 'capistrano-bundler', '~> 2.1', require: false
+  gem 'capistrano-rails', '~> 1.4', require: false
+  gem 'capistrano-rbenv', '~> 2.0' # required
+  gem 'capistrano-rbenv-install', '~> 1.2.0'
+  # gem 'capistrano-rvm', require: false
+>>>>>>> 90c99434 (added column sorting to table)
   gem 'listen', '~> 3.3'
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'rb-readline'
@@ -61,4 +73,5 @@ end
 
 group :production do
   gem 'mysql2'
+
 end
