@@ -4,9 +4,8 @@ class ChangeDepartmentInEmployees < ActiveRecord::Migration[6.1]
     # remove_column :employees, :department, :string
 
     # Add the new reference column
-       unless column_exists? :employees, :department_id
+    return if column_exists? :employees, :department_id
+
     add_reference :employees, :department, foreign_key: true
-       end
   end
 end
-

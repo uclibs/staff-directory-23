@@ -23,10 +23,11 @@ gem 'webpacker', '~> 5.0'
 
 group :qa do
   gem 'capistrano', '3.17.1'
-  gem 'capistrano-bundler', '~> 1.6', require: false
-  gem 'capistrano-rails', '~> 1.4', require: false
-  gem 'capistrano-rbenv', require: false
   gem 'capistrano3-puma', require: false
+  gem 'capistrano-bundler', '~> 2.1', require: false
+  gem 'capistrano-rails', '~> 1.4', require: false
+  gem 'capistrano-rbenv', '~> 2.0' # required
+  gem 'capistrano-rbenv-install', '~> 1.2.0'
   # gem 'capistrano-rvm', require: false
   gem 'listen', '~> 3.3'
   gem 'rack-mini-profiler', '~> 2.0'
@@ -64,4 +65,5 @@ end
 
 group :qa, :production do
   gem 'mysql2'
+
 end

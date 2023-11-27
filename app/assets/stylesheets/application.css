@@ -1,7 +1,15 @@
 /* * This is a manifest file that'll be compiled into application.css, which will include all the files * listed below. * * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's * vendor/assets/stylesheets directory can be referenced here using a relative path. * * You're free to add application-wide styles to this file and they'll appear at the bottom of the * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS * files in this directory. Styles in this file should be added after the last require_* statement. * It is generally better to create a new file per style scope. * *= require_tree . *= require_self */
 /* Body */
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@100..900&display=swap');
-
+.sort-arrow {
+    font-size: 1em; /* Smaller size for arrows */
+    color: #FFFFFF; /* Arrow color */
+    margin-left: 4px; /* Space between the column name and the arrow */
+}
+th a {
+    color: #FFFFFF; /* Column name color */
+    text-decoration: none;
+}
 body {
     font-family: 'Jost', sans-serif;
     background-color: #fff;
@@ -121,7 +129,6 @@ input[type=button], input[type=submit] {
 .ndept {
     display: flex;
     justify-content: right;
-    align-items: right;
     font-weight: bold;
     font-size: 110%;
 }
@@ -390,11 +397,17 @@ fieldset {
 .contentwrap {
     padding-top: 1%;
     padding-bottom: 1%;
-    padding-left: 8%;
+    padding-left: 1%;
     padding-right: 1%;
     line-height: normal;
     max-width: 90%;
     text-align: left;
+}
+.contentwrap h1{
+margin-left:8%;
+}
+.contentwrap p{
+    margin-left:8%;
 }
 
 .footer {
@@ -407,7 +420,7 @@ fieldset {
     margin-bottom: 3em;
     width: 70%;
     padding: 15px;
-    border: medium gray outset;
+    border: medium grey outset;
 }
 
 header {
