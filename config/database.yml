@@ -14,8 +14,8 @@ development:
   adapter: mysql2
   encoding: utf8
   database: staff-directory
-  username: haitzlm
-  password: 4pLH9GyVBC
+  username:XXX
+  password: XXXX
   host: libitdbtest.libraries.uc.edu
   port: 3306
 
@@ -30,8 +30,8 @@ production:
   adapter: mysql2
   encoding: utf8
   database: staff-directory
-  username: haitzlm
-  password: IvypJEk1Bq
+  username: XXX
+  password: XXX
   host: libitdb2.libraries.uc.edu
   port: 3306
 
