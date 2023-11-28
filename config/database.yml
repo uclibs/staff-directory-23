@@ -11,7 +11,17 @@ default: &default
 
 development:
   <<: *default
+<<<<<<< HEAD
   database: db/development.sqlite3
+=======
+  adapter: mysql2
+  encoding: utf8
+  database: staff-directory
+  username:XXX
+  password: XXXX
+  host: libitdbtest.libraries.uc.edu
+  port: 3306
+>>>>>>> e8207ac5 (Update database.yml)
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -24,8 +34,13 @@ production:
   adapter: mysql2
   encoding: utf8
   database: staff-directory
+<<<<<<< HEAD
   username: <%= ENV['PRODUCTION_DATABASE_USERNAME'] %>
     password: <%= ENV['PRODUCTION_DATABASE_PASSWORD'] %>
+=======
+  username: XXX
+  password: XXX
+>>>>>>> e8207ac5 (Update database.yml)
   host: libitdb2.libraries.uc.edu
   port: 3306
 
