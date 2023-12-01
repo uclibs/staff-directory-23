@@ -29,9 +29,9 @@ ActiveRecord::Schema.define(version: 2023_11_28_204012) do
     t.string "email"
     t.string "phone"
     t.string "title"
+    t.string "working_title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "working_title"
     t.integer "department_id"
     t.index ["department_id"], name: "index_employees_on_department_id"
   end

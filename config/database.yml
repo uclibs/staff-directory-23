@@ -19,5 +19,4 @@ development:
 test:
   <<: *default
   database: db/test.sqlite3
-
 # Production configuration is not set up yet.
