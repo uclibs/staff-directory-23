@@ -20,12 +20,4 @@ test:
   <<: *default
   database: db/test.sqlite3
 
-production:
-  adapter: mysql2
-  encoding: utf8
-  database: your_database_name
-  username: your_username
-  password: your_password
-  host: libitdbtest.libraries.uc.edu
-  port: 3306
-
+# Production configuration is not set up yet.

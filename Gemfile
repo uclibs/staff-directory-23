@@ -22,7 +22,7 @@ gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 5.0'
 
 group :development do
-  gem 'capistrano', '3.17.1'
+  gem 'capistrano', '3.17.1', require:false
   gem 'capistrano-bundler', '~> 1.6', require: false
   gem 'capistrano-rails', '~> 1.4', require: false
   gem 'capistrano-rbenv'
