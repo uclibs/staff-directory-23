@@ -27,18 +27,10 @@ end
 
 # Create employees
 employees = [
-  { lastname: 'Haitz', firstname: 'Lisa', email: 'lisa.haitz@uc.edu', phone: '556-1431', title: 'Software Developer 2',
-    department: Department.find_by(name: 'Application Development') },
-  { lastname: 'Hart', firstname: 'Olga', email: 'olga.hart@uc.edu', phone: '556-1850',
-    title: 'Associate Senior Librarian', department: Department.find_by(name: 'Administration') },
-  { lastname: 'Norris', firstname: 'Melissa', email: 'melissa.norris@uc.edu', phone: '556-1558',
-    title: 'Director of Library Communication', department: Department.find_by(name: 'Library Communications') },
-  { lastname: 'Baldwin', firstname: 'Ted', email: 'ted.baldwin@uc.edu', phone: '556-4211',
-    title: 'Associate Senior Librarian', department: Department.find_by(name: 'CEAS') },
-  { lastname: 'Braunlin', firstname: 'Michael', email: 'michael.braunlin@uc.edu', phone: '556-1333',
-    title: 'Assistant Head Circulation', department: Department.find_by(name: 'Classics') },
-  { lastname: 'Chang', firstname: 'May', email: 'may.chang@uc.edu', phone: '556-3165',
-    title: 'Chief Technology Officer', department: Department.find_by(name: 'Library IT') }
+  #format  { lastname: 'Haitz', firstname: 'Lisa', email: 'lisa.haitz@uc.edu', phone: '556-1431', title: 'Software Developer 2',
+#format department: Department.find_by(name: 'Application Development') },
+  #format  }
+  #
 ]
 
 employees.each do |employee|
