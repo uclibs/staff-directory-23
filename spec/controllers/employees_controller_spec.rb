@@ -57,7 +57,6 @@ RSpec.describe EmployeesController, type: :controller do
           firstname: 'John',
           email: 'example@example.com',
           title: 'Manager',
-          working_title: 'Manager',
           phone: '1234567890',
           department_id: FactoryBot.create(:department).id
         } }

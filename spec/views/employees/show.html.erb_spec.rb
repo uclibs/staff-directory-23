@@ -11,7 +11,6 @@ RSpec.describe 'employees/show', type: :view do
                                     email: 'john.doe@example.com',
                                     title: 'Some title',
                                     phone: '1234567890',
-                                    working_title: 'Manage',
                                     department: department
                                   ))
   end

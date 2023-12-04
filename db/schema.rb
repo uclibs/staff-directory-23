@@ -10,46 +10,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2023_11_28_204012) do
+ActiveRecord::Schema.define(version: 2023_12_04_193438) do
 
-  create_table "add_data", charset: "utf8", collation: "utf8_general_ci", force: :cascade do |t|
+  create_table "_departments_old_20230328", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-=======
-ActiveRecord::Schema.define(version: 20_231_020_190_402) do
-  create_table 'add_data', charset: 'utf8', collation: 'utf8_general_ci', force: :cascade do |t|
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
->>>>>>> 90c99434 (added column sorting to table)
   end
 
-  create_table 'departments', primary_key: 'department_id', charset: 'utf8', collation: 'utf8_general_ci', force: :cascade do |t|
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.string 'name'
+  create_table "add_data", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
-<<<<<<< HEAD
-  create_table "employees", charset: "utf8", collation: "utf8_general_ci", force: :cascade do |t|
+  create_table "departments", force: :cascade do |t|
+    t.datetime "created_at", precision: 6
+    t.datetime "updated_at", precision: 6
+    t.text "name"
+  end
+
+  create_table "departments_copy", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "employees", force: :cascade do |t|
     t.string "lastname"
     t.string "firstname"
     t.string "email"
     t.string "phone"
     t.string "title"
-    t.string "working_title"
+    t.string "pronouns"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "department_id"
     t.index ["department_id"], name: "index_employees_on_department_id"
-    t.string "department_id"
-    t.string "working_title"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-
   end
 
-  create_table "users", charset: "utf8", collation: "utf8_general_ci", force: :cascade do |t|
+  create_table "managers", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
@@ -64,44 +67,19 @@ ActiveRecord::Schema.define(version: 20_231_020_190_402) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["locked_at"], name: "index_users_on_locked_at"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-=======
-  create_table 'employees', charset: 'utf8', collation: 'utf8_general_ci', force: :cascade do |t|
-    t.string 'lastname'
-    t.string 'firstname'
-    t.string 'email'
-    t.string 'phone'
-    t.string 'title'
-    t.string 'department_id'
-    t.string 'working_title'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
   end
 
-  create_table 'users', charset: 'utf8', collation: 'utf8_general_ci', force: :cascade do |t|
-    t.string 'email', default: '', null: false
-    t.string 'password_digest'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.string 'encrypted_password', default: '', null: false
-    t.string 'reset_password_token'
-    t.datetime 'reset_password_sent_at'
-    t.datetime 'remember_created_at'
-    t.datetime 'locked_at'
-    t.index ['email'], name: 'index_users_on_email', unique: true
-    t.index ['locked_at'], name: 'index_users_on_locked_at'
-    t.index ['reset_password_token'], name: 'index_users_on_reset_password_token', unique: true
->>>>>>> 90c99434 (added column sorting to table)
+  create_table "views", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_views_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_views_on_reset_password_token", unique: true
   end
 
-  create_table 'views', charset: 'utf8', collation: 'utf8_general_ci', force: :cascade do |t|
-    t.string 'email', default: '', null: false
-    t.string 'encrypted_password', default: '', null: false
-    t.string 'reset_password_token'
-    t.datetime 'reset_password_sent_at'
-    t.datetime 'remember_created_at'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.index ['email'], name: 'index_views_on_email', unique: true
-    t.index ['reset_password_token'], name: 'index_views_on_reset_password_token', unique: true
-  end
+  add_foreign_key "employees", "departments"
 end

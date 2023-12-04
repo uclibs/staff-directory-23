@@ -38,10 +38,6 @@
     <%= form.text_field :title %>
   </div>
   <div class="field">
-    <%= form.label :working_title %>
-    <%= form.text_field :working_title %>
-  </div>
-  <div class="field">
     <%= form.label :"Current Department:" %>
     <%= (@employee.department.nil? ? "None Assigned" : @employee.department.name) %>
   </div>

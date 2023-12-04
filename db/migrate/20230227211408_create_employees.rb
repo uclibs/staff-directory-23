@@ -9,7 +9,6 @@ class CreateEmployees < ActiveRecord::Migration[6.1]
       t.string :phone
       t.string :title
       t.string :department
-      t.string :working_title
       t.timestamps
     end
   end
