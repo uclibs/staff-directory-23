@@ -23,7 +23,7 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'webpacker', '~> 5.0'
 
-group :qa do
+group :development do
   gem 'capistrano', '3.17.1'
   gem 'capistrano3-puma', require: false
   gem 'capistrano-bundler', '~> 2.1', require: false
@@ -41,7 +41,7 @@ group :qa do
   gem 'web-console', '>= 4.1.0'
 end
 
-group :qa, :test do
+group :development, :test do
   gem 'brakeman'
   gem 'bundler-audit'
   gem 'byebug'
@@ -65,7 +65,7 @@ group :test do
   gem 'webdrivers', '~> 4.0', require: false
 end
 
-group :qa, :production do
+group :development, :production do
   gem 'mysql2'
 
 end
