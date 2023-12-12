@@ -10,12 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_12_04_193438) do
-
-  create_table "_departments_old_20230328", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
+ActiveRecord::Schema.define(version: 2023_12_12_172527) do
 
   create_table "add_data", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -26,12 +21,6 @@ ActiveRecord::Schema.define(version: 2023_12_04_193438) do
     t.datetime "created_at", precision: 6
     t.datetime "updated_at", precision: 6
     t.text "name"
-  end
-
-  create_table "departments_copy", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "employees", force: :cascade do |t|
