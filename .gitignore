@@ -38,6 +38,7 @@ yarn.lock
 
 #Ignore Rubymine files
 .idea/
+#exclude.env file
 .env
 # Ignore local dotenv config files
 .env.development.local

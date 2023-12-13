@@ -39,12 +39,13 @@ group :development do
   gem 'rubocop-rspec', require: false
   gem 'spring'
   gem 'web-console', '>= 4.1.0'
-end
+  end
 
 group :development, :test do
   gem 'brakeman'
   gem 'bundler-audit'
   gem 'byebug'
+  gem 'dotenv-rails'
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'rails-controller-testing'
