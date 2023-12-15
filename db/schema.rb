@@ -18,9 +18,9 @@ ActiveRecord::Schema.define(version: 2023_12_12_172527) do
   end
 
   create_table "departments", force: :cascade do |t|
-    t.datetime "created_at", precision: 6
-    t.datetime "updated_at", precision: 6
-    t.text "name"
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "employees", force: :cascade do |t|
@@ -29,16 +29,11 @@ ActiveRecord::Schema.define(version: 2023_12_12_172527) do
     t.string "email"
     t.string "phone"
     t.string "title"
-    t.string "pronouns"
+    t.string "department"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "department_id"
     t.index ["department_id"], name: "index_employees_on_department_id"
-  end
-
-  create_table "managers", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
