@@ -26,6 +26,7 @@ config/master.key
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
+
 # Ignore yarn.lock auto-generated file
 yarn.lock
 
@@ -37,9 +38,12 @@ yarn.lock
 /public/assets
 /public/packs
 /public/packs-test
+<<<<<<< Updated upstream
 
 
 
+=======
+>>>>>>> Stashed changes
 /node_modules
 
 #Ignore Rubymine files
