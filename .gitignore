@@ -1,4 +1,9 @@
+.byebug_history
+brakeman-report.html
+
 # Ignore the default SQLite database.
+identifier.sqlite
+identifier.sqlite3
 /db/*.sqlite3
 /db/*.sqlite3-journal
 
@@ -6,7 +11,8 @@ config/master.key
 # Ignore bundler config.
 /.bundle
 /vendor/bundle
-.byebug_history
+bundle_updateresult.html
+#
 /config/environments/production.rb
 
 *.swp
@@ -38,12 +44,6 @@ yarn.lock
 /public/assets
 /public/packs
 /public/packs-test
-<<<<<<< Updated upstream
-
-
-
-=======
->>>>>>> Stashed changes
 /node_modules
 
 #Ignore Rubymine files
