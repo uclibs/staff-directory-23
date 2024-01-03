@@ -8,7 +8,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.0.5'
 gem 'activerecord-import'
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.4.4', require: false
+# gem 'bootsnap', '>= 1.17.0', require: false
+gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise'
 gem 'dotenv-rails'
 gem 'jbuilder', '~> 2.7'
