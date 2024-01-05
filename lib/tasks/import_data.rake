@@ -15,7 +15,6 @@ namespace :import_data do
         email: row['email'],
         phone: row['phone'],
         title: row['title'],
-        working_title: row['working_title'],
         department_id: row['department_id'].to_i
       )
 

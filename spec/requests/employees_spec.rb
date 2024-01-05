@@ -60,8 +60,7 @@ RSpec.describe 'Employees', type: :request do
               department_id: FactoryBot.create(:department).id,
               email: 'john.smith@example.com',
               title: 'Mr.',
-              phone: '123-456-7890',
-              working_title: 'Software Engineer'
+              phone: '123-456-7890'
             }
           }
         end

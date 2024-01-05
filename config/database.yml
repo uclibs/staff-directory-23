@@ -1,37 +1,41 @@
-# SQLite. Versions 3.8.0 and up are supported.
-#   gem install sqlite3
-#
-#   Ensure the SQLite 3 gem is defined in your Gemfile
-#   gem 'sqlite3'
-#
-default: &default
-  adapter: sqlite3
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  timeout: 5000
+<%
+  socket = [
+  ENV["BOXEN_MYSQL_SOCKET"],
+  "/var/run/mysql5/mysqld.sock",
+  "/tmp/mysql.sock"
+  ].detect { |f| f && File.exist?(f) }
+
+  port = ENV["STADIR_DATABASE_PORT"]
+%>
+
+
+mysql_connection: &mysql_connection
+ <% if socket %>
+  host: <%= ENV["STADIR_DATABASE_HOST"] %>
+  socket: <%= socket %>
+ <% else %>
+  host: 127.0.0.1
+  port: <%= port %>
+ <% end %>
+
+database_settings: &database_settings
+  <<: *mysql_connection
+  adapter: <%= ENV["STADIR_DATABASE_ADAPTER"] %>
+  pool: <%= ENV["STADIR_DATABASE_POOL"] %>
+  username: <%= ENV["STADIR_DATABASE_USERNAME"] %>
+  password: <%= ENV["STADIR_DATABASE_PASSWORD"] %>
+  database: <%= ENV["STADIR_DATABASE_NAME"] %>
+  host: <%= ENV["STADIR_DATABASE_HOST"] %>
+  timeout: <%= ENV["STADIR_DATABASE_TIMEOUT"] %>
+  encoding: utf8
+  RECONNECT: FALSE
 
 development:
-  <<: *default
-  adapter: mysql2
-  encoding: utf8
-  database: staff-directory
-  username: haitzlm
-  password: 4pLH9GyVBC
-  host: libitdbtest.libraries.uc.edu
-  port: 3306
+    <<: *database_settings
 
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
 test:
-  <<: *default
-  database: db/test.sqlite3
+    <<: *database_settings
 
 production:
-  adapter: mysql2
-  encoding: utf8
-  database: staff-directory
-  username: haitzlm
-  password: IvypJEk1Bq
-  host: libitdb2.libraries.uc.edu
-  port: 3306
+    <<: *database_settings
 

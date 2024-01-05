@@ -1,3 +1,8 @@
 // Place all the styles related to the employees controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.sort-arrow {
+  font-size: 4em; /* Smaller size for arrows */
+  color: #FFFFFF; /* Arrow color */
+  margin-left: 7px; /* Space between the column name and the arrow */
+}
