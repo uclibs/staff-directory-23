@@ -39,7 +39,7 @@ group :development do
   gem 'rubocop-rspec', require: false
   gem 'spring'
   gem 'web-console', '>= 4.1.0'
-  end
+end
 
 group :development, :test do
   gem 'brakeman'
@@ -67,5 +67,4 @@ end
 
 group :development, :production do
   gem 'mysql2'
-
 end

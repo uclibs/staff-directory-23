@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.
@@ -62,7 +64,7 @@ append :linked_dirs, '.bundle', 'tmp', 'log'
 ask(:username, nil)
 ask(:password, nil, echo: false)
 server 'libappstest.libraries.uc.edu', user: fetch(:username), password: fetch(:password), port: 22, roles: %i[web app db]
-set :deploy_to, '/opt/webapps/treatment_database'
+set :deploy_to, '/opt/webapps/staff-directory'
 after 'deploy:updating', 'ruby_update_check'
 after 'deploy:updating', 'init_qp'
 before 'deploy:cleanup', 'start_qp'
