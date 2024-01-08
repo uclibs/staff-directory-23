@@ -27,9 +27,9 @@ end
 
 # Create employees
 employees = [
-  #format  { lastname: 'Haitz', firstname: 'Lisa', email: 'lisa.haitz@uc.edu', phone: '556-1431', title: 'Software Developer 2',
-#format department: Department.find_by(name: 'Application Development') },
-  #format  }
+  # format  { lastname: 'Haitz', firstname: 'Lisa', email: 'lisa.haitz@uc.edu', phone: '556-1431', title: 'Software Developer 2',
+  # format department: Department.find_by(name: 'Application Development') },
+  # format  }
   #
 ]
 
