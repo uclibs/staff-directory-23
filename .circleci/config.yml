@@ -6,7 +6,7 @@ version: 2.1
 executors:
   docker-publisher:
     environment:
-      IMAGE_NAME: staff-directory
+      IMAGE_NAME: staff-directory-23
     docker:
       - #not sure of below value
       - image: docker:20.10.14-git
@@ -21,7 +21,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: cimg/ruby:3.2.2
+      - image: cimg/ruby:3.0.5-browsers
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -41,7 +41,7 @@ jobs:
       COVERALLS_PARALLEL: true
 
 
-    working_directory: ~/staff-directory
+    working_directory: ~/staff-directory-23
 
     steps:
       - checkout
@@ -111,7 +111,7 @@ jobs:
 
       - coveralls/upload:
           parallel_finished: true
-          path_to_lcov: /home/circleci/staff-directory/coverage/lcov/staff-directory.lcov
+          path_to_lcov: /home/circleci/staff-directory-23/coverage/lcov/staff-directory.lcov
 
 workflows:
   version: 2
