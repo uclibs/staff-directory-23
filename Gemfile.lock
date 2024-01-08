@@ -386,7 +386,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord-import
-  bootsnap (>= 1.1.0)
+  bootsnap (>= 1.4.4)
   brakeman
   bundler-audit
   byebug
