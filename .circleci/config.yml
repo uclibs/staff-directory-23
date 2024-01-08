@@ -8,7 +8,6 @@ executors:
     environment:
       IMAGE_NAME: staff-directory-23
     docker:
-      - #not sure of below value
       - image: docker:20.10.14-git
 
 orbs:
@@ -118,8 +117,4 @@ workflows:
   ci:
     jobs:
       - build
-
-
-
-
 
