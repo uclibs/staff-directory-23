@@ -4,7 +4,7 @@ RSpec.feature 'UserLogin', type: :feature do
   let(:user) { create(:user, email: 'test@example.com', password: 'password') } # This assumes you have FactoryBot set up
 
   scenario 'valid inputs' do
-    visit new_user_session_path  # This path might vary based on your routes
+    visit new_user_session_path # This path might vary based on your routes
 
     fill_in 'Email', with: user.email
     fill_in 'Password', with: 'password'
