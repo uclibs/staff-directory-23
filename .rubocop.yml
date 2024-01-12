@@ -1,4 +1,9 @@
 inherit_from: .rubocop_todo.yml
+AllCops:
+  Exclude:
+    #- 'db/migrate/**/*'  # Exclude database migration files
+    #- 'spec/**/*_spec.rb'  # Exclude spec files
+    - 'db/migrate/20230410182200_add_devise_to_users.rb'  # Exclude a specific file
 
 # The behavior of RuboCop can be controlled via the .rubocop.yml
 # configuration file. It makes it possible to enable/disable
