@@ -5,7 +5,7 @@ set :application, 'staff-directory-23'
 set :repo_url, 'https://github.com/uclibs/staff-directory-23.git'
 
 set :rbenv_type, :user
-set :rbenv_ruby, '3.2.2'
+set :rbenv_ruby, '3.0.5'
 # set :rbenv_ruby, File.read('.ruby-version').strip
 set :rbenv_map_bins, %w[rake gem bundle ruby rails]
 set :rbenv_roles, :all # default value
