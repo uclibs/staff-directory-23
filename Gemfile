@@ -14,7 +14,7 @@ gem 'devise'
 gem 'dotenv-rails'
 gem 'jbuilder', '~> 2.7'
 # Use Puma as the app server
-gem 'puma', '~> 5.0'
+gem 'puma', '>= 6.3.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.7', '>= 6.1.7.2'
 # Use SCSS for stylesheets
@@ -26,7 +26,7 @@ gem 'webpacker', '~> 5.0'
 
 group :development do
   gem 'capistrano', '3.17.1'
-  gem 'capistrano3-puma', require: false
+  # gem 'capistrano3-puma', require: false
   gem 'capistrano-bundler', '~> 2.1', require: false
   gem 'capistrano-rails', '~> 1.4', require: false
   gem 'capistrano-rbenv', '~> 2.0' # required

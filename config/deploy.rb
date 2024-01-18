@@ -1,39 +1,84 @@
-# config valid for current version and patch releases of Capistrano
+
 lock '~> 3.17.1'
 
-set :application, 'staff-directory'
-set :repo_url, 'https://github.com/uclibs/staff-directory-23'
+set :application, 'staff-directory-23'
+set :repo_url, 'https://github.com/uclibs/staff-directory-23.git'
 
-# Default branch is :main
-# ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
+set :rbenv_type, :user
+set :rbenv_ruby, '3.0.5'
+# set :rbenv_ruby, File.read('.ruby-version').strip
+set :rbenv_map_bins, %w[rake gem bundle ruby rails]
+set :rbenv_roles, :all # default value
 
-# Default deploy_to directory is /var/www/my_app_name
-# set :deploy_to, "/var/www/my_app_name"
+task :shared_db do
+  on roles(:all) do
+    execute "mkdir -p #{fetch(:deploy_to)}/shared/db/ && touch #{fetch(:deploy_to)}/shared/db/development.sqlite3"
+    execute "mkdir -p #{fetch(:deploy_to)}/static"
+    execute "cp #{fetch(:deploy_to)}/static/.env.development #{fetch(:release_path)}/ || true"
+  end
+end
 
-# Default value for :format is :airbrussh.
-# set :format, :airbrussh
+task :init_local do
+  on roles(:all) do
+    # execute "pwd"
+    # execute "cd #{fetch(:release_path)} && gem install bundler -v $(tail -n1 Gemfile.lock)"
+    execute "bundle config path 'vendor/bundle' --local"
+  end
+end
 
-# You can configure the Airbrussh format using :format_options.
-# These are the defaults.
-# set :format_options, command_output: true, log_file: "log/capistrano.log", color: :auto, truncate: :auto
+task :start_local do
+  on roles(:all) do
+    execute "export PATH=$PATH:/usr/local/bin && cd #{fetch(:release_path)}/scripts && source start_local.sh"
+    execute "mkdir -p #{fetch(:deploy_to)}/static"
+  end
+end
 
-# Default value for :pty is false
-# set :pty, true
+task :init_qp do
+  on roles(:all) do
+    execute "gem install bundler -v $(tail -n1 #{fetch(:release_path)}/Gemfile.lock)"
+    execute "bundle config path 'vendor/bundle' --local"
+    execute "mkdir -p #{fetch(:deploy_to)}/static"
+    execute "cp #{fetch(:deploy_to)}/static/.env.production.local #{fetch(:release_path)}/ || true"
+  end
+end
 
-# Default value for :linked_files is []
-# append :linked_files, "config/database.yml", 'config/master.key'
+task :start_qp do
+  on roles(:all) do
+    execute "cd #{fetch(:release_path)}/ && chmod a+x scripts/* && source scripts/start_qp.sh"
+  end
+end
 
-# Default value for linked_dirs is []
-# append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "tmp/webpacker", "public/system", "vendor", "storage"
+task :ruby_update_check do
+  on roles(:all) do
+    execute "cd #{fetch(:release_path)}/ && chmod a+x scripts/* && source scripts/check_ruby.sh"
+  end
+end
 
-# Default value for default_env is {}
-# set :default_env, { path: "/opt/ruby/bin:$PATH" }
+namespace :deploy do
+  task :confirmation do
+    stage = fetch(:stage).upcase
+    branch = fetch(:branch)
+    puts <<-WARN
 
-# Default value for local_user is ENV['USER']
-# set :local_user, -> { `git config user.name`.chomp }
+    ========================================================================
 
-# Default value for keep_releases is 5
-# set :keep_releases, 5
+      *** Deploying branch `#{branch}` to #{stage} server ***
 
-# Uncomment the following to require manually verifying the host key before first deploy.
-# set :ssh_options, verify_host_key: :secure
+      WARNING: You're about to perform actions on #{stage} server(s)
+      Please confirm that all your intentions are kind and friendly
+
+    ========================================================================
+
+    WARN
+    ask :value, "Sure you want to continue deploying `#{branch}` on #{stage}? (Y or Yes)"
+
+    unless fetch(:value).match?(/\A(?i:yes|y)\z/)
+      puts "\nNo confirmation - deploy cancelled!"
+      exit
+    end
+  end
+end
+
+Capistrano::DSL.stages.each do |stage|
+  after stage, 'deploy:confirmation'
+end

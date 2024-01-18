@@ -94,10 +94,6 @@ GEM
     capistrano-rbenv-install (1.2.0)
       capistrano (>= 3.0)
       capistrano-rbenv (>= 2.0)
-    capistrano3-puma (5.2.0)
-      capistrano (~> 3.7)
-      capistrano-bundler
-      puma (>= 4.0, < 6.0)
     capybara (3.39.2)
       addressable
       matrix
@@ -195,13 +191,15 @@ GEM
     nio4r (2.7.0)
     nokogiri (1.16.0-x86_64-darwin)
       racc (~> 1.4)
+    nokogiri (1.16.0-x86_64-linux)
+      racc (~> 1.4)
     orm_adapter (0.5.0)
     parallel (1.24.0)
     parser (3.2.2.4)
       ast (~> 2.4.1)
       racc
     public_suffix (5.0.4)
-    puma (5.6.7)
+    puma (6.4.2)
       nio4r (~> 2.0)
     racc (1.7.3)
     rack (2.2.8)
@@ -339,6 +337,7 @@ GEM
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
     sqlite3 (1.7.0-x86_64-darwin)
+    sqlite3 (1.7.0-x86_64-linux)
     sshkit (1.21.7)
       mutex_m
       net-scp (>= 1.1.2)
@@ -383,6 +382,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-21
+  x86_64-linux
 
 DEPENDENCIES
   activerecord-import
@@ -395,7 +395,6 @@ DEPENDENCIES
   capistrano-rails (~> 1.4)
   capistrano-rbenv (~> 2.0)
   capistrano-rbenv-install (~> 1.2.0)
-  capistrano3-puma
   capybara (>= 2.15)
   coveralls
   database_cleaner
@@ -406,7 +405,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   listen (~> 3.3)
   mysql2
-  puma (~> 5.0)
+  puma (>= 6.3.1)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.7, >= 6.1.7.2)
   rails-controller-testing
