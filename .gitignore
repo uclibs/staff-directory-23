@@ -50,10 +50,12 @@ yarn.lock
 .idea/
 #exclude.env file
 .env
-# Ignore local dotenv config files
+# Ignore local dotenv config filesgitgit
 .env.development.local
 .env.test.local
 .env.production.local
+.env.production
+.env.development
 # Ignore master key for decrypting credentials and more.
 
 

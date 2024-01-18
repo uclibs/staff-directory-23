@@ -22,6 +22,13 @@ Metrics/BlockLength:
 Metrics/CyclomaticComplexity:
   Max: 9
 
+# Offense count: 17
+# This cop supports safe autocorrection (--autocorrect).
+# Configuration parameters: AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, AllowedPatterns.
+# URISchemes: http, https
+Metrics/LineLength:
+  Max: 293
+
 # Offense count: 2
 # Configuration parameters: CountComments, CountAsOne, AllowedMethods, AllowedPatterns.
 Metrics/MethodLength:
@@ -61,9 +68,4 @@ Style/SafeNavigation:
   Exclude:
     - 'config/spring.rb'
 
-# Offense count: 17
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, AllowedPatterns.
-# URISchemes: http, https
-Layout/LineLength:
-  Max: 293
+
