@@ -151,7 +151,7 @@ input[type=button], input[type=submit] {
 }
 
 .table-wrapper {
-    margin: 15px 10px 10px 10px;
+    margin-left: 8%;
     box-shadow: 0px 35px 30px rgba(0, 0, 0, 0.2);
 }
 
