@@ -12,9 +12,9 @@ export RAILS_RELATIVE_URL_ROOT=/staff-directory
 export RAILS_ENV=production
 
 # Check if puma is started
-if ! ( [ -f /opt/webapps/staff-directory/current/tmp/puma/pid ] && pgrep -F /opt/webapps/aaec/current/tmp/puma/pid > /dev/null )
+if ! ( [ -f /opt/webapps/staff-directory/current/tmp/puma/pid ] && pgrep -F /opt/webapps/staff-directory/current/tmp/puma/pid > /dev/null )
 then
-    sudo systemctl start puma-aaec.service
+    sudo systemctl start puma-staff-directory.service
 else
-    sudo systemctl restart puma-aaec.service
+    sudo systemctl restart puma-staff-directory.service
 fi
