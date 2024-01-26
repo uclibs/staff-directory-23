@@ -15,8 +15,8 @@
         <%= link_to safe_join(["First Name ", sort_arrow('firstname', current_sort, params[:direction])]),
                     employees_path(sort: 'firstname', direction: sort_direction) %> </th>
       <th>
-        <%= link_to safe_join(["Department ", sort_arrow('department.name', current_sort, params[:direction])]),
-                    employees_path(sort: 'department.name', direction: sort_direction) %>
+        <%= link_to safe_join(["Department ", sort_arrow('departments.name', current_sort, params[:direction])]),
+                    employees_path(sort: 'departments.name', direction: sort_direction) %>
       </th>
       <th>
         <%= link_to safe_join(["Title ", sort_arrow('title', current_sort, params[:direction])]),
