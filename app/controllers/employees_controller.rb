@@ -7,7 +7,14 @@ class EmployeesController < ApplicationController
   def index
     @employees = Employee.all
     # return unless params[:sort].present?
+<<<<<<< HEAD
 
+=======
+    sort_column = params[:sort] || 'lastname'
+    def your_action
+      @page_title = "Staff Directory" # Set your page title here
+      end
+>>>>>>> 5dd82477 (Updated files to fix Circle CI test failure)
     # Whitelist of sortable columns
     sortable_columns = ['lastname', 'firstname', 'email', 'phone', 'title', 'department_id', 'departments.name']
     sort_column = params[:sort] || 'lastname' # Default sort column
