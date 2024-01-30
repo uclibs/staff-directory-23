@@ -19,8 +19,11 @@
 <!--<p class="notice"><%= notice %></p>-->
 <!--<p class="alert"><%= alert %></p>-->
     <h1>Staff Directory</h1>
-    <p> Click on column name to sort</p>
-<p></p>
+  <p>
+  <% if @page_title == "Staff Directory" %>
+    <p>Click on column name to sort</p>
+  <% end %>
+</p>
 <% if alert %>
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>

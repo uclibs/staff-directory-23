@@ -13,7 +13,7 @@
   <% if flash[:notice].present? %>
     <div class="notice"><%= flash[:notice] %></div>
   <% end %>
-  <div class="required"> Items marked with an * are required</div>
+
   <div class="field">
     <%= form.label :"First Name" %>
     <%= form.text_field :firstname %>
