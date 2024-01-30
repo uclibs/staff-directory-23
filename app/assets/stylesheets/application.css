@@ -31,7 +31,6 @@ body {
     margin-top: 15px;
     font-style: italic;
     text-align: center;
-
 }
 
 p {
@@ -108,14 +107,26 @@ input[type=button], input[type=submit] {
     padding: 10px 10px 10px;
     text-align: center;
     transition: box-shadow .05s ease-in-out, opacity .05s ease-in-out;
-
     -webkit-user-select: none;
     touch-action: manipulation;
     width: auto;
 
 }
-
-
+.passhelp {
+    margin-top: 4%;
+    width: 15%;
+    background: #f9f6f2;
+    padding: .5em;
+}
+.forgot {
+    font-size: 90%;
+    font-style: italic;
+}
+.edit{
+    margin-bottom:10px;
+    font-style: italic;
+    line-height: 1.5;
+}
 /* Remove IE arrow */
 
 /* Custom Select wrapper */
@@ -123,7 +134,8 @@ input[type=button], input[type=submit] {
     padding-left: 10px;
     background-color: #ECECEC;
     border-image-outset: 2px;
-    height: 40px;
+    height: 30px;
+    margin-top: 15px;
 }
 
 .ndept {
@@ -151,7 +163,10 @@ input[type=button], input[type=submit] {
 }
 
 .table-wrapper {
-    margin: 15px 10px 10px 10px;
+    margin-top: 15px;
+    margin-right: 10px;
+    margin-left: 0px;
+    margin-bottom: 10px;
     box-shadow: 0px 35px 30px rgba(0, 0, 0, 0.2);
 }
 
@@ -168,7 +183,7 @@ input[type=button], input[type=submit] {
 
 .fl-table td, .fl-table th {
     text-align: center;
-    padding: 8px;
+    padding: 12px;
 }
 
 .fl-table td {
@@ -397,19 +412,15 @@ fieldset {
 .contentwrap {
     padding-top: 1%;
     padding-bottom: 1%;
-    padding-left: 1%;
+    padding-left: 8%;
     padding-right: 1%;
     line-height: normal;
     max-width: 90%;
     text-align: left;
 }
-.contentwrap h1{
+/*.contentwrap h1{
 margin-left:8%;
-}
-.contentwrap p{
-    margin-left:8%;
-}
-
+}*/
 .footer {
     width: 100%;
     height: 300px;

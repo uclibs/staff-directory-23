@@ -8,7 +8,9 @@ class EmployeesController < ApplicationController
     @employees = Employee.all
     # return unless params[:sort].present?
     sort_column = params[:sort] || 'lastname'
-
+    def your_action
+      @page_title = "Staff Directory" # Set your page title here
+      end
     # Whitelist of sortable columns
     sortable_columns = ['lastname', 'firstname', 'email', 'phone', 'title', 'department_id', 'departments.name']
     sort_column = params[:sort] || 'lastname' # Default sort column
