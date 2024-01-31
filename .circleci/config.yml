@@ -41,19 +41,16 @@ jobs:
 
 
     working_directory: ~/staff-directory-23
-
+    
     steps:
       - checkout
       - node/install:
           node-version: "18.17.1"
-      # - browser-tools/install-chrome TODO: change the following 2 lines to this after fixing the orb issue #75.
-      - browser-tools/install-browser-tools:
-          chrome-version: 114.0.5735.90 # TODO: remove -> https://github.com/CircleCI-Public/browser-tools-orb/issues/75
-      - browser-tools/install-chromedriver
+      - browser-tools/install-browser-tools
 
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "Gemfile.lock" }}
+            -v1-dependencies-{{ checksum "Gemfile.lock" }}m "Gemfile.lock" }}
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
@@ -67,9 +64,9 @@ jobs:
       - run:
           name: Install Dependencies
           command: |
-            bundle install
-            sudo apt-get update
-            sudo apt-get install xvfb libfontconfig
+             bundle install
+             sudo apt-get update
+             sudo apt-get install xvfb libfontconfig
 
       - save_cache:
           paths:
@@ -81,11 +78,11 @@ jobs:
       - run: bundle exec rake db:schema:load
 
       # Rubocop
-      # - run:
-      #     name: Rubocop
-      #     command: |
-      #       gem install rubocop
-      #       bundle exec rubocop
+      - run:
+          name: Rubocop
+          command: |
+            gem install rubocop
+            bundle exec rubocop
 
       # Brakeman
       - run:
@@ -117,4 +114,61 @@ workflows:
   ci:
     jobs:
       - build
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

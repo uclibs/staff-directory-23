@@ -7,8 +7,6 @@ class EmployeesController < ApplicationController
   def index
     @employees = Employee.all
     # return unless params[:sort].present?
-    sort_column = params[:sort] || 'lastname'
-
     # Whitelist of sortable columns
     sortable_columns = ['lastname', 'firstname', 'email', 'phone', 'title', 'department_id', 'departments.name']
     sort_column = params[:sort] || 'lastname' # Default sort column
