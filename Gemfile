@@ -5,7 +5,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.0.5'
+ruby '3.2.2'
 gem 'activerecord-import'
 # Reduces boot times through caching; required in config/boot.rb
 # gem 'bootsnap', '>= 1.17.0', require: false
@@ -67,5 +67,5 @@ group :test do
 end
 
 group :development, :production do
-  gem 'mysql2'
+  gem 'mysql2', '0.5.4'
 end
