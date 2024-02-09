@@ -1,9 +1,8 @@
-
 # frozen_string_literal: true
 
-set :rails_env, :production
+set :rails_env, :qa
 set :bundle_without, %w[development test].join(' ')
-set :branch, 'qa'
+set :branch, 'cssupdates2'
 set :default_env, path: '$PATH:/usr/local/bin'
 set :bundle_path, -> { shared_path.join('vendor/bundle') }
 set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
