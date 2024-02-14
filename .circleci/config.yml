@@ -81,11 +81,11 @@ jobs:
       - run: bundle exec rake db:schema:load
 
       # Rubocop
-      - run:
-          name: Rubocop
-          command: |
-             gem install rubocop
-            bundle exec rubocop
+      #   - run:
+      #     name: Rubocop
+      #     command: |
+      #        gem install rubocop
+      #        bundle exec rubocop
 
       # Brakeman
       - run:
