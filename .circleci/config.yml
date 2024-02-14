@@ -84,7 +84,7 @@ jobs:
       - run:
           name: Rubocop
           command: |
-             gem install rubocop
+            gem install rubocop
             bundle exec rubocop
 
       # Brakeman
