@@ -65,10 +65,10 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "staffdirectory_production"
 
   config.action_mailer.perform_caching = false
-  config.action_mailer.default_options = { from: ENV.fetch('MAIL_SENDER', nil) }
+  config.action_mailer.default_options = { from: ENV.fetch('STADIR_PRODUCTION_MAILER_FROM', nil) }
 
   # Store the base url from where request is received.
-  config.action_mailer.default_url_options = { host: ENV.fetch('MAIL_SMTP_ADDRESS', nil), protocol: 'https' }
+  config.action_mailer.default_url_options = { host: ENV.fetch('STADIR_PRODUCTION_MAILER_URL', nil), protocol: 'https' }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
