@@ -79,4 +79,6 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   config.mailer_sender = 'no-reply@uc.edu'
+  # sugggested by chatgpt for inclusion in dev environment
+  # config.action_mailer.delivery_method = :letter_opener
 end
