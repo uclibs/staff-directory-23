@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   # get 'user/delete'
   # devise_for :views
   devise_for :users, skip: [:registrations]
+  devise_scope :user do
+    delete '/users/sign_out' => 'devise/sessions#destroy'
+  end
   # get 'departments/index'
   # get 'departments/show'
   # get 'departments/edit'
