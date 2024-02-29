@@ -29,8 +29,6 @@ bundle_updateresult.html
 !/tmp/puma/
 !/tmp/puma/.keep
 
-# Ignore master key for decrypting credentials and more.
-/config/master.key
 
 
 # Ignore yarn.lock auto-generated file
