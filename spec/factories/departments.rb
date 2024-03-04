@@ -7,7 +7,7 @@ FactoryBot.define do
     end
 
     after(:create) do |department, evaluator|
-      create_list(:employee, evaluator.employees_count, department: department)
+      create_list(:employee, evaluator.employees_count, department:)
     end
   end
 end

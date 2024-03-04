@@ -1,4 +1,3 @@
-
 lock '~> 3.17.1'
 
 set :application, 'staff-directory-23'
