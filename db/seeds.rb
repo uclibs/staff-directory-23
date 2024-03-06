@@ -22,7 +22,7 @@ Employee.delete_all
 departments = ['CEAS', 'Administration', 'CCM', 'Application Development', 'Library IT', 'Classics', 'HR',
                'Library Communications']
 departments.each do |name|
-  Department.create(name: name)
+  Department.create(name:)
 end
 
 # Create employees

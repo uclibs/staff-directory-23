@@ -80,12 +80,12 @@ jobs:
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
 
-      # Rubocop
-      #   - run:
-      #     name: Rubocop
-      #     command: |
-      #        gem install rubocop
-      #        bundle exec rubocop
+     #Rubocop
+      - run:
+          name: Run Rubocop
+          command: |
+           gem install rubocop
+           bundle exec rubocop
 
       # Brakeman
       - run:

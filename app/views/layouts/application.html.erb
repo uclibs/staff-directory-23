@@ -19,8 +19,11 @@
 <!--<p class="notice"><%= notice %></p>-->
 <!--<p class="alert"><%= alert %></p>-->
     <h1>Staff Directory</h1>
-    <p> Click on column name to sort</p>
-<p></p>
+  <p>
+  <% if @page_title == "Staff Directory" %>
+    <p>Click on column name to sort</p>
+  <% end %>
+</p>
 <% if alert %>
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>
@@ -57,9 +60,9 @@
         
    <% if user_signed_in? %>
               <p> <i>You are signed in.</i> </p>
-        <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+              <%= button_to 'Logout', destroy_user_session_path, method: :delete %>
   <% else %> 
-    <p class="signin"> <%= link_to "Staff Sign In", new_user_session_path %></p>
+    <p class="signin"> <%= link_to "Login", new_user_session_path %></p>
       <% end %>
           </div>
           <p>&nbsp;</p>
