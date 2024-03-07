@@ -2,9 +2,6 @@
 
 require 'rails_helper'
 
-# spec/requests/passwords_controller_spec.rb
-require 'rails_helper'
-
 RSpec.describe PasswordsController, type: :request do
   describe 'POST /users/password' do
     let(:user) { create(:user) }

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # spec/mailers/previews/user_mailer_preview.rb
 
 class UserMailerPreview < ActionMailer::Preview
