@@ -1,4 +1,5 @@
-# app/mailers/user_mailer.rb
+# frozen_string_literal: true
+
 class UserMailer < ApplicationMailer
   # Method to send password change email
   def password_change(user)
