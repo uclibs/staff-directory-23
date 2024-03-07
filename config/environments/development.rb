@@ -78,5 +78,5 @@ Rails.application.configure do
   config.require_master_key = false
 
   config.action_mailer.default_url_options = { host: 'libappstest.libraries.uc.edu', port: 3000 }
-  config.mailer_sender = 'lisa.haitz@uc.edu'
+
 end

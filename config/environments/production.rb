@@ -100,6 +100,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Set the host for Devise mailer URLs
+  # change for final deploy to production
   config.action_mailer.default_url_options = { host: 'libappstest.libraries.uc.edu' }
   config.mailer_sender = 'lisa.haitz@uc.edu'
 end
