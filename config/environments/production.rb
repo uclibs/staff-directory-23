@@ -105,19 +105,12 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     # 'address' specifies the address of the server that will handle email sending.
-    address: ENV('MAIL_SMTP_ADDRESS'),
+    address: ENV['MAIL_SMTP_ADDRESS'],
     # 'port' specifies which port to use on the SMTP server.
     # Port 25 is the defaultgut s port for SMTP servers like Postfix.
     port: 25,
-
     # 'ca_file' is the path to the certificate authority file.
     # In our case, it's a self-signed certificate. This tells Rails to trust this specific certificate.
     ca_file: '/etc/ssl/certs/postfix.pem'
   }
 end
-
-config.action_mailer.smtp_settings = {
-  address: ENV['MAIL_SMTP_ADDRESS'],
-  port: 587, # or another port as required by your SMTP server
-  # include other necessary settings such as authentication details
-}
