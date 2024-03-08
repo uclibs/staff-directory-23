@@ -5,8 +5,8 @@ class PasswordsController < Devise::PasswordsController
   def create
     self.resource = resource_class.send_reset_password_instructions(resource_params)
     if successfully_sent?(resource)
-      # render json: { message: 'Reset password instructions sent' }, status: :ok
-      # render 'devise/mailer/reset_password_instructions_sent' # Render HTML view
+      flash[:notice] = 'Reset password instructions have been sent to your email! Very exciting!'
+      respond_with({}, location: after_sending_reset_password_instructions_path_for(resource_name))
     else
       render json: { error: 'Invalid email' }, status: :unprocessable_entity
     end
@@ -24,11 +24,17 @@ class PasswordsController < Devise::PasswordsController
       # Password has been successfully updated
       sign_in(resource_name, resource)
       render 'password_change' # Render HTML view
-      # render json: { message: 'Password successfully updated' }, status: :ok
     else
       # Handle errors while updating the password
       render json: { error: resource.errors.full_messages.join(', ') }, status: :unprocessable_entity
-
     end
+  end
+
+  protected
+
+  # Override this Devise method to customize the redirection path after sending reset password instructions
+  def after_sending_reset_password_instructions_path_for(_resource_name)
+    # Redirects to the root path of the application
+    root_path
   end
 end
