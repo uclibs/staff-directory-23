@@ -23,11 +23,10 @@ class PasswordsController < Devise::PasswordsController
     if resource.errors.empty?
       # Password has been successfully updated
       sign_in(resource_name, resource)
-      render 'password_change.html.erb' # Render HTML view
+      render 'password_change' # Render HTML view
       # render json: { message: 'Password successfully updated' }, status: :ok
     else
       # Handle errors while updating the password
-      render json: { error: resource.errors.full_messages.join(', ') }, status: :unprocessable_entity
       render json: { error: resource.errors.full_messages.join(', ') }, status: :unprocessable_entity
 
     end
