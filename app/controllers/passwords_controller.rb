@@ -6,7 +6,7 @@ class PasswordsController < Devise::PasswordsController
     self.resource = resource_class.send_reset_password_instructions(resource_params)
     if successfully_sent?(resource)
       # render json: { message: 'Reset password instructions sent' }, status: :ok
-      render 'devise/mailer/reset_password_instructions_sent' # Render HTML view
+      # render 'devise/mailer/reset_password_instructions_sent' # Render HTML view
     else
       render json: { error: 'Invalid email' }, status: :unprocessable_entity
     end
@@ -28,6 +28,8 @@ class PasswordsController < Devise::PasswordsController
     else
       # Handle errors while updating the password
       render json: { error: resource.errors.full_messages.join(', ') }, status: :unprocessable_entity
+      render json: { error: resource.errors.full_messages.join(', ') }, status: :unprocessable_entity
+
     end
   end
 end

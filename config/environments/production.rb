@@ -100,15 +100,14 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Set the host for Devise mailer URLs
-  config.action_mailer.default_url_options = { host: 'libappstest.libraries.uc.edu' }
+  # config.action_mailer.default_url_options = { host: 'libappstest.libraries.uc.edu' }
   config.mailer_sender = 'lisa.haitz@uc.edu'
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     # 'address' specifies the address of the server that will handle email sending.
-    address: ENV.fetch('MAIL_SMTP_ADDRESS', 'localhost').presence || 'localhost',
-
+    address: ENV('MAIL_SMTP_ADDRESS'),
     # 'port' specifies which port to use on the SMTP server.
-    # Port 25 is the default port for SMTP servers like Postfix.
+    # Port 25 is the defaultgut s port for SMTP servers like Postfix.
     port: 25,
 
     # 'ca_file' is the path to the certificate authority file.
@@ -116,3 +115,9 @@ Rails.application.configure do
     ca_file: '/etc/ssl/certs/postfix.pem'
   }
 end
+
+config.action_mailer.smtp_settings = {
+  address: ENV['MAIL_SMTP_ADDRESS'],
+  port: 587, # or another port as required by your SMTP server
+  # include other necessary settings such as authentication details
+}
