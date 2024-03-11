@@ -10,7 +10,7 @@ class PasswordsController < Devise::PasswordsController
     else
       # Instead of rendering a JSON response, render an HTML view for the error
       flash.now[:alert] = 'Invalid email' # Optional: Use flash.now to show the error message on the rendered view
-      render 'email_invalid', status: :unprocessable_entity
+      render 'invalid_email', status: :unprocessable_entity
     end
   end
 
