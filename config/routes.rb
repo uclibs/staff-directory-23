@@ -2,15 +2,16 @@
 
 Rails.application.routes.draw do
   devise_for :users, controllers: { passwords: 'passwords' }, skip: [:registrations]
-  # Custom routes for password reset
-  get 'forgot_password', to: 'passwords#new'
-  post 'forgot_password', to: 'passwords#create'
-  get 'reset_password', to: 'passwords#edit'
-  get 'password_create_error', to: 'passwords#password_create_error'
+
+  # Encapsulate your custom Devise routes within a devise_scope block
+  devise_scope :user do
+    get 'forgot_password', to: 'passwords#new', as: :forgot_password
+    post 'forgot_password', to: 'passwords#create'
+    get 'reset_password', to: 'passwords#edit', as: :reset_password
+    get 'password_create_error', to: 'passwords#password_create_error'
+  end
 
   root 'employees#index'
-  # suggestion: get 'public/index'
   resources :employees
   resources :departments
 end
-
