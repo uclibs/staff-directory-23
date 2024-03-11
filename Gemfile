@@ -16,10 +16,15 @@ gem 'puma', '>= 6.3.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '>= 6.1.7.7', '< 6.2'
 gem 'sass-rails', '>= 6'
+# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'webpacker', '~> 5.0'
+# Use CoffeeScript for .coffee assets and views
+gem 'coffee-rails', '~> 5.0'
+# gem 'coveralls', '~> 0.8.22', require: false
+gem 'coveralls_reborn'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'webpacker', '~> 5.0'
 
 group :development do
   gem 'capistrano', '3.17.1'
@@ -57,7 +62,6 @@ end
 
 group :test do
   gem 'capybara', '>= 2.15'
-  gem 'coveralls', require: false
   gem 'database_cleaner'
   gem 'selenium-webdriver'
   gem 'webdrivers', '~> 4.0', require: false
