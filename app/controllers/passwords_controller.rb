@@ -8,7 +8,9 @@ class PasswordsController < Devise::PasswordsController
       flash[:notice] = 'Reset password instructions have been sent to your email! Very exciting!'
       respond_with({}, location: after_sending_reset_password_instructions_path_for(resource_name))
     else
-      render json: { error: 'Invalid email' }, status: :unprocessable_entity
+      # Instead of rendering a JSON response, render an HTML view for the error
+      flash.now[:alert] = 'Invalid email' # Optional: Use flash.now to show the error message on the rendered view
+      render 'email_invalid', status: :unprocessable_entity
     end
   end
 
