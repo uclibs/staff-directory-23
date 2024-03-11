@@ -28,7 +28,7 @@ class PasswordsController < Devise::PasswordsController
       render 'password_change' # Render HTML view
     else
       # Handle errors while updating the password
-      render json: { error: resource.errors.full_messages.join(', ') }, status: :unprocessable_entity
+      render 'password_create_error' #render html view
     end
   end
 

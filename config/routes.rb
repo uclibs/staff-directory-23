@@ -6,10 +6,11 @@ Rails.application.routes.draw do
   get 'forgot_password', to: 'passwords#new'
   post 'forgot_password', to: 'passwords#create'
   get 'reset_password', to: 'passwords#edit'
+  get 'password_create_error', to: 'passwords#password_create_error'
 
-  # root 'employees#index' # make the employees#index the root of the application
   root 'employees#index'
   # suggestion: get 'public/index'
   resources :employees
   resources :departments
 end
+
