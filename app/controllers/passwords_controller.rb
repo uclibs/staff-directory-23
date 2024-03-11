@@ -28,7 +28,7 @@ class PasswordsController < Devise::PasswordsController
       render 'password_change' # Render HTML view
     else
       # Handle errors while updating the password
-      render 'password_create_error' #render html view
+      render 'password_create_error' # Render html view
     end
   end
 
