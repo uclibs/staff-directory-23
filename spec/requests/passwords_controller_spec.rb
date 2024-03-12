@@ -13,10 +13,10 @@ RSpec.describe PasswordsController, type: :controller do
     let(:user) { FactoryBot.create(:user) } # Assuming you have a factory for users
 
     context 'with valid email' do
-      it 'sends reset password instructions and redirects to root with a success message' do
+      it 'sends reset password instructions and redirects to instructions_sent with a success message' do
         post :create, params: { user: { email: user.email } }
 
-        expect(response).to redirect_to(root_path)
+        expect(response).to redirect_to(instructions_sent_path)
         expect(flash[:notice]).to eq('Reset password instructions have been sent to your email! Very exciting!')
       end
     end
