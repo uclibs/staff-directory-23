@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     post 'forgot_password', to: 'passwords#create'
     get 'reset_password', to: 'passwords#edit', as: :reset_password
     get 'password_create_error', to: 'passwords#password_create_error'
+    get 'instructions_sent', to: 'passwords#instructions_sent', as: :instructions_sent
   end
 
   root 'employees#index'

@@ -32,11 +32,15 @@ class PasswordsController < Devise::PasswordsController
     end
   end
 
+  def instructions_sent
+    # This action will render the app/views/devise/passwords/instructions_sent.html.erb view
+  end
+
   protected
 
   # Override this Devise method to customize the redirection path after sending reset password instructions
   def after_sending_reset_password_instructions_path_for(_resource_name)
     # Redirects to the root path of the application
-    root_path
+    instructions_sent_path
   end
 end
