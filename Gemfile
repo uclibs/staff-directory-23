@@ -64,5 +64,5 @@ group :test do
 end
 
 group :development, :production do
-  gem 'mysql2', '0.5.4'
+  gem 'mysql2', '~> 0.5.6'
 end
