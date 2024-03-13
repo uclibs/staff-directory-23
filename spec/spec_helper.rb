@@ -16,6 +16,7 @@
 # added based on stack overflow
 
 require 'simplecov'
+require 'coveralls'
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([SimpleCov::Formatter::HTMLFormatter, Coveralls::SimpleCov::Formatter])
 ENV['RACK_ENV'] = 'test'
 SimpleCov.start 'rails'
