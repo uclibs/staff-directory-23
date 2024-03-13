@@ -15,8 +15,8 @@
 # Department.create(name: name)
 # end
 # Clear the database
-Department.delete_all
 Employee.delete_all
+Department.delete_all
 
 departments = [
   { name: 'CEAS' },
