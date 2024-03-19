@@ -5,7 +5,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.2.2'
 gem 'activerecord-import'
-gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
 # Reduces boot times through caching; required in config/boot.rb
 # gem 'bootsnap', '>= 1.17.0', require: false
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -29,6 +28,7 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 
 group :development do
+  gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
   gem 'capistrano', '3.17.1'
   # gem 'capistrano3-puma', require: false
   gem 'capistrano-bundler', '~> 2.1', require: false
@@ -36,6 +36,7 @@ group :development do
   gem 'capistrano-rbenv', '~> 2.0' # required
   gem 'capistrano-rbenv-install', '~> 1.2.0'
   # gem 'capistrano-rvm', require: false
+  gem 'ed25519', '>= 1.2', '< 2.0'
   gem 'listen', '~> 3.3'
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'rb-readline'
