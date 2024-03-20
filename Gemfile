@@ -10,7 +10,6 @@ gem 'activerecord-import'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise'
 gem 'dotenv-rails'
-# gem 'ed25519', '>= 1.2', '< 2.0'
 gem 'jbuilder', '~> 2.7'
 # Use Puma as the app server
 gem 'puma', '>= 6.3.1'
