@@ -58,7 +58,7 @@ Rails.application.configure do
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
-  config.assets.debug = true
+  config.assets.debug = false
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
@@ -77,8 +77,16 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
   config.require_master_key = false
 
-  config.action_mailer.default_url_options = { host: 'libappstest.libraries.uc.edu' }
-  config.mailer_sender = 'lisa.haitz@uc.edu'
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  # Set the host for Devise mailer URLs
+  config.action_mailer.default_url_options = { host: ENV['STADIR_MAILER_URL'] }
+  config.mailer_sender = ENV['STADIR_MAILER_FROM']
   config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: ENV.fetch('MAIL_SMTP_ADDRESS', 'localhost').presence || 'localhost',
+    port: 25
+  }
+  # 'ca_file' is the path to the certificate authority file.
+  # In our case, it's a self-signed certificate. This tells Rails to trust this specific certificate.
+   ca_file='/etc/ssl/certs/postfix.pem'
+
 end
