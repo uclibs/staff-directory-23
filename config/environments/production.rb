@@ -15,7 +15,7 @@ Rails.application.configure do
   config.eager_load = true
 
   # Full error reports are disabled and caching is turned on.
-  config.consider_all_requests_local       = true
+  config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
   # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]
@@ -98,19 +98,19 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-  config.require_master_key = false
 
   # Set the host for Devise mailer URLs
-  config.action_mailer.default_url_options = { host: ENV['STADIR_MAILER_URL'] }
-  config.mailer_sender = ENV['STADIR_MAILER_FROM']
+  config.action_mailer.default_url_options = { host: 'libappstest.libraries.uc.edu' }
+  config.mailer_sender = 'lisa.haitz@uc.edu'
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: ENV.fetch('MAIL_SMTP_ADDRESS', 'localhost').presence || 'localhost',
-    port: 25
-    # Include additional SMTP settings as needed, like authentication details.
-  }
+    # 'address' specifies the address of the server that will handle email sending.
+    address: ENV['MAIL_SMTP_ADDRESS'],
+    # 'port' specifies which port to use on the SMTP server.
+    # Port 25 is the defaultgut s port for SMTP servers like Postfix.
+    port: 25,
     # 'ca_file' is the path to the certificate authority file.
     # In our case, it's a self-signed certificate. This tells Rails to trust this specific certificate.
-    ca_file='/etc/ssl/certs/postfix.pem'
-
+    ca_file: '/etc/ssl/certs/postfix.pem'
+  }
 end
