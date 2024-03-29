@@ -105,7 +105,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     # 'address' specifies the address of the server that will handle email sending.
-    address: ENV['MAIL_PRODUCTION_SMTP_ADDRESS'],
+    address: ENV['STADIR_PRODUCTION_MAIL_SMTP_ADDRESS'],
     # 'port' specifies which port to use on the SMTP server.
     # Port 25 is the defaultgut s port for SMTP servers like Postfix.
     port: 25,
