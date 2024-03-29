@@ -81,7 +81,7 @@ Rails.application.configure do
   config.mailer_sender = ENV['STADIR_DEV_MAILER_FROM']
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: ENV['MAIL_DEV_SMTP_ADDRESS'],
+    address: ENV['STADIR_MAIL_DEV_SMTP_ADDRESS'],
     port: 25,
     # 'ca_file' is the path to the certificate authority file.
     # In our case, it's a self-signed certificate. This tells Rails to trust this specific certificate.
