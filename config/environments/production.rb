@@ -113,5 +113,5 @@ Rails.application.configure do
     # In our case, it's a self-signed certificate. This tells Rails to trust this specific certificate.
     ca_file: '/etc/ssl/certs/postfix.pem'
   }
-  config.action_mailer.asset_host = 'https://libapps.libraries.uc.edu'
+  config.action_mailer.asset_host = ENV['STADIR_MAILER_ASSET_HOST']
 end
