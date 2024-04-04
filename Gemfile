@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.2.2'
+ruby '3.3.0'
 gem 'activerecord-import'
 # Reduces boot times through caching; required in config/boot.rb
 # gem 'bootsnap', '>= 1.17.0', require: false
@@ -28,7 +28,7 @@ gem 'turbolinks', '~> 5'
 
 group :development do
   gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
-  gem 'capistrano', '3.17.1'
+  gem 'capistrano', '3.18.1'
   # gem 'capistrano3-puma', require: false
   gem 'capistrano-bundler', '~> 2.1', require: false
   gem 'capistrano-rails', '~> 1.4', require: false
