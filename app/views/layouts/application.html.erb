@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-us">
+
   <head>
     <title>Staff Directory</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
@@ -13,7 +16,8 @@
 <div class="first">
 <%= image_tag("uclogo.png", alt: "UC Logo") %></div> 
 <div class="second">UC Libraries</div> 
-<div class="nav">UC Libraries Home | Contact Us  </div>
+<div class="nav"><a href="https://libraries.uc.edu">UC Libraries Home</a> | <a href="https://libraries.uc.edu/about/contact.html">Contact Us</a>
+</div>
 <div class="contentwrap">
 <!--added for devise gem, then changed per book to render partial-->
 <!--<p class="notice"><%= notice %></p>-->
@@ -45,16 +49,16 @@
    </div>
     <% end %>
     <%= render partial: 'layouts/footer' %>
-    <div class="signin">
-   <% if user_signed_in? %>
-              <p> <i>You are signed in.</i> </p>
-              <%= button_to 'Logout', destroy_user_session_path, method: :delete %>
-  <% else %> 
-    <p class="signin"> <%= link_to "Login", new_user_session_path %></p>
-      <% end %>
-          </div>
-          <p>&nbsp;</p>
-        </div>
-
+   <div class ="signstatus">
+     <div class="signin">
+      <% if user_signed_in? %>
+        <p class ="message"> <i>You are signed in.</i> </p>
+         <%= button_to 'Logout', destroy_user_session_path, method: :delete %>
+         <% else %>
+         <%= link_to "Login", new_user_session_path %>
+       <% end %>
+     </div>
+   </div>
+  </div>
   </body>
 </html>
