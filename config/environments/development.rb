@@ -77,8 +77,7 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
   config.require_master_key = false
 
-  config.action_mailer.default_url_options = { host: 'libappstest.libraries.uc.edu' }
-  config.mailer_sender = 'lisa.haitz@uc.edu'
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-  config.action_mailer.delivery_method = :smtp
+  config.mailer_sender = ENV.fetch('STADIR_PRODUCTION_MAILER_FROM','localhost').presence || 'localhost'
+
 end
