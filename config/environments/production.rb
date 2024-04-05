@@ -202,15 +202,15 @@ Rails.application.configure do
     config.action_mailer.default_url_options = { host: ENV.fetch('STADIR_PRODUCTION_MAILER_URL', nil) }
     config.mailer_sender = ENV.fetch('STADIR_PRODUCTION_MAILER_FROM', 'localhost').presence || 'localhost'
 
-    # do i need this below?config.action_mailer.smtp_settings = {
+    config.action_mailer.smtp_settings = {
     # 'address' specifies the address of the server that will handle email sending.
-    # address: ENV.fetch('STADIR_PRODUCTION_MAILER_SMTP_URL', 'localhost').presence || 'localhost',
+    address: ENV.fetch('STADIR_PRODUCTION_MAILER_URL', 'localhost').presence || 'localhost',
     # 'port' specifies which port to use on the SMTP server.
     # Port 25 is the defaultgut s port for SMTP servers like Postfix.
-    # port: 25,
+    port: 25,
     # 'ca_file' is the path to the certificate authority file.
     # In our case, it's a self-signed certificate. This tells Rails to trust this specific certificate.
-    # ca_file: '/etc/ssl/certs/postfix.pem'
-    # }
+    ca_file: '/etc/ssl/certs/postfix.pem'
+     }
   end
 end
