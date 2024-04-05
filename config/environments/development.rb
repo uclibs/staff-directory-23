@@ -78,6 +78,5 @@ Rails.application.configure do
   config.require_master_key = false
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-  config.mailer_sender = ENV.fetch('STADIR_PRODUCTION_MAILER_FROM','localhost').presence || 'localhost'
-
+  config.mailer_sender = ENV.fetch('STADIR_PRODUCTION_MAILER_FROM', 'localhost').presence || 'localhost'
 end
