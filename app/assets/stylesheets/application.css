@@ -37,8 +37,18 @@ h2 {
   color: #b8011c;
   padding-top: 10px;
   margin-bottom:1rem;
+  margin-top:2em;
 
 }
+.alert{
+  margin-top:30px;
+  color:red;
+  font-weight:bold;
+}
+#new_user {
+  margin-top: 40px;
+}
+
 
 input[type=button], input[type=submit] {
 
@@ -51,6 +61,7 @@ input[type=button], input[type=submit] {
   display: block;
   line-height: 100%;
   margin-top: 3em;
+
   padding: 10px 10px 10px;
   text-align: center;
   transition: box-shadow .05s ease-in-out, opacity .05s ease-in-out;
@@ -115,7 +126,7 @@ input[type=button], input[type=submit] {
   padding: 20px;
   width: fit-content;
   color: black;
-  margin-left: 8%;
+  margin-left: 15%;
   margin-bottom:1%;
   background-color: #f6f5f5;
 }
@@ -263,11 +274,9 @@ th, td {
   margin-bottom: 12px;
   margin-right: 5px;
 }
-.signstatus{
-  margin-left:14%;
-}
+
 .signin {
-  background-color: #E00122;
+  background-color: cadetblue;
   background-image: linear-gradient(#b8011c, #E00122);
   border: 1px solid #666;
   border-radius: 4px;
@@ -297,6 +306,7 @@ th, td {
   font-weight:bold;
   width:fit-content;
   padding:5px;
+  margin-left:15%;
 }
 .message {
   border: thin #DC292C solid;
@@ -362,18 +372,20 @@ fieldset {
 .contentwrap {
   padding-top: 1%;
   padding-bottom: 1%;
-  padding-left: 8%;
+  padding-left: 15%;
   padding-right: 1%;
   line-height: normal;
   max-width: 90%;
-  text-align: center;
+  text-align: left;
   background-color: #fefdff;
 }
-/*.contentwrap h1{
-margin-left:8%;
-}*/
+.contentwrap h1{
 
+}
 
+.sorting-instruct{
+
+}
 .form1 {
   border-radius: 10px;
   margin-bottom: 3em;
