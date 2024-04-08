@@ -58,7 +58,7 @@ Rails.application.configure do
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
-  config.assets.debug = true
+  config.assets.debug = false
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
@@ -77,6 +77,7 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
   config.require_master_key = false
 
+
   #config.action_mailer.url = { host: ENV['STADIR_PRODUCTION_MAILER_URL'] }
   #config.mailer_from = ENV['STADIR_PRODUCTION_MAILER_FROM']
 
@@ -89,3 +90,4 @@ Rails.application.configure do
 
   # Ensure o
   end
+
