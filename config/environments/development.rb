@@ -88,6 +88,5 @@ Rails.application.configure do
   # Using an environment variable for the sender email address
   config.action_mailer.default_options = { from: ENV['STADIR_PRODUCTION_MAILER_FROM'] }
 
-  # Ensure o
-  end
+end
 
