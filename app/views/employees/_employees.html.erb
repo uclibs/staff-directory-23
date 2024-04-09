@@ -1,6 +1,8 @@
 <% sort_direction = params[:direction] == 'asc' ? 'desc' : 'asc' %>
 <% current_sort = params[:sort] || 'lastname' %>
-
+<div class="sorting-instruct">
+  <p>Click on column name to sort</p>
+</div>
 <div class="table-wrapper">
   <p id="notice"><%= notice %></p>
   <table class="fl-table">

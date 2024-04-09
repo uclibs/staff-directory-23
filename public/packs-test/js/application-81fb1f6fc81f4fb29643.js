@@ -1172,7 +1172,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
 Unobtrusive JavaScript
 https://github.com/rails/rails/blob/main/actionview/app/assets/javascripts
 Released under the MIT license
- */;
+ */
 (function () {
   var context = this;
   (function () {
