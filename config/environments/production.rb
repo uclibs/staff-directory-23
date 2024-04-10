@@ -101,7 +101,7 @@ Rails.application.configure do
 
   # Set the host for Devise mailer URLs
   config.action_mailer.default_url_options = { host: 'libappstest.libraries.uc.edu' }
-  config.mailer_sender = 'lisa.haitz@uc.edu'
+  config.mailer_from = 'uclappdev@uc.edu'
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     # 'address' specifies the address of the server that will handle email sending.
