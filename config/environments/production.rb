@@ -114,3 +114,5 @@ Rails.application.configure do
     # In our case, it's a self-signed certificate. This tells Rails to trust this specific certificate.
     ca_file: '/etc/ssl/certs/sendmail.pem'
   }
+
+  end
