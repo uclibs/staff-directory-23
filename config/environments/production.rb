@@ -108,7 +108,8 @@ Rails.application.configure do
     # 'address' specifies the address of the server that will handle email sending.
     address: ENV['MAIL_SMTP_ADDRESS'],
     # 'port' specifies which port to use on the SMTP server.
-    # Port 25 is the defaultgut s port for SMTP servers like Postfix.
+    # Port 25 is the default port for SMTP servers like Postfix.
+    enable_starttls_auto: true,
     port: 25,
     # 'ca_file' is the path to the certificate authority file.
     # In our case, it's a self-signed certificate. This tells Rails to trust this specific certificate.
