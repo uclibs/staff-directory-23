@@ -39,6 +39,8 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.perform_caching = false
+  # Needed for mail to work in production
+  config.action_mailer.smtp_settings = { enable_starttls_auto: false }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
