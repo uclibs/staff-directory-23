@@ -101,7 +101,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Set the host for Devise mailer URLs
-  config.action_mailer.default_url_options = { host: 'libappstest.libraries.uc.edu' }
+  config.action_mailer.default_url_options = { host: 'libapps.libraries.uc.edu' }
   config.mailer_from = 'uclappdev@uc.edu'
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
