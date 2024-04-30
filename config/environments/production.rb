@@ -101,7 +101,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Set the host for Devise mailer URLs
-  config.action_mailer.default_url_options = ENV['STADIR_MAILER_URL']
+  config.action_mailer.default_url_options = { host: ENV.fetch('STADIR_MAILER_URL', nil) }
   config.mailer_from = ENV['STADIR_MAILER_FROM']
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
