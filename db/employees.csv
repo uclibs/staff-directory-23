@@ -1,0 +1,91 @@
+id,lastname,firstname,email,phone,title,created_at,updated_,department_id
+1,Hart,Olga,olga.hart@uc.edu,556-1850,Coordinator of Library Instruction,,,35
+10,Mihaly,Sara,sara.mihaly@uc.edu,556-1365,Student Supervisor& Collections Receiving Speciali,,,51
+11,Sandor,David,david.sandor@uc.edu,556-1510,Circulation Supervisor,,,10
+12,Tenofsky,Deborah,deborah.tenofsky@uc.edu,556-1888,"Head of Research, Teaching, and Services",,,35
+13,Hight,Susan,susan.hight@uc.edu,556-3230,Technical & Public Services Assistant,,,16
+14,Johnson,Arlene,arlene.johnson@uc.edu,556-1417,"Head, Collection Development Services & Engagement",,,59
+15,Kline,Ben,ben.kline@uc.edu,556-1419,"Assistant Department Head, RTS",,,35
+16,Meyer,Elizabeth,elizabeth.meyer@uc.edu,556-0279,Visual Resources Librarian,,,13
+17,Tucker,Hyacinth,hyacinth.tucker@uc.edu,556-1880,Binding Processor,,,11
+18,Banoun,Susan,susan.banoun@uc.edu,556-1440,"Team Leader, eResources & Access",,,51
+19,Hiller,Karl,karl.hiller@uc.edu,556-6203,IT Analyst,,,27
+2,Prochaska,Holly,holly.prochaska@uc.edu,556-1389,"Head, Preservation Services",,,11
+20,Anderson,Meshia,meshia.anderson@uc.edu,556-6596,Interlibrary Loan Specialist,,,59
+21,Ebert,Jessica,jessica.ebert@uc.edu,556-1877,Conservation Technician,,,11
+22,Van Mil,James,James.VanMil@uc.edu,556-1410,Digital Projects & Preservation Librarian,,,51
+23,Purtee,Sharon,sharon.purtee@uc.edu,558-1019,"Interim Head, Health Sciences Library",,,46
+24,Stevens,Cade,cade.stevens@uc.edu,556-1321,Student & Circulation Supervisor,,,13
+25,Wagner,Gerald,gerald.wagner@uc.edu,558-8389,"Manager, Unit Operations",,,59
+26,Crowe,Sean,sean.crowe@uc.edu,556-1899,Digital Analyst and Developer Librarian,,,55
+27,Reller,Suzanne,suzanne.reller@uc.edu,556-7016,Reference/Collections Librarian,,,4
+28,Bachelder,Dean,dean.bachelder@uc.edu,558-5677,"Evening and Weekend Supervisor, Circulation Desk",,,46
+29,Horton,Glen,glen.horton@uc.edu,556-1491,"Head, Application Development Unit",,,55
+3,Baldwin,Ted,ted.baldwin@uc.edu,556-4211,"Interim Head, Collections; Dir Science Engineer Li",,,1
+30,Ferguson Schieszer,Ashleigh,ashleigh.schieszer@uc.edu,556-4289,Lab Conservator,,,11
+31,Grant,Tiffany,tiffany.grant@uc.edu,558-9153,Assistant Director for Research and Informatics,,,58
+32,Koshoffer,Amy,amy.koshoffer@uc.edu,556-1310,"Asst Director, Research & Data Services",,,58
+33,Welter,Amanda,amanda.welter@uc.edu,556-7015,"Director, Library Facilities and Planning",,,1
+34,Mackiewicz,Jenny,jennifer.mackiewicz@uc.edu,556-1394,Coordinator of Special Projects and Programs,,,1
+35,Bourne,Regina,regina.bourne@uc.edu,556-0326,"Director, Inclusion, Diversity & Org Development",,,1
+36,Williams,Sara,sara.williams3@uc.edu,556-1396,Collections Acquisitions,,,51
+37,Hyden,Amanda,amanda.hyden@uc.edu,556-1042,eResources & Access,,,51
+38,Jason,Don,don.jason@uc.edu,558-0725,Clinical Informationist,,,58
+39,Harris,Lori,lori.harris@uc.edu,558-0315,Interim Assoc Dean Public Services,,,1
+4,Braunlin,Michael,michael.braunlin@uc.edu,556-1333,Assistant Head Classics Library,,,9
+40,Figueirinhas,Catarina ,catarina.figueirinhas@uc.edu,556-4280,Sr. Conservation Specialist ,,,11
+41,Alfieri,Michael,michael.alfieri@uc.edu,556-1852,"Director, User Services",,,35
+42,Thatcher,Carissa,carissa.thatcher@uc.edu,556-5758,"Team Leader, Collections Acquisitions",,,51
+43,Chang,May,may.chang@uc.edu,556-3165,Library Chief Technology Officer,,,27
+44,Doctor,Jenny,jenny.doctor@uc.edu,556-1964,Head of the Albino Gorno Memorial (CCM) Library,,,10
+45,Person,Craig,personcg@ucmail.uc.edu,556-1453,Associate Director of Operations,,,16
+46,Lindau,Rebecka,rebecka.lindau@uc.edu,556-1316,Head of the John Miller Burnam Classical Library,,,9
+47,Gichuru,Dorcas,gichurds@ucmail.uc.edu,556-1463,Business Manager,,,48
+48,Zonker,Christopher,zonkerca@ucmail.uc.edu,556-1996,Financial Administrator 2,,,48
+49,Patel,Margaux,margaux.patel@uc.edu,556-1580,Business & Data Analytic Librarian,,,35
+5,Campbell,James,James.Campbell@uc.edu,556-1408,Network Analyst,,,27
+50,Scherz,Thomas,thomas.scherz@uc.edu,556-1406,Senior Software Developer,,,55
+51,Haitz,Lisa,lisa.haitz@uc.edu,556-1431,Software Developer 3,,,55
+52,Scarpelli,Elizabeth,scarpeea@ucmail.uc.edu,556-1494,Director UC Press,,,54
+53,Rinto,Erin,rintoen@ucmail.uc.edu,0,Learning and Research Librarian,,,35
+54,Sorrell,Scott,sorrelsc@ucmail.uc.edu,558-0290,Computer Systems Administrator - Lead,,,27
+55,Gao,Sidney,gaosy@ucmail.uc.edu,556-4696,Digital Collections Manager,,,51
+56,Chalmers,Mark,chalmemk@ucmail.uc.edu,556-1452,Science & Engineering Librarian,,,16
+57,Wysinski,Nathan,wysinsnj@ucmail.uc.edu,558-4073,IT Manager,,,46
+58,Foran-Mulcahy,Katie,foranmkn@ucmail.uc.edu,556-1758,"Head, CECH Library",,,12
+59,Moena,Diego,moenads@ucmail.uc.edu,556-1411,Collections Acquisitions,,,51
+6,Corday,Mikaila,mikaila.corday@uc.edu,556-1013,eResources & Access,,,51
+60,Previtera,Melissa,melissa.previtera@uc.edu,558-3071,Academic & Research Services Specialist,,,46
+61,Bratt,Suzanne,brattse@ucmail.uc.edu,556-1963,CCM Library Cataloging Librarian,,,10
+62,Becker,Alan,beckeraj@ucmail.uc.edu,556-2650,Public Services Assistant,,,35
+63,Stewart,Shannan,stewars3@ucmail.uc.edu,556-1314,Library Specialist,,,9
+64,Gaiser,Madeleine,gaiserml@ucmail.uc.edu,556-1430,Online Learning & Instruction Librarian,,,12
+65,Bernardo,Christa,bernarct@foundation.uc.edu,556-0055,Director of Development,,,1
+66,Hoople,Rachel,hooplere@ucmail.uc.edu,556-1307,Operations Manager and Student Supervisor,,,12
+67,Warner,Lynn,warnerlc@ucmail.uc.edu,558-4173,Research & Health Sciences Librarian,,,46
+68,IT@Langsam,IT@Langsam,'No E-mail',556-0168,Technology Assistance,,,27
+69,Mao,Yu,maoyu@ucmail.uc.edu,556-1551,Director of Business Affairs,,,48
+7,Stork,John,john.stork@uc.edu,556-1984,"Assistant Head, Collection Development Svcs",,,59
+70,Hershiser,Madison,hershime@ucmail.uc.edu,556-1454,Resource Sharing Assistant,,,59
+71,Reder,Lauren,rederle@ucmail.uc.edu,0,"Cataloguer, Classics/Modern Greek",,,51
+72,Grigg Dean,Elaine,griggdeh@ucmail.uc.edu,556-1550,Information Specialist,,,16
+73,Johnson,Meni,jomk@ucmail.uc.edu,5563086,Sr. HR. Coordinator,,,49
+74,Temple,Alex,templea@ucmail.uc.edu,556-1959,Archivist,,,4
+75,Minelli,Mark,minellmr@ucmail.uc.edu,556-6276,Journals & Digital Production Manager,,,54
+76,Snyder,Edward,snyderew@ucmail.uc.edu,556-0168,Endpoint Specialist,,,27
+77,Richardson,Andrew,richaa3@ucmail.uc.edu',558-0127,Computer & Information Analyst,,,46
+78,Mudd,Matthew,muddmw@ucmail.uc.edu,558-0127,Endpoint Specialist,,,46
+79,Schnee,Samantha,samantha.schaffer@uc.edu,556-1404,System Administrator,,,27
+8,Norris,Melissa,melissa.norris@uc.edu,556-1558,Director of Library Communications,,,50
+80,Sliney,Kyle,slineykm@ucmail.uc.edu,558-0430,Multimedia Designer,,,46
+81,Smith,Erin,smith8en@ucmail.uc.edu,556-1560,Collections Acquisitions Specialist,,,51
+82,Bettencourt-McCarthy,Aja,bettenar@ucmail.uc.edu,556-5707,Science-Engineering Global Services Librarian,,,16
+83,Wissman,Pamela,seyrinpa@ucmail.uc.edu,556-6386,"Editorial, Design, and Production Manager",,,54
+84,Harter,Christopher,hartercr@ucmail.uc.edu,556-1959,"University Archivist and Head, ARB Library",,,4
+85,Purtee,Sharon,sharon.purtee@uc.edu,5135581019,"Interim Head, Content Services",,,51
+86,Bhat,Nimisha,nimisha.bhat@uc.edu,556-4657,"History, WGSS & Anthropology Librarian",,,35
+87,Johnson,Marcia,john5md@ucmail.uc.edu,558-0381,Library Services Supervisor,,,16
+88,Kiscaden,Elizabeth,kiscadeh@ucmail.uc.edu,556-1515,Dean and University Librarian,,,1
+89,Huyck,Janell,janell.huyck@uc.edu,556-0633,Software Developer,,,55
+9,Taylor-Slaughter,June,june.taylor@uc.edu,556-1587,Research & Services Specialist,,,16
+90,Jackson,Angela,angela.jackson@uc.edu,556-1515,Associate To,,,1

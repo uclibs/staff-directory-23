@@ -10,11 +10,14 @@ namespace :import_data do
 
     CSV.foreach('/Users/Lisa/uclibs/staff-directory-23/db/employees.csv', headers: true) do |row|
       employee = Employee.new(
+        id: row['id'],
         lastname: row['lastname'],
         firstname: row['firstname'],
         email: row['email'],
         phone: row['phone'],
         title: row['title'],
+        created_at: row['created_at'],
+        updated_at: row['updated_at'],
         department_id: row['department_id'].to_i
       )
 

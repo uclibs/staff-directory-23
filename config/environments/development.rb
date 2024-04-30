@@ -79,11 +79,11 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
   config.require_master_key = false
 
-  # config.action_mailer.url = { host: ENV['STADIR_PRODUCTION_MAILER_URL'] }
-  # config.mailer_from = ENV['STADIR_PRODUCTION_MAILER_FROM']
+  # config.action_mailer.url = { host: ENV['STADIR_MAILER_URL'] }
+  # config.mailer_from = ENV['STADIR_MAILER_FROM']
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   # Using an environment variable for the sender email address
-  config.action_mailer.default_options = { from: ENV['STADIR_PRODUCTION_MAILER_FROM'] }
+  config.action_mailer.default_options = { from: ENV['STADIR_MAILER_FROM'] }
 end
