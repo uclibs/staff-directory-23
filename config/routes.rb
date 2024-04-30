@@ -1,23 +1,18 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  # get 'user/create'
-  # get 'user/update'
-  # get 'user/delete'
-  # devise_for :views
-  devise_for :users, skip: [:registrations]
-  # get 'departments/index'
-  # get 'departments/show'
-  # get 'departments/edit'
-  # get 'departments/update'
-  # get 'departments/new'
-  # root 'employees#index' # make the employees#index the root of the application
+  devise_for :users, controllers: { passwords: 'passwords' }, skip: [:registrations]
+
+  # Encapsulate your custom Devise routes within a devise_scope block
+  devise_scope :user do
+    get 'forgot_password', to: 'passwords#new', as: :forgot_password
+    post 'forgot_password', to: 'passwords#create'
+    get 'reset_password', to: 'passwords#edit', as: :reset_password
+    get 'password_create_error', to: 'passwords#password_create_error'
+    get 'instructions_sent', to: 'passwords#instructions_sent', as: :instructions_sent
+  end
+
   root 'employees#index'
-  # suggestion: get 'public/index'
   resources :employees
   resources :departments
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  # get 'login', to: 'sessions#new', as: :login
-  # post 'login', to: 'sessions#create'
-  # delete 'logout', to: 'sessions#destroy', as: :logout
 end

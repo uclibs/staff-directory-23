@@ -15,7 +15,7 @@ Rails.application.configure do
   config.eager_load = true
 
   # Full error reports are disabled and caching is turned on.
-  config.consider_all_requests_local       = false
+  config.consider_all_requests_local = false
   config.action_controller.perform_caching = true
 
   # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]
@@ -65,7 +65,8 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "staffdirectory_production"
 
   config.action_mailer.perform_caching = false
-
+  # Needed for mail to work in production
+  # config.action_mailer.smtp_settings = { enable_starttls_auto: false }
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
@@ -91,32 +92,27 @@ Rails.application.configure do
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
   if ENV['RAILS_LOG_TO_STDOUT'].present?
-    logger           = ActiveSupport::Logger.new($stdout)
+    logger = ActiveSupport::Logger.new($stdout)
     logger.formatter = config.log_formatter
-    config.logger    = ActiveSupport::TaggedLogging.new(logger)
+    config.logger = ActiveSupport::TaggedLogging.new(logger)
   end
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  # Inserts middleware to perform automatic connection switching.
-  # The `database_selector` hash is used to pass options to the DatabaseSelector
-  # middleware. The `delay` is used to determine how long to wait after a write
-  # to send a subsequent read to the primary.
-  #
-  # The `database_resolver` class is used by the middleware to determine which
-  # database is appropriate to use based on the time delay.
-  #
-  # The `database_resolver_context` class is used by the middleware to set
-  # timestamps for the last write to the primary. The resolver uses the context
-  # class timestamps to determine how long to wait before reading from the
-  # replica.
-  #
-  # By default Rails will store a last write timestamp in the session. The
-  # DatabaseSelector middleware is designed as such you can define your own
-  # strategy for connection switching and pass that into the middleware through
-  # these configuration options.
-  # config.active_record.database_selector = { delay: 2.seconds }
-  # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
-  # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+  # Set the host for Devise mailer URLs
+  config.action_mailer.default_url_options = { host: 'libappstest.libraries.uc.edu' }
+  config.mailer_from = 'uclappdev@uc.edu'
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    # 'address' specifies the address of the server that will handle email sending.
+    address: ENV['MAIL_SMTP_ADDRESS'],
+    # 'port' specifies which port to use on the SMTP server.
+    # Port 25 is the default port for SMTP servers like Postfix.
+    enable_starttls_auto: true,
+    port: 25,
+    # 'ca_file' is the path to the certificate authority file.
+    # In our case, it's a self-signed certificate. This tells Rails to trust this specific certificate.
+    ca_file: '/etc/ssl/certs/sendmail.pem'
+  }
 end

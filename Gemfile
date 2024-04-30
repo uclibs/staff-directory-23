@@ -1,36 +1,41 @@
 # frozen_string_literal: true
 
-# frozen_string_literal: true
-
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.0.5'
+ruby '3.3.0'
 gem 'activerecord-import'
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.4.4', require: false
+# gem 'bootsnap', '>= 1.17.0', require: false
+gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise'
 gem 'dotenv-rails'
 gem 'jbuilder', '~> 2.7'
 # Use Puma as the app server
-gem 'puma', '~> 5.0'
+gem 'puma', '>= 6.3.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
-gem 'rails', '~> 6.1.7', '>= 6.1.7.2'
-# Use SCSS for stylesheets
+gem 'rails', '>= 6.1.7.7', '< 6.2'
 gem 'sass-rails', '>= 6'
+# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'webpacker', '~> 5.0'
+# Use CoffeeScript for .coffee assets and views
+gem 'coffee-rails', '~> 5.0'
+# gem 'coveralls', '~> 0.8.22', require: false
+gem 'coveralls_reborn'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'webpacker', '~> 5.0'
 
 group :development do
-  gem 'capistrano', '3.17.1'
-  gem 'capistrano3-puma', require: false
+  gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
+  gem 'capistrano', '3.18.1'
+  # gem 'capistrano3-puma', require: false
   gem 'capistrano-bundler', '~> 2.1', require: false
   gem 'capistrano-rails', '~> 1.4', require: false
   gem 'capistrano-rbenv', '~> 2.0' # required
   gem 'capistrano-rbenv-install', '~> 1.2.0'
   # gem 'capistrano-rvm', require: false
+  gem 'ed25519', '>= 1.2', '< 2.0'
   gem 'listen', '~> 3.3'
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'rb-readline'
@@ -39,7 +44,7 @@ group :development do
   gem 'rubocop-rspec', require: false
   gem 'spring'
   gem 'web-console', '>= 4.1.0'
-  end
+end
 
 group :development, :test do
   gem 'brakeman'
@@ -59,13 +64,11 @@ end
 
 group :test do
   gem 'capybara', '>= 2.15'
-  gem 'coveralls', require: false
   gem 'database_cleaner'
   gem 'selenium-webdriver'
   gem 'webdrivers', '~> 4.0', require: false
 end
 
 group :development, :production do
-  gem 'mysql2'
-
+  gem 'mysql2', '~> 0.5.6'
 end

@@ -39,6 +39,8 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.perform_caching = false
+  # Needed for mail to work in production
+  config.action_mailer.smtp_settings = { enable_starttls_auto: false }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -58,7 +60,7 @@ Rails.application.configure do
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
-  config.assets.debug = true
+  config.assets.debug = false
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
@@ -77,6 +79,11 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
   config.require_master_key = false
 
+  # config.action_mailer.url = { host: ENV['STADIR_PRODUCTION_MAILER_URL'] }
+  # config.mailer_from = ENV['STADIR_PRODUCTION_MAILER_FROM']
+
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-  config.mailer_sender = 'no-reply@uc.edu'
+
+  # Using an environment variable for the sender email address
+  config.action_mailer.default_options = { from: ENV['STADIR_PRODUCTION_MAILER_FROM'] }
 end

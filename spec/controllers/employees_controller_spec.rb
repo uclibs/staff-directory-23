@@ -21,7 +21,69 @@ RSpec.describe EmployeesController, type: :controller do
       get :index
       expect(assigns(:employees)).to eq([employee])
     end
+    # adding to test sorting
+    context 'with valid sorting parameters' do
+      it 'sorts by firstname ascending' do
+        employee1 = FactoryBot.create(:employee, firstname: 'Alice')
+        employee2 = FactoryBot.create(:employee, firstname: 'Bob')
+        get :index, params: { sort: 'firstname', direction: 'asc' }
+        expect(assigns(:employees)).to eq([employee1, employee2])
+      end
+
+      it 'sorts by lastname ascending' do
+        # Create two employees with different last names
+        employee1 = FactoryBot.create(:employee, lastname: 'Abbott')
+        employee2 = FactoryBot.create(:employee, lastname: 'Johnson')
+        # Make the request with sorting parameters
+        get :index, params: { sort: 'lastname', direction: 'asc' }
+        # Add assertions to check the sorting order
+        expect(assigns(:employees)).to eq([employee1, employee2])
+      end
+
+      # check for sorting by department name
+      it 'sorts by department name ascending' do
+        # Create departments
+        department1 = FactoryBot.create(:department, name: 'Administration')
+        department2 = FactoryBot.create(:department, name: 'Content Services')
+        # Create employees associated with those departments
+        employee1 = FactoryBot.create(:employee, department: department1)
+        employee2 = FactoryBot.create(:employee, department: department2)
+        # Make the request with sorting parameters
+        get :index, params: { sort: 'departments.name', direction: 'asc' }
+        # Expect the employees to be sorted in descending order by department name
+        expect(assigns(:employees)).to eq([employee1, employee2])
+      end
+
+      it 'sorts by title ascending' do
+        employee1 = FactoryBot.create(:employee, title: 'Conservation Technician')
+        employee2 = FactoryBot.create(:employee, title: 'Network Analyst')
+        get :index, params: { sort: 'title', direction: 'asc' }
+        expect(assigns(:employees)).to eq([employee1, employee2])
+      end
+      # Add more tests for each sortable column
+
+      it 'sorts by phone descending' do
+        # Create two employees with different last names
+        employee1 = FactoryBot.create(:employee, phone: '1234567890')
+        employee2 = FactoryBot.create(:employee, phone: '9876543210')
+        # Make the request with sorting parameters
+        get :index, params: { sort: 'phone', direction: 'desc' }
+        # Add assertions to check the sorting order
+        expect(assigns(:employees)).to eq([employee2, employee1])
+      end
+
+      it 'sorts by email descending' do
+        # Create two employees with different last names
+        employee1 = FactoryBot.create(:employee, email: 'bob.smith@uc.edu')
+        employee2 = FactoryBot.create(:employee, email: 'alice.johnson@uc.edu')
+        # Make the request with sorting parameters
+        get :index, params: { sort: 'email', direction: 'desc' }
+        # Add assertions to check the sorting order
+        expect(assigns(:employees).to_a).to eq([employee1, employee2])
+      end
+    end
   end
+  # end of sorting tests context
 
   describe 'GET #show' do
     it 'renders the show template' do
@@ -93,7 +155,6 @@ RSpec.describe EmployeesController, type: :controller do
       end
     end
   end
-
   describe 'GET #edit' do
     it 'renders the edit template' do
       employee = FactoryBot.create(:employee)
@@ -107,7 +168,6 @@ RSpec.describe EmployeesController, type: :controller do
       expect(assigns(:employee)).to eq(employee)
     end
   end
-
   describe 'PATCH #update' do
     let(:employee) { FactoryBot.create(:employee) }
 
@@ -143,6 +203,21 @@ RSpec.describe EmployeesController, type: :controller do
         patch :update, params: invalid_params
         expect(response).to render_template(:edit)
       end
+    end
+  end
+
+  describe 'DELETE #destroy' do
+    let!(:employee) { FactoryBot.create(:employee) }
+
+    it 'deletes the employee' do
+      expect do
+        delete :destroy, params: { id: employee.id }
+      end.to change(Employee, :count).by(-1)
+    end
+
+    it 'redirects to the employees index' do
+      delete :destroy, params: { id: employee.id }
+      expect(response).to redirect_to(employees_path)
     end
   end
 end
