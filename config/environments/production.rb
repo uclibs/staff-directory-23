@@ -15,7 +15,7 @@ Rails.application.configure do
   config.eager_load = true
 
   # Full error reports are disabled and caching is turned on.
-  config.consider_all_requests_local = true
+  config.consider_all_requests_local = false
   config.action_controller.perform_caching = true
 
   # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]
@@ -101,12 +101,12 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Set the host for Devise mailer URLs
-  config.action_mailer.default_url_options = { host: ENV.fetch('STADIR_MAILER_URL', nil) }
-  config.mailer_from = ENV['STADIR_MAILER_FROM']
+  config.action_mailer.default_url_options = 'libappstest.libraries.uc.edu'
+  config.mailer_from = 'uclappdev@uc.edu'
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     # 'address' specifies the address of the server that will handle email sending.
-    address: ENV['STADIR_MAILER_URL'],
+    address: ENV['MAIL_SMTP_ADDRESS'],
     # 'port' specifies which port to use on the SMTP server.
     # Port 25 is the default port for SMTP servers like Postfix.
     enable_starttls_auto: true,
