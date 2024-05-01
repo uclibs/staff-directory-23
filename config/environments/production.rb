@@ -110,7 +110,7 @@ Rails.application.configure do
     # 'port' specifies which port to use on the SMTP server.
     # Port 25 is the default port for SMTP servers like Postfix.
     enable_starttls_auto: true,
-    port: 25,
+    port: 587,
     # 'ca_file' is the path to the certificate authority file.
     # In our case, it's a self-signed certificate. This tells Rails to trust this specific certificate.
     ca_file: '/etc/ssl/certs/sendmail.pem'
