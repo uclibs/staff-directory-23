@@ -99,6 +99,8 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  # Needed for mail to work in production
+  config.action_mailer.smtp_settings = { enable_starttls_auto: false }
 
   # Set the host for Devise mailer URLs
   config.action_mailer.default_url_options = { host: 'libappstest.libraries.uc.edu' }
@@ -109,7 +111,7 @@ Rails.application.configure do
     address: 'libappstest.libraries.uc.edu',
     # 'port' specifies which port to use on the SMTP server.
     # Port 25 is the default port for SMTP servers like Postfix.
-    enable_starttls_auto: true,
+    # enable_starttls_auto: true,
     port: 587,
     # 'ca_file' is the path to the certificate authority file.
     # In our case, it's a self-signed certificate. This tells Rails to trust this specific certificate.
