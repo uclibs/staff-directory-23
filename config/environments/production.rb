@@ -110,7 +110,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     # 'address' specifies the address of the server that will handle email sending.
-    address: ENV['MAIL_SMTP_ADDRESS'],
+    address: 'libappstest.libraries.uc.edu',
     # 'port' specifies which port to use on the SMTP server.
     # Port 25 is the default s port for SMTP servers like sendmail.
     port: 25,
