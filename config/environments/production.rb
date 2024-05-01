@@ -100,7 +100,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
   # Needed for mail to work in production
-  config.action_mailer.smtp_settings = { enable_starttls_auto: false }
+  # config.action_mailer.smtp_settings = { enable_starttls_auto: false }
 
   # Set the host for Devise mailer URLs
 
@@ -114,6 +114,7 @@ Rails.application.configure do
     # 'port' specifies which port to use on the SMTP server.
     # Port 25 is the default s port for SMTP servers like sendmail.
     port: 25,
+    enable_starttls_auto: true,
     # 'ca_file' is the path to the certificate authority file.
     # In our case, it's a self-signed certificate. This tells Rails to trust this specific certificate.
     ca_file: '/etc/ssl/certs/sendmail.pem'
