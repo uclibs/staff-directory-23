@@ -1,11 +1,10 @@
 #!/bin/bash
 
 if [ ! -f "$(dirname "$(dirname "$(dirname "$( cd "$( dirname "scripts/start_qp.sh" )" >/dev/null 2>&1 && pwd )" )" )" 
-)/static/.env.production" ]; then
-    echo "Missing updated .env.production file in the static directory. The server may not function properly"
+)/static/.env.production.local" ]; then
+    echo "Missing updated .env.production.local file in the static directory. The server may not function properly"
 else
-    cp "$(dirname "$(dirname "$(dirname "$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )" )" )" )/static/.env.production" 
-"$(dirname "$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )" )"
+    cp "$(dirname "$(dirname "$(dirname "$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )" )" )" )/static/.env.production.local" "$(dirname "$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )" )"
 fi
 
 export RAILS_RELATIVE_URL_ROOT=/staff-directory
