@@ -31,6 +31,18 @@ class PasswordsController < Devise::PasswordsController
       render 'password_create_error' # Render html view
     end
   end
+  def destroy
+    if @employee.destroy
+      respond_to do |format|
+      format.html { redirect_to employees_url, notice: 'Employee was successfully removed.' }
+      format.json { head :no_content }
+     end
+    else
+     respond_to do |format|
+      format.html { redirect_to employees_url, alert: 'Failed to delete the employee.' }
+      format.json { render json: @employee.errors, status: :unprocessable_entity }
+     end
+  end
 
   def instructions_sent
     # This action will render the app/views/devise/passwords/instructions_sent.html.erb view
@@ -43,4 +55,5 @@ class PasswordsController < Devise::PasswordsController
     # Redirects to the root path of the application
     instructions_sent_path
   end
+ end
 end

@@ -10,6 +10,7 @@
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
   <div class="container">
@@ -19,6 +20,7 @@
 <div class="nav"><a href="https://libraries.uc.edu">UC Libraries Home</a> | <a href="https://libraries.uc.edu/about/contact.html">Contact Us</a> | <%= link_to 'Staff Directory Home', root_path %>
 </div>
 <div class="contentwrap">
+  <p></p>
   <h1>Staff Directory</h1>
 
 <% if alert %>
