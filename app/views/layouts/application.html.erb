@@ -1,59 +1,53 @@
 <!DOCTYPE html>
 <html lang="en-us">
-
   <head>
     <title>Staff Directory</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <body>
-  <div class="container">
-<div class="first">
-<%= image_tag("uclogo.png", alt: "UC Logo") %></div> 
-<div class="second">UC Libraries</div> 
-<div class="nav"><a href="https://libraries.uc.edu">UC Libraries Home</a> | <a href="https://libraries.uc.edu/about/contact.html">Contact Us</a> | <%= link_to 'Staff Directory Home', root_path %>
-</div>
+  <body><div class="container">
+   <div class="first">
+   <%= image_tag("uclogo.png", alt: "UC Logo") %></div>
+   <div class="second">UC Libraries</div>
+   <div class="nav"><a href="https://libraries.uc.edu">UC Libraries Home</a> | <a href="https://libraries.uc.edu/about/contact.html">Contact Us</a> | <%= link_to 'Staff Directory Home', root_path %>
+   </div>
 <div class="contentwrap">
-  <h1>Staff Directory</h1>
-
+  <div class="headerwrap">
+   <h1>Staff Directory</h1>
+   </div>
+  <div class ="formwrap">
 <% if alert %>
     <%= notice %>
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>
     <%= yield %>
     </div>
-          <% if user_signed_in? %>
-   <div class="additional">
-     <ul>Staff Tools
-       <li><%= link_to 'Employees Home Page', employees_path %></li>
-
-         <li><%= link_to 'Create New Employee', new_employee_path %></li>
-
+  </div>
+    <% if user_signed_in? %>
+      <div class="additional">
+        <ul>Staff Tools
+          <li><%= link_to 'Employees Home Page', employees_path %></li>
+          <li><%= link_to 'Create New Employee', new_employee_path %></li>
           <li><%= link_to 'Departments Home', departments_path %>
-         <li><%= link_to 'Create New Department', new_department_path %></li>
+          <li><%= link_to 'Create New Department', new_department_path %></li>
        </ul>
-   </div>
+      </div>
     <% end %>
     <%= render partial: 'layouts/footer' %>
-        <div class ="signstatus">
-      <% if user_signed_in? %>
-        <p class ="message"> <i>You are signed in.</i> </p>
-        </div>
-            <div class="signstatus">
-         <%= button_to 'Logout', destroy_user_session_path, method: :delete %>
-            </div>
+         <% if user_signed_in? %>
+      <div class="signin">
+           <p class ="message"> <i>You are signed in.</i> </p>
+        <div class="signin-button">
+               <%= button_to 'Logout', destroy_user_session_path, method: :delete %>
          <% else %>
-        <div class="signin">
-         <%= link_to "Login", new_user_session_path %>
+               <%= button_to "Login", new_user_session_path %>
+          <% end %>
         </div>
-        <% end %>
-     </div>
-   </div>
+      </div>
   </div>
   </body>
 </html>
