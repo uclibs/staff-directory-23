@@ -303,7 +303,7 @@ input[type=button], input[type=submit] {
 .signin {
   border-radius: 4px;
   box-shadow: rgba(10, 10, 10, 0.12) 0 1px 1px;
-  color: #FFFFFF;
+  color: #e00122;
   display: block;
   line-height: 100%;
   margin-left:15%;
