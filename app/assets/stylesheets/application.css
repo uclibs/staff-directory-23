@@ -133,7 +133,7 @@ input[type=button], input[type=submit] {
 .additional li{
   list-style-type: disc;
   line-height: 2.5em;
-  margin-left: 4em;
+  margin-left: 1em;
 }
 .nav2 a visited {
   color: purple;
@@ -274,9 +274,13 @@ th, td {
   margin-bottom: 12px;
   margin-right: 5px;
 }
+.button-to{
 
-.signin {
-  background-color: cadetblue;
+}
+
+input[type=button], input[type=submit] {
+
+  background-color: #E00122;
   background-image: linear-gradient(#b8011c, #E00122);
   border: 1px solid #666;
   border-radius: 4px;
@@ -284,8 +288,26 @@ th, td {
   color: #FFFFFF;
   display: block;
   line-height: 100%;
-  margin-left:8%;
-  padding: 10px 10px 10px 10px;
+  margin-top: .5%;
+  margin-left: 15%;
+  padding: 10px 10px 10px;
+  text-align: center;
+  transition: box-shadow .05s ease-in-out, opacity .05s ease-in-out;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: auto;
+}
+.justify-content-around {
+  justify-content: space-around !important;
+}
+.signin {
+  border-radius: 4px;
+  box-shadow: rgba(10, 10, 10, 0.12) 0 1px 1px;
+  color: #e00122;
+  display: block;
+  line-height: 100%;
+  margin-left:15%;
+  padding: 0px;
   text-align: center;
   transition: box-shadow .05s ease-in-out, opacity .05s ease-in-out;
   -webkit-user-select: none;
@@ -293,14 +315,10 @@ th, td {
   text-decoration: none;
 }
 
-.signin a {
-  color:white;
-  text-decoration: none;
+signin-button{
+  margin-left:8%;
 }
-.signin a:visited {
-  color:white;
-  text-decoration: none;
-}
+/*
 .signstatus{
   color: #B00100;
   font-weight:bold;
@@ -308,6 +326,8 @@ th, td {
   padding:5px;
   margin-left:15%;
 }
+*/
+
 .message {
   border: thin #DC292C solid;
   padding: 10px;
@@ -358,8 +378,8 @@ fieldset {
 .textcontainer {
 }
 
-.maincontainer {
-  min-width: 1170px;
+.container {
+  /*min-width: 1170px;*/
   display: flex;
   /* use the flex model */
   min-height: 75%;
@@ -368,16 +388,24 @@ fieldset {
   margin-right: auto;
   position: relative;
 }
-
+.headerwrap{
+margin-left:13%;
+}
+.formwrap{
+margin-left: 13%;
+}
+.table-wrapper{
+  margin-left:-15%;
+}
 .contentwrap {
   padding-top: 1%;
   padding-bottom: 1%;
-  padding-left: 15%;
+  padding-left: 2%;
   padding-right: 1%;
   line-height: normal;
-  max-width: 90%;
+  max-width: 98%;
   text-align: left;
-  background-color: #fefdff;
+
 }
 .contentwrap h1{
 
