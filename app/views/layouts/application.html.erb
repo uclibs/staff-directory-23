@@ -38,15 +38,18 @@
       </div>
     <% end %>
     <%= render partial: 'layouts/footer' %>
-         <% if user_signed_in? %>
-      <div class="signin">
-           <p class ="message"> <i>You are signed in.</i> </p>
+    <div class="signin">
+    <% if user_signed_in? %>
+
+        <p class="message"><i>You are signed in.</i></p>
         <div class="signin-button">
-               <%= button_to 'Logout', destroy_user_session_path, method: :delete %>
-         <% else %>
-               <%= button_to "Login", new_user_session_path %>
-          <% end %>
+          <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
         </div>
+    <% else %>
+      <div class="signin-button">
+        <%= link_to "Login", new_user_session_path, class: "btn btn-primary" %>
+      </div>
+    <% end %>
       </div>
   </div>
   </body>
