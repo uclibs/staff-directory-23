@@ -48,7 +48,25 @@ h2 {
 #new_user {
   margin-top: 40px;
 }
+.btn{
+  background-color: #E00122;
+  background-image: linear-gradient(#b8011c, #E00122);
+  border: 1px solid #666;
+  border-radius: 4px;
+  box-shadow: rgba(10, 10, 10, 0.12) 0 1px 1px;
+  color: #FFFFFF;
+  display: block;
+  line-height: 100%;
+  margin-top: 3em;
+  padding: 13px 10px 10px;
+  text-align: center;
+  transition: box-shadow .05s ease-in-out, opacity .05s ease-in-out;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  text-decoration:none;
 
+}
 
 input[type=button], input[type=submit] {
 
