@@ -102,11 +102,11 @@ Rails.application.configure do
 
   # Set the host for Devise mailer URLs
   config.action_mailer.default_url_options = { host: ENV['STADIR_PRODUCTION_MAILER_URL'] }
-  config.mailer_from = 'uclappdev@uc.edu'
+  config.mailer_from = { host: ENV['STADIR_PRODUCTION_MAILER_FROM']}
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     # 'address' specifies the address of the server that will handle email sending.
-    address: ENV['MAIL_SMTP_ADDRESS'],
+    address: ENV['STADIR_PRODUCTION_MAILER_URL'],
     # 'port' specifies which port to use on the SMTP server.
     # Port 25 is the default port for SMTP servers like Postfix.
     enable_starttls_auto: true,
