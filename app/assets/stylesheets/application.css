@@ -320,11 +320,11 @@ input[type=button], input[type=submit] {
 }
 .signin {
   border-radius: 4px;
-  box-shadow: rgba(10, 10, 10, 0.12) 0 1px 1px;
   color: #e00122;
   display: block;
   line-height: 100%;
   margin-left:15%;
+  margin-top: -45px;
   padding: 0px;
   text-align: center;
   transition: box-shadow .05s ease-in-out, opacity .05s ease-in-out;
