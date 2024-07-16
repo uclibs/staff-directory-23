@@ -61,8 +61,7 @@ group :development, :test do
   gem 'simplecov', require: false
   gem 'simplecov-lcov', require: false
   # Use sqlite3 as the database for Active Record
-  gem 'sqlite3', '~> 1.4'
-
+  gem 'sqlite3', '~> 1.4
 end
 
 group :test do
