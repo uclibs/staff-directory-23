@@ -16,6 +16,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'puma', '>= 6.3.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '>= 6.1.7.7', '< 6.2'
+gem 'rexml', '>= 3.3.2'
 gem 'sass-rails', '>= 6'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'webpacker', '~> 5.0'
@@ -61,6 +62,7 @@ group :development, :test do
   gem 'simplecov-lcov', require: false
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '~> 1.4'
+
 end
 
 group :test do
