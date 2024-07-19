@@ -256,8 +256,8 @@ GEM
     responders (3.1.1)
       actionpack (>= 5.2)
       railties (>= 5.2)
-    rexml (3.2.8)
-      strscan (>= 3.0.9)
+    rexml (3.3.2)
+      strscan
     rspec-core (3.13.0)
       rspec-support (~> 3.13.0)
     rspec-expectations (3.13.0)
@@ -425,6 +425,7 @@ DEPENDENCIES
   rails (>= 6.1.7.7, < 6.2)
   rails-controller-testing
   rb-readline
+  rexml (>= 3.3.2)
   rspec-rails
   rspec_junit_formatter
   rubocop
@@ -443,7 +444,7 @@ DEPENDENCIES
   webpacker (~> 5.0)
 
 RUBY VERSION
-   ruby 3.3.0p0
+   ruby 3.3.3p89
 
 BUNDLED WITH
-   2.5.3
+   2.5.15
