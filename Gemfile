@@ -11,7 +11,7 @@ gem 'activerecord-import'
 # #added for ruby 3.4.0 as its not in standard library anymore
 gem 'bigdecimal'
 gem 'bootsnap', '>= 1.1.0', require: false
-#added for ruby 3.4.0 as its not in standard library anymore
+# added for ruby 3.4.0 as its not in standard library anymore
 gem 'csv'
 gem 'devise'
 gem 'dotenv-rails'
