@@ -8,7 +8,11 @@ gem 'actionpack', '6.1.7.8'
 gem 'activerecord-import'
 # Reduces boot times through caching; required in config/boot.rb
 # gem 'bootsnap', '>= 1.17.0', require: false
+# #added for ruby 3.4.0 as its not in standard library anymore
+gem 'bigdecimal'
 gem 'bootsnap', '>= 1.1.0', require: false
+# added for ruby 3.4.0 as its not in standard library anymore
+gem 'csv'
 gem 'devise'
 gem 'dotenv-rails'
 gem 'jbuilder', '~> 2.7'
