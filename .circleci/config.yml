@@ -11,7 +11,7 @@ executors:
       - image: docker:20.10.14-git
 
 orbs:
-  ruby: circleci/ruby@2.0.0
+  ruby: circleci/ruby@2.1.1
   node: circleci/node@5.0.2
   browser-tools: circleci/browser-tools@1.4.7
   coveralls: coveralls/coveralls@1.0.6
@@ -21,11 +21,6 @@ jobs:
     docker:
       # specify the version you desire here
       - image: cimg/ruby:3.3.3
-
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/postgres:9.4
 
     environment:
       BUNDLE_PATH: vendor/bundle
@@ -44,18 +39,38 @@ jobs:
 
     steps:
       - checkout
-      - node/install:
-          node-version: "18.17.1"
-      # - browser-tools/install-chrome TODO: change the following 2 lines to this after fixing the orb issue #75.
       - browser-tools/install-browser-tools:
           replace-existing-chrome: true
-
 
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "Gemfile.lock" }}
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
+
+      - restore_cache:
+          keys:
+            - nvm-node-{{ checksum ".nvmrc" }}
+            - nvm-node-
+
+      # NVM and Node.js setup
+      - run:
+          name: Install NVM and Node.js
+          command: |
+            curl --retry 5 --retry-delay 10 -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+            echo 'export NVM_DIR="$HOME/.nvm"' >> $BASH_ENV
+            echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --install' >> $BASH_ENV
+            echo '[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"' >> $BASH_ENV
+            source $BASH_ENV
+            nvm install $(cat .nvmrc)
+            nvm use $(cat .nvmrc)
+            echo "Node.js version: $(node --version)"
+
+      # Save the NVM/Node.js cache after installation
+      - save_cache:
+          paths:
+            - ~/.nvm/versions/node
+          key: nvm-node-{{ checksum ".nvmrc" }}
 
       - run:
           name: Configure Bundler
@@ -67,6 +82,8 @@ jobs:
       - run:
           name: Install Dependencies
           command: |
+            source $BASH_ENV
+            nvm use
             bundle install
             sudo apt-get update
             sudo apt-get install xvfb libfontconfig

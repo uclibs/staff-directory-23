@@ -34,7 +34,7 @@ gem 'turbolinks', '~> 5'
 
 group :development do
   gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
-  gem 'capistrano', '3.18.1'
+  gem 'capistrano', '3.19.1'
   # gem 'capistrano3-puma', require: false
   gem 'capistrano-bundler', '~> 2.1', require: false
   gem 'capistrano-rails', '~> 1.4', require: false
