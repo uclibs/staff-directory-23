@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.3.3'
-gem 'actionpack', '6.1.7.8'
+gem 'actionpack', '8.0.0.1'
 gem 'activerecord-import'
 # Reduces boot times through caching; required in config/boot.rb
 # gem 'bootsnap', '>= 1.17.0', require: false
@@ -19,7 +19,7 @@ gem 'jbuilder', '~> 2.7'
 # Use Puma as the app server
 gem 'puma', '>= 6.3.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
-gem 'rails', '>= 6.1.7.7', '< 6.2'
+gem 'rails', '>= 6.1.7.7', '< 8.1'
 gem 'rexml', '>= 3.3.2'
 gem 'sass-rails', '>= 6'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
