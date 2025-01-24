@@ -4,7 +4,8 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.3.3'
-gem 'actionpack', '6.1.7.8'
+gem 'concurrent-ruby', '1.3.4'
+gem 'actionpack', '6.1.7.9'
 gem 'activerecord-import'
 # Reduces boot times through caching; required in config/boot.rb
 # gem 'bootsnap', '>= 1.17.0', require: false
@@ -17,10 +18,10 @@ gem 'devise'
 gem 'dotenv-rails'
 gem 'jbuilder', '~> 2.7'
 # Use Puma as the app server
-gem 'puma', '>= 6.3.1'
+gem 'puma', '>= 6.4.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
-gem 'rails', '>= 6.1.7.7', '< 6.2'
-gem 'rexml', '>= 3.3.2'
+gem 'rails', '>= 6.1.7.9', '< 6.2'
+gem 'rexml', '>= 3.3.9'
 gem 'sass-rails', '>= 6'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'webpacker', '~> 5.0'
@@ -75,6 +76,6 @@ group :test do
   gem 'webdrivers', '~> 4.0', require: false
 end
 
-group :development, :production do
+group :production do
   gem 'mysql2', '~> 0.5.6'
 end
