@@ -75,6 +75,6 @@ group :test do
   gem 'webdrivers', '~> 4.0', require: false
 end
 
-group :development, :production do
+group :production do
   gem 'mysql2', '~> 0.5.6'
 end
