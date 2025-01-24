@@ -22,6 +22,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'puma', '>= 6.4.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '>= 6.1.7.9', '< 6.2'
+gem 'rails-html-sanitizer', '~> 1.6.2'
 gem 'rexml', '>= 3.3.9'
 gem 'sass-rails', '>= 6'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

@@ -428,6 +428,7 @@ DEPENDENCIES
   rack-mini-profiler (~> 2.0)
   rails (>= 6.1.7.9, < 6.2)
   rails-controller-testing
+  rails-html-sanitizer (~> 1.6.2)
   rb-readline
   rexml (>= 3.3.9)
   rspec-rails
