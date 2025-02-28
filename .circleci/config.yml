@@ -13,7 +13,7 @@ executors:
 orbs:
   ruby: circleci/ruby@2.0.0
   node: circleci/node@5.0.2
-  browser-tools: circleci/browser-tools@1.4.7
+  browser-tools: circleci/browser-tools@1.5.0
   coveralls: coveralls/coveralls@1.0.6
 
 jobs:
@@ -47,8 +47,9 @@ jobs:
       - node/install:
           node-version: "18.17.1"
       # - browser-tools/install-chrome TODO: change the following 2 lines to this after fixing the orb issue #75.
-      - browser-tools/install-browser-tools:
-          replace-existing-chrome: true
+      # - browser-tools/install-browser-tools
+      - browser-tools/install-chrome
+
 
 
       - restore_cache:
