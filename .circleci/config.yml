@@ -47,8 +47,8 @@ jobs:
       - node/install:
           node-version: "18.17.1"
       # - browser-tools/install-chrome TODO: change the following 2 lines to this after fixing the orb issue #75.
-      - browser-tools/install-browser-tools:
-          replace-existing-chrome: true
+      - browser-tools/install-browser-tools
+
 
 
       - restore_cache:
