@@ -1,6 +1,7 @@
 # frozen_string_literal: true
+
 # Pin concurrent-ruby to 1.3.4 due to bug in later versions leading to "Logger::Severity" error.
-gem "concurrent-ruby", "1.3.4"
+gem 'concurrent-ruby', '1.3.4'
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
