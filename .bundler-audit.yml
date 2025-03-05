@@ -1,3 +1,5 @@
 ---
 ignore:
   - CVE-2024-54133
+  # Nokogiri - servers don't have compatible GLIBC
+  - GHSA-vvfq-8hwr-qm4m
