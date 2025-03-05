@@ -347,7 +347,7 @@ signin-button{
 */
 
 .message {
-  border: thin #DC292C solid;
+  border: 2px #DC292C solid;
   padding: 10px;
   text-align: center;
   margin-bottom:30px;

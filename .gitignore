@@ -61,3 +61,7 @@ yarn.lock
 /yarn-error.log
 
 /config/database.yml
+
+cleanup-after-deploy.sh
+cleanup_old_branches-local-and-remote.sh
+cleanup_old_branches_local_only.sh
