@@ -5,7 +5,6 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-
 ruby '3.3.3'
 gem 'actionpack', '6.1.7.10'
 gem 'activerecord-import'
@@ -15,8 +14,8 @@ gem 'activerecord-import'
 gem 'bigdecimal'
 gem 'bootsnap', '>= 1.1.0', require: false
 # added for ruby 3.4.0 as its not in standard library anymore
-gem 'csv'
 gem 'concurrent-ruby', '1.3.4'
+gem 'csv'
 gem 'devise'
 gem 'dotenv-rails'
 gem 'jbuilder', '~> 2.7'
