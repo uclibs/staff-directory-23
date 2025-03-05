@@ -1,5 +1,3 @@
-lock '~> 3.18.1'
-
 set :application, 'staff-directory-23'
 set :repo_url, 'https://github.com/uclibs/staff-directory-23.git'
 
