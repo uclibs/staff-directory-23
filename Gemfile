@@ -20,7 +20,7 @@ gem 'devise'
 gem 'dotenv-rails'
 gem 'jbuilder', '~> 2.7'
 # Use Puma as the app server
-gem 'nokogiri', '1.16.7' # Pin because servers lack needed GLIBC version
+gem 'nokogiri', '1.18.4' # Pin because servers lack needed GLIBC version
 gem 'puma', '>= 6.3.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '>= 6.1.7.7', '< 6.2'
