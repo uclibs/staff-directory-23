@@ -12,3 +12,4 @@ ignore:
 
   # Nokogiri - servers don't have compatible GLIBC
   - GHSA-vvfq-8hwr-qm4m
+  - GHSA-mrxw-mxhj-p664
