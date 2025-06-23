@@ -39,6 +39,7 @@ jobs:
       CACHE_PATH: /tmp/cache
       COVERALLS_PARALLEL: true
 
+
     working_directory: ~/staff-directory-23
 
     steps:
@@ -48,6 +49,8 @@ jobs:
       # - browser-tools/install-chrome TODO: change the following 2 lines to this after fixing the orb issue #75.
       # - browser-tools/install-browser-tools
       - browser-tools/install-chrome
+
+
 
       - restore_cache:
           keys:
