@@ -83,21 +83,22 @@ m = Module.new do
   end
 
   def activate_bundler
-    gem_error = activation_error_handling { gem 'bundler', bundler_requirement }
-    return if gem_error.nil?
+    try_activate_bundler || install_and_retry_bundler || abort_bundler_failure
+  end
 
+  def try_activate_bundler
+    activation_error_handling { gem 'bundler', bundler_requirement }.nil?
+  end
+
+  def install_and_retry_bundler
     puts "Bundler #{bundler_requirement} is not installed. Attempting to install..."
-    install_success = system("gem install bundler -v '#{bundler_requirement}'")
-    unless install_success
-      warn "❌ Failed to install bundler #{bundler_requirement}. Aborting."
-      exit 42
-    end
+    return false unless system("gem install bundler -v '#{bundler_requirement}'")
 
-    # Retry activation
-    retry_error = activation_error_handling { gem 'bundler', bundler_requirement }
-    return if retry_error.nil?
+    activation_error_handling { gem 'bundler', bundler_requirement }.nil?
+  end
 
-    warn "❌ Still failed to activate bundler #{bundler_requirement} after installing:\n#{retry_error.message}"
+  def abort_bundler_failure
+    warn "❌ Failed to activate bundler #{bundler_requirement} even after installation."
     exit 42
   end
 
