@@ -3,9 +3,38 @@ set :repo_url, 'https://github.com/uclibs/staff-directory-23.git'
 
 set :rbenv_type, :user
 set :rbenv_ruby, '3.3.3'
-# set :rbenv_ruby, File.read('.ruby-version').strip
 set :rbenv_map_bins, %w[rake gem bundle ruby rails]
-set :rbenv_roles, :all # default value
+set :rbenv_roles, :all
+
+# Helper to wrap commands in an `nvm` context, even if .nvmrc is missing
+def with_nvm(command)
+  <<~BASH.squish
+    export NVM_DIR="$HOME/.nvm" &&
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" &&
+    if [ -f .nvmrc ]; then
+      nvm install && nvm use;
+    else
+      nvm install 18.17.1 && nvm use 18.17.1;
+    fi &&
+    #{command}
+  BASH
+end
+
+# Custom asset compilation to ensure nvm is used
+Rake::Task["deploy:assets:precompile"].clear_actions
+
+namespace :deploy do
+  namespace :assets do
+    task :precompile do
+      on roles(:web) do
+        within release_path do
+          execute with_nvm('yarn install')
+          execute with_nvm('RAILS_ENV=production bundle exec rails assets:precompile')
+        end
+      end
+    end
+  end
+end
 
 task :shared_db do
   on roles(:all) do
@@ -17,8 +46,6 @@ end
 
 task :init_local do
   on roles(:all) do
-    # execute "pwd"
-    # execute "cd #{fetch(:release_path)} && gem install bundler -v $(tail -n1 Gemfile.lock)"
     execute "bundle config path 'vendor/bundle' --local"
   end
 end
