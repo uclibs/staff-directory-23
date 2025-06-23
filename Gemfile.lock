@@ -456,8 +456,6 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   listen (~> 3.3)
   mysql2 (~> 0.5.6)
-  net-pop (~> 0.1.2)
-  net-protocol (~> 0.2.2)
   nokogiri (= 1.16.7)
   puma (>= 6.3.1)
   rack-mini-profiler (~> 2.0)

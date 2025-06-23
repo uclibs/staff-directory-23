@@ -11,6 +11,24 @@ def system!(*args)
 end
 
 FileUtils.chdir APP_ROOT do
+  # === Enforce correct Bundler version ===
+  required_bundler_version = nil
+  lockfile_lines = File.read('Gemfile.lock').lines.reverse
+  lockfile_lines.each_with_index do |line, index|
+    if line.strip == 'BUNDLED WITH'
+      required_bundler_version = lockfile_lines[index - 1].strip
+      break
+    end
+  end
+
+  if required_bundler_version
+    current_version = Gem::Specification.find_by_name('bundler').version.to_s
+    if current_version != required_bundler_version
+      abort "\n== ERROR: This app requires Bundler #{required_bundler_version}, but you have #{current_version}. ==\n" \
+              "== Run: gem install bundler -v #{required_bundler_version} ==\n"
+    end
+  end
+
   # This script is a way to set up or update your development environment automatically.
   # This script is idempotent, so that you can run it at any time and get an expectable outcome.
   # Add necessary setup steps to this file.
