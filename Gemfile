@@ -19,6 +19,7 @@ gem 'csv'
 gem 'devise'
 gem 'dotenv-rails'
 gem 'jbuilder', '~> 2.7'
+gem 'net-pop', '~> 0.1.2'
 gem 'net-protocol', '~> 0.2.2'
 gem 'nokogiri', '1.16.7' # Pin because servers lack needed GLIBC version
 gem 'puma', '>= 6.3.1'
