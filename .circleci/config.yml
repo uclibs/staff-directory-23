@@ -38,7 +38,6 @@ jobs:
       UPLOAD_PATH: /tmp
       CACHE_PATH: /tmp/cache
       COVERALLS_PARALLEL: true
-      BUNDLE_ALLOW_MISSING_GEMS: true
 
     working_directory: ~/staff-directory-23
 
