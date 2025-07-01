@@ -8,7 +8,7 @@
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "5.4.4",
-    "micromatch": "4.0.5",
+    "micromatch": "4.0.8",
     "stimulus": "^3.2.2",
     "turbolinks": "^5.2.0",
     "webpack": "^5.98.0",
@@ -21,7 +21,7 @@
   "version": "0.1.0",
   "resolutions": {
     "cross-spawn": "6.0.6",
-    "micromatch": "4.0.5",
+    "micromatch": "4.0.8",
     "braces": "3.0.3",
     "nth-check": "2.0.1",
     "postcss": "8.4.31",
