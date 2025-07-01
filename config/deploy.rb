@@ -21,7 +21,7 @@ def with_nvm(command)
 end
 
 # Custom asset compilation to ensure nvm is used
-Rake::Task["deploy:assets:precompile"].clear_actions
+Rake::Task['deploy:assets:precompile'].clear_actions
 
 namespace :deploy do
   namespace :assets do
