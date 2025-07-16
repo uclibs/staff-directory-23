@@ -9,6 +9,7 @@ set :rbenv_roles, :all
 # Helper to wrap commands in an `nvm` context, even if .nvmrc is missing
 def with_nvm(command)
   <<~BASH
+    echo "PWD before NVM: $(pwd)"
     export NVM_DIR="$HOME/.nvm" && \
     [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" && \
     if [ -f .nvmrc ]; then \
@@ -17,6 +18,7 @@ def with_nvm(command)
     else \
       nvm install 18.17.1 && nvm use 18.17.1; \
     fi && \
+    echo "PWD after NVM: $(pwd)" && \
     #{command}
   BASH
 end
