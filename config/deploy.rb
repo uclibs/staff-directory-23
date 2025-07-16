@@ -48,7 +48,6 @@ task :ruby_update_check do
   end
 end
 
-
 after 'git:create_release', 'nvm:load'
 after 'nvm:load', 'nvm:setup'
 before 'deploy:starting', 'deploy:confirmation'
