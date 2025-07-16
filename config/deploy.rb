@@ -12,15 +12,14 @@ def with_nvm(command)
     export NVM_DIR="$HOME/.nvm" &&
     [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" &&
     if [ -f .nvmrc ]; then
-      NVM_VERSION=$(cat .nvmrc | tr -d ' \\n\\r') &&
-      nvm install "$NVM_VERSION" && nvm use "$NVM_VERSION";
+      NVM_VERSION=$(cat .nvmrc | tr -d ' \\n\\r')
+      nvm install "$NVM_VERSION" && nvm use "$NVM_VERSION"
     else
-      nvm install 18.17.1 && nvm use 18.17.1;
+      nvm install 18.17.1 && nvm use 18.17.1
     fi &&
     #{command}
   BASH
 end
-
 
 # Custom asset compilation to ensure nvm is used
 Rake::Task['deploy:assets:precompile'].clear_actions
