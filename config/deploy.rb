@@ -6,38 +6,6 @@ set :rbenv_ruby, '3.3.3'
 set :rbenv_map_bins, %w[rake gem bundle ruby rails]
 set :rbenv_roles, :all
 
-# Helper to wrap commands in an `nvm` context, even if .nvmrc is missing
-def with_nvm(command)
-  <<~BASH
-    cd #{release_path} && \
-    export NVM_DIR="$HOME/.nvm" && \
-    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" && \
-    if [ -f .nvmrc ]; then \
-      NVM_VERSION=$(cat .nvmrc | tr -d ' \\n\\r'); \
-      nvm install "$NVM_VERSION" && nvm use "$NVM_VERSION"; \
-    else \
-      nvm install 18.17.1 && nvm use 18.17.1; \
-    fi && \
-    #{command}
-  BASH
-end
-
-# Custom asset compilation to ensure nvm is used
-Rake::Task['deploy:assets:precompile'].clear_actions
-
-namespace :deploy do
-  namespace :assets do
-    task :precompile do
-      on roles(:web) do
-        within release_path do
-          execute with_nvm('yarn install')
-          execute with_nvm('RAILS_ENV=production bundle exec rails assets:precompile')
-        end
-      end
-    end
-  end
-end
-
 task :shared_db do
   on roles(:all) do
     execute "mkdir -p #{fetch(:deploy_to)}/shared/db/ && touch #{fetch(:deploy_to)}/shared/db/development.sqlite3"
@@ -80,31 +48,9 @@ task :ruby_update_check do
   end
 end
 
-namespace :deploy do
-  task :confirmation do
-    stage = fetch(:stage).upcase
-    branch = fetch(:branch)
-    puts <<-WARN
 
-    ========================================================================
-
-      *** Deploying branch `#{branch}` to #{stage} server ***
-
-      WARNING: You're about to perform actions on #{stage} server(s)
-      Please confirm that all your intentions are kind and friendly
-
-    ========================================================================
-
-    WARN
-    ask :value, "Sure you want to continue deploying `#{branch}` on #{stage}? (Y or Yes)"
-
-    unless fetch(:value).match?(/\A(?i:yes|y)\z/)
-      puts "\nNo confirmation - deploy cancelled!"
-      exit
-    end
-  end
-end
-
-Capistrano::DSL.stages.each do |stage|
-  after stage, 'deploy:confirmation'
-end
+after 'git:create_release', 'nvm:load'
+after 'nvm:load', 'nvm:setup'
+before 'deploy:starting', 'deploy:confirmation'
+after 'deploy:confirmation', 'deploy:clear_assets'
+after 'deploy:updated', 'yarn:build'
