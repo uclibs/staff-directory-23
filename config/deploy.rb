@@ -6,6 +6,11 @@ set :rbenv_ruby, '3.3.3'
 set :rbenv_map_bins, %w[rake gem bundle ruby rails]
 set :rbenv_roles, :all
 
+# Set NODE_OPTIONS for all Capistrano-run commands
+set :default_env, fetch(:default_env, {}).merge(
+  'NODE_OPTIONS' => '--openssl-legacy-provider'
+)
+
 task :shared_db do
   on roles(:all) do
     execute "mkdir -p #{fetch(:deploy_to)}/shared/db/ && touch #{fetch(:deploy_to)}/shared/db/development.sqlite3"
