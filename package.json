@@ -18,6 +18,9 @@
   "devDependencies": {
     "babel-loader": "^10.0.0"
   },
+  "scripts": {
+    "build": "bin/webpack"
+  },
   "version": "0.1.0",
   "resolutions": {
     "cross-spawn": "6.0.6",
