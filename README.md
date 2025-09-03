@@ -12,6 +12,10 @@ This project uses MySQL via the mysql2 gem. On macOS (especially Apple Silicon),
 
     zstd (compression library)
 
+    nvm
+
+    node 18.17.1 (managed via nvm)
+
 🔧 Setup Steps
 
     Install dependencies:
@@ -30,6 +34,41 @@ Install bundler (if not already):
 Configure Bundler to build mysql2 correctly:
 
 "bundle config build.mysql2 --with-mysql-config=/opt/homebrew/opt/mysql/bin/mysql_config"
+
+## Node version
+
+This project uses [nvm](https://github.com/nvm-sh/nvm) to manage Node.js versions.
+
+To use the correct version locally:
+
+```bash
+nvm install
+nvm use
+```
+
+
+---
+
+## ✅ Add a hook (optional)
+
+To automatically load the correct node version when entering the directory, add this to your shell config:
+
+```bash
+# Auto-load node version from .nvmrc if present
+autoload -U add-zsh-hook
+
+load-nvmrc() {
+  if nvm --version &> /dev/null; then
+    if [ -f .nvmrc ]; then
+      nvm use &> /dev/null
+    fi
+  fi
+}
+
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
+```
+
 
 Install gems:
 

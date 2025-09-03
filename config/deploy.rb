@@ -3,9 +3,13 @@ set :repo_url, 'https://github.com/uclibs/staff-directory-23.git'
 
 set :rbenv_type, :user
 set :rbenv_ruby, '3.3.3'
-# set :rbenv_ruby, File.read('.ruby-version').strip
 set :rbenv_map_bins, %w[rake gem bundle ruby rails]
-set :rbenv_roles, :all # default value
+set :rbenv_roles, :all
+
+# Set NODE_OPTIONS for all Capistrano-run commands
+set :default_env, fetch(:default_env, {}).merge(
+  'NODE_OPTIONS' => '--openssl-legacy-provider'
+)
 
 task :shared_db do
   on roles(:all) do
@@ -17,8 +21,6 @@ end
 
 task :init_local do
   on roles(:all) do
-    # execute "pwd"
-    # execute "cd #{fetch(:release_path)} && gem install bundler -v $(tail -n1 Gemfile.lock)"
     execute "bundle config path 'vendor/bundle' --local"
   end
 end
@@ -51,31 +53,8 @@ task :ruby_update_check do
   end
 end
 
-namespace :deploy do
-  task :confirmation do
-    stage = fetch(:stage).upcase
-    branch = fetch(:branch)
-    puts <<-WARN
-
-    ========================================================================
-
-      *** Deploying branch `#{branch}` to #{stage} server ***
-
-      WARNING: You're about to perform actions on #{stage} server(s)
-      Please confirm that all your intentions are kind and friendly
-
-    ========================================================================
-
-    WARN
-    ask :value, "Sure you want to continue deploying `#{branch}` on #{stage}? (Y or Yes)"
-
-    unless fetch(:value).match?(/\A(?i:yes|y)\z/)
-      puts "\nNo confirmation - deploy cancelled!"
-      exit
-    end
-  end
-end
-
-Capistrano::DSL.stages.each do |stage|
-  after stage, 'deploy:confirmation'
-end
+after 'git:create_release', 'nvm:load'
+after 'nvm:load', 'nvm:setup'
+before 'deploy:starting', 'deploy:confirmation'
+after 'deploy:confirmation', 'deploy:clear_assets'
+before 'deploy:assets:precompile', 'yarn:build'
