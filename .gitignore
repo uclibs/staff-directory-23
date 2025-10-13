@@ -32,7 +32,7 @@ bundle_updateresult.html
 
 
 # Ignore yarn.lock auto-generated file
-yarn.lock
+#yarn.lock
 
 # Ignore .DS_Store files generated in MAC OS
 .DS_Store
@@ -42,6 +42,7 @@ yarn.lock
 /public/assets
 /public/packs
 /public/packs-test
+/public/uploads
 /node_modules
 
 #Ignore Rubymine files
@@ -65,3 +66,5 @@ yarn.lock
 cleanup-after-deploy.sh
 cleanup_old_branches-local-and-remote.sh
 cleanup_old_branches_local_only.sh
+rbenv:validate
+
