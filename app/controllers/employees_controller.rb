@@ -2,24 +2,34 @@
 
 class EmployeesController < ApplicationController
   before_action :set_employee, only: %i[show edit update destroy]
+
   # GET /employees or /employees.json
   def index
-    @employees = Employee.all
+    # Base scope: eager-load department to avoid N+1 queries in the view
+    @employees = Employee.includes(:department)
 
-    # Whitelist of sortable columns
-    sortable_columns = ['lastname', 'firstname', 'email', 'phone', 'title', 'department_id', 'departments.name']
-    sort_column = params[:sort] || 'lastname' # Default sort column
-    direction = %w[asc desc].include?(params[:direction]) ? params[:direction] : 'asc'
+    # Whitelist of sortable columns mapped to SQL-safe expressions
+    sortable_map = {
+      'lastname'         => 'employees.lastname',
+      'firstname'        => 'employees.firstname',
+      'email'            => 'employees.email',
+      'phone'            => 'employees.phone',
+      'title'            => 'employees.title',
+      'department_id'    => 'employees.department_id',
+      'departments.name' => 'departments.name'
+    }
 
-    return unless sortable_columns.include?(sort_column)
+    sort_param = params[:sort].presence || 'lastname'
+    sort_sql   = sortable_map[sort_param] || sortable_map['lastname']
+    direction  = %w[asc desc].include?(params[:direction]) ? params[:direction] : 'asc'
 
-    @employees = if sort_column == 'departments.name'
-                   # Join with the departments table and sort by department name
-                   @employees.joins(:department).order("departments.name #{direction}")
-                 else
-                   # Sort by employee attributes
-                   @employees.order("#{sort_column} #{direction}")
-                 end
+    if sort_sql == 'departments.name'
+      # Keep includes(:department) for preload; add a LEFT OUTER JOIN only for this sort
+      @employees = @employees.left_outer_joins(:department)
+                             .order(Arel.sql("#{sort_sql} #{direction} NULLS LAST"), :lastname)
+    else
+      @employees = @employees.order(Arel.sql("#{sort_sql} #{direction}"))
+    end
   end
 
   # GET /employees/1 or /employees/1.json
@@ -64,7 +74,6 @@ class EmployeesController < ApplicationController
   # DELETE /employees/1 or /employees/1.json
   def destroy
     @employee.destroy
-
     respond_to do |format|
       format.html { redirect_to employees_url, notice: 'Employee was successfully destroyed.' }
       format.json { head :no_content }

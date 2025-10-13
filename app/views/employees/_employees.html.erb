@@ -1,51 +1,58 @@
-<% sort_direction = params[:direction] == 'asc' ? 'desc' : 'asc' %>
-<% current_sort = params[:sort] || 'lastname' %>
+<%# Locals expected: employees, current_sort, direction %>
+<% current_sort ||= 'lastname' %>
+<% sort_direction = (direction == 'asc' ? 'desc' : 'asc') %>
+
 <div class="sorting-instruct">
   <p>Click on column name to sort</p>
 </div>
+
 <div class="table-wrapper">
   <p id="notice"><%= notice %></p>
+
   <table class="fl-table">
     <thead>
     <tr>
-
       <th>
-        <%= link_to safe_join(["Last Name ", sort_arrow('lastname', current_sort, params[:direction])]),
+        <%= link_to safe_join(["Last Name ", sort_arrow('lastname', current_sort, direction)]),
                     employees_path(sort: 'lastname', direction: sort_direction) %>
       </th>
       <th>
-        <%= link_to safe_join(["First Name ", sort_arrow('firstname', current_sort, params[:direction])]),
-                    employees_path(sort: 'firstname', direction: sort_direction) %> </th>
+        <%= link_to safe_join(["First Name ", sort_arrow('firstname', current_sort, direction)]),
+                    employees_path(sort: 'firstname', direction: sort_direction) %>
+      </th>
       <th>
-        <%= link_to safe_join(["Department ", sort_arrow('departments.name', current_sort, params[:direction])]),
+        <%= link_to safe_join(["Department ", sort_arrow('departments.name', current_sort, direction)]),
                     employees_path(sort: 'departments.name', direction: sort_direction) %>
       </th>
       <th>
-        <%= link_to safe_join(["Title ", sort_arrow('title', current_sort, params[:direction])]),
+        <%= link_to safe_join(["Title ", sort_arrow('title', current_sort, direction)]),
                     employees_path(sort: 'title', direction: sort_direction) %>
       </th>
       <th>
-        <%= link_to safe_join(["Email ", sort_arrow('email', current_sort, params[:direction])]),
+        <%= link_to safe_join(["Email ", sort_arrow('email', current_sort, direction)]),
                     employees_path(sort: 'email', direction: sort_direction) %>
       </th>
       <th>
-        <%= link_to safe_join(["Phone ", sort_arrow('phone', current_sort, params[:direction])]),
+        <%= link_to safe_join(["Phone ", sort_arrow('phone', current_sort, direction)]),
                     employees_path(sort: 'phone', direction: sort_direction) %>
       </th>
+
       <% if user_signed_in? %>
         <th colspan="3">Edit Operations</th>
       <% end %>
     </tr>
     </thead>
+
     <tbody>
-    <% @employees.each do |employee| %>
+    <% employees.each do |employee| %>
       <tr>
         <td><%= employee.lastname %></td>
         <td><%= employee.firstname %></td>
-        <td><%= employee.department.nil? ? "" : employee.department.name %></td>
+        <td><%= employee.department&.name %></td> <%# uses eager-loaded association %>
         <td><%= employee.title %></td>
         <td><%= link_to employee.email, "mailto:#{employee.email}" %></td>
         <td><%= employee.phone %></td>
+
         <% if user_signed_in? %>
           <td><%= link_to 'Show', employee %></td>
           <td><%= link_to 'Edit', edit_employee_path(employee) %></td>

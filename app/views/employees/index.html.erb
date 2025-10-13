@@ -1,4 +1,8 @@
-
 <div class="">
-    <%= render 'employees', employee: @employee %>
+  <%= render partial: "employees",
+             locals: {
+               employees: @employees,
+               current_sort: params[:sort],
+               direction: params[:direction]
+             } %>
 </div>
