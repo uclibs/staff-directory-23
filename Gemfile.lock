@@ -152,6 +152,7 @@ GEM
       railties (>= 6.1.0)
     faker (3.5.2)
       i18n (>= 1.8.11, < 2)
+    ffi (1.17.2)
     ffi (1.17.2-aarch64-linux-gnu)
     ffi (1.17.2-aarch64-linux-musl)
     ffi (1.17.2-arm-linux-gnu)
@@ -188,8 +189,10 @@ GEM
     matrix (0.4.3)
     method_source (1.1.0)
     mini_mime (1.1.5)
+    mini_portile2 (2.8.9)
     minitest (5.25.5)
     msgpack (1.8.0)
+    mutex_m (0.2.0)
     mysql2 (0.5.6)
     net-imap (0.5.9)
       date
@@ -205,6 +208,9 @@ GEM
       net-protocol
     net-ssh (7.3.0)
     nio4r (2.7.4)
+    nokogiri (1.16.7)
+      mini_portile2 (~> 2.8.2)
+      racc (~> 1.4)
     nokogiri (1.16.7-aarch64-linux)
       racc (~> 1.4)
     nokogiri (1.16.7-arm-linux)
@@ -339,6 +345,11 @@ GEM
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
     semantic_range (3.1.0)
+    shakapacker (6.6.0)
+      activesupport (>= 5.2)
+      rack-proxy (>= 0.6.1)
+      railties (>= 5.2)
+      semantic_range (>= 2.3.0)
     shoulda-matchers (5.3.0)
       activesupport (>= 5.2.0)
     simplecov (0.22.0)
@@ -357,6 +368,8 @@ GEM
       actionpack (>= 6.1)
       activesupport (>= 6.1)
       sprockets (>= 3.0.0)
+    sqlite3 (1.7.3)
+      mini_portile2 (~> 2.8.0)
     sqlite3 (1.7.3-aarch64-linux)
     sqlite3 (1.7.3-arm-linux)
     sqlite3 (1.7.3-arm64-darwin)
@@ -398,11 +411,6 @@ GEM
       nokogiri (~> 1.6)
       rubyzip (>= 1.3.0)
       selenium-webdriver (> 3.141, < 5.0)
-    webpacker (5.4.4)
-      activesupport (>= 5.2)
-      rack-proxy (>= 0.6.1)
-      railties (>= 5.2)
-      semantic_range (>= 2.3.0)
     websocket (1.2.11)
     websocket-driver (0.8.0)
       base64
@@ -420,6 +428,7 @@ PLATFORMS
   arm-linux-gnu
   arm-linux-musl
   arm64-darwin
+  ruby
   x86-linux
   x86-linux-gnu
   x86-linux-musl
@@ -455,6 +464,7 @@ DEPENDENCIES
   faker
   jbuilder (~> 2.7)
   listen (~> 3.3)
+  mutex_m
   mysql2 (~> 0.5.6)
   nokogiri (= 1.16.7)
   puma (>= 6.3.1)
@@ -471,6 +481,7 @@ DEPENDENCIES
   rubocop-rspec
   sass-rails (>= 6)
   selenium-webdriver
+  shakapacker (~> 6.6)
   shoulda-matchers (~> 5.0)
   simplecov
   simplecov-lcov
@@ -479,7 +490,6 @@ DEPENDENCIES
   turbolinks (~> 5)
   web-console (>= 4.1.0)
   webdrivers (~> 4.0)
-  webpacker (~> 5.0)
 
 RUBY VERSION
    ruby 3.3.3p89

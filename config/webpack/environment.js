@@ -1,18 +1,9 @@
-const { environment } = require('@rails/webpacker');
+// config/webpack/environment.js
+const { environment } = require('shakapacker')
 
-process.env.NODE_OPTIONS = '--openssl-legacy-provider';
-// Fully disable node polyfills to fix Webpack 5 issues
-environment.config.merge({
-    resolve: {
-        fallback: {
-            fs: false,
-            net: false,
-            tls: false,
-            dgram: false,
-            child_process: false
-        }
-    },
-    node: false
-});
+// If you had custom tweaks before (plugins, loaders), re-add them here,
+// e.g.:
+// const webpack = require('webpack')
+// environment.plugins.prepend('Provide', new webpack.ProvidePlugin({ ... }))
 
-module.exports = environment;
+module.exports = environment
