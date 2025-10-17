@@ -1,38 +1,39 @@
 # frozen_string_literal: true
 
 class EmployeesController < ApplicationController
+  # Allow public access to the employee listing and profile pages
+  skip_before_action :authenticate_user!, only: %i[index show]
   before_action :set_employee, only: %i[show edit update destroy]
 
-  # GET /employees or /employees.json
+  # GET /employees
   def index
-    # Base scope: eager-load department to avoid N+1 queries in the view
-    @employees = Employee.includes(:department)
+    base_scope = Employee.includes(:department)
 
-    # Whitelist of sortable columns mapped to SQL-safe expressions
-    sortable_map = {
-      'lastname'         => 'employees.lastname',
-      'firstname'        => 'employees.firstname',
-      'email'            => 'employees.email',
-      'phone'            => 'employees.phone',
-      'title'            => 'employees.title',
-      'department_id'    => 'employees.department_id',
-      'departments.name' => 'departments.name'
+    # Whitelist sortable columns (own table)
+    column_map = {
+      'lastname' => :lastname,
+      'firstname' => :firstname,
+      'email' => :email,
+      'phone' => :phone,
+      'title' => :title,
+      'department_id' => :department_id
     }
+    sort_param = params[:sort].to_s
+    dir_param  = params[:direction].to_s.downcase == 'desc' ? :desc : :asc
 
-    sort_param = params[:sort].presence || 'lastname'
-    sort_sql   = sortable_map[sort_param] || sortable_map['lastname']
-    direction  = %w[asc desc].include?(params[:direction]) ? params[:direction] : 'asc'
-
-    if sort_sql == 'departments.name'
-      # Keep includes(:department) for preload; add a LEFT OUTER JOIN only for this sort
-      @employees = @employees.left_outer_joins(:department)
-                             .order(Arel.sql("#{sort_sql} #{direction} NULLS LAST"), :lastname)
-    else
-      @employees = @employees.order(Arel.sql("#{sort_sql} #{direction}"))
-    end
+    @employees =
+      if sort_param == 'departments.name'
+        # Validated direction; column is fixed string so safe
+        base_scope.left_joins(:department)
+                  .order("departments.name #{dir_param}")
+      elsif (column = column_map[sort_param])
+        base_scope.order(column => dir_param)
+      else
+        base_scope.order(:lastname)
+      end
   end
 
-  # GET /employees/1 or /employees/1.json
+  # GET /employees/1
   def show; end
 
   # GET /employees/new
@@ -43,7 +44,7 @@ class EmployeesController < ApplicationController
   # GET /employees/1/edit
   def edit; end
 
-  # POST /employees or /employees.json
+  # POST /employees
   def create
     @employee = Employee.new(employee_params)
 
@@ -71,7 +72,7 @@ class EmployeesController < ApplicationController
     end
   end
 
-  # DELETE /employees/1 or /employees/1.json
+  # DELETE /employees/1
   def destroy
     @employee.destroy
     respond_to do |format|
@@ -82,12 +83,10 @@ class EmployeesController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_employee
     @employee = Employee.find(params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
   def employee_params
     params.require(:employee).permit(:lastname, :firstname, :email, :department_id, :phone, :title)
   end

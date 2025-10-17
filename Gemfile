@@ -5,8 +5,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.3.3'
-gem 'actionpack', '6.1.7.10'
+ruby '3.3.9'
 gem 'activerecord-import'
 # Reduces boot times through caching; required in config/boot.rb
 # gem 'bootsnap', '>= 1.17.0', require: false
@@ -23,7 +22,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'nokogiri', '1.16.7' # Pin because servers lack needed GLIBC version
 gem 'puma', '>= 6.3.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
-gem 'rails', '>= 6.1.7.7', '< 6.2'
+gem 'rails', '~> 7.2', '>= 7.2.2.2'
 gem 'rails-html-sanitizer', '1.6.0'
 gem 'rexml', '>= 3.3.2'
 gem 'sass-rails', '>= 6'

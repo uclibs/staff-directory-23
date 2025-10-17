@@ -1,19 +1,17 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+  # Rails 7 has CSRF on by default (no need to call protect_from_forgery manually)
+
+  # Devise: only require auth on non-Devise controllers
+  before_action :authenticate_user!, unless: :devise_controller?
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :authenticate_user!, except: %i[index show]
-  rescue_from ActiveRecord::InvalidForeignKey, with: :rescue_from_invalid_foreign_key
 
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: %i[email password])
-  end
-
-  def rescue_from_invalid_foreign_key
-    flash[:error] = 'Cannot delete department with associated employees.'
-    redirect_to departments_path
+    extra = %i[firstname lastname phone title department_id]
+    devise_parameter_sanitizer.permit(:sign_up,        keys: extra)
+    devise_parameter_sanitizer.permit(:account_update, keys: extra)
   end
 end
