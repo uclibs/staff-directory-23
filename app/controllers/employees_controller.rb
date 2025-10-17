@@ -1,28 +1,39 @@
 # frozen_string_literal: true
 
 class EmployeesController < ApplicationController
+  # Allow public access to the employee listing and profile pages
+  skip_before_action :authenticate_user!, only: %i[index show]
   before_action :set_employee, only: %i[show edit update destroy]
-  # GET /employees or /employees.json
+
+  # GET /employees
   def index
-    @employees = Employee.all
+    base_scope = Employee.includes(:department)
 
-    # Whitelist of sortable columns
-    sortable_columns = ['lastname', 'firstname', 'email', 'phone', 'title', 'department_id', 'departments.name']
-    sort_column = params[:sort] || 'lastname' # Default sort column
-    direction = %w[asc desc].include?(params[:direction]) ? params[:direction] : 'asc'
+    # Whitelist sortable columns (own table)
+    column_map = {
+      'lastname' => :lastname,
+      'firstname' => :firstname,
+      'email' => :email,
+      'phone' => :phone,
+      'title' => :title,
+      'department_id' => :department_id
+    }
+    sort_param = params[:sort].to_s
+    dir_param  = params[:direction].to_s.downcase == 'desc' ? :desc : :asc
 
-    return unless sortable_columns.include?(sort_column)
-
-    @employees = if sort_column == 'departments.name'
-                   # Join with the departments table and sort by department name
-                   @employees.joins(:department).order("departments.name #{direction}")
-                 else
-                   # Sort by employee attributes
-                   @employees.order("#{sort_column} #{direction}")
-                 end
+    @employees =
+      if sort_param == 'departments.name'
+        # Validated direction; column is fixed string so safe
+        base_scope.left_joins(:department)
+                  .order("departments.name #{dir_param}")
+      elsif (column = column_map[sort_param])
+        base_scope.order(column => dir_param)
+      else
+        base_scope.order(:lastname)
+      end
   end
 
-  # GET /employees/1 or /employees/1.json
+  # GET /employees/1
   def show; end
 
   # GET /employees/new
@@ -33,7 +44,7 @@ class EmployeesController < ApplicationController
   # GET /employees/1/edit
   def edit; end
 
-  # POST /employees or /employees.json
+  # POST /employees
   def create
     @employee = Employee.new(employee_params)
 
@@ -61,10 +72,9 @@ class EmployeesController < ApplicationController
     end
   end
 
-  # DELETE /employees/1 or /employees/1.json
+  # DELETE /employees/1
   def destroy
     @employee.destroy
-
     respond_to do |format|
       format.html { redirect_to employees_url, notice: 'Employee was successfully destroyed.' }
       format.json { head :no_content }
@@ -73,12 +83,10 @@ class EmployeesController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_employee
     @employee = Employee.find(params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
   def employee_params
     params.require(:employee).permit(:lastname, :firstname, :email, :department_id, :phone, :title)
   end
