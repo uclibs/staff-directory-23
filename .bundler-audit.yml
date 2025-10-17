@@ -1,16 +1,7 @@
----
 ignore:
-  #  rails-html-sanitizer - needs Rails 7 upgrade to fix
-  - CVE-2024-53989
-  - CVE-2024-53988
-  - CVE-2024-53987
-  - CVE-2024-53986
-  - CVE-2024-53985
+  # Rails 6.1 has no patched releases for these; fixed in 7.1.5.2 / 7.2.2.2 / 8.0.2.1
+  - GHSA-76r7-hhxj-r776   # activerecord ANSI escape injection
+  - GHSA-r4mg-4433-c7g3   # activestorage unsafe transformations
 
-  #  actionpack - needs Rails 7 upgrade to fix
-  - CVE-2024-54133
-
-  # Nokogiri - servers don't have compatible GLIBC
-  - GHSA-vvfq-8hwr-qm4m
-  - GHSA-mrxw-mxhj-p664
-  - GHSA-5w6v-399v-w3cc
+  # TEMP: server cannot upgrade Nokogiri yet (>= 1.18.9); remove when you can bump it
+  - GHSA-353f-x4gh-cqq8   # nokogiri vendored libxml2 CVEs
