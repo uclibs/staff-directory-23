@@ -25,7 +25,7 @@ class EmployeesController < ApplicationController
       if sort_param == 'departments.name'
         # Validated direction; column is fixed string so safe
         base_scope.left_joins(:department)
-                  .order("departments.name #{dir_param}")
+                  .order(Department.arel_table[:name].send(dir_param))
       elsif (column = column_map[sort_param])
         base_scope.order(column => dir_param)
       else
