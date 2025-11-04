@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Departments', type: :request do
+RSpec.describe 'Departments' do
   include Devise::Test::IntegrationHelpers # Include Devise test helpers
   describe 'GET /departments' do
     it 'redirects to sign-in page when user is not logged in' do
@@ -11,7 +11,7 @@ RSpec.describe 'Departments', type: :request do
     end
 
     it 'displays the departments index when user is logged in' do
-      user = FactoryBot.create(:user)
+      user = create(:user)
       sign_in user
 
       get departments_path
@@ -22,15 +22,15 @@ RSpec.describe 'Departments', type: :request do
 
   describe 'GET /departments/:id' do
     it 'redirects to sign-in page when user is not logged in' do
-      department = FactoryBot.create(:department)
+      department = create(:department)
 
       get department_path(department)
       expect(response).to redirect_to(new_user_session_path)
     end
 
     it 'displays the department when user is logged in' do
-      user = FactoryBot.create(:user)
-      department = FactoryBot.create(:department)
+      user = create(:user)
+      department = create(:department)
       sign_in user
 
       get department_path(department)
@@ -46,7 +46,7 @@ RSpec.describe 'Departments', type: :request do
     end
 
     it 'displays the new department form when user is logged in' do
-      user = FactoryBot.create(:user)
+      user = create(:user)
       sign_in user
 
       get new_department_path
@@ -62,7 +62,7 @@ RSpec.describe 'Departments', type: :request do
     end
 
     it 'creates a new department when user is logged in with valid parameters' do
-      user = FactoryBot.create(:user)
+      user = create(:user)
       sign_in user
 
       expect do
@@ -73,7 +73,7 @@ RSpec.describe 'Departments', type: :request do
     end
 
     it 'renders the new department form when user is logged in with invalid parameters' do
-      user = FactoryBot.create(:user)
+      user = create(:user)
       sign_in user
 
       expect do
@@ -87,15 +87,15 @@ RSpec.describe 'Departments', type: :request do
 
   describe 'GET /departments/:id/edit' do
     it 'redirects to sign-in page when user is not logged in' do
-      department = FactoryBot.create(:department)
+      department = create(:department)
 
       get edit_department_path(department)
       expect(response).to redirect_to(new_user_session_path)
     end
 
     it 'displays the edit department form when user is logged in' do
-      user = FactoryBot.create(:user)
-      department = FactoryBot.create(:department)
+      user = create(:user)
+      department = create(:department)
       sign_in user
 
       get edit_department_path(department)
@@ -106,15 +106,15 @@ RSpec.describe 'Departments', type: :request do
 
   describe 'PATCH /departments/:id' do
     it 'redirects to sign-in page when user is not logged in' do
-      department = FactoryBot.create(:department)
+      department = create(:department)
 
       patch department_path(department), params: { department: { name: 'Updated Department' } }
       expect(response).to redirect_to(new_user_session_path)
     end
 
     it 'updates the department when user is logged in with valid parameters' do
-      user = FactoryBot.create(:user)
-      department = FactoryBot.create(:department)
+      user = create(:user)
+      department = create(:department)
       sign_in user
 
       patch department_path(department), params: { department: { name: 'Updated Department' } }
@@ -125,8 +125,8 @@ RSpec.describe 'Departments', type: :request do
     end
 
     it 'renders the edit department form when user is logged in with invalid parameters' do
-      user = FactoryBot.create(:user)
-      department = FactoryBot.create(:department)
+      user = create(:user)
+      department = create(:department)
       sign_in user
 
       patch department_path(department), params: { department: { name: '' } }
@@ -137,15 +137,15 @@ RSpec.describe 'Departments', type: :request do
 
   describe 'DELETE /departments/:id' do
     it 'redirects to sign-in page when user is not logged in' do
-      department = FactoryBot.create(:department)
+      department = create(:department)
 
       delete department_path(department)
       expect(response).to redirect_to(new_user_session_path)
     end
 
     it 'deletes the department when user is logged in' do
-      user = FactoryBot.create(:user)
-      department = FactoryBot.create(:department)
+      user = create(:user)
+      department = create(:department)
       sign_in user
 
       expect do

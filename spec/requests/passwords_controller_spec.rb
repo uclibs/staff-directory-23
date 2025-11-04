@@ -10,7 +10,7 @@ RSpec.describe PasswordsController, type: :controller do
   end
 
   describe 'POST #create' do
-    let(:user) { FactoryBot.create(:user) } # Assuming you have a factory for users
+    let(:user) { create(:user) } # Assuming you have a factory for users
 
     context 'with valid email' do
       it 'sends reset password instructions and redirects to instructions_sent with a success message' do

@@ -1,28 +1,17 @@
+# app/controllers/employees_controller.rb
 # frozen_string_literal: true
 
 class EmployeesController < ApplicationController
+  # Public pages
+  skip_before_action :authenticate_user!, only: %i[index show]
   before_action :set_employee, only: %i[show edit update destroy]
-  # GET /employees or /employees.json
+
+  # GET /employees
   def index
-    @employees = Employee.all
-
-    # Whitelist of sortable columns
-    sortable_columns = ['lastname', 'firstname', 'email', 'phone', 'title', 'department_id', 'departments.name']
-    sort_column = params[:sort] || 'lastname' # Default sort column
-    direction = %w[asc desc].include?(params[:direction]) ? params[:direction] : 'asc'
-
-    return unless sortable_columns.include?(sort_column)
-
-    @employees = if sort_column == 'departments.name'
-                   # Join with the departments table and sort by department name
-                   @employees.joins(:department).order("departments.name #{direction}")
-                 else
-                   # Sort by employee attributes
-                   @employees.order("#{sort_column} #{direction}")
-                 end
+    @employees = apply_sort(Employee.includes(:department))
   end
 
-  # GET /employees/1 or /employees/1.json
+  # GET /employees/1
   def show; end
 
   # GET /employees/new
@@ -33,7 +22,7 @@ class EmployeesController < ApplicationController
   # GET /employees/1/edit
   def edit; end
 
-  # POST /employees or /employees.json
+  # POST /employees
   def create
     @employee = Employee.new(employee_params)
 
@@ -61,10 +50,9 @@ class EmployeesController < ApplicationController
     end
   end
 
-  # DELETE /employees/1 or /employees/1.json
+  # DELETE /employees/1
   def destroy
     @employee.destroy
-
     respond_to do |format|
       format.html { redirect_to employees_url, notice: 'Employee was successfully destroyed.' }
       format.json { head :no_content }
@@ -73,12 +61,41 @@ class EmployeesController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
+  def apply_sort(scope)
+    case sort_param
+    when 'departments.name'
+      scope.left_joins(:department)
+           .order(Department.arel_table[:name].send(sort_direction))
+    when *column_map.keys
+      scope.order(column_map[sort_param] => sort_direction)
+    else
+      scope.order(:lastname)
+    end
+  end
+
+  def column_map
+    {
+      'lastname' => :lastname,
+      'firstname' => :firstname,
+      'email' => :email,
+      'phone' => :phone,
+      'title' => :title,
+      'department_id' => :department_id
+    }
+  end
+
+  def sort_param
+    params[:sort].to_s
+  end
+
+  def sort_direction
+    params[:direction].to_s.casecmp('desc').zero? ? :desc : :asc
+  end
+
   def set_employee
     @employee = Employee.find(params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
   def employee_params
     params.require(:employee).permit(:lastname, :firstname, :email, :department_id, :phone, :title)
   end

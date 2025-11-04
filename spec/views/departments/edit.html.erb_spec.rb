@@ -2,8 +2,8 @@
 
 require 'rails_helper'
 
-RSpec.describe 'departments/edit', type: :view do
-  before(:each) do
+RSpec.describe 'departments/edit' do
+  before do
     @department = assign(:department, Department.create(name: 'Example Department'))
   end
 

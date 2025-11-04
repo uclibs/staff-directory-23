@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Employees', type: :request do
+RSpec.describe 'Employees' do
   # Set up user authentication before each test
   before do
     @user = create(:user)

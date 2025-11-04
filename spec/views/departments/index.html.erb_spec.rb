@@ -3,9 +3,9 @@
 require 'rails_helper'
 require 'devise'
 
-RSpec.describe 'departments/index', type: :view do
+RSpec.describe 'departments/index' do
   include Devise::Test::ControllerHelpers
-  before(:each) do
+  before do
     assign(:departments, [
              Department.create!(name: 'Department 1'),
              Department.create!(name: 'Department 2')

@@ -2,8 +2,8 @@
 
 require 'rails_helper'
 
-RSpec.describe 'employees/show', type: :view do
-  before(:each) do
+RSpec.describe 'employees/show' do
+  before do
     department = Department.create!(name: 'Administration')
     @employee = assign(:employee, Employee.create!(
                                     firstname: 'John',
@@ -14,6 +14,7 @@ RSpec.describe 'employees/show', type: :view do
                                     department:
                                   ))
   end
+
   it 'renders attributes in <p>' do
     render
     # Optionally, you can add assertions here to ensure that the rendered content contains the expected values

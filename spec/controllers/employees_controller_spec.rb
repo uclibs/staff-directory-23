@@ -2,10 +2,10 @@
 
 require 'rails_helper'
 
-RSpec.describe EmployeesController, type: :controller do
+RSpec.describe EmployeesController do
   include Devise::Test::ControllerHelpers
   before do
-    user = FactoryBot.create(:user)
+    user = create(:user)
     sign_in user
   end
 
@@ -16,24 +16,25 @@ RSpec.describe EmployeesController, type: :controller do
     end
 
     it 'assigns all employees to @employees' do
-      FactoryBot.create(:department)
-      employee = FactoryBot.create(:employee)
+      create(:department)
+      employee = create(:employee)
       get :index
       expect(assigns(:employees)).to eq([employee])
     end
+
     # adding to test sorting
     context 'with valid sorting parameters' do
       it 'sorts by firstname ascending' do
-        employee1 = FactoryBot.create(:employee, firstname: 'Alice')
-        employee2 = FactoryBot.create(:employee, firstname: 'Bob')
+        employee1 = create(:employee, firstname: 'Alice')
+        employee2 = create(:employee, firstname: 'Bob')
         get :index, params: { sort: 'firstname', direction: 'asc' }
         expect(assigns(:employees)).to eq([employee1, employee2])
       end
 
       it 'sorts by lastname ascending' do
         # Create two employees with different last names
-        employee1 = FactoryBot.create(:employee, lastname: 'Abbott')
-        employee2 = FactoryBot.create(:employee, lastname: 'Johnson')
+        employee1 = create(:employee, lastname: 'Abbott')
+        employee2 = create(:employee, lastname: 'Johnson')
         # Make the request with sorting parameters
         get :index, params: { sort: 'lastname', direction: 'asc' }
         # Add assertions to check the sorting order
@@ -43,11 +44,11 @@ RSpec.describe EmployeesController, type: :controller do
       # check for sorting by department name
       it 'sorts by department name ascending' do
         # Create departments
-        department1 = FactoryBot.create(:department, name: 'Administration')
-        department2 = FactoryBot.create(:department, name: 'Content Services')
+        department1 = create(:department, name: 'Administration')
+        department2 = create(:department, name: 'Content Services')
         # Create employees associated with those departments
-        employee1 = FactoryBot.create(:employee, department: department1)
-        employee2 = FactoryBot.create(:employee, department: department2)
+        employee1 = create(:employee, department: department1)
+        employee2 = create(:employee, department: department2)
         # Make the request with sorting parameters
         get :index, params: { sort: 'departments.name', direction: 'asc' }
         # Expect the employees to be sorted in descending order by department name
@@ -55,8 +56,8 @@ RSpec.describe EmployeesController, type: :controller do
       end
 
       it 'sorts by title ascending' do
-        employee1 = FactoryBot.create(:employee, title: 'Conservation Technician')
-        employee2 = FactoryBot.create(:employee, title: 'Network Analyst')
+        employee1 = create(:employee, title: 'Conservation Technician')
+        employee2 = create(:employee, title: 'Network Analyst')
         get :index, params: { sort: 'title', direction: 'asc' }
         expect(assigns(:employees)).to eq([employee1, employee2])
       end
@@ -64,8 +65,8 @@ RSpec.describe EmployeesController, type: :controller do
 
       it 'sorts by phone descending' do
         # Create two employees with different last names
-        employee1 = FactoryBot.create(:employee, phone: '1234567890')
-        employee2 = FactoryBot.create(:employee, phone: '9876543210')
+        employee1 = create(:employee, phone: '1234567890')
+        employee2 = create(:employee, phone: '9876543210')
         # Make the request with sorting parameters
         get :index, params: { sort: 'phone', direction: 'desc' }
         # Add assertions to check the sorting order
@@ -74,8 +75,8 @@ RSpec.describe EmployeesController, type: :controller do
 
       it 'sorts by email descending' do
         # Create two employees with different last names
-        employee1 = FactoryBot.create(:employee, email: 'bob.smith@uc.edu')
-        employee2 = FactoryBot.create(:employee, email: 'alice.johnson@uc.edu')
+        employee1 = create(:employee, email: 'bob.smith@uc.edu')
+        employee2 = create(:employee, email: 'alice.johnson@uc.edu')
         # Make the request with sorting parameters
         get :index, params: { sort: 'email', direction: 'desc' }
         # Add assertions to check the sorting order
@@ -87,13 +88,13 @@ RSpec.describe EmployeesController, type: :controller do
 
   describe 'GET #show' do
     it 'renders the show template' do
-      employee = FactoryBot.create(:employee)
+      employee = create(:employee)
       get :show, params: { id: employee.id }
       expect(response).to render_template(:show)
     end
 
     it 'assigns the requested employee to @employee' do
-      employee = FactoryBot.create(:employee)
+      employee = create(:employee)
       get :show, params: { id: employee.id }
       expect(assigns(:employee)).to eq(employee)
     end
@@ -120,7 +121,7 @@ RSpec.describe EmployeesController, type: :controller do
           email: 'example@example.com',
           title: 'Manager',
           phone: '1234567890',
-          department_id: FactoryBot.create(:department).id
+          department_id: create(:department).id
         } }
       end
 
@@ -155,21 +156,23 @@ RSpec.describe EmployeesController, type: :controller do
       end
     end
   end
+
   describe 'GET #edit' do
     it 'renders the edit template' do
-      employee = FactoryBot.create(:employee)
+      employee = create(:employee)
       get :edit, params: { id: employee.id }
       expect(response).to render_template(:edit)
     end
 
     it 'assigns the requested employee to @employee' do
-      employee = FactoryBot.create(:employee)
+      employee = create(:employee)
       get :edit, params: { id: employee.id }
       expect(assigns(:employee)).to eq(employee)
     end
   end
+
   describe 'PATCH #update' do
-    let(:employee) { FactoryBot.create(:employee) }
+    let(:employee) { create(:employee) }
 
     context 'with valid parameters' do
       let(:valid_params) do
@@ -207,7 +210,7 @@ RSpec.describe EmployeesController, type: :controller do
   end
 
   describe 'DELETE #destroy' do
-    let!(:employee) { FactoryBot.create(:employee) }
+    let!(:employee) { create(:employee) }
 
     it 'deletes the employee' do
       expect do
