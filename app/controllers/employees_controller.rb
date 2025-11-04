@@ -4,36 +4,11 @@
 class EmployeesController < ApplicationController
   # Public pages
   skip_before_action :authenticate_user!, only: %i[index show]
-
   before_action :set_employee, only: %i[show edit update destroy]
 
   # GET /employees
   def index
-    base_scope = Employee.includes(:department)
-
-    # Whitelist of sortable columns on employees
-    column_map = {
-      'lastname' => :lastname,
-      'firstname' => :firstname,
-      'email' => :email,
-      'phone' => :phone,
-      'title' => :title,
-      'department_id' => :department_id
-    }
-
-    sort_param = params[:sort].to_s
-    dir_param  = params[:direction].to_s.downcase == 'desc' ? :desc : :asc
-
-    @employees =
-      if sort_param == 'departments.name'
-        # safe Arel order on joined table
-        base_scope.left_joins(:department)
-                  .order(Department.arel_table[:name].send(dir_param))
-      elsif (column = column_map[sort_param])
-        base_scope.order(column => dir_param)
-      else
-        base_scope.order(:lastname)
-      end
+    @employees = apply_sort(Employee.includes(:department))
   end
 
   # GET /employees/1
@@ -85,6 +60,37 @@ class EmployeesController < ApplicationController
   end
 
   private
+
+  def apply_sort(scope)
+    case sort_param
+    when 'departments.name'
+      scope.left_joins(:department)
+           .order(Department.arel_table[:name].send(sort_direction))
+    when *column_map.keys
+      scope.order(column_map[sort_param] => sort_direction)
+    else
+      scope.order(:lastname)
+    end
+  end
+
+  def column_map
+    {
+      'lastname' => :lastname,
+      'firstname' => :firstname,
+      'email' => :email,
+      'phone' => :phone,
+      'title' => :title,
+      'department_id' => :department_id
+    }
+  end
+
+  def sort_param
+    params[:sort].to_s
+  end
+
+  def sort_direction
+    params[:direction].to_s.casecmp('desc').zero? ? :desc : :asc
+  end
 
   def set_employee
     @employee = Employee.find(params[:id])
