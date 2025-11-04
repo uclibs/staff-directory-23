@@ -2,7 +2,8 @@
 
 class AddMissingLockableColumnsToUsers < ActiveRecord::Migration[6.0]
   def change
-    add_column :users, :failed_attempts, :integer, default: 0, null: false unless column_exists? :users, :failed_attempts
+    add_column :users, :failed_attempts, :integer, default: 0, null: false unless column_exists? :users,
+                                                                                                 :failed_attempts
 
     unless column_exists? :users, :unlock_token
       add_column :users, :unlock_token, :string

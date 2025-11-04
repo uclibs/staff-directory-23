@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe DepartmentsController, type: :controller do
+RSpec.describe DepartmentsController do
   include Devise::Test::ControllerHelpers
 
   before do

@@ -62,12 +62,12 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'rspec_junit_formatter'
   gem 'rspec-rails'
-  gem 'shoulda-matchers', '~> 5.0'
-  gem 'simplecov', require: false
-  gem 'simplecov-lcov', require: false
   gem 'rubocop',        '= 1.78.0', require: false
   gem 'rubocop-rails',  '~> 2.25',  require: false
   gem 'rubocop-rspec',  '~> 2.26',  require: false
+  gem 'shoulda-matchers', '~> 5.0'
+  gem 'simplecov', require: false
+  gem 'simplecov-lcov', require: false
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '~> 1.4'
 end

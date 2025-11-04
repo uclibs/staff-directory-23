@@ -1,12 +1,13 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-RSpec.describe 'Departments', type: :request do
+RSpec.describe 'Departments' do
   # Testing the `index` action:
   before do
     user = create(:user)
     sign_in user
   end
+
   describe 'GET /index' do
     it 'returns a successful response and displays departments' do
       department = create(:department)

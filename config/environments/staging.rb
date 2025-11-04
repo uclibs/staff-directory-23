@@ -18,7 +18,7 @@ Rails.application.configure do
 
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
-  if Rails.root.join('tmp', 'caching-dev.txt').exist?
+  if Rails.root.join('tmp/caching-dev.txt').exist?
     config.action_controller.perform_caching = true
     config.action_controller.enable_fragment_cache_logging = true
 
@@ -88,5 +88,5 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   # Using an environment variable for the sender email address
-  config.action_mailer.default_options = { from: ENV['STADIR_PRODUCTION_MAILER_FROM'] }
+  config.action_mailer.default_options = { from: ENV.fetch('STADIR_PRODUCTION_MAILER_FROM', nil) }
 end

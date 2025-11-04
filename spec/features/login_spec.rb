@@ -1,9 +1,12 @@
 require 'rails_helper'
 
-RSpec.feature 'UserLogin', type: :feature do
-  let(:user) { create(:user, email: 'test@example.com', password: 'password') } # This assumes you have FactoryBot set up
+RSpec.describe 'UserLogin' do
+  # This assumes you have FactoryBot set up
+  let(:user) do
+    create(:user, email: 'test@example.com', password: 'password')
+  end
 
-  scenario 'valid inputs' do
+  it 'valid inputs' do
     visit new_user_session_path # This path might vary based on your routes
 
     fill_in 'Email', with: user.email
@@ -13,7 +16,7 @@ RSpec.feature 'UserLogin', type: :feature do
     expect(page).to have_content('Signed in successfully')
   end
 
-  scenario 'invalid inputs' do
+  it 'invalid inputs' do
     visit new_user_session_path
 
     fill_in 'Email', with: ''
