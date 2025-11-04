@@ -1,15 +1,17 @@
+# app/controllers/employees_controller.rb
 # frozen_string_literal: true
 
 class EmployeesController < ApplicationController
-  # Allow public access to the employee listing and profile pages
+  # Public pages
   skip_before_action :authenticate_user!, only: %i[index show]
+
   before_action :set_employee, only: %i[show edit update destroy]
 
   # GET /employees
   def index
     base_scope = Employee.includes(:department)
 
-    # Whitelist sortable columns (own table)
+    # Whitelist of sortable columns on employees
     column_map = {
       'lastname' => :lastname,
       'firstname' => :firstname,
@@ -18,12 +20,13 @@ class EmployeesController < ApplicationController
       'title' => :title,
       'department_id' => :department_id
     }
+
     sort_param = params[:sort].to_s
     dir_param  = params[:direction].to_s.downcase == 'desc' ? :desc : :asc
 
     @employees =
       if sort_param == 'departments.name'
-        # Validated direction; column is fixed string so safe
+        # safe Arel order on joined table
         base_scope.left_joins(:department)
                   .order(Department.arel_table[:name].send(dir_param))
       elsif (column = column_map[sort_param])

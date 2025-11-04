@@ -47,7 +47,7 @@ group :development do
   # gem 'capistrano-rvm', require: false
   gem 'ed25519', '>= 1.2', '< 2.0'
   gem 'listen', '~> 3.3'
-  gem 'rack-mini-profiler', '~> 2.0'
+  gem 'rack-mini-profiler', '>= 3.3.0'
   gem 'rb-readline'
   gem 'rubocop'
   gem 'rubocop-rails', require: false

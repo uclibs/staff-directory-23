@@ -52,6 +52,9 @@ Style/FrozenStringLiteralComment:
     - 'spec/features/login_spec.rb'
     - 'spec/models/department_spec.rb'
     - 'spec/models/employee_spec.rb'
+    - 'db/schema.rb'
+    - 'bin/**/*'
+    - 'vendor/**/*'
 
 # Offense count: 1
 # This cop supports unsafe autocorrection (--autocorrect-all).
@@ -67,3 +70,4 @@ Style/SafeNavigation:
 # URISchemes: http, https
 Layout/LineLength:
   Max: 293
+
