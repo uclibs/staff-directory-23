@@ -5,7 +5,12 @@
 # one by one as the offenses are removed from the code base.
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
-
+AllCops:
+  NewCops: disable
+  TargetRubyVersion: 3.3
+require:
+  - rubocop-rails
+  - rubocop-rspec
 # Offense count: 1
 # Configuration parameters: AllowedMethods, AllowedPatterns, CountRepeatedAttributes.
 Metrics/AbcSize:

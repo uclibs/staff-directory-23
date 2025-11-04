@@ -49,9 +49,6 @@ group :development do
   gem 'listen', '~> 3.3'
   gem 'rack-mini-profiler', '>= 3.3.0'
   gem 'rb-readline'
-  gem 'rubocop'
-  gem 'rubocop-rails', require: false
-  gem 'rubocop-rspec', require: false
   gem 'spring'
   gem 'web-console', '>= 4.1.0'
 end
@@ -68,6 +65,9 @@ group :development, :test do
   gem 'shoulda-matchers', '~> 5.0'
   gem 'simplecov', require: false
   gem 'simplecov-lcov', require: false
+  gem 'rubocop',        '= 1.78.0', require: false
+  gem 'rubocop-rails',  '~> 2.25',  require: false
+  gem 'rubocop-rspec',  '~> 2.26',  require: false
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '~> 1.4'
 end
