@@ -5,8 +5,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.3.3'
-gem 'actionpack', '6.1.7.10'
+ruby '3.3.9'
 gem 'activerecord-import'
 # Reduces boot times through caching; required in config/boot.rb
 # gem 'bootsnap', '>= 1.17.0', require: false
@@ -23,7 +22,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'nokogiri', '1.16.7' # Pin because servers lack needed GLIBC version
 gem 'puma', '>= 6.3.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
-gem 'rails', '>= 6.1.7.7', '< 6.2'
+gem 'rails', '~> 7.2', '>= 7.2.2.2'
 gem 'rails-html-sanitizer', '1.6.0'
 gem 'rexml', '>= 3.3.2'
 gem 'sass-rails', '>= 6'
@@ -48,11 +47,8 @@ group :development do
   # gem 'capistrano-rvm', require: false
   gem 'ed25519', '>= 1.2', '< 2.0'
   gem 'listen', '~> 3.3'
-  gem 'rack-mini-profiler', '~> 2.0'
+  gem 'rack-mini-profiler', '>= 3.3.0'
   gem 'rb-readline'
-  gem 'rubocop'
-  gem 'rubocop-rails', require: false
-  gem 'rubocop-rspec', require: false
   gem 'spring'
   gem 'web-console', '>= 4.1.0'
 end
@@ -66,6 +62,9 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'rspec_junit_formatter'
   gem 'rspec-rails'
+  gem 'rubocop',        '= 1.78.0', require: false
+  gem 'rubocop-rails',  '~> 2.25',  require: false
+  gem 'rubocop-rspec',  '~> 2.26',  require: false
   gem 'shoulda-matchers', '~> 5.0'
   gem 'simplecov', require: false
   gem 'simplecov-lcov', require: false

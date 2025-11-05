@@ -6,6 +6,9 @@
   padding: 0;
   list-style-type: none;
 }
+.inline { display: inline; }
+.inline button { background:none;border:none;padding:0;color:#06c;text-decoration:underline;cursor:pointer; }
+
 .footer-top .wrapper .contact {
   width: 350px;
 }

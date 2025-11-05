@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-RSpec.describe 'employees/edit', type: :view do
-  before(:each) do
-    @employee = assign(:employee, FactoryBot.create(:employee))
+RSpec.describe 'employees/edit' do
+  before do
+    @employee = assign(:employee, create(:employee))
   end
 
   it 'renders the edit employee form' do
