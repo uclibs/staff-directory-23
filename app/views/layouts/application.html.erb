@@ -43,11 +43,11 @@
 
         <p class="message"><i>You are signed in.</i></p>
         <div class="signin-button">
-          <%= button_to "Logout",
+          #link_to 'Logout', destroy_user_session_path, method: :delete, class: "btn btn-primary"
+          <%= button_to 'Logout',
                         destroy_user_session_path,
                         method: :delete,
-                        form: { class: "inline" },
-                        class: "btn btn-primary" %>
+                        form: { class: 'inline' } %>
         </div>
     <% else %>
       <div class="signin-button">

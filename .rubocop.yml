@@ -1,12 +1,125 @@
-inherit_from: .rubocop_todo.yml
+# Base RuboCop config for staff-directory-23
+# Hybrid mode: plugins: for modern plugins, require: for legacy (rubocop-rspec < 3)
+inherit_from:
+  - .rubocop_todo.yml
 
-# The behavior of RuboCop can be controlled via the .rubocop.yml
-# configuration file. It makes it possible to enable/disable
-# certain cops (checks) and to alter their behavior if they accept
-# any parameters. The file can be placed either in your home
-# directory or in some project directory.
-#
-# RuboCop will start looking for the configuration file in the directory
-# where the inspected file is and continue its way up to the root directory.
-#
-# See https://docs.rubocop.org/rubocop/configuration
+AllCops:
+  TargetRubyVersion: 3.3
+  NewCops: enable
+  SuggestExtensions: false
+  Exclude:
+    - 'bin/**/*'
+    - 'db/schema.rb'
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
+    - 'tmp/**/*'
+    - 'log/**/*'
+
+# Modern plugins that support plugin mode
+plugins:
+  - rubocop-rails
+  - rubocop-capybara
+  - rubocop-factory_bot
+
+# Legacy extension still requiring `require:` (your current version is 2.31.0)
+require:
+  - rubocop-rspec
+
+# -----------------------
+# Rails
+# -----------------------
+Rails:
+  Enabled: true
+
+Rails/Output:
+  Exclude:
+    - 'config/deploy/**/*.rb'
+
+Rails/Exit:
+  Exclude:
+    - 'config/deploy/**/*.rb'
+
+Rails/FilePath:
+  # Allow legacy string joins in spec helper paths
+  Enabled: true
+  Exclude:
+    - 'spec/rails_helper.rb'
+    - 'config/environments/staging.rb'
+
+Rails/HasManyOrHasOneDependent:
+  # Temp exclusion until callbacks confirmed
+  Exclude:
+    - 'app/models/department.rb'
+
+Rails/ReversibleMigration:
+  Exclude:
+    - 'db/migrate/**/*'
+
+Rails/SkipsModelValidations:
+  Exclude:
+    - 'db/migrate/**/*'
+
+Rails/OutputSafety:
+  Exclude:
+    - 'app/helpers/application_helper.rb'
+
+# -----------------------
+# Bundler
+# -----------------------
+Bundler/OrderedGems:
+  Enabled: true
+
+# -----------------------
+# Layout/Style
+# -----------------------
+Layout/LineLength:
+  Max: 120
+
+Style/Documentation:
+  Enabled: false
+
+# -----------------------
+# RSpec (via rubocop-rspec)
+# -----------------------
+# Make test suite realistic without massive refactors now
+RSpec/MultipleExpectations:
+  Max: 3
+
+RSpec/ExampleLength:
+  Max: 10
+
+RSpec/NestedGroups:
+  Max: 4
+
+RSpec/InstanceVariable:
+  Enabled: true
+  Exclude:
+    - 'spec/**/views/**/*_spec.rb'
+    - 'spec/**/controllers/**/*_spec.rb'
+    - 'spec/mailers/**/*_spec.rb'
+    - 'spec/requests/**/*_spec.rb'
+
+RSpec/EmptyExampleGroup:
+  Enabled: true
+
+RSpec/DescribedClass:
+  Enabled: true
+
+# -----------------------
+# RSpec Rails
+# -----------------------
+RSpecRails/HttpStatus:
+  EnforcedStyle: symbolic
+
+# -----------------------
+# Capybara (quiet the crashing cops)
+# These are noisy/buggy on some versions; re-enable later if desired
+# -----------------------
+Capybara/ClickLinkOrButtonStyle:
+  Enabled: false
+Capybara/CurrentPathExpectation:
+  Enabled: false
+Capybara/MatchStyle:
+  Enabled: false
+Capybara/NegationMatcher:
+  Enabled: false

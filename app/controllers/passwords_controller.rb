@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 
 class PasswordsController < Devise::PasswordsController
+  # GET /resource/password/edit?reset_password_token=abcdef
+  def edit
+    self.resource = resource_class.new
+    resource.reset_password_token = params[:reset_password_token]
+  end
+
   # POST /resource/password
   def create
     self.resource = resource_class.send_reset_password_instructions(resource_params)
@@ -12,12 +18,6 @@ class PasswordsController < Devise::PasswordsController
       flash.now[:alert] = 'Invalid email' # Optional: Use flash.now to show the error message on the rendered view
       render 'invalid_email', status: :unprocessable_entity
     end
-  end
-
-  # GET /resource/password/edit?reset_password_token=abcdef
-  def edit
-    self.resource = resource_class.new
-    resource.reset_password_token = params[:reset_password_token]
   end
 
   def update

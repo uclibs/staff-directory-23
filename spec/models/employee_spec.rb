@@ -1,7 +1,7 @@
 # spec/models/employee_spec.rb
 require 'rails_helper'
 
-RSpec.describe Employee, type: :model do
+RSpec.describe Employee do
   describe 'Factory' do
     it 'is valid' do
       department = build(:department) # Explicitly build a Department

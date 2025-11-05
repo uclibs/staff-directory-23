@@ -1,9 +1,16 @@
+# app/controllers/application_controller.rb
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+
+  # Devise params
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :authenticate_user!, except: %i[index show]
+
+  # Require auth everywhere unless it's a Devise controller
+  before_action :authenticate_user!, unless: :devise_controller?
+
+  # Centralized DB constraint handling
   rescue_from ActiveRecord::InvalidForeignKey, with: :rescue_from_invalid_foreign_key
 
   protected
