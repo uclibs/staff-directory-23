@@ -62,6 +62,10 @@ yarn.lock
 
 /config/database.yml
 
+echo "db/*.sqlite3-shm" >> .gitignore
+echo "db/*.sqlite3-wal" >> .gitignore
+echo "/public/packs-test" >> .gitignore
+
 cleanup-after-deploy.sh
 cleanup_old_branches-local-and-remote.sh
 cleanup_old_branches_local_only.sh
