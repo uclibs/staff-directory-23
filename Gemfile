@@ -27,7 +27,7 @@ gem 'rails-html-sanitizer', '1.6.0'
 gem 'rexml', '>= 3.3.2'
 gem 'sass-rails', '>= 6'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'webpacker', '~> 5.0'
+gem 'shakapacker', '~> 8.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 5.0'
 # gem 'coveralls', '~> 0.8.22', require: false

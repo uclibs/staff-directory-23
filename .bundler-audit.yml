@@ -14,5 +14,3 @@ ignore:
   - GHSA-5w6v-399v-w3cc
   - GHSA-353f-x4gh-cqq8
 
-  # REXML DoS vulnerability
-  - GHSA-c2f4-jgmc-q2r5
