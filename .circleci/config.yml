@@ -46,6 +46,12 @@ jobs:
       - checkout
       - node/install:
           node-version: "18.17.1"
+
+      # Enable Yarn via corepack
+      - run:
+          name: Enable Yarn
+          command: corepack enable
+
       # - browser-tools/install-chrome TODO: change the following 2 lines to this after fixing the orb issue #75.
       # - browser-tools/install-browser-tools
       - browser-tools/install-chrome
@@ -85,7 +91,8 @@ jobs:
       - run:
           name: Compile test assets
           command: RAILS_ENV=test bin/shakapacker
-     #Rubocop
+
+      #Rubocop
       - run:
           name: Run Rubocop
           command: bundle exec rubocop
@@ -120,4 +127,3 @@ workflows:
   ci:
     jobs:
       - build
-
