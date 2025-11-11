@@ -45,7 +45,13 @@ jobs:
     steps:
       - checkout
       - node/install:
-          node-version: "18.17.1"
+          node-version: "22.11.0"
+
+      # Enable Yarn via corepack
+      - run:
+          name: Enable Yarn
+          command: corepack enable
+
       # - browser-tools/install-chrome TODO: change the following 2 lines to this after fixing the orb issue #75.
       # - browser-tools/install-browser-tools
       - browser-tools/install-chrome
@@ -57,6 +63,11 @@ jobs:
             - v1-dependencies-{{ checksum "Gemfile.lock" }}
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
+
+      - restore_cache:
+          keys:
+            - v1-yarn-{{ checksum "yarn.lock" }}
+            - v1-yarn-
 
       - run:
           name: Configure Bundler
@@ -81,7 +92,22 @@ jobs:
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
 
-     #Rubocop
+      # Install JavaScript dependencies
+      - run:
+          name: Install JavaScript dependencies
+          command: yarn install --frozen-lockfile
+
+      - save_cache:
+          paths:
+            - ./node_modules
+          key: v1-yarn-{{ checksum "yarn.lock" }}
+
+      # Compile test assets for Shakapacker
+      - run:
+          name: Compile test assets
+          command: RAILS_ENV=test bin/shakapacker
+
+      #Rubocop
       - run:
           name: Run Rubocop
           command: bundle exec rubocop
@@ -116,4 +142,3 @@ workflows:
   ci:
     jobs:
       - build
-
