@@ -45,7 +45,7 @@ jobs:
     steps:
       - checkout
       - node/install:
-          node-version: "18.17.1"
+          node-version: "22.11.0"
 
       # Enable Yarn via corepack
       - run:
