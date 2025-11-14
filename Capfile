@@ -20,3 +20,7 @@ end
 task local: :use_rbenv
 task qa: :use_rbenv
 task production: :use_rbenv
+
+# At the end of your Capfile, add:
+before 'deploy:assets:precompile', 'nvm:load'
+before 'deploy:assets:precompile', 'yarn:build'
