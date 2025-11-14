@@ -36,7 +36,7 @@
     "webpack-subresource-integrity": "5"
   },
   "scripts": {
-    "build": "bin/webpack"
+    "build": "bin/shakapacker"
   },
   "version": "0.1.0",
   "resolutions": {
