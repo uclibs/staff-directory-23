@@ -44,7 +44,7 @@ Rails/FilePath:
   Enabled: true
   Exclude:
     - 'spec/rails_helper.rb'
-    - 'config/environments/staging.rb'
+
 
 Rails/HasManyOrHasOneDependent:
   # Temp exclusion until callbacks confirmed
