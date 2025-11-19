@@ -80,9 +80,22 @@ Rails.application.configure do
   # caching is enabled.
   config.action_mailer.perform_caching = false
 
-  # Ignore bad email addresses and do not raise email delivery errors.
-  # Set this to true and configure the email server for immediate delivery to raise delivery errors.
-  # config.action_mailer.raise_delivery_errors = false
+  # Configure Action Mailer for Devise password reset emails
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_url_options = { host: ENV['STADIR_PRODUCTION_MAILER_URL'] }
+  config.action_mailer.default_options = { from: 'uclappdev@uc.edu' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    # 'address' specifies the address of the server that will handle email sending.
+    address: ENV['MAIL_SMTP_ADDRESS'],
+    # 'port' specifies which port to use on the SMTP server.
+    # Port 25 is the default port for SMTP servers like Postfix.
+    enable_starttls_auto: true,
+    port: 25,
+    # 'ca_file' is the path to the certificate authority file.
+    # In our case, it's a self-signed certificate. This tells Rails to trust this specific certificate.
+    ca_file: '/etc/ssl/certs/sendmail.pem'
+  }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
