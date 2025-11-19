@@ -8,13 +8,14 @@ set :bundle_path, -> { shared_path.join('vendor/bundle') }
 set :rbenv_ruby, '3.3.9'
 set :rbenv_prefix,
     "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
-append :linked_dirs, 'tmp', 'log'
-# Remove public/assets from linked_dirs - we want fresh compilation each deploy
-set(:linked_dirs, fetch(:linked_dirs, []).reject { |dir| dir == 'public/assets' })
+
+# Only link tmp and log, NOT public/assets
+set :linked_dirs, %w[tmp log]
+
 ask(:username, nil)
 ask(:password, nil, echo: false)
 server 'libappstest.libraries.uc.edu', user: fetch(:username), password: fetch(:password), port: 22,
-                                       roles: %i[web app db]
+       roles: %i[web app db]
 set :deploy_to, '/opt/webapps/staff-directory'
 after 'deploy:updating', 'ruby_update_check'
 after 'deploy:updating', 'init_qp'
