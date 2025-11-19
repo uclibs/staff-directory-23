@@ -56,5 +56,5 @@ end
 after 'git:create_release', 'nvm:load'
 after 'nvm:load', 'nvm:setup'
 before 'deploy:starting', 'deploy:confirmation'
-after 'deploy:confirmation', 'deploy:clear_assets'
+#after 'deploy:confirmation', 'deploy:clear_assets'
 before 'deploy:assets:precompile', 'yarn:build'
