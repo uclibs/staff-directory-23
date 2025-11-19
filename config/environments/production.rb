@@ -82,12 +82,12 @@ Rails.application.configure do
 
   # Configure Action Mailer for Devise password reset emails
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_url_options = { host: ENV['STADIR_PRODUCTION_MAILER_URL'] }
+  config.action_mailer.default_url_options = { host: ENV.fetch('STADIR_PRODUCTION_MAILER_URL', nil) }
   config.action_mailer.default_options = { from: 'uclappdev@uc.edu' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     # 'address' specifies the address of the server that will handle email sending.
-    address: ENV['MAIL_SMTP_ADDRESS'],
+    address: ENV.fetch('MAIL_SMTP_ADDRESS', nil),
     # 'port' specifies which port to use on the SMTP server.
     # Port 25 is the default port for SMTP servers like Postfix.
     enable_starttls_auto: true,

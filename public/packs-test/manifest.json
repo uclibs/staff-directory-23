@@ -1,14 +1,19 @@
 {
-  "application.js": "/packs-test/js/application-7db07da17a0a6a9f827a.js",
-  "application.js.map": "/packs-test/js/application-7db07da17a0a6a9f827a.js.map",
+  "application.js": "/packs-test/js/application.js",
+  "application.js.map": "/packs-test/js/application.js.map",
   "entrypoints": {
     "application": {
-      "js": [
-        "/packs-test/js/application-7db07da17a0a6a9f827a.js"
-      ],
-      "js.map": [
-        "/packs-test/js/application-7db07da17a0a6a9f827a.js.map"
-      ]
+      "assets": {
+        "js": [
+          "/packs-test/js/runtime.js",
+          "/packs-test/js/vendors-node_modules_rails_activestorage_app_assets_javascripts_activestorage_js-node_modules-416d5c.js",
+          "/packs-test/js/application.js"
+        ]
+      }
     }
-  }
+  },
+  "js/vendors-node_modules_rails_activestorage_app_assets_javascripts_activestorage_js-node_modules-416d5c.js": "/packs-test/js/vendors-node_modules_rails_activestorage_app_assets_javascripts_activestorage_js-node_modules-416d5c.js",
+  "js/vendors-node_modules_rails_activestorage_app_assets_javascripts_activestorage_js-node_modules-416d5c.js.map": "/packs-test/js/vendors-node_modules_rails_activestorage_app_assets_javascripts_activestorage_js-node_modules-416d5c.js.map",
+  "runtime.js": "/packs-test/js/runtime.js",
+  "runtime.js.map": "/packs-test/js/runtime.js.map"
 }
