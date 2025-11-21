@@ -20,5 +20,3 @@ end
 task local: :use_rbenv
 task qa: :use_rbenv
 task production: :use_rbenv
-
-
