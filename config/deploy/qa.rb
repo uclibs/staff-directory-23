@@ -2,7 +2,7 @@
 
 set :rails_env, :production
 set :bundle_without, %w[development test].join(' ')
-set :branch, 'staging'
+set :branch, 'qa'
 set :default_env, path: '$PATH:/usr/local/bin'
 set :bundle_path, -> { shared_path.join('vendor/bundle') }
 set :rbenv_ruby, '3.3.9'
@@ -18,5 +18,5 @@ server 'libappstest.libraries.uc.edu', user: fetch(:username), password: fetch(:
                                        roles: %i[web app db]
 set :deploy_to, '/opt/webapps/staff-directory'
 after 'deploy:updating', 'ruby_update_check'
-after 'deploy:updating', 'init_qp'
+after 'deploy:updating', 'init_p'
 before 'deploy:cleanup', 'start_qp'
