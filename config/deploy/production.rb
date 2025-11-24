@@ -5,8 +5,12 @@ set :bundle_without, %w[development test].join(' ')
 set :branch, 'main'
 set :default_env, path: '$PATH:/usr/local/bin'
 set :bundle_path, -> { shared_path.join('vendor/bundle') }
-set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
-append :linked_dirs, 'tmp', 'log'
+set :rbenv_prefix,
+    "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
+
+# Only link tmp and log, NOT public/assets
+set :linked_dirs, %w[tmp log]
+
 ask(:username, nil)
 ask(:password, nil, echo: false)
 server 'libapps.libraries.uc.edu', user: fetch(:username), password: fetch(:password), port: 22, roles: %i[web app db]

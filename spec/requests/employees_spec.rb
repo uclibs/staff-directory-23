@@ -2,24 +2,24 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Employees', type: :request do
+RSpec.describe 'Employees' do
   include Devise::Test::IntegrationHelpers
 
-  let(:user) { FactoryBot.create(:user) }
+  let(:user) { create(:user) }
 
   describe 'GET /employees' do
     it 'displays the employees index' do
       get employees_path
-      expect(response).to have_http_status(200)
+      expect(response).to have_http_status(:ok)
       expect(response).to render_template(:index)
     end
   end
 
   describe 'GET /employees/:id' do
     it 'displays the employee' do
-      employee = FactoryBot.create(:employee)
+      employee = create(:employee)
       get employee_path(employee)
-      expect(response).to have_http_status(200)
+      expect(response).to have_http_status(:ok)
       expect(response).to render_template(:show)
     end
   end
@@ -32,7 +32,7 @@ RSpec.describe 'Employees', type: :request do
 
       it 'displays the new employee form' do
         get new_employee_path
-        expect(response).to have_http_status(200)
+        expect(response).to have_http_status(:ok)
         expect(response).to render_template(:new)
       end
     end
@@ -57,7 +57,7 @@ RSpec.describe 'Employees', type: :request do
             employee: {
               lastname: 'Smith',
               firstname: 'John',
-              department_id: FactoryBot.create(:department).id,
+              department_id: create(:department).id,
               email: 'john.smith@example.com',
               title: 'Mr.',
               phone: '123-456-7890'
@@ -98,7 +98,7 @@ RSpec.describe 'Employees', type: :request do
 
         it 'renders the new template' do
           post employees_path, params: invalid_params
-          expect(response).to have_http_status(422)
+          expect(response).to have_http_status(:unprocessable_content)
           expect(response).to render_template(:new)
         end
       end
@@ -119,16 +119,16 @@ RSpec.describe 'Employees', type: :request do
       end
 
       it 'displays the edit employee form' do
-        employee = FactoryBot.create(:employee)
+        employee = create(:employee)
         get edit_employee_path(employee)
-        expect(response).to have_http_status(200)
+        expect(response).to have_http_status(:ok)
         expect(response).to render_template(:edit)
       end
     end
 
     context 'when user is not logged in' do
       it 'redirects to the sign-in page' do
-        employee = FactoryBot.create(:employee)
+        employee = create(:employee)
         get edit_employee_path(employee)
         expect(response).to redirect_to(new_user_session_path)
       end
@@ -141,7 +141,7 @@ RSpec.describe 'Employees', type: :request do
         sign_in user
       end
 
-      let(:employee) { FactoryBot.create(:employee, lastname: 'Stork') }
+      let(:employee) { create(:employee, lastname: 'Stork') }
 
       context 'with valid parameters' do
         let(:valid_params) do
@@ -174,7 +174,7 @@ RSpec.describe 'Employees', type: :request do
 
         it 'renders the edit template' do
           patch employee_path(employee), params: invalid_params
-          expect(response).to have_http_status(422)
+          expect(response).to have_http_status(:unprocessable_content)
           expect(response).to render_template(:edit)
         end
       end
@@ -182,7 +182,7 @@ RSpec.describe 'Employees', type: :request do
 
     context 'when user is not logged in' do
       it 'redirects to the sign-in page' do
-        employee = FactoryBot.create(:employee)
+        employee = create(:employee)
         patch employee_path(employee)
         expect(response).to redirect_to(new_user_session_path)
       end
@@ -196,14 +196,14 @@ RSpec.describe 'Employees', type: :request do
       end
 
       it 'deletes the employee' do
-        employee = FactoryBot.create(:employee)
+        employee = create(:employee)
         expect do
           delete employee_path(employee)
         end.to change(Employee, :count).by(-1)
       end
 
       it 'redirects to the employees index' do
-        employee = FactoryBot.create(:employee)
+        employee = create(:employee)
         delete employee_path(employee)
         expect(response).to redirect_to(employees_path)
       end
@@ -211,7 +211,7 @@ RSpec.describe 'Employees', type: :request do
 
     context 'when user is not logged in' do
       it 'redirects to the sign-in page' do
-        employee = FactoryBot.create(:employee)
+        employee = create(:employee)
         delete employee_path(employee)
         expect(response).to redirect_to(new_user_session_path)
       end

@@ -1,16 +1,16 @@
 ---
 ignore:
-  #  rails-html-sanitizer - needs Rails 7 upgrade to fix
+  # rails-html-sanitizer - pinned at 1.6.0 due to server constraints
+  # Requires >= 1.6.1 to resolve XSS vulnerabilities
   - CVE-2024-53989
   - CVE-2024-53988
   - CVE-2024-53987
   - CVE-2024-53986
   - CVE-2024-53985
 
-  #  actionpack - needs Rails 7 upgrade to fix
-  - CVE-2024-54133
-
-  # Nokogiri - servers don't have compatible GLIBC
+  # Nokogiri - pinned at 1.16.7, servers don't have compatible GLIBC
   - GHSA-vvfq-8hwr-qm4m
   - GHSA-mrxw-mxhj-p664
   - GHSA-5w6v-399v-w3cc
+  - GHSA-353f-x4gh-cqq8
+

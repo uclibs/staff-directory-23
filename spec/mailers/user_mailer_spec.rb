@@ -2,13 +2,13 @@
 
 require 'rails_helper'
 
-RSpec.describe UserMailer, type: :mailer do
+RSpec.describe UserMailer do
   describe 'password_change' do
     let(:user) { create(:user) }
 
     before do
       # Assuming UserMailer has the password_change method implemented
-      @mail = UserMailer.password_change(user)
+      @mail = described_class.password_change(user)
     end
 
     it 'renders the subject' do

@@ -23,12 +23,4 @@ namespace :deploy do
       exit
     end
   end
-
-  desc 'Remove old assets'
-  task :clear_assets do
-    on roles(:web) do
-      execute :rm, '-rf', release_path.join('public/assets/*').to_s
-      execute :rm, '-rf', release_path.join('public/build/*').to_s
-    end
-  end
 end

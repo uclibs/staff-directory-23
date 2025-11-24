@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 set :application, 'staff-directory-23'
 set :repo_url, 'https://github.com/uclibs/staff-directory-23.git'
 
@@ -53,8 +55,21 @@ task :ruby_update_check do
   end
 end
 
+namespace :deploy do
+  desc 'Precompile assets'
+  task :precompile_assets do
+    on roles(:app) do
+      within release_path do
+        with rails_env: fetch(:rails_env) do
+          execute :rake, 'assets:precompile'
+        end
+      end
+    end
+  end
+end
+
 after 'git:create_release', 'nvm:load'
 after 'nvm:load', 'nvm:setup'
 before 'deploy:starting', 'deploy:confirmation'
-after 'deploy:confirmation', 'deploy:clear_assets'
-before 'deploy:assets:precompile', 'yarn:build'
+after 'deploy:updated', 'yarn:build'
+after 'yarn:build', 'deploy:precompile_assets'

@@ -6,8 +6,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', 'data-turbo-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbo-track': 'reload' %>
   </head>
   <body><div class="container">
    <div class="first">
@@ -43,7 +43,10 @@
 
         <p class="message"><i>You are signed in.</i></p>
         <div class="signin-button">
-          <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
+          <%= button_to 'Logout',
+                        destroy_user_session_path,
+                        method: :delete,
+                        form: { class: 'inline' } %>
         </div>
     <% else %>
       <div class="signin-button">

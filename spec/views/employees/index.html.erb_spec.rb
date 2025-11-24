@@ -2,11 +2,11 @@
 
 require 'rails_helper'
 
-RSpec.describe 'employees/index', type: :view do
+RSpec.describe 'employees/index' do
   include Devise::Test::ControllerHelpers
 
-  before(:each) do
-    FactoryBot.create(:department)
+  before do
+    create(:department)
     assign(:employees, Employee.order(lastname: :asc))
   end
 

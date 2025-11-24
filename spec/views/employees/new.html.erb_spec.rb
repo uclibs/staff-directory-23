@@ -2,8 +2,8 @@
 
 require 'rails_helper'
 
-RSpec.describe 'employees/new', type: :view do
-  before(:each) do
+RSpec.describe 'employees/new' do
+  before do
     assign(:employee, Employee.new)
   end
 
