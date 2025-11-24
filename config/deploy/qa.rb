@@ -18,5 +18,5 @@ server 'libappstest.libraries.uc.edu', user: fetch(:username), password: fetch(:
                                        roles: %i[web app db]
 set :deploy_to, '/opt/webapps/staff-directory'
 after 'deploy:updating', 'ruby_update_check'
-after 'deploy:updating', 'init_p'
+after 'deploy:updating', 'init_qp'
 before 'deploy:cleanup', 'start_qp'
