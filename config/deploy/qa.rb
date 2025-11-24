@@ -2,7 +2,7 @@
 
 set :rails_env, :production
 set :bundle_without, %w[development test].join(' ')
-set :branch, 'staging'
+set :branch, 'qa'
 set :default_env, path: '$PATH:/usr/local/bin'
 set :bundle_path, -> { shared_path.join('vendor/bundle') }
 set :rbenv_ruby, '3.3.9'
