@@ -5,7 +5,6 @@ set :bundle_without, %w[development test].join(' ')
 set :branch, 'qa'
 set :default_env, path: '$PATH:/usr/local/bin'
 set :bundle_path, -> { shared_path.join('vendor/bundle') }
-set :rbenv_ruby, '3.3.9'
 set :rbenv_prefix,
     "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
 

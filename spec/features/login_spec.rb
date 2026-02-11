@@ -23,6 +23,6 @@ RSpec.describe 'UserLogin' do
     fill_in 'Password', with: ''
     click_on 'Log in'
 
-    expect(page).to have_content('Invalid Email or password')
+    expect(page).to have_content('Invalid email or password.')
   end
 end

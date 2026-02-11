@@ -4,6 +4,7 @@ require 'rails_helper'
 
 RSpec.describe EmployeesController do
   include Devise::Test::ControllerHelpers
+
   before do
     user = create(:user)
     sign_in user
@@ -129,8 +130,6 @@ RSpec.describe EmployeesController do
         expect do
           post :create, params: valid_params
         end.to change(Employee, :count).by(1)
-
-        puts @controller.instance_variable_get(:@employee).errors.full_messages
       end
 
       it 'redirects to the employees index' do

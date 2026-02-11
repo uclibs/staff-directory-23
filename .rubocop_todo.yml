@@ -4,12 +4,8 @@
 
 AllCops:
   NewCops: disable
-  TargetRubyVersion: 3.3
+  TargetRubyVersion: 3.4
 
-# Use require only for rubocop-rspec (legacy)
-# Other plugins are already loaded in main .rubocop.yml
-require:
-  - rubocop-rspec
 
 # Metrics thresholds roughly matching your current suite;
 # tighten gradually as you refactor.

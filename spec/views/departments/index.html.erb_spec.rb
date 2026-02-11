@@ -5,6 +5,7 @@ require 'devise'
 
 RSpec.describe 'departments/index' do
   include Devise::Test::ControllerHelpers
+
   before do
     assign(:departments, [
              Department.create!(name: 'Department 1'),

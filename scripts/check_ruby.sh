@@ -1,4 +1,4 @@
-!/bin/bash
+#!/bin/bash
 RUBY_VERSION=$(cat .ruby-version | sed s/ruby-//)
 
 if rbenv versions | grep -q $RUBY_VERSION; then
