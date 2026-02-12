@@ -22,10 +22,11 @@ gem 'jbuilder', '~> 2.7'
 gem 'nokogiri', '1.16.7' # Pin because servers lack needed GLIBC version
 gem 'puma', '>= 6.3.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
-gem 'rails', '~> 7.2', '>= 7.2.2.2'
+gem 'rails', '~> 8.1', '>= 8.1.2'
 gem 'rails-html-sanitizer', '1.6.0'
 gem 'rexml', '>= 3.3.2'
 gem 'sass-rails', '>= 6'
+gem 'sprockets-rails' # required for sass-rails on Rails 8 (Propshaft is default)
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'shakapacker', '~> 8.0'
 # Use CoffeeScript for .coffee assets and views
@@ -72,7 +73,7 @@ group :development, :test do
   gem 'simplecov', require: false
   gem 'simplecov-lcov', require: false
   # Use sqlite3 as the database for Active Record
-  gem 'sqlite3', '~> 1.4'
+  gem 'sqlite3', '>= 2.1' # Rails 8.1 requires sqlite3 >= 2.1
 end
 
 group :test do

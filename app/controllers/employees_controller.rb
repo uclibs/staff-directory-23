@@ -98,6 +98,6 @@ class EmployeesController < ApplicationController
   end
 
   def employee_params
-    params.require(:employee).permit(:lastname, :firstname, :email, :department_id, :phone, :title)
+    params.expect(employee: %i[lastname firstname email department_id phone title])
   end
 end
