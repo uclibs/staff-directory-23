@@ -4,6 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'Departments' do
   include Devise::Test::IntegrationHelpers # Include Devise test helpers
+
   describe 'GET /departments' do
     it 'redirects to sign-in page when user is not logged in' do
       get departments_path

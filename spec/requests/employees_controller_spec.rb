@@ -38,9 +38,6 @@ RSpec.describe 'Employees' do
     it 'creates a new employee and redirects' do
       department = create(:department)
       employee_attributes = attributes_for(:employee).merge(department_id: department.id)
-      post employees_path, params: { employee: employee_attributes }
-
-      puts "Errors: #{assigns(:employee).errors.full_messages}" if response.status == 422 # unprocessable entity
       expect do
         post employees_path, params: { employee: employee_attributes }
       end.to change(Employee, :count).by(1)

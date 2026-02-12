@@ -4,7 +4,7 @@ inherit_from:
   - .rubocop_todo.yml
 
 AllCops:
-  TargetRubyVersion: 3.3
+  TargetRubyVersion: 3.4
   NewCops: enable
   SuggestExtensions: false
   Exclude:
@@ -18,12 +18,9 @@ AllCops:
 # Modern plugins that support plugin mode
 plugins:
   - rubocop-rails
+  - rubocop-rspec
   - rubocop-capybara
   - rubocop-factory_bot
-
-# Legacy extension still requiring `require:` (your current version is 2.31.0)
-require:
-  - rubocop-rspec
 
 # -----------------------
 # Rails
@@ -108,7 +105,7 @@ RSpec/DescribedClass:
 # -----------------------
 # RSpec Rails
 # -----------------------
-RSpecRails/HttpStatus:
+Rails/HttpStatus:
   EnforcedStyle: symbolic
 
 # -----------------------

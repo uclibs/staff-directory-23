@@ -5,7 +5,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.3.9'
+ruby File.read(File.expand_path('.ruby-version', __dir__)).strip
 gem 'activerecord-import'
 # Reduces boot times through caching; required in config/boot.rb
 # gem 'bootsnap', '>= 1.17.0', require: false
@@ -39,6 +39,7 @@ gem 'turbolinks', '~> 5'
 group :development do
   gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
   gem 'capistrano', '~> 3.19'
+  gem 'rdoc', '6.17.0', require: false # Pin to avoid duplicate RDoc constant warnings with Ruby 3.4
   # gem 'capistrano3-puma', require: false
   gem 'capistrano-bundler', '~> 2.1', require: false
   gem 'capistrano-rails', '~> 1.4', require: false
@@ -62,9 +63,11 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'rspec_junit_formatter'
   gem 'rspec-rails'
-  gem 'rubocop',        '= 1.78.0', require: false
-  gem 'rubocop-rails',  '~> 2.25',  require: false
-  gem 'rubocop-rspec',  '~> 2.26',  require: false
+  gem 'rubocop', '1.84.1', require: false
+  gem 'rubocop-capybara', '2.22.1', require: false
+  gem 'rubocop-factory_bot', '2.28.0', require: false
+  gem 'rubocop-rails', '2.34.3', require: false
+  gem 'rubocop-rspec', '3.9.0', require: false
   gem 'shoulda-matchers', '~> 5.0'
   gem 'simplecov', require: false
   gem 'simplecov-lcov', require: false

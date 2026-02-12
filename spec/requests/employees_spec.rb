@@ -68,12 +68,6 @@ RSpec.describe 'Employees' do
         it 'creates a new employee' do
           expect do
             post employees_path, params: valid_params
-
-            # Diagnostic code to print out validation errors
-            if response.status == 422
-              employee = assigns(:employee)
-              puts "Validation errors: #{employee.errors.full_messages}" if employee
-            end
           end.to change(Employee, :count).by(1)
 
           expect(Employee.last).to have_attributes(lastname: 'Smith', firstname: 'John')

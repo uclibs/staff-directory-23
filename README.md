@@ -6,7 +6,7 @@ This project uses MySQL via the mysql2 gem. On macOS (especially Apple Silicon),
 
     Homebrew
 
-    Ruby 3.3.3 (managed via rbenv)
+    Ruby 3.4.7 (managed via rbenv)
 
     MySQL (installed via Homebrew)
 
@@ -22,10 +22,10 @@ This project uses MySQL via the mysql2 gem. On macOS (especially Apple Silicon),
 
 "brew install mysql zstd"
 
-Make sure Ruby 3.3.3 is selected:
+Make sure Ruby 3.4.7 is selected:
 
-"rbenv install 3.3.3" # if not already installed
-"rbenv local 3.3.3"
+"rbenv install 3.4.7" # if not already installed
+"rbenv local 3.4.7"
 
 Install bundler (if not already):
 
@@ -88,7 +88,7 @@ Start the Rails server:
 
         zstd is installed
 
-        You're using Ruby 3.3.3
+        You're using Ruby 3.4.7
 
         You're passing the correct --with-mysql-config path
 
