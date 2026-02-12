@@ -14,3 +14,5 @@ ignore:
   - GHSA-5w6v-399v-w3cc
   - GHSA-353f-x4gh-cqq8
 
+  # Shakapacker 8.4.0 - env var leak via EnvironmentPlugin; fix: update to >= 9.5.0
+  - GHSA-96qw-h329-v5rg
