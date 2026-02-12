@@ -28,7 +28,7 @@ mysql_connection: &mysql_connection
   host: <%= ENV["STADIR_DATABASE_HOST"] %>
   socket: <%= socket %>
   <% else %>
-  host: 127.0.0.1
+  host: <%= ENV["STADIR_DATABASE_HOST"] %>
   port: <%= port %>
   <% end %>
 
