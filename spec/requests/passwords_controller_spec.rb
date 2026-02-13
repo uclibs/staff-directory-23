@@ -25,7 +25,7 @@ RSpec.describe PasswordsController, type: :controller do
       it 'renders the invalid_email template with an error message' do
         post :create, params: { user: { email: 'nonexistent@example.com' } } # Use an email that does not exist in your test DB
 
-        expect(response).to have_http_status(:unprocessable_entity)
+        expect(response).to have_http_status(:unprocessable_content)
         expect(flash[:alert]).to match('Invalid email')
         expect(response).to render_template('invalid_email')
       end

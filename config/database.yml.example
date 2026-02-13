@@ -1,0 +1,54 @@
+# Copy to config/database.yml and set the environment variables below.
+# Database config is gitignored; this file documents the required structure and env vars.
+#
+# Required env vars (e.g. in .env.development, .env.test, or deploy):
+#   STADIR_DATABASE_ADAPTER   (e.g. mysql2)
+#   STADIR_DATABASE_POOL      (e.g. 5)
+#   STADIR_DATABASE_USERNAME
+#   STADIR_DATABASE_PASSWORD
+#   STADIR_DATABASE_NAME
+#   STADIR_DATABASE_HOST      (e.g. 127.0.0.1)
+#   STADIR_DATABASE_TIMEOUT   (optional)
+#   STADIR_DATABASE_PORT      (optional; used when not using a socket)
+#
+# Optional: BOXEN_MYSQL_SOCKET - path to MySQL socket if not using host/port.
+
+<%
+  socket = [
+    ENV["BOXEN_MYSQL_SOCKET"],
+    "/var/run/mysql5/mysqld.sock",
+    "/tmp/mysql.sock"
+  ].detect { |f| f && File.exist?(f) }
+
+  port = ENV["STADIR_DATABASE_PORT"]
+%>
+
+mysql_connection: &mysql_connection
+  <% if socket %>
+  host: <%= ENV["STADIR_DATABASE_HOST"] %>
+  socket: <%= socket %>
+  <% else %>
+  host: <%= ENV["STADIR_DATABASE_HOST"] %>
+  port: <%= port %>
+  <% end %>
+
+database_settings: &database_settings
+  <<: *mysql_connection
+  adapter: <%= ENV["STADIR_DATABASE_ADAPTER"] %>
+  pool: <%= ENV["STADIR_DATABASE_POOL"] %>
+  username: <%= ENV["STADIR_DATABASE_USERNAME"] %>
+  password: <%= ENV["STADIR_DATABASE_PASSWORD"] %>
+  database: <%= ENV["STADIR_DATABASE_NAME"] %>
+  host: <%= ENV["STADIR_DATABASE_HOST"] %>
+  timeout: <%= ENV["STADIR_DATABASE_TIMEOUT"] %>
+  encoding: utf8
+  RECONNECT: FALSE
+
+development:
+  <<: *database_settings
+
+test:
+  <<: *database_settings
+
+production:
+  <<: *database_settings

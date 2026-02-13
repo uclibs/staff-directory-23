@@ -49,6 +49,6 @@ class DepartmentsController < ApplicationController
   private
 
   def department_params
-    params.require(:department).permit(:name, :id)
+    params.expect(department: %i[name id])
   end
 end

@@ -1,57 +1,120 @@
-# staff-directory-23
-🛠 Development Setup (macOS, Apple Silicon)
+# Staff Directory
 
-This project uses MySQL via the mysql2 gem. On macOS (especially Apple Silicon), extra steps may be needed to ensure native extensions build correctly.
-✅ Requirements
+UC Libraries staff directory application. Manages employees and departments with Devise-based authentication.
 
-    Homebrew
+**Stack:** Rails 8.1.2, Ruby 3.4.7, MySQL (development/production), SQLite (test). JavaScript via Shakapacker; styles via Sprockets and Sass.
 
-    Ruby 3.4.7 (managed via rbenv)
+---
 
-    MySQL (installed via Homebrew)
+## Requirements
 
-    zstd (compression library)
+- **Homebrew** (macOS)
+- **Ruby 3.4.7** (e.g. [rbenv](https://github.com/rbenv/rbenv))
+- **Rails 8.1.2** (installed via Bundler)
+- **MySQL** (Homebrew on macOS)
+- **zstd** (compression library, for mysql2 native extension)
+- **Node.js** (version in [.nvmrc](.nvmrc), managed via [nvm](https://github.com/nvm-sh/nvm))
+- **Yarn** (for JavaScript dependencies)
 
-    nvm
+---
 
-    node 18.17.1 (managed via nvm)
+## Setup (macOS, Apple Silicon)
 
-🔧 Setup Steps
+This project uses MySQL via the mysql2 gem. On macOS (especially Apple Silicon), extra steps may be needed so native extensions build correctly.
 
-    Install dependencies:
+### 1. Install system dependencies
 
-"brew install mysql zstd"
+```bash
+brew install mysql zstd
+```
 
-Make sure Ruby 3.4.7 is selected:
+### 2. Ruby
 
-"rbenv install 3.4.7" # if not already installed
-"rbenv local 3.4.7"
-
-Install bundler (if not already):
-
-"gem install bundler"
+```bash
+rbenv install 3.4.7   # if not already installed
+rbenv local 3.4.7
+gem install bundler
+```
 
 Configure Bundler to build mysql2 correctly:
 
-"bundle config build.mysql2 --with-mysql-config=/opt/homebrew/opt/mysql/bin/mysql_config"
+```bash
+bundle config build.mysql2 --with-mysql-config=/opt/homebrew/opt/mysql/bin/mysql_config
+```
 
-## Node version
-
-This project uses [nvm](https://github.com/nvm-sh/nvm) to manage Node.js versions.
-
-To use the correct version locally:
+### 3. Node.js
 
 ```bash
 nvm install
 nvm use
+yarn install
 ```
 
+### 4. Gems and database
+
+```bash
+bundle install
+cp config/database.yml.example config/database.yml   # if needed; edit with your DB settings
+bundle exec rails db:create
+bundle exec rails db:migrate
+bundle exec rails db:seed
+```
+
+### 5. Create a user (optional)
+
+In the Rails console:
+
+```bash
+bundle exec rails console
+```
+
+```ruby
+User.create!(
+  email: 'yourname@uc.edu',
+  password: 'securepassword',
+  password_confirmation: 'securepassword'
+)
+```
 
 ---
 
-## ✅ Add a hook (optional)
+## Running locally
 
-To automatically load the correct node version when entering the directory, add this to your shell config:
+Start MySQL (if not already running):
+
+```bash
+brew services start mysql
+```
+
+Start the Rails server:
+
+```bash
+bundle exec rails server
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+For live JavaScript/asset reload during development, in a second terminal:
+
+```bash
+bin/shakapacker-dev-server
+```
+
+---
+
+## Running tests
+
+```bash
+bundle exec rspec
+```
+
+Test suite uses SQLite (see `config/database.yml` test configuration).
+
+---
+
+## Optional: nvm hook
+
+To automatically switch to the correct Node version when entering the project directory, add this to your shell config (e.g. `.zshrc`):
 
 ```bash
 # Auto-load node version from .nvmrc if present
@@ -69,55 +132,16 @@ add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 ```
 
+---
 
-Install gems:
+## Troubleshooting
 
-"bundle install"
+**MySQL connection:** Ensure MySQL is running (`brew services start mysql`). The app expects a database and config as in `config/database.yml` (use `config/database.yml.example` as a template if the file is not committed).
 
-Start the Rails server:
+**`Failed to build gem native extension` for mysql2:** Check that:
 
-    bundle exec rails server
+- `zstd` is installed (`brew install zstd`)
+- You are using Ruby 3.4.7 (`rbenv local 3.4.7`)
+- The Bundler mysql2 config points to your MySQL install (e.g. `bundle config build.mysql2 --with-mysql-config=/opt/homebrew/opt/mysql/bin/mysql_config` for Homebrew on Apple Silicon)
 
-🧠 Notes
-
-    You must run MySQL locally for Rails to connect. You can start it via:
-
-    "brew services start mysql"
-
-    If you see ERROR: Failed to build gem native extension for mysql2, recheck that:
-
-        zstd is installed
-
-        You're using Ruby 3.4.7
-
-        You're passing the correct --with-mysql-config path
-
-------------------------------
-
-
-Run Locally:
-To run the set up app locally, use the following commands:
-
-```
-bundle install
-rails db:migrate
-rails db:seed
-```
-
-Then, add yourself as a user by doing the following:
-
-```
-rails console
-```
-
-Then, in the console, type the following:
-```
-User.create(email:'yourname@uc.edu',password:'securepassword',password_confirmation:'securepassword')
-```
-
-You can then start the server with the following command:
-
-```
-rails server
-```
-Then, navigate to `http://localhost:3000` in your web browser.
+**Environment variables:** The app uses [dotenv-rails](https://github.com/bkeepers/dotenv). Copy or create `.env.development` and `.env.test` as needed (see existing examples in the repo if present).

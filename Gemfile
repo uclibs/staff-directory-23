@@ -8,8 +8,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby File.read(File.expand_path('.ruby-version', __dir__)).strip
 gem 'activerecord-import'
 # Reduces boot times through caching; required in config/boot.rb
-# gem 'bootsnap', '>= 1.17.0', require: false
-# #added for ruby 3.4.0 as its not in standard library anymore
 gem 'bigdecimal'
 gem 'bootsnap', '>= 1.1.0', require: false
 # added for ruby 3.4.0 as its not in standard library anymore
@@ -21,35 +19,31 @@ gem 'jbuilder', '~> 2.7'
 # Use Puma as the app server
 gem 'nokogiri', '1.16.7' # Pin because servers lack needed GLIBC version
 gem 'puma', '>= 6.3.1'
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
-gem 'rails', '~> 7.2', '>= 7.2.2.2'
+gem 'rails', '~> 8.1', '>= 8.1.2'
 gem 'rails-html-sanitizer', '1.6.0'
 gem 'rexml', '>= 3.3.2'
 gem 'sass-rails', '>= 6'
+gem 'sprockets-rails' # required for sass-rails on Rails 8 (Propshaft is default)
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'shakapacker', '~> 8.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 5.0'
-# gem 'coveralls', '~> 0.8.22', require: false
 gem 'coveralls_reborn'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 
 group :development do
   gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
   gem 'capistrano', '~> 3.19'
-  gem 'rdoc', '6.17.0', require: false # Pin to avoid duplicate RDoc constant warnings with Ruby 3.4
-  # gem 'capistrano3-puma', require: false
   gem 'capistrano-bundler', '~> 2.1', require: false
   gem 'capistrano-rails', '~> 1.4', require: false
   gem 'capistrano-rbenv', '~> 2.0' # required
   gem 'capistrano-rbenv-install', '~> 1.2.0'
-  # gem 'capistrano-rvm', require: false
   gem 'ed25519', '>= 1.2', '< 2.0'
   gem 'listen', '~> 3.3'
   gem 'rack-mini-profiler', '>= 3.3.0'
   gem 'rb-readline'
+  gem 'rdoc', '6.17.0', require: false # Pin to avoid duplicate RDoc constant warnings with Ruby 3.4
   gem 'spring'
   gem 'web-console', '>= 4.1.0'
 end
@@ -72,7 +66,7 @@ group :development, :test do
   gem 'simplecov', require: false
   gem 'simplecov-lcov', require: false
   # Use sqlite3 as the database for Active Record
-  gem 'sqlite3', '~> 1.4'
+  gem 'sqlite3', '>= 2.1' # Rails 8.1 requires sqlite3 >= 2.1
 end
 
 group :test do
