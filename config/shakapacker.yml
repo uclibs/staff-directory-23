@@ -36,8 +36,11 @@ default: &default
   # Reload manifest.json on all requests so we reload latest compiled packs
   cache_manifest: false
 
-  # Select loader to use, available options are 'babel' (default), 'swc' or 'esbuild'
-  webpack_loader: 'babel'
+  # Select JavaScript transpiler to use, available options are 'babel' (default), 'swc' or 'esbuild'
+  # Shakapacker v9 also supports exposing env vars to client JS via:
+  # - SHAKAPACKER_PUBLIC_* (preferred, non-sensitive values only)
+  # - SHAKAPACKER_ENV_VARS (comma-separated allowlist of additional non-sensitive vars)
+  javascript_transpiler: 'babel'
 
   # Raises an error if there is a mismatch in the shakapacker gem and npm package being used
   ensure_consistent_versioning: true
