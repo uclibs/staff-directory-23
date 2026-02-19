@@ -43,7 +43,7 @@ group :development do
   gem 'listen', '~> 3.3'
   gem 'rack-mini-profiler', '>= 3.3.0'
   gem 'rb-readline'
-  gem 'rdoc', '6.17.0', require: false # Pin to avoid duplicate RDoc constant warnings with Ruby 3.4
+  gem 'rdoc', '7.2.0', require: false # Pin to match Ruby 3.4 default gem and avoid duplicate RDoc constant warnings
   gem 'spring'
   gem 'web-console', '>= 4.1.0'
 end
