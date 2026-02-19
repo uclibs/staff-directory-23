@@ -25,7 +25,7 @@ gem 'rexml', '>= 3.3.2'
 gem 'sass-rails', '>= 6'
 gem 'sprockets-rails' # required for sass-rails on Rails 8 (Propshaft is default)
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'shakapacker', '~> 8.0'
+gem 'shakapacker', '9.5.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 5.0'
 gem 'coveralls_reborn'

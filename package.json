@@ -24,7 +24,7 @@
     "babel-plugin-macros": "^3.1.0",
     "compression-webpack-plugin": "11",
     "micromatch": "4.0.8",
-    "shakapacker": "8.4.0",
+    "shakapacker": "9.5.0",
     "stimulus": "^3.2.2",
     "terser-webpack-plugin": "5",
     "turbolinks": "^5.2.0",

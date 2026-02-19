@@ -2,7 +2,7 @@
 
 UC Libraries staff directory application. Manages employees and departments with Devise-based authentication.
 
-**Stack:** Rails 8.1.2, Ruby 3.4.7, MySQL (development/production), SQLite (test). JavaScript via Shakapacker; styles via Sprockets and Sass.
+**Stack:** Rails 8.1.2, Ruby 3.4.7, MySQL (development/production), SQLite (test). JavaScript via Shakapacker 9.5.0 (webpack 5 + Babel); styles via Sprockets and Sass.
 
 ---
 
@@ -144,4 +144,6 @@ load-nvmrc
 - You are using Ruby 3.4.7 (`rbenv local 3.4.7`)
 - The Bundler mysql2 config points to your MySQL install (e.g. `bundle config build.mysql2 --with-mysql-config=/opt/homebrew/opt/mysql/bin/mysql_config` for Homebrew on Apple Silicon)
 
-**Environment variables:** The app uses [dotenv-rails](https://github.com/bkeepers/dotenv). Copy or create `.env.development` and `.env.test` as needed (see existing examples in the repo if present).
+**Environment variables:** The app uses [dotenv-rails](https://github.com/bkeepers/dotenv). Copy or create `.env.development` and `.env.test` as needed (see existing examples in the repo if present). For client-visible values in JavaScript (none are used today), prefer `SHAKAPACKER_PUBLIC_*` env vars or an explicit allowlist via `SHAKAPACKER_ENV_VARS` as described in the Shakapacker v9 docs.
+
+**Shakapacker & future SWC option:** Shakapacker is currently configured for webpack 5 with Babel (`javascript_transpiler: 'babel'` in `config/shakapacker.yml`). A future optimization task could switch to SWC by changing `javascript_transpiler` to `"swc"` and adding `@swc/core` and `swc-loader`, following the official v9 upgrade guide.
