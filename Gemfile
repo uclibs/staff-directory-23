@@ -17,7 +17,7 @@ gem 'devise'
 gem 'dotenv-rails'
 gem 'jbuilder', '~> 2.7'
 # Use Puma as the app server
-gem 'nokogiri', '1.16.7' # Pin because servers lack needed GLIBC version
+gem 'nokogiri', '1.19.1' # Pin because servers lack needed GLIBC version
 gem 'puma', '>= 6.3.1'
 gem 'rails', '~> 8.1', '>= 8.1.2'
 gem 'rails-html-sanitizer', '1.6.0'
