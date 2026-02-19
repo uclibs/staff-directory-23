@@ -23,7 +23,8 @@ end
 
 task :init_local do
   on roles(:all) do
-    execute "bundle config path 'vendor/bundle' --local"
+    execute "cd #{fetch(:release_path)} && bundle config path 'vendor/bundle' --local"
+    execute "cd #{fetch(:release_path)} && bundle config set force_ruby_platform true --local"
   end
 end
 
@@ -37,7 +38,8 @@ end
 task :init_qp do
   on roles(:all) do
     execute "gem install bundler -v $(tail -n1 #{fetch(:release_path)}/Gemfile.lock)"
-    execute "bundle config path 'vendor/bundle' --local"
+    execute "cd #{fetch(:release_path)} && bundle config path 'vendor/bundle' --local"
+    execute "cd #{fetch(:release_path)} && bundle config set force_ruby_platform true --local"
     execute "mkdir -p #{fetch(:deploy_to)}/static"
     execute "cp #{fetch(:deploy_to)}/static/.env.production.local #{fetch(:release_path)}/ || true"
   end
