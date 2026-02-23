@@ -7,9 +7,4 @@ ignore:
   - CVE-2024-53987
   - CVE-2024-53986
   - CVE-2024-53985
-
-  # Nokogiri - pinned at 1.16.7, servers don't have compatible GLIBC
-  - GHSA-vvfq-8hwr-qm4m
-  - GHSA-mrxw-mxhj-p664
-  - GHSA-5w6v-399v-w3cc
-  - GHSA-353f-x4gh-cqq8
+  
