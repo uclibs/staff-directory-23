@@ -1,10 +1,8 @@
 ---
-ignore:
-  # rails-html-sanitizer - pinned at 1.6.0 due to server constraints
-  # Requires >= 1.6.1 to resolve XSS vulnerabilities
-  - CVE-2024-53989
-  - CVE-2024-53988
-  - CVE-2024-53987
-  - CVE-2024-53986
-  - CVE-2024-53985
-  
+# Add CVE IDs under ignore: to skip them (e.g. when pinned due to constraints)
+# like this:
+# ignore:
+#  # related to gem X needing this version Y...
+#  - CVE-2024-53989
+#  - CVE-2024-53988
+ignore: []

@@ -19,7 +19,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'nokogiri', '~> 1.19.1'
 gem 'puma', '>= 6.3.1'
 gem 'rails', '~> 8.1', '>= 8.1.2'
-gem 'rails-html-sanitizer', '1.6.0'
+gem 'rails-html-sanitizer', '~>1.6'
 gem 'rexml', '>= 3.3.2'
 gem 'sass-rails', '>= 6'
 gem 'sprockets-rails' # required for sass-rails on Rails 8 (Propshaft is default)
