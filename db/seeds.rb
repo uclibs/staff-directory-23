@@ -94,7 +94,6 @@ employees = [
   { lastname: 'Previtera', firstname: 'Melissa', email: 'melissa.previtera@uc.edu', phone: '558-3071', title: 'Academic & Research Services Specialist', department_id: Department.find_by(name: 'UCL Health Sciences Library').id },
   { lastname: 'Prochaska', firstname: 'Holly', email: 'holly.prochaska@uc.edu', phone: '556-1389', title: 'Head, Preservation Services', department_id: Department.find_by(name: 'Preservation Services').id },
   { lastname: 'Purtee', firstname: 'Sharon', email: 'sharon.purtee@uc.edu', phone: '558-1019', title: 'Interim Head, Health Sciences Library', department_id: Department.find_by(name: 'UCL Health Sciences Library').id },
-  { lastname: 'Purtee', firstname: 'Sharon', email: 'sharon.purtee@uc.edu', phone: '5135581019', title: 'Interim Head, Content Services', department_id: Department.find_by(name: 'UCL Content Services').id },
   { lastname: 'Reder', firstname: 'Lauren', email: 'rederle@ucmail.uc.edu', phone: '000.0000', title: 'Cataloguer, Classics/Modern Greek', department_id: Department.find_by(name: 'UCL Content Services').id },
   { lastname: 'Reller', firstname: 'Suzanne', email: 'suzanne.reller@uc.edu', phone: '556-7016', title: 'Reference/Collections Librarian', department_id: Department.find_by(name: 'Archives and Rare Books Library').id },
   { lastname: 'Richardson', firstname: 'Andrew', email: 'richaa3@ucmail.uc.edu', phone: '558-0127', title: 'Computer & Information Analyst', department_id: Department.find_by(name: 'UCL Health Sciences Library').id },

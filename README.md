@@ -148,7 +148,7 @@ You can create and manage users without using the Rails console.
 
 | Task | Command |
 |------|--------|
-| Create or update any user | `EMAIL=user@example.com PASSWORD=secret bundle exec rails users:create` |
+| Create or update any user | `EMAIL=someone@uc.edu PASSWORD=yourpassword bundle exec rails users:create` |
 | Ensure test user on test server only | `bundle exec rails users:seed_test_user` |
 
 **Test user on test server:** When you run `db:seed` or `users:seed_test_user` on **libappstest.libraries.uc.edu**, the app creates (or resets) `test@example.com` with password `password`. This is **skipped** on production (libapps.libraries.uc.edu) so that login never exists there. If your server hostname differs, you can force creation with `SEED_TEST_USER=true bundle exec rails users:seed_test_user`.
