@@ -62,7 +62,13 @@ bundle exec rails db:seed
 
 ### 5. Create a user (optional)
 
-In the Rails console:
+**Option A — Rake task (no console):**
+
+```bash
+EMAIL=yourname@uc.edu PASSWORD=securepassword bundle exec rails users:create
+```
+
+**Option B — Rails console:**
 
 ```bash
 bundle exec rails console
@@ -75,6 +81,8 @@ User.create!(
   password_confirmation: 'securepassword'
 )
 ```
+
+**Test server only:** When `db:seed` (or `rails users:seed_test_user`) is run on the **test** server (`libappstest.libraries.uc.edu`), a test user is created: `test@example.com` / `password`. This user is **never** created on production (`libapps.libraries.uc.edu`). See [User management](#user-management) below.
 
 ---
 
@@ -131,6 +139,19 @@ load-nvmrc() {
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 ```
+
+---
+
+## User management
+
+You can create and manage users without using the Rails console.
+
+| Task | Command |
+|------|--------|
+| Create or update any user | `EMAIL=user@example.com PASSWORD=secret bundle exec rails users:create` |
+| Ensure test user on test server only | `bundle exec rails users:seed_test_user` |
+
+**Test user on test server:** When you run `db:seed` or `users:seed_test_user` on **libappstest.libraries.uc.edu**, the app creates (or resets) `test@example.com` with password `password`. This is **skipped** on production (libapps.libraries.uc.edu) so that login never exists there. If your server hostname differs, you can force creation with `SEED_TEST_USER=true bundle exec rails users:seed_test_user`.
 
 ---
 
