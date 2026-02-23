@@ -62,7 +62,14 @@ bundle exec rails db:seed
 
 ### 5. Create a user (optional)
 
-In the Rails console:
+**Option A — Rake task (run in terminal, not in Rails console):**
+
+```bash
+EMAIL=yourname@uc.edu PASSWORD=securepassword bundle exec rails users:create
+```
+Replace the email and password with the user’s real credentials.
+
+**Option B — Rails console:**
 
 ```bash
 bundle exec rails console
@@ -75,6 +82,8 @@ User.create!(
   password_confirmation: 'securepassword'
 )
 ```
+
+**Test server only:** When `db:seed` (or `rails users:seed_test_user`) is run on the **test** server (`libappstest.libraries.uc.edu`), a test user is created: `test@example.com` / `password`. This user is **never** created on production (`libapps.libraries.uc.edu`). See [User management](#user-management) below.
 
 ---
 
@@ -131,6 +140,23 @@ load-nvmrc() {
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 ```
+
+---
+
+## User management
+
+You can create and manage users without using the Rails console. **Run these commands in your terminal** (not inside `rails console`).
+
+| Task | Command |
+|------|--------|
+| Create or update any user | `EMAIL=someone@uc.edu PASSWORD=yourpassword bundle exec rails users:create` |
+| Ensure test user on test server only | `bundle exec rails users:seed_test_user` |
+| Same, **on server** (use MySQL) | `RAILS_ENV=production bundle exec rails users:seed_test_user` (or `RAILS_ENV=qa` on QA) |
+
+- **`users:create`** — Replace `someone@uc.edu` and `yourpassword` with the real email and password. Use this to add a new login or reset a user’s password (e.g. on a server where you can’t run the console). On the server, use `RAILS_ENV=production` (or `qa`) so the app uses MySQL: `RAILS_ENV=production EMAIL=... PASSWORD=... bundle exec rails users:create`.
+- **`users:seed_test_user`** — Creates or resets the test login `test@example.com` / `password`. It only runs on the test server (hostname contains `libappstest`); on production it does nothing. Run this on the test server after deploy if you need that test account. **On the server, set `RAILS_ENV`** so the app uses MySQL (e.g. `RAILS_ENV=production bundle exec rails users:seed_test_user` or `RAILS_ENV=qa` for QA).
+
+**Test user on test server:** When you run `db:seed` or `users:seed_test_user` on **libappstest.libraries.uc.edu**, the app creates (or resets) `test@example.com` with password `password`. This is **skipped** on production (libapps.libraries.uc.edu) so that login never exists there. If your server hostname differs, you can force creation with `SEED_TEST_USER=true bundle exec rails users:seed_test_user`.
 
 ---
 
