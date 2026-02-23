@@ -18,6 +18,7 @@ module SeedHelper
     # Never true on production (libapps.libraries.uc.edu).
     def test_server?
       return true if ENV['SEED_TEST_USER'] == 'true'
+
       host = Socket.gethostname
       TEST_SERVER_HOSTNAMES.include?(host) || host.include?('libappstest')
     end

@@ -3,7 +3,7 @@
 namespace :users do
   desc 'Create or reset the test user (test@example.com) on the test server only (libappstest). Safe to run on production — no-op there.'
   task seed_test_user: :environment do
-    require Rails.root.join('lib', 'seed_helper')
+    require Rails.root.join('lib/seed_helper')
     if SeedHelper.test_server?
       SeedHelper.seed_test_user!
       puts "Test user #{SeedHelper::TEST_USER_EMAIL} created/updated."
@@ -18,7 +18,7 @@ namespace :users do
     password = ENV['PASSWORD'].to_s
 
     if email.blank? || password.blank?
-      puts "Usage: EMAIL=someone@uc.edu PASSWORD=yourpassword rails users:create"
+      puts 'Usage: EMAIL=someone@uc.edu PASSWORD=yourpassword rails users:create'
       exit 1
     end
 

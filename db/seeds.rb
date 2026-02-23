@@ -130,5 +130,5 @@ Employee.create(employees)
 
 # Test-server-only login: create test@example.com only when running on libappstest.
 # Safe to run full db:seed on production (libapps) — this user will not be created there.
-require Rails.root.join('lib', 'seed_helper')
+require Rails.root.join('lib/seed_helper')
 SeedHelper.seed_test_user! if SeedHelper.test_server?
