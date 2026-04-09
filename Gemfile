@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Pin concurrent-ruby to 1.3.4 due to bug in later versions leading to "Logger::Severity" error.
+# Pin concurrent-ruby to avoid load-order regressions around Logger::Severity at boot.
 
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
@@ -11,7 +11,7 @@ gem 'activerecord-import'
 gem 'bigdecimal'
 gem 'bootsnap', '>= 1.1.0', require: false
 # added for ruby 3.4.0 as its not in standard library anymore
-gem 'concurrent-ruby', '1.3.4'
+gem 'concurrent-ruby', '1.3.6'
 gem 'csv'
 gem 'devise'
 gem 'dotenv-rails'
