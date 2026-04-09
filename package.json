@@ -27,10 +27,11 @@
     "turbolinks": "^5.2.0",
     "webpack": "5",
     "webpack-assets-manifest": "6",
-    "webpack-cli": "6",
+    "webpack-cli": "7",
     "webpack-dev-server": "5",
     "webpack-merge": "6",
-    "webpack-subresource-integrity": "5"
+    "webpack-subresource-integrity": "5",
+    "//": "webpack-subresource-integrity is a required shakapacker peer dependency. SRI is currently disabled (integrity.enabled: false in config/shakapacker.yml). Keep this present so enabling SRI is a config-only change."
   },
   "scripts": {
     "build": "bin/shakapacker"
