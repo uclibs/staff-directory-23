@@ -56,7 +56,7 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'rspec_junit_formatter'
   gem 'rspec-rails'
-  gem 'rubocop', '1.84.1', require: false
+  gem 'rubocop', require: false
   gem 'rubocop-capybara', '2.22.1', require: false
   gem 'rubocop-factory_bot', '2.28.0', require: false
   gem 'rubocop-rails', '2.34.3', require: false
