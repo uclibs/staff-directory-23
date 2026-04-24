@@ -14,7 +14,7 @@ concurrency:
 jobs:
   checks:
     name: Checks (${{ matrix.check }})
-    runs-on: [ self-hosted, linux ]
+    runs-on: ubuntu-22.04
     permissions:
       contents: read
     strategy:
@@ -67,7 +67,7 @@ jobs:
         run: ./scripts/ci/${{ matrix.check }}.sh
 
   tests:
-    runs-on: [ self-hosted, linux ]
+    runs-on: ubuntu-22.04
     permissions:
       contents: read
     env:
@@ -138,7 +138,7 @@ jobs:
   coverage-update:
     needs: tests
     if: github.event_name == 'pull_request'
-    runs-on: [ self-hosted, linux ]
+    runs-on: ubuntu-22.04
     permissions:
       contents: write
     env:
