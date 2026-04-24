@@ -151,34 +151,6 @@ jobs:
           name: coverage-report
           path: coverage
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          - name: Read .ruby-version
-            id: read_ruby_version
-            run: ./scripts/ci/read_ruby_version.sh
-
-          - name: Set up Ruby
-            uses: ruby/setup-ruby@v1
-            with:
-              ruby-version: ${{ steps.read_ruby_version.outputs.ruby_version }}
-          node-version-file: '.nvmrc'
-
-      - name: Enable Corepack (Yarn 4)
-        run: corepack enable
-
-      - name: Restore Bundler cache
-        uses: actions/cache@v3
-        with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-ruby-bundle-${{ hashFiles('**/Gemfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-ruby-bundle-
-
-      - name: Get Yarn cache directory
-        id: yarn-cache-dir
-        run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
-
       - name: Restore Yarn cache
         uses: actions/cache@v3
         with:
