@@ -42,11 +42,15 @@ fi
 if (( $(echo "$COVERAGE > $BASELINE" | bc -l) )); then
   echo "Coverage increased to $COVERAGE% - updating baseline"
   echo "$COVERAGE" > "$BASELINE_PATH"
-  git config user.name "ci-bot"
-  git config user.email "ci-bot@example.com"
-  git add "$BASELINE_PATH"
-  git commit -m "ci: update coverage baseline to $COVERAGE%" || true
-  git push origin "HEAD:${GITHUB_HEAD_REF}" || true
+  if [[ -n "${GITHUB_HEAD_REF:-}" ]]; then
+    git add "$BASELINE_PATH"
+    git -c user.name="ci-bot" -c user.email="ci-bot@example.com" commit -m "ci: update coverage baseline to $COVERAGE%" || true
+    if ! git push origin "HEAD:${GITHUB_HEAD_REF}"; then
+      echo "Skipping baseline push; likely fork PR or restricted token permissions."
+    fi
+  else
+    echo "Skipping baseline commit/push; not running in a PR head ref context."
+  fi
 else
   echo "Coverage unchanged at $COVERAGE%"
 fi

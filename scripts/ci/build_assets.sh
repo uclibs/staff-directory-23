@@ -18,6 +18,7 @@ if [[ -x "bin/rails" ]]; then
 fi
 
 if [[ -n "$manifest_path" && -f "$manifest_path" ]]; then
+  echo "Manifest found at $manifest_path"
   exit 0
 fi
 
@@ -28,6 +29,7 @@ fi
 
 for fallback_path in "${fallback_paths[@]}"; do
   if [[ -f "$fallback_path" ]]; then
+    echo "Manifest found at $fallback_path"
     exit 0
   fi
 done

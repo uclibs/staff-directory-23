@@ -43,6 +43,7 @@ yarn.lock
 /public/packs
 /public/packs-test
 /node_modules
+/yarn-error.log
 
 #Ignore Rubymine files
 .idea/
@@ -59,21 +60,12 @@ yarn.lock
 /coverage/*
 !/coverage/coverage_baseline.txt
 
-/yarn-error.log
-
 /config/database.yml
 
 /db/*.sqlite3-shm
 /db/*.sqlite3-wal
-/public/packs-test
-
 cleanup-after-deploy.sh
 cleanup_old_branches-local-and-remote.sh
 cleanup_old_branches_local_only.sh
-
-/public/packs
-/public/packs-test
-/node_modules
-/yarn-error.log
 yarn-debug.log*
 .yarn-integrity

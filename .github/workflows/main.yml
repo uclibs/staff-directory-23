@@ -13,17 +13,21 @@ concurrency:
 
 jobs:
   checks:
-    name: Checks (${{ matrix.check }})
+    name: Checks (${{ matrix.name }})
     runs-on: ubuntu-22.04
+    timeout-minutes: 20
     permissions:
       contents: read
     strategy:
       fail-fast: false
       matrix:
-        check:
-          - rubocop
-          - brakeman
-          - bundler_audit
+        include:
+          - name: rubocop
+            script: rubocop
+          - name: brakeman
+            script: brakeman
+          - name: bundler-audit
+            script: bundler_audit
     env:
       RAILS_ENV: test
       DISABLE_SPRING: 1
@@ -31,41 +35,16 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v4
 
-      - name: Read .ruby-version
-        id: read_ruby_version
-        run: bash ./scripts/ci/read_ruby_version.sh
-
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: ${{ steps.read_ruby_version.outputs.ruby_version }}
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: '.nvmrc'
-          cache: yarn
-          cache-dependency-path: yarn.lock
-
-      - name: Enable Corepack (Yarn 1 from packageManager)
-        run: corepack enable
-
-      - name: Restore Bundler cache
-        uses: actions/cache@v4
-        with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-ruby-bundle-${{ hashFiles('**/Gemfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-ruby-bundle-
-
-      - name: Install Ruby and JavaScript dependencies
-        run: bash ./scripts/ci/setup_dependencies.sh
+      - name: Shared CI setup
+        uses: ./.github/actions/ci-setup
 
       - name: Run check
-        run: bash ./scripts/ci/${{ matrix.check }}.sh
+        run: bash ./scripts/ci/${{ matrix.script }}.sh
 
   tests:
+    name: Tests
     runs-on: ubuntu-22.04
+    timeout-minutes: 30
     permissions:
       contents: read
     env:
@@ -87,35 +66,8 @@ jobs:
           echo "CHROME_BIN=${{ steps.setup_chrome.outputs.chrome-path }}" >> $GITHUB_ENV
           echo "CHROMEDRIVER_PATH=${{ steps.setup_chrome.outputs.chromedriver-path }}" >> $GITHUB_ENV
 
-      - name: Read .ruby-version
-        id: read_ruby_version
-        run: bash ./scripts/ci/read_ruby_version.sh
-
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: ${{ steps.read_ruby_version.outputs.ruby_version }}
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: '.nvmrc'
-          cache: yarn
-          cache-dependency-path: yarn.lock
-
-      - name: Enable Corepack (Yarn 1 from packageManager)
-        run: corepack enable
-
-      - name: Restore Bundler cache
-        uses: actions/cache@v4
-        with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-ruby-bundle-${{ hashFiles('**/Gemfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-ruby-bundle-
-
-      - name: Install Ruby and JavaScript dependencies
-        run: bash ./scripts/ci/setup_dependencies.sh
+      - name: Shared CI setup
+        uses: ./.github/actions/ci-setup
 
       - name: Build, migrate, and run tests
         run: |
@@ -132,9 +84,11 @@ jobs:
           path: coverage
 
   coverage-update:
+    name: Coverage Baseline
     needs: tests
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-22.04
+    timeout-minutes: 10
     permissions:
       contents: write
     env:
