@@ -4,7 +4,7 @@ set -euo pipefail
 ruby -v
 
 if ! command -v bundle >/dev/null 2>&1; then
-  gem install bundler
+  gem install --user-install bundler
 fi
 bundle -v
 
