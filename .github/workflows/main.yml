@@ -41,32 +41,22 @@ jobs:
           ruby-version: ${{ steps.read_ruby_version.outputs.ruby_version }}
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version-file: '.nvmrc'
+          cache: yarn
+          cache-dependency-path: yarn.lock
 
-      - name: Enable Corepack (Yarn 4)
+      - name: Enable Corepack (Yarn 1 from packageManager)
         run: corepack enable
 
       - name: Restore Bundler cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: vendor/bundle
           key: ${{ runner.os }}-ruby-bundle-${{ hashFiles('**/Gemfile.lock') }}
           restore-keys: |
             ${{ runner.os }}-ruby-bundle-
-
-      - name: Get Yarn cache directory
-        id: yarn-cache-dir
-        run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
-
-      - name: Restore Yarn cache
-        uses: actions/cache@v3
-        with:
-          path: ${{ steps.yarn-cache-dir.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
 
       - name: Install Ruby and JavaScript dependencies
         run: bash ./scripts/ci/setup_dependencies.sh
@@ -107,32 +97,22 @@ jobs:
           ruby-version: ${{ steps.read_ruby_version.outputs.ruby_version }}
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version-file: '.nvmrc'
+          cache: yarn
+          cache-dependency-path: yarn.lock
 
-      - name: Enable Corepack (Yarn 4)
+      - name: Enable Corepack (Yarn 1 from packageManager)
         run: corepack enable
 
       - name: Restore Bundler cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: vendor/bundle
           key: ${{ runner.os }}-ruby-bundle-${{ hashFiles('**/Gemfile.lock') }}
           restore-keys: |
             ${{ runner.os }}-ruby-bundle-
-
-      - name: Get Yarn cache directory
-        id: yarn-cache-dir
-        run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
-
-      - name: Restore Yarn cache
-        uses: actions/cache@v3
-        with:
-          path: ${{ steps.yarn-cache-dir.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
 
       - name: Install Ruby and JavaScript dependencies
         run: bash ./scripts/ci/setup_dependencies.sh
