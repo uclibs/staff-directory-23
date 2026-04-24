@@ -1,0 +1,112 @@
+name: Rails CI (Consolidated)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ qa ]
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    name: Checks (${{ matrix.name }})
+    runs-on: ubuntu-22.04
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: rubocop
+            script: rubocop
+          - name: brakeman
+            script: brakeman
+          - name: bundler-audit
+            script: bundler_audit
+    env:
+      RAILS_ENV: test
+      DISABLE_SPRING: 1
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Shared CI setup
+        uses: ./.github/actions/ci-setup
+
+      - name: Run check
+        run: bash ./scripts/ci/${{ matrix.script }}.sh
+
+  tests:
+    name: Tests
+    runs-on: ubuntu-22.04
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    env:
+      RAILS_ENV: test
+      DISABLE_SPRING: 1
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Setup Chrome & capture paths
+        id: setup_chrome
+        uses: browser-actions/setup-chrome@v1
+        with:
+          install-chromedriver: false
+          install-dependencies: false
+
+      - name: Export Chrome paths for CI
+        run: |
+          echo "CHROME_BIN=${{ steps.setup_chrome.outputs.chrome-path }}" >> $GITHUB_ENV
+          echo "CHROMEDRIVER_PATH=${{ steps.setup_chrome.outputs.chromedriver-path }}" >> $GITHUB_ENV
+
+      - name: Shared CI setup
+        uses: ./.github/actions/ci-setup
+
+      - name: Build, migrate, and run tests
+        run: |
+          bash ./scripts/ci/build_assets.sh
+          bash ./scripts/ci/migrate.sh
+          bash ./scripts/ci/verify_init.sh
+          bash ./scripts/ci/run_tests.sh
+
+      - name: Upload coverage artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: coverage
+
+  coverage-update:
+    name: Coverage Baseline
+    needs: tests
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-22.04
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    env:
+      RAILS_ENV: test
+      DISABLE_SPRING: 1
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+
+      - name: Download coverage artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: coverage-report
+          path: .
+
+      - name: Check and update coverage baseline
+        run: bash ./scripts/ci/coverage_gate.sh

@@ -43,6 +43,7 @@ yarn.lock
 /public/packs
 /public/packs-test
 /node_modules
+/yarn-error.log
 
 #Ignore Rubymine files
 .idea/
@@ -55,24 +56,16 @@ yarn.lock
 # Ignore master key for decrypting credentials and more.
 
 
-# Ignore the coverage folder
-/coverage
-
-/yarn-error.log
+# Ignore coverage artifacts, but keep baseline tracked for CI gate
+/coverage/*
+!/coverage/coverage_baseline.txt
 
 /config/database.yml
 
 /db/*.sqlite3-shm
 /db/*.sqlite3-wal
-/public/packs-test
-
 cleanup-after-deploy.sh
 cleanup_old_branches-local-and-remote.sh
 cleanup_old_branches_local_only.sh
-
-/public/packs
-/public/packs-test
-/node_modules
-/yarn-error.log
 yarn-debug.log*
 .yarn-integrity
