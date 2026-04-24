@@ -6,3 +6,4 @@ bundle exec rspec \
   --format progress \
   --format RspecJunitFormatter \
   --out /tmp/test-results/rspec.xml
+  
