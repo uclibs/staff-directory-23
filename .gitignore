@@ -55,8 +55,9 @@ yarn.lock
 # Ignore master key for decrypting credentials and more.
 
 
-# Ignore the coverage folder
-/coverage
+# Ignore coverage artifacts, but keep baseline tracked for CI gate
+/coverage/*
+!/coverage/coverage_baseline.txt
 
 /yarn-error.log
 
