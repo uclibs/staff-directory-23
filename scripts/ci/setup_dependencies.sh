@@ -5,6 +5,7 @@ ruby -v
 
 if ! command -v bundle >/dev/null 2>&1; then
   gem install --user-install bundler
+  export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 fi
 bundle -v
 
