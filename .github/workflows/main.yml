@@ -27,24 +27,24 @@ jobs:
     env:
       RAILS_ENV: test
       DISABLE_SPRING: 1
-
     steps:
       - name: Check out code
         uses: actions/checkout@v4
+
+      - name: Read .ruby-version
+        id: read_ruby_version
+        run: ./scripts/ci/read_ruby_version.sh
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ steps.read_ruby_version.outputs.ruby_version }}
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
 
-        - name: Read .ruby-version
-          id: read_ruby_version
-          run: ./scripts/ci/read_ruby_version.sh
-
-        - name: Set up Ruby
-          uses: ruby/setup-ruby@v1
-          with:
-            ruby-version: ${{ steps.read_ruby_version.outputs.ruby_version }}
       - name: Enable Corepack (Yarn 4)
         run: corepack enable
 
@@ -81,7 +81,6 @@ jobs:
     env:
       RAILS_ENV: test
       DISABLE_SPRING: 1
-
     steps:
       - name: Check out code
         uses: actions/checkout@v4
@@ -97,6 +96,60 @@ jobs:
         run: |
           echo "CHROME_BIN=${{ steps.setup_chrome.outputs.chrome-path }}" >> $GITHUB_ENV
           echo "CHROMEDRIVER_PATH=${{ steps.setup_chrome.outputs.chromedriver-path }}" >> $GITHUB_ENV
+
+      - name: Read .ruby-version
+        id: read_ruby_version
+        run: ./scripts/ci/read_ruby_version.sh
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ steps.read_ruby_version.outputs.ruby_version }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: Enable Corepack (Yarn 4)
+        run: corepack enable
+
+      - name: Restore Bundler cache
+        uses: actions/cache@v3
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-ruby-bundle-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-ruby-bundle-
+
+      - name: Get Yarn cache directory
+        id: yarn-cache-dir
+        run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
+
+      - name: Restore Yarn cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.yarn-cache-dir.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Install Ruby and JavaScript dependencies
+        run: ./scripts/ci/setup_dependencies.sh
+
+      - name: Build, migrate, and run tests
+        run: |
+          ./scripts/ci/build_assets.sh
+          ./scripts/ci/migrate.sh
+          ./scripts/ci/verify_init.sh
+          ./scripts/ci/run_tests.sh
+
+      - name: Upload coverage artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: coverage
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
