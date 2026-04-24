@@ -33,7 +33,7 @@ jobs:
 
       - name: Read .ruby-version
         id: read_ruby_version
-        run: ./scripts/ci/read_ruby_version.sh
+        run: bash ./scripts/ci/read_ruby_version.sh
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
@@ -69,10 +69,10 @@ jobs:
             ${{ runner.os }}-yarn-
 
       - name: Install Ruby and JavaScript dependencies
-        run: ./scripts/ci/setup_dependencies.sh
+        run: bash ./scripts/ci/setup_dependencies.sh
 
       - name: Run check
-        run: ./scripts/ci/${{ matrix.check }}.sh
+        run: bash ./scripts/ci/${{ matrix.check }}.sh
 
   tests:
     runs-on: ubuntu-22.04
@@ -99,7 +99,7 @@ jobs:
 
       - name: Read .ruby-version
         id: read_ruby_version
-        run: ./scripts/ci/read_ruby_version.sh
+        run: bash ./scripts/ci/read_ruby_version.sh
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
@@ -135,39 +135,14 @@ jobs:
             ${{ runner.os }}-yarn-
 
       - name: Install Ruby and JavaScript dependencies
-        run: ./scripts/ci/setup_dependencies.sh
+        run: bash ./scripts/ci/setup_dependencies.sh
 
       - name: Build, migrate, and run tests
         run: |
-          ./scripts/ci/build_assets.sh
-          ./scripts/ci/migrate.sh
-          ./scripts/ci/verify_init.sh
-          ./scripts/ci/run_tests.sh
-
-      - name: Upload coverage artifact
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: coverage-report
-          path: coverage
-
-      - name: Restore Yarn cache
-        uses: actions/cache@v3
-        with:
-          path: ${{ steps.yarn-cache-dir.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-
-      - name: Install Ruby and JavaScript dependencies
-        run: ./scripts/ci/setup_dependencies.sh
-
-      - name: Build, migrate, and run tests
-        run: |
-          ./scripts/ci/build_assets.sh
-          ./scripts/ci/migrate.sh
-          ./scripts/ci/verify_init.sh
-          ./scripts/ci/run_tests.sh
+          bash ./scripts/ci/build_assets.sh
+          bash ./scripts/ci/migrate.sh
+          bash ./scripts/ci/verify_init.sh
+          bash ./scripts/ci/run_tests.sh
 
       - name: Upload coverage artifact
         if: always()
@@ -200,4 +175,4 @@ jobs:
           path: .
 
       - name: Check and update coverage baseline
-        run: ./scripts/ci/coverage_gate.sh
+        run: bash ./scripts/ci/coverage_gate.sh
