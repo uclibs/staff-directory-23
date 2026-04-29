@@ -14,8 +14,9 @@ namespace :yarn do
           source ~/.nvm/nvm.sh && \
           nvm use $(cat #{release_path}/.nvmrc) && \
           cd #{release_path} && \
+          YARN_VERSION=$(ruby -rjson -e 'pm = JSON.parse(File.read("package.json"))["packageManager"]; abort("packageManager must start with yarn@") unless pm&.start_with?("yarn@"); puts pm.split("@", 2).last') && \
           corepack enable && \
-          corepack prepare yarn@4.0.2 --activate && \
+          corepack prepare yarn@${YARN_VERSION} --activate && \
           corepack yarn install --immutable && \
           RAILS_ENV=production corepack yarn build
         BASH
