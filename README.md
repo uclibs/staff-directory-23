@@ -14,7 +14,7 @@ UC Libraries staff directory application. Manages employees and departments with
 - **MySQL** (Homebrew on macOS)
 - **zstd** (compression library, for mysql2 native extension)
 - **Node.js** (version in [.nvmrc](.nvmrc), managed via [nvm](https://github.com/nvm-sh/nvm))
-- **Yarn** (for JavaScript dependencies)
+- **Corepack-enabled Yarn 4.0.x** (for JavaScript dependencies; project is pinned via `packageManager`)
 
 ---
 
@@ -47,6 +47,7 @@ bundle config build.mysql2 --with-mysql-config=/opt/homebrew/opt/mysql/bin/mysql
 ```bash
 nvm install
 nvm use
+corepack enable
 yarn install
 ```
 

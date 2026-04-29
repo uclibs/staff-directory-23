@@ -31,9 +31,6 @@ bundle_updateresult.html
 
 
 
-# Ignore yarn.lock auto-generated file
-yarn.lock
-
 # Ignore .DS_Store files generated in MAC OS
 .DS_Store
 
@@ -69,3 +66,4 @@ cleanup_old_branches-local-and-remote.sh
 cleanup_old_branches_local_only.sh
 yarn-debug.log*
 .yarn-integrity
+.yarn/install-state.gz

@@ -14,7 +14,7 @@ namespace :yarn do
           source ~/.nvm/nvm.sh && \
           nvm use $(cat #{release_path}/.nvmrc) && \
           cd #{release_path} && \
-          yarn install --frozen-lockfile --production=false && \
+          yarn install --immutable --production=false && \
           RAILS_ENV=production yarn build
         BASH
 
