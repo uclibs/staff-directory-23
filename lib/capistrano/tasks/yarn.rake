@@ -15,7 +15,7 @@ namespace :yarn do
           source ~/.nvm/nvm.sh
           nvm use "$(cat #{release_path}/.nvmrc)"
           cd #{release_path}
-          package_manager="$(node -p "require(\"./package.json\").packageManager")"
+          package_manager="$(node -e "console.log(require(process.argv[1]).packageManager)" ./package.json)"
           yarn_version="${package_manager#yarn@}"
           if [ "$yarn_version" = "$package_manager" ]; then
             echo "packageManager must start with yarn@ (got: $package_manager)" >&2
