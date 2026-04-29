@@ -6,14 +6,12 @@ runs:
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version-file: .ruby-version
+        ruby-version: .ruby-version
 
     - name: Set up Node.js
       uses: actions/setup-node@v4
       with:
         node-version-file: .nvmrc
-        cache: yarn
-        cache-dependency-path: yarn.lock
 
     - name: Enable Corepack
       shell: bash
