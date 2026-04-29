@@ -16,7 +16,7 @@ namespace :yarn do
           cd #{release_path} && \
           corepack enable && \
           corepack prepare yarn@4.0.2 --activate && \
-          corepack yarn install --immutable --production=false && \
+          corepack yarn install --immutable && \
           RAILS_ENV=production corepack yarn build
         BASH
 
