@@ -62,7 +62,9 @@ namespace :deploy do
   task :precompile_assets do
     on roles(:app) do
       within release_path do
-        with rails_env: fetch(:rails_env) do
+        # JS assets are already compiled in yarn:build; skip Shakapacker's
+        # assets:precompile hook here to avoid invoking plain `yarn`.
+        with rails_env: fetch(:rails_env), SHAKAPACKER_PRECOMPILE: "false" do
           execute :rake, 'assets:precompile'
         end
       end
