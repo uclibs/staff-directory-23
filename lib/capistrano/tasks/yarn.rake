@@ -14,6 +14,8 @@ namespace :yarn do
           source ~/.nvm/nvm.sh && \
           nvm use $(cat #{release_path}/.nvmrc) && \
           cd #{release_path} && \
+          corepack enable && \
+          corepack prepare yarn@4.0.2 --activate && \
           yarn install --immutable --production=false && \
           RAILS_ENV=production yarn build
         BASH
