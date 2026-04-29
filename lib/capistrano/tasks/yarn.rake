@@ -10,14 +10,22 @@ namespace :yarn do
         execute :echo, 'Running yarn install and yarn build via NVM'
 
         node_cmd = <<~BASH
-          export NODE_OPTIONS=--openssl-legacy-provider && \
-          source ~/.nvm/nvm.sh && \
-          nvm use $(cat #{release_path}/.nvmrc) && \
-          cd #{release_path} && \
-          YARN_VERSION=$(ruby -rjson -e 'pm = JSON.parse(File.read("package.json"))["packageManager"]; abort("packageManager must start with yarn@") unless pm&.start_with?("yarn@"); puts pm.split("@", 2).last') && \
-          corepack enable && \
-          corepack prepare yarn@${YARN_VERSION} --activate && \
-          corepack yarn install --immutable && \
+          set -eu
+          export NODE_OPTIONS=--openssl-legacy-provider
+          source ~/.nvm/nvm.sh
+          nvm use "$(cat #{release_path}/.nvmrc)"
+          cd #{release_path}
+
+          package_manager="$(node -p "require('./package.json').packageManager")"
+          yarn_version="${package_manager#yarn@}"
+          if [ "$yarn_version" = "$package_manager" ]; then
+            echo "packageManager must start with yarn@ (got: $package_manager)" >&2
+            exit 1
+          fi
+
+          corepack enable
+          corepack prepare "yarn@${yarn_version}" --activate
+          corepack yarn install --immutable
           RAILS_ENV=production corepack yarn build
         BASH
 
