@@ -15,14 +15,7 @@ namespace :yarn do
           source ~/.nvm/nvm.sh
           nvm use "$(cat #{release_path}/.nvmrc)"
           cd #{release_path}
-          package_manager="$(node -e "console.log(require(process.argv[1]).packageManager)" ./package.json)"
-          yarn_version="${package_manager#yarn@}"
-          if [ "$yarn_version" = "$package_manager" ]; then
-            echo "packageManager must start with yarn@ (got: $package_manager)" >&2
-            exit 1
-          fi
           corepack enable
-          corepack prepare "yarn@${yarn_version}" --activate
           corepack yarn install --immutable
           RAILS_ENV=production corepack yarn build
         BASH
