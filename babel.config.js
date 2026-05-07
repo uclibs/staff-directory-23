@@ -1,6 +1,4 @@
 module.exports = function(api) {
-  api.cache(true);
-
   const validEnv = ['development', 'test', 'production'];
   const currentEnv = api.env();
   const isDevelopmentEnv = api.env('development');
