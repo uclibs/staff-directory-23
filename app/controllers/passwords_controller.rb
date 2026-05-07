@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# PasswordsController contains application behavior.
 class PasswordsController < Devise::PasswordsController
   # GET /resource/password/edit?reset_password_token=abcdef
   def edit

@@ -1,6 +1,7 @@
 # app/controllers/employees_controller.rb
 # frozen_string_literal: true
 
+# EmployeesController contains application behavior.
 class EmployeesController < ApplicationController
   # Public pages
   skip_before_action :authenticate_user!, only: %i[index show]

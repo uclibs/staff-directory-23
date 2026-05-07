@@ -29,24 +29,17 @@ Rails:
   Enabled: true
 
 Rails/Output:
-  Exclude:
-    - 'config/deploy/**/*.rb'
+  Enabled: true
 
 Rails/Exit:
-  Exclude:
-    - 'config/deploy/**/*.rb'
+  Enabled: true
 
 Rails/FilePath:
-  # Allow legacy string joins in spec helper paths
   Enabled: true
-  Exclude:
-    - 'spec/rails_helper.rb'
 
 
 Rails/HasManyOrHasOneDependent:
-  # Temp exclusion until callbacks confirmed
-  Exclude:
-    - 'app/models/department.rb'
+  Enabled: true
 
 Rails/ReversibleMigration:
   Exclude:
@@ -57,8 +50,7 @@ Rails/SkipsModelValidations:
     - 'db/migrate/**/*'
 
 Rails/OutputSafety:
-  Exclude:
-    - 'app/helpers/application_helper.rb'
+  Enabled: true
 
 # -----------------------
 # Bundler
@@ -73,7 +65,9 @@ Layout/LineLength:
   Max: 120
 
 Style/Documentation:
-  Enabled: false
+  Enabled: true
+  Exclude:
+    - 'db/migrate/**/*'
 
 # -----------------------
 # RSpec (via rubocop-rspec)
@@ -90,11 +84,6 @@ RSpec/NestedGroups:
 
 RSpec/InstanceVariable:
   Enabled: true
-  Exclude:
-    - 'spec/**/views/**/*_spec.rb'
-    - 'spec/**/controllers/**/*_spec.rb'
-    - 'spec/mailers/**/*_spec.rb'
-    - 'spec/requests/**/*_spec.rb'
 
 RSpec/EmptyExampleGroup:
   Enabled: true
@@ -113,10 +102,4 @@ Rails/HttpStatus:
 # These are noisy/buggy on some versions; re-enable later if desired
 # -----------------------
 Capybara/ClickLinkOrButtonStyle:
-  Enabled: false
-Capybara/CurrentPathExpectation:
-  Enabled: false
-Capybara/MatchStyle:
-  Enabled: false
-Capybara/NegationMatcher:
-  Enabled: false
+  Enabled: true

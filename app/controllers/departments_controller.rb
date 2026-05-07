@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# DepartmentsController contains application behavior.
 class DepartmentsController < ApplicationController
   before_action :authenticate_user!
   def index
