@@ -1,0 +1,12 @@
+---
+description: Return PR bodies as raw markdown in inline code blocks
+alwaysApply: true
+---
+
+# PR Body Response Format
+
+When the user asks for a pull request body, return it as raw Markdown inside a single inline code block so it can be copied directly.
+
+- Do not add commentary before or after the code block unless the user asks for explanation.
+- Keep standard PR sections when relevant (for example: Summary, Testing, Notes).
+- Ensure the output is valid Markdown text exactly as it should appear in the PR description.
