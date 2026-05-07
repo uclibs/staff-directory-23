@@ -1,6 +1,7 @@
 # app/controllers/application_controller.rb
 # frozen_string_literal: true
 
+# ApplicationController contains application behavior.
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 

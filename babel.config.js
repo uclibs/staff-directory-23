@@ -1,4 +1,6 @@
 module.exports = function(api) {
+  api.cache(true);
+
   const validEnv = ['development', 'test', 'production'];
   const currentEnv = api.env();
   const isDevelopmentEnv = api.env('development');
@@ -28,6 +30,7 @@ module.exports = function(api) {
       (isProductionEnv || isDevelopmentEnv) && [
         '@babel/preset-env',
         {
+          bugfixes: true,
           forceAllTransforms: true,
           useBuiltIns: 'entry',
           corejs: 3,

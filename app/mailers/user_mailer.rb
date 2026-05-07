@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# UserMailer contains application behavior.
 class UserMailer < ApplicationMailer
   # Method to send password change email
   def password_change(user)

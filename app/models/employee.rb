@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Employee contains application behavior.
 class Employee < ApplicationRecord
   validates :firstname, presence: true
   validates :lastname, presence: true

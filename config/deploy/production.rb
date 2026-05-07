@@ -15,10 +15,8 @@ ask(:username, nil)
 ask(:password, nil, echo: false)
 server 'libapps.libraries.uc.edu', user: fetch(:username), password: fetch(:password), port: 22, roles: %i[web app db]
 ask(:value, 'Have you submitted and received an approved Change Management Request? (Y or Yes)')
-unless fetch(:value).match?(/\A(?i:yes|y)\z/)
-  puts "\nNo confirmation - deploy cancelled!"
-  exit
-end
+raise 'No confirmation - deploy cancelled!' unless fetch(:value).match?(/\A(?i:yes|y)\z/)
+
 set :deploy_to, '/opt/webapps/staff-directory'
 after 'deploy:updating', 'ruby_update_check'
 after 'deploy:updating', 'init_qp'

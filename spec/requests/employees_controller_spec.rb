@@ -3,10 +3,11 @@
 require 'rails_helper'
 
 RSpec.describe 'Employees' do
+  let(:user) { create(:user) }
+
   # Set up user authentication before each test
   before do
-    @user = create(:user)
-    sign_in @user
+    sign_in user
   end
 
   describe 'GET /index' do
