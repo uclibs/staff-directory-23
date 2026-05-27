@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  devise_for :users, controllers: { passwords: 'passwords' }, skip: [:registrations]
+  devise_for :users, controllers: { passwords: 'passwords', sessions: 'sessions' }, skip: [:registrations]
+
+  get 'users/auth/shibboleth', to: 'shibboleth_sessions#create', as: :shibboleth_login
 
   # Encapsulate your custom Devise routes within a devise_scope block
   devise_scope :user do

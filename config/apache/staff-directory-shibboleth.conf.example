@@ -1,0 +1,29 @@
+# Example Apache mod_shib configuration for staff-directory on libappstest/libapps.
+# Install into the vhost that serves this app, then reload Apache.
+#
+# Prerequisites on the app server (.env.production.local):
+#   STADIR_USE_SHIBBOLETH=true
+#
+# Rails relative URL root:
+#   /staff-directory
+#
+# Shibboleth login flow:
+#   1. User clicks Login -> GET /staff-directory/users/auth/shibboleth
+#   2. Apache requires a Shibboleth session and sends the user to the IdP if needed
+#   3. Apache passes the eppn attribute to Rails as HTTP_EPPN
+#   4. Rails finds User by eppn and creates a Devise session
+#
+# Public employee pages stay outside this Location block.
+
+<Location /staff-directory/users/auth/shibboleth>
+  AuthType shibboleth
+  ShibRequireSession On
+  Require valid-user
+
+  # Pass Shibboleth attributes to Rails/Puma as request headers.
+  ShibUseHeaders On
+</Location>
+
+# Optional: if your SP uses a dedicated login handler instead of protecting the Rails path,
+# point the app Login button at /Shibboleth.sso/Login?target=https://HOST/staff-directory/users/auth/shibboleth
+# and keep the Location block above so the callback request carries HTTP_EPPN.

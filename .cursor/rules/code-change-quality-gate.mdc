@@ -1,0 +1,61 @@
+---
+description: Required review and verification before code changes are complete
+alwaysApply: true
+---
+
+# Code Change Quality Gate
+
+Before considering any code change complete in this app, run this checklist in order.
+
+## 1. Self-review changed code
+
+Review only the code you changed (and closely related call sites) for:
+
+- **Antipatterns** — logic in the wrong layer, env checks scattered everywhere, rescue-all error handling, bypassing validations, magic strings/numbers
+- **Code smells** — long methods, deep nesting, feature envy, shotgun surgery, dead code
+- **Unnecessary duplication** — extract only when duplication is real and repeated; prefer matching existing project patterns over new abstractions
+- **Unclear naming** — methods, variables, and specs should state intent; rename when names mislead
+- **Missing tests** — add RSpec coverage for behavior that is non-trivial, conditional, or easy to regress. Always use RSpec unit/request/model specs (not minitest). Place specs alongside existing conventions:
+  - `spec/lib/` for `lib/` code
+  - `spec/models/` for models
+  - `spec/requests/` or `spec/controllers/` for HTTP/controller behavior
+  - `spec/helpers/`, `spec/mailers/`, etc. for those layers
+
+Skip tests only when the change is truly non-behavioral (for example: comment-only, formatting-only) and say so briefly.
+
+## 2. Fix issues found in review
+
+Refactor or add tests before moving on. Do not defer quality problems to a follow-up unless the user explicitly scoped the task narrower.
+
+## 3. Run RuboCop and RSpec
+
+From the project root:
+
+```bash
+bundle exec rubocop
+bundle exec rspec
+```
+
+When changes are localized, you may scope commands to affected files first, then run the full suite before finishing.
+
+- **Fix every RuboCop offense.** Refactor, rename, or restructure to satisfy the cop.
+- **Never disable RuboCop** — no `# rubocop:disable`, no todo entries added to silence new offenses, no `.rubocop.yml` relaxations to make a scan pass.
+- **Fix every failing spec.** Do not mark work complete with red tests.
+
+## 4. When tests fail, find the root cause
+
+Decide thoughtfully whether the bug is in the **test** or the **production code**:
+
+- Test is wrong when expectations are outdated, setup is incorrect, or the spec asserts implementation detail instead of behavior.
+- Code is wrong when behavior regressed, edge cases are unhandled, or the change introduced a real defect.
+
+Fix the root issue; do not patch around failures with brittle assertions or disabled checks.
+
+## 5. Completion bar
+
+Work is complete only when:
+
+1. Self-review issues are resolved
+2. Reasonable RSpec coverage exists for new/changed behavior
+3. `bundle exec rubocop` passes with zero offenses
+4. `bundle exec rspec` passes with zero failures
