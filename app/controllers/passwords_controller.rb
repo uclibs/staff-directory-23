@@ -2,6 +2,8 @@
 
 # PasswordsController contains application behavior.
 class PasswordsController < Devise::PasswordsController
+  before_action :redirect_password_reset_unavailable, if: -> { ShibbolethLogin.enabled? }
+
   # GET /resource/password/edit?reset_password_token=abcdef
   def edit
     self.resource = resource_class.new
@@ -38,6 +40,10 @@ class PasswordsController < Devise::PasswordsController
   end
 
   protected
+
+  def redirect_password_reset_unavailable
+    redirect_to root_path, alert: 'Password reset is not available. Please sign in with Shibboleth.'
+  end
 
   # Override this Devise method to customize the redirection path after sending reset password instructions
   def after_sending_reset_password_instructions_path_for(_resource_name)

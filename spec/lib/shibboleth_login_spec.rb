@@ -24,5 +24,17 @@ RSpec.describe ShibbolethLogin do
 
       expect(described_class.eppn_from(request)).to eq('bearcat@uc.edu')
     end
+
+    it 'normalizes eppn casing and surrounding whitespace' do
+      request = instance_double(ActionDispatch::Request, env: { 'HTTP_EPPN' => '  Bearcat@UC.edu ' })
+
+      expect(described_class.eppn_from(request)).to eq('bearcat@uc.edu')
+    end
+  end
+
+  describe '.normalize_eppn' do
+    it 'returns nil for blank values' do
+      expect(described_class.normalize_eppn('   ')).to be_nil
+    end
   end
 end

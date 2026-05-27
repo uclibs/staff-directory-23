@@ -9,7 +9,12 @@ module ShibbolethLogin
     Rails.env.production?
   end
 
+  def normalize_eppn(value)
+    value.to_s.strip.downcase.presence
+  end
+
   def eppn_from(request)
-    request.env['HTTP_EPPN'].presence || request.env['HTTP_eppn'].presence
+    raw_eppn = request.env['HTTP_EPPN'].presence || request.env['HTTP_eppn'].presence
+    normalize_eppn(raw_eppn)
   end
 end

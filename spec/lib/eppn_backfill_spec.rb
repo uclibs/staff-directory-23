@@ -8,6 +8,7 @@ RSpec.describe EppnBackfill do
     it 'auto-generates eppn from the local part when there is no period' do
       expect(described_class.proposed_eppn('jsmith@uc.edu')).to eq('jsmith@uc.edu')
       expect(described_class.proposed_eppn('jsmith@ucmail.uc.edu', eppn_domain: 'uc.edu')).to eq('jsmith@uc.edu')
+      expect(described_class.proposed_eppn('JSmith@uc.edu')).to eq('jsmith@uc.edu')
     end
 
     it 'requires manual assignment when the local part contains a period' do

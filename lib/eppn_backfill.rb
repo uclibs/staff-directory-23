@@ -67,7 +67,7 @@ module EppnBackfill
 
     return :manual if local_part.include?('.')
 
-    "#{local_part}@#{eppn_domain}"
+    ShibbolethLogin.normalize_eppn("#{local_part}@#{eppn_domain}")
   end
 
   def default_eppn_domain
