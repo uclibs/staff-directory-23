@@ -1,0 +1,53 @@
+# Example Apache configuration for staff-directory on libappstest.
+# Install into the vhost conf.d, then reload Apache.
+#
+# Rails uses Shibboleth automatically in production (RAILS_ENV=production).
+#
+# Shibboleth login flow:
+#   1. User clicks Login -> GET /staff-directory/users/auth/shibboleth
+#   2. Apache requires a Shibboleth session and sends the user to the IdP if needed
+#   3. Apache passes eppn to Rails as HTTP_EPPN
+#   4. Rails finds User by eppn and creates a Devise session
+#
+# Public employee pages stay outside the Shibboleth Location block.
+
+Alias /staff-directory /opt/webapps/staff-directory/current/public
+
+<Directory "/opt/webapps/staff-directory/current/public">
+    Options +FollowSymLinks -MultiViews
+    AllowOverride None
+    Require all granted
+</Directory>
+
+<Proxy "http://libappstest.libraries.uc.edu/staff-directory/*">
+    # Rewrite HTTP to HTTPS
+    RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI}
+
+    Require all granted
+</Proxy>
+
+<Location /staff-directory/assets>
+    ProxyPass !
+</Location>
+
+<Location /staff-directory/system>
+    ProxyPass !
+</Location>
+
+# Shibboleth-protected login endpoint. Only eppn is required by the Rails app.
+<Location /staff-directory/users/auth/shibboleth>
+    AuthType shibboleth
+    ShibRequireSession On
+    Require valid-user
+
+    # Pass Shibboleth attributes to Rails/Puma as request headers.
+    ShibUseHeaders On
+</Location>
+
+SSLProxyEngine on
+RequestHeader set X_FORWARDED_PROTO 'https'
+
+ProxyPass /staff-directory unix:///opt/webapps/staff-directory/current/tmp/puma/puma.sock|http://libappstest.libraries.uc.edu/staff-directory/
+ProxyPassReverse /staff-directory unix:///opt/webapps/staff-directory/current/tmp/puma/puma.sock|http://libappstest.libraries.uc.edu/staff-directory/

@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-# Shibboleth login is enabled on libapps/libappstest via Apache and STADIR_USE_SHIBBOLETH.
+# Shibboleth login is enabled in production (libapps/libappstest via Apache).
 # Development and test keep Devise password login.
 module ShibbolethLogin
   module_function
 
   def enabled?
-    ENV['STADIR_USE_SHIBBOLETH'] == 'true'
+    Rails.env.production?
   end
 
   def eppn_from(request)

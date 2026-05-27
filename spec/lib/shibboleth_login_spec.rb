@@ -5,20 +5,16 @@ require Rails.root.join('lib/shibboleth_login')
 
 RSpec.describe ShibbolethLogin do
   describe '.enabled?' do
-    it 'is enabled only when STADIR_USE_SHIBBOLETH is true' do
-      original = ENV.fetch('STADIR_USE_SHIBBOLETH', nil)
-      ENV['STADIR_USE_SHIBBOLETH'] = 'true'
+    it 'is enabled in production' do
+      allow(Rails.env).to receive(:production?).and_return(true)
+
       expect(described_class.enabled?).to be(true)
-    ensure
-      ENV['STADIR_USE_SHIBBOLETH'] = original
     end
 
-    it 'is disabled when STADIR_USE_SHIBBOLETH is not true' do
-      original = ENV.fetch('STADIR_USE_SHIBBOLETH', nil)
-      ENV.delete('STADIR_USE_SHIBBOLETH')
+    it 'is disabled outside production' do
+      allow(Rails.env).to receive(:production?).and_return(false)
+
       expect(described_class.enabled?).to be(false)
-    ensure
-      ENV['STADIR_USE_SHIBBOLETH'] = original
     end
   end
 
