@@ -73,6 +73,19 @@ RSpec.describe 'Shibboleth authentication', type: :request do
       expect(response).to have_http_status(:ok)
       expect(response.body).to include('Log in')
     end
+
+    it 'allows logout when Shibboleth is enabled' do
+      sign_in user
+      allow(ShibbolethLogin).to receive(:enabled?).and_return(true)
+
+      delete destroy_user_session_path
+
+      expect(response).to redirect_to(root_path)
+
+      get new_employee_path
+
+      expect(response).to redirect_to(new_user_session_path)
+    end
   end
 
   describe PasswordsController, type: :request do
@@ -83,6 +96,18 @@ RSpec.describe 'Shibboleth authentication', type: :request do
 
       expect(response).to redirect_to(root_path)
       expect(flash[:alert]).to eq('Password reset is not available. Please sign in with Shibboleth.')
+    end
+
+    it 'allows password reset form access from email tokens when Shibboleth is enabled' do
+      user = create(:user, email: 'staff@uc.edu')
+      raw_token, hashed_token = Devise.token_generator.generate(User, :reset_password_token)
+      user.update!(reset_password_token: hashed_token, reset_password_sent_at: Time.current)
+      allow(ShibbolethLogin).to receive(:enabled?).and_return(true)
+
+      get reset_password_path, params: { reset_password_token: raw_token }
+
+      expect(response).to have_http_status(:ok)
+      expect(response.body).to include('Change your password')
     end
   end
 end

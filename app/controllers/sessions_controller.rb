@@ -2,7 +2,7 @@
 
 # Redirects server environments to Shibboleth; development and test use password login.
 class SessionsController < Devise::SessionsController
-  before_action :redirect_to_shibboleth_login, if: -> { ShibbolethLogin.enabled? }
+  before_action :redirect_to_shibboleth_login, if: -> { ShibbolethLogin.enabled? }, only: %i[new create]
 
   private
 

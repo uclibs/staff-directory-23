@@ -2,7 +2,7 @@
 
 # PasswordsController contains application behavior.
 class PasswordsController < Devise::PasswordsController
-  before_action :redirect_password_reset_unavailable, if: -> { ShibbolethLogin.enabled? }
+  before_action :redirect_password_reset_unavailable, if: -> { ShibbolethLogin.enabled? }, only: %i[new create]
 
   # GET /resource/password/edit?reset_password_token=abcdef
   def edit
