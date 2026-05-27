@@ -8,7 +8,7 @@ class DepartmentsController < ApplicationController
   end
 
   def show
-    @department = Department.find(params[:id])
+    @department = Department.find(params.expect(:id))
   end
 
   # GET /department/new
@@ -17,7 +17,7 @@ class DepartmentsController < ApplicationController
   end
 
   def edit
-    @department = Department.find(params[:id])
+    @department = Department.find(params.expect(:id))
   end
 
   def create
@@ -30,7 +30,7 @@ class DepartmentsController < ApplicationController
   end
 
   def update
-    @department = Department.find(params[:id])
+    @department = Department.find(params.expect(:id))
     if @department.update(department_params)
       redirect_to department_url(@department), notice: 'Department was successfully updated.'
     else
@@ -39,7 +39,7 @@ class DepartmentsController < ApplicationController
   end
 
   def destroy
-    @department = Department.find(params[:id])
+    @department = Department.find(params.expect(:id))
     @department.destroy
     respond_to do |format|
       format.html { redirect_to departments_path, notice: 'Department was successfully destroyed.' }
@@ -50,6 +50,6 @@ class DepartmentsController < ApplicationController
   private
 
   def department_params
-    params.expect(department: %i[name id])
+    params.expect(department: [:name])
   end
 end
