@@ -10,6 +10,7 @@ namespace :users do
   DESC
   task backfill_eppn: :environment do
     require Rails.root.join('lib/eppn_backfill')
+    require Rails.root.join('lib/eppn_backfill_report')
 
     apply = ENV['APPLY'] == '1'
     eppn_domain = EppnBackfill.default_eppn_domain
@@ -46,7 +47,8 @@ namespace :users do
       puts
     end
 
-    EppnBackfill.print_manual_checklist(result.manual)
+    EppnBackfillReport.print_duplicate_accounts_list(result.duplicates)
+    EppnBackfillReport.print_manual_checklist(result.manual)
 
     exit 1 if result.errors.any?
 

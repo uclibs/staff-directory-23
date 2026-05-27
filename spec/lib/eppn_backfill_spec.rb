@@ -2,6 +2,7 @@
 
 require 'rails_helper'
 require Rails.root.join('lib/eppn_backfill')
+require Rails.root.join('lib/eppn_backfill_report')
 
 RSpec.describe EppnBackfill do
   describe '.proposed_eppn' do
@@ -55,7 +56,7 @@ RSpec.describe EppnBackfill do
       output = StringIO.new
 
       result = described_class.run(apply: false)
-      described_class.print_manual_checklist(result.manual, io: output)
+      EppnBackfillReport.print_manual_checklist(result.manual, io: output)
 
       expect(output.string).to include('MANUAL EPPN ASSIGNMENT REQUIRED (1 users)')
       expect(output.string).to include('dean.bachelder@uc.edu')
@@ -70,6 +71,63 @@ RSpec.describe EppnBackfill do
       expect(result.skipped).to contain_exactly(
         hash_including(email: 'jsmith@uc.edu', reason: 'eppn already set')
       )
+    end
+
+    it 'skips duplicate eppn proposals when applying changes' do
+      first_user = create(:user, email: 'tom@uc.edu', eppn: nil)
+      second_user = create(:user, email: 'tom@ucmail.uc.edu', eppn: nil)
+
+      described_class.run(apply: true)
+
+      expect(first_user.reload.eppn).to eq('tom@uc.edu')
+      expect(second_user.reload.eppn).to be_nil
+    end
+
+    it 'lists duplicate eppn proposals separately from errors' do
+      create(:user, email: 'tom@uc.edu', eppn: nil)
+      create(:user, email: 'tom@ucmail.uc.edu', eppn: nil)
+
+      result = described_class.run(apply: true)
+
+      expect(result.errors).to be_empty
+      expect(result.duplicates.pluck(:email)).to eq(['tom@ucmail.uc.edu'])
+    end
+
+    it 'records which account holds the duplicate eppn' do
+      first_user = create(:user, email: 'tom@uc.edu', eppn: nil)
+      create(:user, email: 'tom@ucmail.uc.edu', eppn: nil)
+
+      result = described_class.run(apply: true)
+
+      expect(result.duplicates.first).to include(
+        held_by_id: first_user.id,
+        held_by_email: 'tom@uc.edu',
+        eppn: 'tom@uc.edu'
+      )
+    end
+
+    it 'detects duplicate eppn proposals during dry run before any writes' do
+      create(:user, email: 'tom@uc.edu', eppn: nil)
+      second_user = create(:user, email: 'tom@ucmail.uc.edu', eppn: nil)
+
+      result = described_class.run(apply: false)
+
+      expect(result.updated.pluck(:email)).to eq(['tom@uc.edu'])
+      expect(result.duplicates.pluck(:email)).to eq(['tom@ucmail.uc.edu'])
+      expect(second_user.reload.eppn).to be_nil
+    end
+
+    it 'prints a duplicate accounts checklist' do
+      first_user = create(:user, email: 'tom@uc.edu', eppn: nil)
+      create(:user, email: 'tom@ucmail.uc.edu', eppn: nil)
+      output = StringIO.new
+
+      result = described_class.run(apply: false)
+      EppnBackfillReport.print_duplicate_accounts_list(result.duplicates, io: output)
+
+      expect(output.string).to include('LIKELY DUPLICATE ACCOUNTS (1 users)')
+      expect(output.string).to include('No further action is expected')
+      expect(output.string).to include("id #{first_user.id}")
     end
   end
 end

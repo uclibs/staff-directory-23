@@ -5,6 +5,7 @@ module EppnBackfill
   Result = Struct.new(
     :updated,
     :manual,
+    :duplicates,
     :skipped,
     :errors,
     keyword_init: true
@@ -13,52 +14,14 @@ module EppnBackfill
   module_function
 
   def run(apply: false, eppn_domain: default_eppn_domain)
-    result = Result.new(updated: [], manual: [], skipped: [], errors: [])
+    result = Result.new(updated: [], manual: [], duplicates: [], skipped: [], errors: [])
+    claimed_eppns = {}
 
     User.find_each do |user|
-      process_user(user, apply:, eppn_domain:, result:)
+      process_user(user, apply:, eppn_domain:, result:, claimed_eppns:)
     end
 
     result
-  end
-
-  def print_manual_checklist(manual_rows, io: $stdout)
-    print_manual_checklist_header(manual_rows, io:)
-    return if manual_rows.empty?
-
-    print_manual_checklist_table(manual_rows, io:)
-    print_manual_checklist_commands(manual_rows, io:)
-    io.puts '=' * 80
-    io.puts
-  end
-
-  def print_manual_checklist_header(manual_rows, io:)
-    io.puts '=' * 80
-    if manual_rows.empty?
-      io.puts 'MANUAL EPPN ASSIGNMENT REQUIRED: none'
-    else
-      io.puts "MANUAL EPPN ASSIGNMENT REQUIRED (#{manual_rows.size} users)"
-      io.puts 'These emails contain a period before the @ sign. Set each eppn to the value'
-      io.puts 'Shibboleth provides (for example: bearcat@uc.edu).'
-    end
-    io.puts '=' * 80
-  end
-
-  def print_manual_checklist_table(manual_rows, io:)
-    io.puts "#{'ID'.ljust(6)}  #{'EMAIL'.ljust(40)}  ACTION"
-    io.puts "#{'-' * 6}  #{'-' * 40}  #{'-' * 40}"
-
-    manual_rows.each do |row|
-      io.puts "#{row[:id].to_s.ljust(6)}  #{row[:email].ljust(40)}  assign eppn manually"
-    end
-    io.puts
-  end
-
-  def print_manual_checklist_commands(manual_rows, io:)
-    io.puts 'Suggested commands (replace THE_EPPN@uc.edu with each user\'s real eppn):'
-    manual_rows.each do |row|
-      io.puts "  bundle exec rails runner 'User.find(#{row[:id]}).update!(eppn: \"THE_EPPN@uc.edu\")'"
-    end
   end
 
   def proposed_eppn(email, eppn_domain: default_eppn_domain)
@@ -74,15 +37,17 @@ module EppnBackfill
     ENV.fetch('STADIR_EPPN_DOMAIN', 'uc.edu').strip.presence || 'uc.edu'
   end
 
-  def process_user(user, apply:, eppn_domain:, result:)
+  def process_user(user, apply:, eppn_domain:, result:, claimed_eppns:)
     return record_skipped(user, result) if user.eppn.present?
 
     proposal = proposed_eppn(user.email, eppn_domain:)
     return record_manual(user, result) if proposal == :manual
     return record_invalid_email(user, result) if proposal.nil?
-    return record_duplicate_eppn(user, proposal, result) if duplicate_eppn?(user, proposal)
 
-    apply_eppn(user, proposal, apply, result)
+    holder = duplicate_eppn_holder(user, proposal, claimed_eppns)
+    return record_duplicate_eppn(user, proposal, holder, result) if holder
+
+    apply_eppn(user, proposal, apply, result, claimed_eppns)
   rescue ActiveRecord::RecordInvalid => e
     record_validation_error(user, e, result)
   end
@@ -103,19 +68,28 @@ module EppnBackfill
     result.errors << { email: user.email, message: 'email is missing or invalid' }
   end
 
-  def record_duplicate_eppn(user, proposal, result)
-    result.errors << {
+  def record_duplicate_eppn(user, proposal, holder, result)
+    result.duplicates << {
+      id: user.id,
       email: user.email,
-      message: "generated eppn #{proposal} is already assigned to another user"
+      eppn: proposal,
+      held_by_id: holder[:id],
+      held_by_email: holder[:email]
     }
   end
 
-  def duplicate_eppn?(user, proposal)
-    User.where.not(id: user.id).exists?(eppn: proposal)
+  def duplicate_eppn_holder(user, proposal, claimed_eppns)
+    return claimed_eppns[proposal] if claimed_eppns.key?(proposal)
+
+    existing_user = User.where.not(id: user.id).find_by(eppn: proposal)
+    return nil if existing_user.nil?
+
+    { id: existing_user.id, email: existing_user.email }
   end
 
-  def apply_eppn(user, proposal, apply, result)
+  def apply_eppn(user, proposal, apply, result, claimed_eppns)
     user.update!(eppn: proposal) if apply
+    claimed_eppns[proposal] = { id: user.id, email: user.email }
     result.updated << { email: user.email, eppn: proposal, applied: apply }
   end
 
@@ -123,5 +97,6 @@ module EppnBackfill
     result.errors << { email: user.email, message: error.record.errors.full_messages.join(', ') }
   end
   private_class_method :process_user, :record_skipped, :record_manual, :record_invalid_email,
-                       :record_duplicate_eppn, :duplicate_eppn?, :apply_eppn, :record_validation_error
+                       :record_duplicate_eppn, :duplicate_eppn_holder, :apply_eppn,
+                       :record_validation_error
 end
