@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_02_23_162008) do
+ActiveRecord::Schema[8.1].define(version: 2026_05_27_120000) do
   create_table "add_data", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -39,6 +39,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_02_23_162008) do
     t.datetime "created_at", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "eppn"
     t.integer "failed_attempts", default: 0, null: false
     t.datetime "locked_at", precision: nil
     t.datetime "remember_created_at", precision: nil
@@ -47,6 +48,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_02_23_162008) do
     t.string "unlock_token"
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["eppn"], name: "index_users_on_eppn", unique: true
     t.index ["locked_at"], name: "index_users_on_locked_at"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
