@@ -1,0 +1,41 @@
+---
+description: Never push to a remote unless the user explicitly requests it
+alwaysApply: true
+---
+
+# Never Push Without an Explicit Request
+
+**The user handles pushing.** By default, assume the user will push to the
+remote themselves. Do **not** run any command that publishes commits, branches,
+or tags to a remote unless the user has explicitly asked for that push in the
+current request.
+
+## Forbidden unless explicitly requested
+
+- `git push` (including `git push origin <branch>`, `-u`, `--tags`, `--follow-tags`)
+- `git push --force` / `--force-with-lease` (never run without an explicit request)
+- Creating remote refs via `git push origin <local>:<remote>`
+- Any tool/CLI that pushes (e.g. `gh release create`, `gh pr create` that pushes a branch)
+
+## Allowed without a push request
+
+Local-only work is fine: `git add`, `git commit`, `git tag` (local), `git branch`,
+`git merge`/`git rebase` on local branches, `git fetch`, `git pull` (read/update local only).
+
+## Required behavior
+
+- After committing locally, **stop** and tell the user the work is committed but
+  not pushed. Never push unless the current request asks for it explicitly.
+- "Explicit" means the user names the action this turn (e.g. "push this branch",
+  "push the tag", "open the PR"). General approval of a plan is **not** a push request.
+- If unsure whether something pushes to a remote, treat it as forbidden and ask first.
+
+<example>
+User: "Make a commit here."
+Assistant: Creates the commit locally, then reports it is committed but NOT pushed.
+</example>
+
+<example>
+User: "Push the branch and open the PR."
+Assistant: This explicitly requests the push, so pushing is allowed.
+</example>
