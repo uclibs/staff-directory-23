@@ -18,8 +18,8 @@ RSpec.describe 'employees/show' do
   it 'renders attributes in <p>' do
     render
     # Optionally, you can add assertions here to ensure that the rendered content contains the expected values
-    expect(rendered).to match(/John/)
-    expect(rendered).to match(/Doe/)
+    expect(rendered).to include('John')
+    expect(rendered).to include('Doe')
     # ... and so on for the other attributes ...
   end
 end

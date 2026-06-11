@@ -78,6 +78,16 @@ end
 require 'database_cleaner'
 
 RSpec.configure do |config|
+  # Build the test webpack assets up front when the manifest is missing, so a
+  # partial/interrupted compile can't leave the suite failing every view spec
+  # with Shakapacker::Manifest::MissingEntryError. Fails loudly if the build fails.
+  config.before(:suite) do
+    unless Shakapacker.config.public_manifest_path.exist?
+      $stdout.puts '[specs] Building test webpack assets (manifest missing)...'
+      system({ 'RAILS_ENV' => 'test', 'NODE_ENV' => 'test' }, 'bin/shakapacker', exception: true)
+    end
+  end
+
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
     DatabaseCleaner.strategy = :transaction

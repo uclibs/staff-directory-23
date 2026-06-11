@@ -57,7 +57,7 @@ group :development, :test do
   gem 'rubocop-capybara', '~> 2.23.0', require: false
   gem 'rubocop-factory_bot', '2.28.0', require: false
   gem 'rubocop-rails', '~> 2.35.0', require: false
-  gem 'rubocop-rspec', '3.9.0', require: false
+  gem 'rubocop-rspec', '~>3.10.0', require: false
   gem 'simplecov', require: false
   gem 'simplecov-lcov', require: false
   # Use sqlite3 as the database for Active Record
