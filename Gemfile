@@ -4,11 +4,11 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby File.read(File.expand_path('.ruby-version', __dir__)).strip
-gem 'activerecord-import'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bigdecimal'
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'concurrent-ruby', '1.3.6' # Use caution when updating; verify boot/deploy due to prior Logger::Severity issues.
+gem 'concurrent-ruby', '~>1.3'
+gem 'coveralls_reborn'
 gem 'csv'
 gem 'devise'
 gem 'dotenv-rails'
@@ -19,12 +19,8 @@ gem 'rails', '~> 8.1', '>= 8.1.2'
 gem 'rails-html-sanitizer', '~>1.6'
 gem 'rexml', '>= 3.3.2'
 gem 'sass-rails', '>= 6'
-gem 'sprockets-rails' # required for sass-rails on Rails 8 (Propshaft is default)
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'shakapacker', '~> 10.1.0'
-# Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 5.0'
-gem 'coveralls_reborn'
+gem 'sprockets-rails' # required for sass-rails on Rails 8 (Propshaft is default)
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 
