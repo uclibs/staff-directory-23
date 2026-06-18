@@ -1,0 +1,39 @@
+---
+description: How to update and verify Ruby gems and JS packages safely
+globs: Gemfile,Gemfile.lock,package.json,yarn.lock
+alwaysApply: false
+---
+
+# Dependency Management
+
+This app is deployed to `libapps` with formal change management, so dependency
+changes must be verified, not assumed.
+
+## Verify every update before calling it done
+
+- Boot the app with the new versions in **both** environments:
+  `RAILS_ENV=test bundle exec rails runner 'puts Rails.version'` and the same
+  with `RAILS_ENV=production`.
+- Run the full `bundle exec rspec` and `bundle exec rubocop`.
+- For JS runtime/dev-server packages, smoke-test the actual consumer (e.g. load
+  `sockjs`/`webpack-dev-server`, or boot `bin/shakapacker-dev-server`), not just
+  `yarn install`.
+
+## Use the project's Node
+
+- Node **24** is required (`.nvmrc`). Some packages are ESM-only and only load
+  via Node >= 22.12/24 (e.g. `uuid` 14). Never validate a JS dep under an older
+  Node than `.nvmrc` specifies.
+
+## Pins and resolutions must explain themselves
+
+- Any exact pin (Gemfile) or `resolutions` entry (package.json) needs a short
+  comment saying **why** (security advisory, boot regression, peer constraint).
+- Do not loosen or bump a cautioned pin without running the boot + spec checks
+  above.
+
+## Audit and record what can't be fixed
+
+- Run `bundle exec bundler-audit` and `yarn npm audit --all --recursive`.
+- When an advisory has no in-range fix (e.g. a dev-only transitive dep gated on a
+  major upstream bump), note it explicitly rather than silently ignoring it.

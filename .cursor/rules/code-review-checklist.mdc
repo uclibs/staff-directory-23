@@ -1,0 +1,35 @@
+---
+description: What to check when reviewing code changes
+alwaysApply: true
+---
+
+# Code Review Checklist
+
+Work through this list whenever you change code or the user asks you to review
+it. Cover every **touched file** and its closely related call sites.
+
+## Review the changed code for
+
+- **Antipatterns** — logic in the wrong layer, scattered env checks, rescue-all error handling, bypassing validations, magic strings/numbers
+- **Code smells** — long methods, deep nesting, feature envy, shotgun surgery, dead code
+- **Unnecessary duplication** — extract only when duplication is real and repeated; prefer existing project patterns over new abstractions
+- **Unclear naming** — methods, variables, and specs should state intent; rename when names mislead
+- **Missing tests** — flag behavior that is non-trivial, conditional, or easy to regress (test rules live in `code-change-standards`)
+
+## Refresh comments and the README (every review)
+
+- Read the comments in each touched file. Fix or delete any that are now stale,
+  misleading, or describe code that no longer exists.
+- Update the **README** whenever a change affects setup, dependencies, commands,
+  configuration, or documented behavior.
+- Comments must explain intent or constraints — never narrate what the code does.
+
+<example>
+A gem is removed, leaving `# Use CoffeeScript for .coffee assets and views`
+above unrelated code. The reviewer deletes the now-false comment.
+</example>
+
+## Then act on what you find
+
+Fix the issues before finishing. Do not defer quality problems to a follow-up
+unless the user explicitly scoped the task narrower.
