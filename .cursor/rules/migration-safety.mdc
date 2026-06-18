@@ -1,0 +1,28 @@
+---
+description: Keep database migrations reversible and non-destructive
+globs: db/migrate/**/*.rb
+alwaysApply: false
+---
+
+# Migration Safety
+
+Production deploys to `libapps` rely on a re-deploy-the-previous-release backout
+plan, so migrations must be safe to roll back.
+
+## Rules
+
+- **Reversible:** every migration must cleanly roll back. Use `change` when the
+  inverse is inferable; otherwise write explicit `up`/`down`.
+- **Non-destructive:** do not drop or rename columns/tables that hold data, and
+  do not delete rows, in a migration that ships with a release that might be
+  backed out. Deprecate first, remove in a later release.
+- **Separate schema from data:** keep structural changes and data backfills in
+  separate migrations (or move backfills to an idempotent rake task), so a
+  rollback doesn't strand half-applied data.
+- **Confirm both directions:** run `bin/rails db:migrate` then
+  `bin/rails db:rollback` locally before considering the migration complete.
+
+<example>
+Removing a column that's still read by the previously deployed release would
+break a backout. Stop using it in code first, ship that, then drop it later.
+</example>

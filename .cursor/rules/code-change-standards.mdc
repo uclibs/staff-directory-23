@@ -1,0 +1,47 @@
+---
+description: Standards every code change must meet before it is complete
+alwaysApply: true
+---
+
+# Code Change Standards
+
+These apply to every code change in this app.
+
+## Definition of done
+
+A change is complete only when, from the project root:
+
+- `bundle exec rubocop` passes with **zero offenses**
+- `bundle exec rspec` passes with **zero failures**
+
+Scope commands to affected files while iterating if you like, but run the full
+suite before calling the work done.
+
+## Tests
+
+- **Maintain or increase code coverage** with every change.
+- **Favor fast unit, model, and request specs over feature specs.** Reach for a
+  feature spec only when the behavior cannot be covered at a lower level.
+- Place specs by layer: `spec/models/`, `spec/requests/` (or `spec/controllers/`),
+  `spec/lib/` for `lib/` code, `spec/helpers/`, `spec/mailers/`, etc.
+- Always use RSpec, never minitest.
+- Skip tests only when a change is truly non-behavioral (comment- or
+  formatting-only) and say so briefly.
+
+## Never silence RuboCop
+
+**Never disable a RuboCop rule** — not app-wide in `.rubocop.yml`, and not for a
+single line with `# rubocop:disable` — **unless the user explicitly tells you to
+in that specific request.** Fix the offense by refactoring, renaming, or
+restructuring instead.
+
+## When a spec fails, fix the root cause
+
+Decide whether the **test** or the **production code** is wrong:
+
+- The test is wrong when expectations are outdated, setup is incorrect, or it
+  asserts implementation detail instead of behavior.
+- The code is wrong when behavior regressed or an edge case is unhandled.
+
+Fix the real issue; never patch around red tests with brittle assertions or
+disabled checks.
