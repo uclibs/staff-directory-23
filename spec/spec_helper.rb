@@ -19,6 +19,7 @@ require 'simplecov'
 require 'coveralls'
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([SimpleCov::Formatter::HTMLFormatter, Coveralls::SimpleCov::Formatter])
 ENV['RACK_ENV'] = 'test'
+SimpleCov.enable_coverage :branch
 SimpleCov.start 'rails'
 
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
