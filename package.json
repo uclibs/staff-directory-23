@@ -33,6 +33,7 @@
   "version": "0.1.0",
   "resolutions": {
     "cross-spawn": "^7.0.3",
+    "http-proxy-middleware": "^2.0.10",
     "tslib": "^2.0.0",
     "micromatch": "4.0.8",
     "braces": "3.0.3",
