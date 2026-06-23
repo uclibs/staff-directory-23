@@ -11,13 +11,13 @@ RSpec.describe 'Employees', type: :feature do
     visit new_user_session_path
     fill_in 'Email', with: user.email
     fill_in 'Password', with: 'password'
-    click_on 'Log in'
+    click_button 'Log in'
   end
 
   def create_engineering_department_via_ui
     visit new_department_path
     fill_in 'department_name', with: 'Engineering'
-    click_on 'Create Department'
+    click_button 'Create Department'
     expect(page).to have_text 'Department was successfully created.'
   end
 
@@ -28,7 +28,7 @@ RSpec.describe 'Employees', type: :feature do
     fill_in 'employee_phone', with: employee.phone
     fill_in 'employee_title', with: employee.title
     select 'Engineering', from: 'employee_department_id'
-    click_on 'Create Employee'
+    click_button 'Create Employee'
   end
 
   it 'visiting the index' do
@@ -41,7 +41,7 @@ RSpec.describe 'Employees', type: :feature do
     sign_in_user
     create_engineering_department_via_ui
     visit employees_path
-    click_on 'Create New Employee'
+    click_link 'Create New Employee'
     fill_new_employee_form
     expect(page).to have_text 'Employee was successfully created.'
   end
@@ -56,7 +56,7 @@ RSpec.describe 'Employees', type: :feature do
     fill_in 'employee_phone', with: employee.phone
     fill_in 'employee_title', with: employee.title
     select department.name, from: 'employee_department_id'
-    click_on 'Update Employee'
+    click_button 'Update Employee'
 
     expect(page).to have_text 'Employee was successfully updated.'
   end

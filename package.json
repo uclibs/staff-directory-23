@@ -38,7 +38,7 @@
     "micromatch": "4.0.8",
     "braces": "3.0.3",
     "qs": "6.15.2",
-    "uuid": "^14.0.0"
+    "uuid": "^14.0.1"
   },
   "browserslist": [
     "defaults"

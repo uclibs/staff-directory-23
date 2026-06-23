@@ -101,5 +101,5 @@ Rails/HttpStatus:
 # Capybara (quiet the crashing cops)
 # These are noisy/buggy on some versions; re-enable later if desired
 # -----------------------
-Capybara/ClickLinkOrButtonStyle:
+Capybara/AmbiguousClick:
   Enabled: true
