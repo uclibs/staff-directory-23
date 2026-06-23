@@ -11,7 +11,7 @@ RSpec.describe 'UserLogin' do
 
     fill_in 'Email', with: user.email
     fill_in 'Password', with: 'password'
-    click_on 'Log in'
+    click_button 'Log in'
 
     expect(page).to have_text('Signed in successfully')
   end
@@ -21,7 +21,7 @@ RSpec.describe 'UserLogin' do
 
     fill_in 'Email', with: ''
     fill_in 'Password', with: ''
-    click_on 'Log in'
+    click_button 'Log in'
 
     expect(page).to have_text('Invalid email or password.')
   end

@@ -43,6 +43,15 @@ RSpec.describe 'Shibboleth authentication', type: :request do
       expect(response).to redirect_to(root_path)
       expect(flash[:alert]).to eq('You are not authorized to access staff tools.')
     end
+
+    it 'redirects to password login when Shibboleth is disabled' do
+      allow(ShibbolethLogin).to receive(:enabled?).and_return(false)
+
+      get shibboleth_login_path, headers: { 'HTTP_EPPN' => 'bearcat@uc.edu' }
+
+      expect(response).to redirect_to(new_user_session_path)
+      expect(flash[:alert]).to eq('Password login is enabled in this environment.')
+    end
   end
 
   describe SessionsController do

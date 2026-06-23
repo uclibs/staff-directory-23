@@ -50,7 +50,7 @@ group :development, :test do
   gem 'rspec_junit_formatter'
   gem 'rspec-rails'
   gem 'rubocop', require: false
-  gem 'rubocop-capybara', '~> 2.23.0', require: false
+  gem 'rubocop-capybara', '~> 3.0.0', require: false
   gem 'rubocop-factory_bot', '2.28.0', require: false
   gem 'rubocop-rails', '~> 2.35.0', require: false
   gem 'rubocop-rspec', '~>3.10.0', require: false
