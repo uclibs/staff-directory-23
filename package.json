@@ -14,7 +14,7 @@
     "webpack": "^5.107.2",
     "webpack-assets-manifest": "^6.5.2",
     "webpack-cli": "^7.0.0",
-    "webpack-dev-server": "^5.2.4",
+    "webpack-dev-server": "^5.2.6",
     "webpack-subresource-integrity": "^5.1.0"
   },
   "scripts": {
