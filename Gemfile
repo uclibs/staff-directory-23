@@ -19,7 +19,7 @@ gem 'rails', '~> 8.1', '>= 8.1.2'
 gem 'rails-html-sanitizer', '~>1.6'
 gem 'rexml', '>= 3.3.2'
 gem 'sass-rails', '>= 6'
-gem 'shakapacker', '~> 10.1.0'
+gem 'shakapacker', '~> 10.3'
 gem 'sprockets-rails' # required for sass-rails on Rails 8 (Propshaft is default)
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
@@ -52,7 +52,7 @@ group :development, :test do
   gem 'rubocop', require: false
   gem 'rubocop-capybara', '~> 3.0.0', require: false
   gem 'rubocop-factory_bot', '2.28.0', require: false
-  gem 'rubocop-rails', '~> 2.35.0', require: false
+  gem 'rubocop-rails', '~> 2.37.0', require: false
   gem 'rubocop-rspec', '~>3.10.0', require: false
   gem 'simplecov', require: false
   gem 'simplecov-lcov', require: false
