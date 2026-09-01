@@ -82,6 +82,9 @@ jobs:
         with:
           name: coverage-report
           path: coverage
+          # Include SimpleCov's dotfile summaries (.last_run.json), which the
+          # coverage gate reads; upload-artifact@v4 skips hidden files by default.
+          include-hidden-files: true
 
   coverage-update:
     name: Coverage Baseline
