@@ -127,7 +127,7 @@ GEM
       term-ansicolor (>= 1.11)
       thor (>= 1.5)
       tins (>= 1.54)
-    crass (1.0.7)
+    crass (1.0.8)
     csv (3.3.6)
     database_cleaner (2.1.0)
       database_cleaner-active_record (>= 2, < 3)
