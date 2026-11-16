@@ -129,5 +129,62 @@ RSpec.describe EppnBackfill do
       expect(output.string).to include('No further action is expected')
       expect(output.string).to include("id #{first_user.id}")
     end
+
+    it 'records an error when the email cannot produce an eppn' do
+      user = create(:user, email: 'jsmith@uc.edu', eppn: nil)
+      user.email = 'not-an-email'
+      allow(User).to receive(:find_each).and_yield(user)
+
+      result = described_class.run(apply: true)
+
+      expect(result.errors).to contain_exactly(
+        hash_including(email: 'not-an-email', message: 'email is missing or invalid')
+      )
+    end
+
+    it 'treats an eppn already stored on another account as a duplicate' do
+      holder = create(:user, email: 'holder@uc.edu', eppn: 'jsmith@uc.edu')
+      user = create(:user, email: 'jsmith@ucmail.uc.edu', eppn: nil)
+
+      result = described_class.run(apply: true)
+
+      expect(user.reload.eppn).to be_nil
+      expect(result.duplicates.first).to include(held_by_id: holder.id, held_by_email: 'holder@uc.edu')
+    end
+
+    it 'records a validation error when the eppn cannot be saved' do
+      user = create(:user, email: 'jsmith@uc.edu', eppn: nil)
+      user.errors.add(:eppn, 'is invalid')
+      allow(user).to receive(:update!).and_raise(ActiveRecord::RecordInvalid.new(user))
+      allow(User).to receive(:find_each).and_yield(user)
+
+      result = described_class.run(apply: true)
+
+      expect(result.errors).to contain_exactly(
+        hash_including(email: 'jsmith@uc.edu', message: 'Eppn is invalid')
+      )
+    end
+  end
+
+  describe EppnBackfillReport do
+    describe '.print_manual_checklist' do
+      it 'says none when nobody needs a manual eppn' do
+        output = StringIO.new
+
+        described_class.print_manual_checklist([], io: output)
+
+        expect(output.string).to include('MANUAL EPPN ASSIGNMENT REQUIRED: none')
+      end
+    end
+
+    describe '.print_duplicate_accounts_list' do
+      it 'says none when there are no duplicate accounts' do
+        output = StringIO.new
+
+        described_class.print_duplicate_accounts_list([], io: output)
+
+        expect(output.string).to include('LIKELY DUPLICATE ACCOUNTS: none')
+      end
+    end
   end
 end

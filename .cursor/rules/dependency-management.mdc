@@ -21,8 +21,8 @@ changes must be verified, not assumed.
 
 ## Use the project's Node
 
-- Node **24** is required (`.nvmrc`). Some packages are ESM-only and only load
-  via Node >= 22.12/24 (e.g. `uuid` 14). Never validate a JS dep under an older
+- Node **26** is required (`.nvmrc`). Some packages are ESM-only and only load
+  via Node >= 22.12 (e.g. `uuid` 14). Never validate a JS dep under an older
   Node than `.nvmrc` specifies.
 
 ## Pins and resolutions must explain themselves

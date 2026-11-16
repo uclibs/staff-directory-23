@@ -31,4 +31,36 @@ RSpec.describe PasswordsController, type: :controller do
       end
     end
   end
+
+  describe 'PUT #update' do
+    let(:user) { create(:user) }
+
+    def reset_token_for(user)
+      raw, hashed = Devise.token_generator.generate(User, :reset_password_token)
+      user.update!(reset_password_token: hashed, reset_password_sent_at: Time.current)
+      raw
+    end
+
+    it 'signs in and renders the success page when the token and password are valid' do
+      token = reset_token_for(user)
+
+      put :update, params: {
+        user: { reset_password_token: token, password: 'new-password', password_confirmation: 'new-password' }
+      }
+
+      expect(response).to render_template('password_change')
+      expect(user.reload.valid_password?('new-password')).to be(true)
+    end
+
+    it 'renders the error page when the new password is invalid' do
+      token = reset_token_for(user)
+
+      put :update, params: {
+        user: { reset_password_token: token, password: 'new-password', password_confirmation: 'different' }
+      }
+
+      expect(response).to render_template('password_create_error')
+      expect(user.reload.valid_password?('new-password')).to be(false)
+    end
+  end
 end

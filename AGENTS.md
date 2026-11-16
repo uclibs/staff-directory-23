@@ -2,7 +2,7 @@
 
 Small custom Ruby on Rails app (Rails 8.1, RSpec, RuboCop, Shakapacker/Webpack,
 Devise + Shibboleth SSO) deployed to the library `libapps` server via Capistrano.
-Node 24 (`.nvmrc`); MySQL in production, SQLite in test.
+Node 26 (`.nvmrc`); MySQL in production, SQLite in test.
 
 ## Project rules
 
