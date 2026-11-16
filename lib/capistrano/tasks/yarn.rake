@@ -15,6 +15,11 @@ namespace :yarn do
           source ~/.nvm/nvm.sh
           nvm use "$(cat #{release_path}/.nvmrc)"
           cd #{release_path}
+          # Node 25+ no longer ships Corepack; Yarn 4 still comes through it.
+          if ! command -v corepack >/dev/null 2>&1; then
+            npm install -g corepack
+          fi
+          export COREPACK_ENABLE_DOWNLOAD_PROMPT=0
           corepack enable
           corepack yarn install --immutable
           RAILS_ENV=production corepack yarn build

@@ -15,7 +15,11 @@ runs:
 
     - name: Enable Corepack
       shell: bash
-      run: corepack enable
+      run: |
+        if ! command -v corepack >/dev/null 2>&1; then
+          npm install -g corepack
+        fi
+        corepack enable
 
     - name: Restore Bundler cache
       uses: actions/cache@v4

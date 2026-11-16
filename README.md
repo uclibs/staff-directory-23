@@ -47,6 +47,7 @@ bundle config build.mysql2 --with-mysql-config=/opt/homebrew/opt/mysql/bin/mysql
 ```bash
 nvm install
 nvm use
+npm install -g corepack   # Node 25+ does not ship Corepack
 corepack enable
 yarn install
 ```
