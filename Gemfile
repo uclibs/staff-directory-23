@@ -35,7 +35,7 @@ group :development do
   gem 'listen', '~> 3.3'
   gem 'rack-mini-profiler', '>= 3.3.0'
   gem 'rb-readline'
-  gem 'rdoc', '7.2.0', require: false # Pin to match Ruby 3.4 default gem and avoid duplicate RDoc constant warnings
+  gem 'rdoc', '7.2.0', require: false # Above Ruby 4.0's default RDoc (7.0.4); avoids duplicate constants
   gem 'spring'
   gem 'web-console', '>= 4.1.0'
 end
@@ -50,9 +50,9 @@ group :development, :test do
   gem 'rspec_junit_formatter'
   gem 'rspec-rails'
   gem 'rubocop', require: false
-  gem 'rubocop-capybara', '~> 3.0.0', require: false
+  gem 'rubocop-capybara', '~> 3.1', require: false
   gem 'rubocop-factory_bot', '2.28.0', require: false
-  gem 'rubocop-rails', '~> 2.37.0', require: false
+  gem 'rubocop-rails', '~> 2.38', require: false
   gem 'rubocop-rspec', '~>3.10.0', require: false
   gem 'simplecov', require: false
   gem 'simplecov-lcov', require: false

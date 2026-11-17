@@ -13,6 +13,10 @@ bundle config set path 'vendor/bundle'
 bundle config set force_ruby_platform true
 bundle install --jobs=4 --retry=3
 
+if ! command -v corepack >/dev/null 2>&1; then
+  npm install -g corepack
+fi
+export COREPACK_ENABLE_DOWNLOAD_PROMPT=0
 corepack enable
 
 yarn_install_args=(--immutable)

@@ -2,15 +2,15 @@
 
 UC Libraries staff directory application. Manages employees and departments with Devise-based authentication.
 
-**Stack:** Rails 8.1.2, Ruby 3.4.7, MySQL (development/production), SQLite (test). JavaScript via Shakapacker 9.5.0 (webpack 5 + Babel); styles via Sprockets and Sass.
+**Stack:** Rails 8.1.4.1, Ruby 4.0.9, MySQL (development/production), SQLite (test). JavaScript via Shakapacker 10.3 (webpack 5 + Babel); styles via Sprockets and Sass.
 
 ---
 
 ## Requirements
 
 - **Homebrew** (macOS)
-- **Ruby 3.4.7** (e.g. [rbenv](https://github.com/rbenv/rbenv))
-- **Rails 8.1.2** (installed via Bundler)
+- **Ruby 4.0.9** (e.g. [rbenv](https://github.com/rbenv/rbenv))
+- **Rails 8.1.4.1** (installed via Bundler)
 - **MySQL** (Homebrew on macOS)
 - **zstd** (compression library, for mysql2 native extension)
 - **Node.js** (version in [.nvmrc](.nvmrc), managed via [nvm](https://github.com/nvm-sh/nvm))
@@ -31,8 +31,8 @@ brew install mysql zstd
 ### 2. Ruby
 
 ```bash
-rbenv install 3.4.7   # if not already installed
-rbenv local 3.4.7
+rbenv install 4.0.9   # if not already installed
+rbenv local 4.0.9
 gem install bundler
 ```
 
@@ -47,6 +47,7 @@ bundle config build.mysql2 --with-mysql-config=/opt/homebrew/opt/mysql/bin/mysql
 ```bash
 nvm install
 nvm use
+npm install -g corepack   # Node 25+ does not ship Corepack
 corepack enable
 yarn install
 ```
@@ -168,7 +169,7 @@ You can create and manage users without using the Rails console. **Run these com
 **`Failed to build gem native extension` for mysql2:** Check that:
 
 - `zstd` is installed (`brew install zstd`)
-- You are using Ruby 3.4.7 (`rbenv local 3.4.7`)
+- You are using Ruby 4.0.9 (`rbenv local 4.0.9`)
 - The Bundler mysql2 config points to your MySQL install (e.g. `bundle config build.mysql2 --with-mysql-config=/opt/homebrew/opt/mysql/bin/mysql_config` for Homebrew on Apple Silicon)
 
 **Environment variables:** The app uses [dotenv-rails](https://github.com/bkeepers/dotenv). Copy or create `.env.development` and `.env.test` as needed (see existing examples in the repo if present). For client-visible values in JavaScript (none are used today), prefer `SHAKAPACKER_PUBLIC_*` env vars or an explicit allowlist via `SHAKAPACKER_ENV_VARS` as described in the Shakapacker v9 docs.

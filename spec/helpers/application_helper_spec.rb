@@ -24,6 +24,8 @@ RSpec.describe ApplicationHelper do
       end
     end
 
-    # Add other contexts and tests for different scenarios
+    it 'returns an up arrow when that column is sorted ascending' do
+      expect(helper.sort_arrow('firstname', 'firstname', 'asc')).to include('↑')
+    end
   end
 end

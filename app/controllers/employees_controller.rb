@@ -90,8 +90,7 @@ class EmployeesController < ApplicationController
   end
 
   def sort_direction
-    dir = params[:direction].to_s.casecmp('desc').zero? ? :desc : :asc
-    %i[asc desc].include?(dir) ? dir : :asc
+    params[:direction].to_s.casecmp('desc').zero? ? :desc : :asc
   end
 
   def set_employee
